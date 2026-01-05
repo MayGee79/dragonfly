@@ -1,0 +1,117 @@
+.nav {
+  background-color: var(--color-bg);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.logo:hover {
+  color: var(--color-primary-dark);
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  color: var(--color-text);
+  font-weight: 400;
+  font-size: var(--font-size-nav);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-nav);
+  transition: color var(--transition-base);
+}
+
+.navLink:hover {
+  color: var(--color-primary-dark);
+}
+
+.navLink:active {
+  color: var(--color-primary-active);
+}
+
+.menuToggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.menuToggle span {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+/* Tablet: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+  
+  .navList {
+    gap: var(--spacing-lg);
+  }
+}
+
+/* Mobile: max-width 767px */
+@media (max-width: 767px) {
+  .menuToggle {
+    display: flex;
+  }
+
+  .navList {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background-color: var(--color-bg);
+    flex-direction: column;
+    padding: var(--spacing-lg);
+    transform: translateX(-100%);
+    transition: transform var(--transition-base);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .navList.open {
+    transform: translateX(0);
+  }
+
+  .navLink {
+    display: block;
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .navLink:last-child {
+    border-bottom: none;
+  }
+}
+
