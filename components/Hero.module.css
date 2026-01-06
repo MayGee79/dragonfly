@@ -1,11 +1,53 @@
 .hero {
-  padding: var(--spacing-2xl) var(--spacing-lg);
+  padding: var(--spacing-3xl) var(--spacing-lg);
   background-color: var(--color-bg-light);
 }
 
 .container {
   max-width: 1280px;
   margin: 0 auto;
+}
+
+/* Logo Header Layout */
+.logoHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xl);
+}
+
+.logoContainer {
+  flex-shrink: 0;
+}
+
+.heroLogo {
+  width: 180px;
+  height: auto;
+}
+
+.heroTextContent {
+  text-align: left;
+}
+
+.tagline {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 500;
+}
+
+.heroName {
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+  line-height: var(--line-height-tight);
+}
+
+.heroRole {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-light);
+  line-height: var(--line-height-normal);
 }
 
 .textOnly {
@@ -69,6 +111,28 @@
 @media (max-width: 767px) {
   .hero {
     padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .logoHeader {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .heroTextContent {
+    text-align: center;
+  }
+
+  .heroLogo {
+    width: 140px;
+  }
+
+  .heroName {
+    font-size: var(--font-size-2xl);
+  }
+
+  .tagline,
+  .heroRole {
+    font-size: var(--font-size-base);
   }
 
   .title {

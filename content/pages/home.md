@@ -6,7 +6,7 @@ sections:
   - type: hero
     title: Dragonfly Psychotherapy
     subtitle: Dr Victoria Froome | Integrative Psychotherapist and Former NHS GP
-    layout: text-only
+    layout: logo-header
     enabled: true
   - type: content
     title: Welcome

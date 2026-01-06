@@ -28,7 +28,7 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
               - { label: "Image", name: "image", widget: "image", required: false }
-              - { label: "Layout", name: "layout", widget: "select", options: ["text-only", "text-image", "image-text"], default: "text-only" }
+              - { label: "Layout", name: "layout", widget: "select", options: ["text-only", "text-image", "image-text", "logo-header"], default: "text-only" }
               - { label: "Enabled", name: "enabled", widget: "boolean", default: true }
           - label: "Content Section"
             name: "content"
