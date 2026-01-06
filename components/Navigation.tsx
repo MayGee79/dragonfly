@@ -18,7 +18,7 @@ export default function Navigation() {
     <nav className={styles.nav}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          Dragonfly Psychotherapy
+          <img src="/images/logo.png" alt="Dragonfly Psychotherapy" className={styles.logoImage} />
         </Link>
         <button 
           className={styles.menuToggle}
