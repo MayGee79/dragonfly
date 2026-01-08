@@ -10,11 +10,21 @@ sections:
     enabled: true
   - type: content
     content: |
-      Sometimes the bravest thing we can do is ask for help.
-      Whether you're feeling stuck, overwhelmed, or simply ready for change, I'm here to walk alongside you with warmth, understanding, and 25 years of clinical insight.
-      I specialise in helping people rediscover their core values and authentic self, in particular during life's transitions, and helping you see that you are not broken; you are navigating and adapting.
-      Perhaps you're going through the motions, running on empty, while the joy and energy you once had seem just out of reach. The things that used to help aren't working anymore, and you're tired of just getting through each day rather than truly living and enjoying life.
-      Whether this began with a specific life event or crept up gradually, I can assist you and I understand the courage it takes to reach out.
+      Are you facing challenges, changes or choices - and finding that previous strategies just aren't helping anymore?
+      
+      I'm Vicky, an integrative psychotherapist with almost 20 years as an NHS GP behind me. I understand both the emotional weight you're carrying and the physical reality of what you're experiencing.
+      
+      You might be struggling with one or more of life's countless challenges:
+      Anxiety that steals your peace.
+      Depression that steals your joy.
+      Burnout that steals your energy.
+      Transitions that steal your identity.
+      Menopause that changes everything.
+      Health fears that dominate your mind.
+      Physical illness that limits your life.
+      Self-doubt that holds you back.
+      Young people who are struggling.
+      Neurodiversity that makes you feel different.
     image: /images/VF_001.png
     layout: image-text
     enabled: true

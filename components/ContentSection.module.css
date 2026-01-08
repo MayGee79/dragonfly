@@ -21,7 +21,7 @@
 }
 
 .content {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-lg);
   line-height: var(--line-height-relaxed);
   color: var(--color-text);
 }
@@ -71,13 +71,13 @@
 }
 
 .imageContainer {
-  flex: 0 0 300px;
-  max-width: 300px;
+  flex: 0 0 290px;
+  max-width: 290px;
 }
 
 .image {
   width: 100%;
-  max-width: 300px;
+  max-width: 290px;
   height: auto;
   border-radius: var(--radius-md);
 }
