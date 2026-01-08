@@ -14,11 +14,12 @@ export default function Hero({ title, subtitle, image, layout = 'text-only' }: H
         {layout === 'logo-header' && (
           <div className={styles.logoHeader}>
             <div className={styles.logoContainer}>
-              <img src="/images/logo.png" alt="Dragonfly Psychotherapy" className={styles.heroLogo} />
+              <img src="/images/dragonfly_logo_white.png" alt="Dragonfly Psychotherapy" className={styles.heroLogo} />
             </div>
             <div className={styles.heroTextContent}>
-              <p className={styles.tagline}>Compassionate Psychotherapy in Surrey &amp; Online</p>
-              <h1 className={styles.heroName}>Dr Victoria Froome</h1>
+              <h1 className={styles.headline}>Compassionate Psychotherapy in Surrey &amp; Online</h1>
+              <p className={styles.tagline}>Supporting adults and young people through life's challenges, changes and choices</p>
+              <p className={styles.heroName}>Dr Victoria Froome</p>
               <p className={styles.heroRole}>Integrative Psychotherapist and Former NHS GP</p>
             </div>
           </div>
@@ -26,7 +27,19 @@ export default function Hero({ title, subtitle, image, layout = 'text-only' }: H
         {layout === 'text-only' && (
           <div className={styles.textOnly}>
             <h1 className={styles.title}>{title}</h1>
-            {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+            {subtitle && (
+              <div className={styles.subtitle}>
+                {subtitle.split('\n').map((line, i) => 
+                  line.trim() ? (
+                    <p key={i} className={line.includes('@') ? styles.emailText : ''}>
+                      {line.trim()}
+                    </p>
+                  ) : (
+                    <br key={i} />
+                  )
+                )}
+              </div>
+            )}
           </div>
         )}
         {(layout === 'text-image' || layout === 'image-text') && (

@@ -1,12 +1,12 @@
 :root {
-  --font-quicksand: 'Quicksand', sans-serif;
+  --font-main: 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
   --color-primary: #c78da7;
   --color-primary-dark: #9e657f;
   --color-primary-darker: #65394e;
   --color-primary-active: #462636;
-  --color-text: #1b1b1b;
-  --color-text-light: #5e5e5e;
-  --color-bg: #ffffff;
+  --color-text: #2d3758;
+  --color-text-light: #2d3758;
+  --color-bg: #e6eeef;
   --color-bg-light: #f6f6f6;
   
   /* Typography Scale */
@@ -62,7 +62,7 @@
 
 html,
 body {
-  font-family: var(--font-quicksand);
+  font-family: var(--font-main);
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
   color: var(--color-text);

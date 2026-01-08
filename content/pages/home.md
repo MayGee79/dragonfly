@@ -9,6 +9,16 @@ sections:
     layout: logo-header
     enabled: true
   - type: content
+    content: |
+      Sometimes the bravest thing we can do is ask for help.
+      Whether you're feeling stuck, overwhelmed, or simply ready for change, I'm here to walk alongside you with warmth, understanding, and 25 years of clinical insight.
+      I specialise in helping people rediscover their core values and authentic self, in particular during life's transitions, and helping you see that you are not broken; you are navigating and adapting.
+      Perhaps you're going through the motions, running on empty, while the joy and energy you once had seem just out of reach. The things that used to help aren't working anymore, and you're tired of just getting through each day rather than truly living and enjoying life.
+      Whether this began with a specific life event or crept up gradually, I can assist you and I understand the courage it takes to reach out.
+    image: /images/VF_001.png
+    layout: image-text
+    enabled: true
+  - type: content
     title: Welcome
     content: |
       Psychotherapy and counselling services in Surrey.

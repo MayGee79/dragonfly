@@ -1,6 +1,6 @@
 .hero {
   padding: var(--spacing-3xl) var(--spacing-lg);
-  background-color: var(--color-bg-light);
+  background-color: #2d3758;
 }
 
 .container {
@@ -26,27 +26,36 @@
 }
 
 .heroTextContent {
-  text-align: left;
+  text-align: center;
+}
+
+.headline {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: var(--spacing-sm);
+  line-height: var(--line-height-tight);
 }
 
 .tagline {
   font-size: var(--font-size-lg);
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-sm);
-  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: var(--spacing-lg);
+  font-weight: 400;
+  font-style: italic;
 }
 
 .heroName {
-  font-size: var(--font-size-4xl);
-  font-weight: 700;
-  color: var(--color-text);
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-primary);
   margin-bottom: var(--spacing-xs);
   line-height: var(--line-height-tight);
 }
 
 .heroRole {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-light);
+  font-size: var(--font-size-base);
+  color: rgba(255, 255, 255, 0.75);
   line-height: var(--line-height-normal);
 }
 
@@ -59,15 +68,19 @@
 .title {
   font-size: var(--font-size-5xl);
   font-weight: 700;
-  color: var(--color-text);
+  color: #ffffff;
   margin-bottom: var(--spacing-md);
   line-height: var(--line-height-tight);
 }
 
 .subtitle {
   font-size: var(--font-size-lg);
-  color: var(--color-text-light);
+  color: rgba(255, 255, 255, 0.85);
   line-height: var(--line-height-normal);
+}
+
+.subtitle .emailText {
+  color: var(--color-primary);
 }
 
 .textImage,
@@ -126,8 +139,12 @@
     width: 140px;
   }
 
-  .heroName {
+  .headline {
     font-size: var(--font-size-2xl);
+  }
+
+  .heroName {
+    font-size: var(--font-size-lg);
   }
 
   .tagline,

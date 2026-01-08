@@ -17,6 +17,8 @@ export default function ContentSection({
   const isHtml = content.trim().startsWith('<') || content.includes('<p>') || content.includes('<div>')
   const htmlContent = isHtml ? content : content.split('\n').map(line => {
     if (line.trim() === '') return '<br />'
+    if (line.startsWith('## ')) return `<h2>${line.substring(3)}</h2>`
+    if (line.startsWith('### ')) return `<h3>${line.substring(4)}</h3>`
     if (line.startsWith('- ')) return `<li>${line.substring(2)}</li>`
     if (line.startsWith('* ')) return `<li>${line.substring(2)}</li>`
     return `<p>${line}</p>`
@@ -36,6 +38,11 @@ export default function ContentSection({
         )}
         {(layout === 'text-image' || layout === 'image-text') && (
           <div className={layout === 'text-image' ? styles.textImage : styles.imageText}>
+            {layout === 'image-text' && image && (
+              <div className={styles.imageContainer}>
+                <img src={image} alt={title || 'Content image'} className={styles.image} />
+              </div>
+            )}
             <div className={styles.textContent}>
               {title && <h2 className={styles.title}>{title}</h2>}
               <div 
@@ -43,7 +50,7 @@ export default function ContentSection({
                 dangerouslySetInnerHTML={{ __html: htmlContent }}
               />
             </div>
-            {image && (
+            {layout === 'text-image' && image && (
               <div className={styles.imageContainer}>
                 <img src={image} alt={title || 'Content image'} className={styles.image} />
               </div>
