@@ -11,84 +11,28 @@ sections:
   - type: content
     content: |
       Are you facing challenges, changes or choices - and finding that previous strategies just aren't helping anymore?
-      
-      I'm Vicky, an integrative psychotherapist with almost 20 years as an NHS GP behind me. I understand both the emotional weight you're carrying and the physical reality of what you're experiencing.
-      
+    layout: text-only
+    enabled: true
+  - type: content
+    content: |
       You might be struggling with one or more of life's countless challenges:
-      Anxiety that steals your peace.
-      Depression that steals your joy.
-      Burnout that steals your energy.
-      Transitions that steal your identity.
-      Menopause that changes everything.
-      Health fears that dominate your mind.
-      Physical illness that limits your life.
-      Self-doubt that holds you back.
-      Young people who are struggling.
-      Neurodiversity that makes you feel different.
+      **Anxiety** that steals your peace.
+      **Depression** that steals your joy.
+      **Burnout** that steals your energy.
+      **Transitions** that steal your identity.
+      **Menopause** that changes everything.
+      **Health fears** that dominate your mind.
+      **Physical illness** that limits your life.
+      **Self-doubt** that holds you back.
+      **Young people** who are struggling.
+      **Neurodiversity** that makes you feel different.
+      ---IMAGE---
+      **I'm Vicky, an integrative psychotherapist with almost 20 years as an NHS GP behind me.** I understand both the emotional weight you're carrying and the physical reality of what you're experiencing.
+
+      Here's what matters: you've been incredibly strong to get this far. You are facing real difficulties, and the strategies that have served you well are not enough anymore. I work with you with both passion and the compassion of someone who has walked the paths and rebuilt - and the professional expertise to help you find your way through.
+
+      There is something deeply rewarding about witnessing clients rediscover their spark - that moment when they realise they have more strength than they knew. When making changes feels possible rather than overwhelming. When clients start to genuinely enjoy life again. Together, you and I will uncover the strengths you already have and build a clear path forward with strategies that benefit you and your life.
     image: /images/VF_001.png
-    layout: image-text
-    enabled: true
-  - type: content
-    title: Welcome
-    content: |
-      Psychotherapy and counselling services in Surrey.
-      
-      We offer support for:
-      - Depression
-      - Anxiety
-      - Burn Out
-      - Life Transitions
-      - Impact of Physical Ill Health
-      - Neurodiversity
-      - Self Esteem
-    layout: text-only
-    enabled: true
-  - type: content
-    title: Hub of Hope
-    content: |
-      Resources and support information coming soon.
-    layout: text-only
-    enabled: true
-  - type: content
-    title: Local Resource List
-    content: |
-      Local resources and support services information.
-    layout: text-only
-    enabled: true
-  - type: content
-    title: Anxiety Self Help
-    content: |
-      Self-help resources and information for managing anxiety.
-    layout: text-only
-    enabled: true
-  - type: content
-    title: Mindfulness
-    content: |
-      Mindfulness practices and resources.
-    layout: text-only
-    enabled: true
-  - type: content
-    title: Confidence and Resilience
-    content: |
-      Building confidence and resilience skills.
-    layout: text-only
-    enabled: true
-  - type: content
-    title: Therapy And Interests
-    content: |
-      Information about therapeutic approaches and areas of interest.
-    layout: text-only
-    enabled: true
-  - type: content
-    title: Fees and Availability
-    content: |
-      Information about session fees and availability.
-    layout: text-only
-    enabled: true
-  - type: content
-    title: Professional Membership
-    content: |
-      Professional memberships and qualifications.
-    layout: text-only
+    layout: three-column
     enabled: true
 

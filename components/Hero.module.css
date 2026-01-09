@@ -1,10 +1,12 @@
 .hero {
-  padding: var(--spacing-3xl) var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-lg);
   background-color: #2d3758;
+  margin: var(--spacing-md);
+  border-radius: var(--radius-md);
 }
 
 .container {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -21,7 +23,7 @@
 }
 
 .heroLogo {
-  width: 180px;
+  width: 200px;
   height: auto;
 }
 
@@ -30,7 +32,7 @@
 }
 
 .headline {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-4xl);
   font-weight: 700;
   color: #ffffff;
   margin-bottom: var(--spacing-sm);
@@ -38,7 +40,7 @@
 }
 
 .tagline {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-2xl);
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: var(--spacing-lg);
   font-weight: 400;
