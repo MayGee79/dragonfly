@@ -1,0 +1,215 @@
+.section {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  background-color: #2d3758;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.mainTitle {
+  font-size: var(--font-size-5xl);
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+}
+
+.subtitle {
+  font-size: var(--font-size-xl);
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+  line-height: var(--line-height-relaxed);
+}
+
+.intro {
+  max-width: 900px;
+  margin: 0 auto var(--spacing-3xl);
+  text-align: center;
+}
+
+.intro p {
+  font-size: var(--font-size-lg);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-lg);
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-3xl);
+}
+
+.stepCard {
+  background-color: #e6eeef;
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.stepNumber {
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-lg);
+}
+
+.stepTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+  line-height: var(--line-height-tight);
+}
+
+.stepSubtitle {
+  font-size: var(--font-size-base);
+  font-style: italic;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-relaxed);
+}
+
+.stepDescription {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+  text-align: left;
+  white-space: pre-line;
+}
+
+.alsoAvailable {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-3xl);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alsoTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+.alsoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.alsoItem {
+  font-size: var(--font-size-lg);
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  padding: var(--spacing-sm) 0;
+}
+
+.closing {
+  max-width: 900px;
+  margin: 0 auto var(--spacing-xl);
+  text-align: center;
+}
+
+.closing p {
+  font-size: var(--font-size-lg);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: var(--line-height-relaxed);
+}
+
+.contactButton {
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  padding: var(--spacing-md) var(--spacing-3xl);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background-color var(--transition-base), transform var(--transition-base);
+}
+
+.button:hover {
+  background-color: var(--color-primary-dark);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Tablet: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .stepCard {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile: max-width 767px */
+@media (max-width: 767px) {
+  .section {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .mainTitle {
+    font-size: var(--font-size-3xl);
+  }
+
+  .subtitle {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .intro p {
+    font-size: var(--font-size-base);
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .stepTitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .alsoItem {
+    font-size: var(--font-size-base);
+  }
+
+  .closing p {
+    font-size: var(--font-size-base);
+  }
+
+  .button {
+    font-size: var(--font-size-base);
+    padding: var(--spacing-md) var(--spacing-xl);
+  }
+}
