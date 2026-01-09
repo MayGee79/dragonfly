@@ -4,6 +4,7 @@ import ContentSection from '@/components/ContentSection'
 import SpecialInterests from '@/components/SpecialInterests'
 import WhyWorkWithMe from '@/components/WhyWorkWithMe'
 import WorkTogether from '@/components/WorkTogether'
+import AboutMe from '@/components/AboutMe'
 import Footer from '@/components/Footer'
 import { getPageBySlug } from '@/lib/content'
 import { markdownToHtml } from '@/lib/markdown'
@@ -65,6 +66,7 @@ export default function HomePage() {
         <SpecialInterests />
         <WhyWorkWithMe />
         <WorkTogether />
+        <AboutMe />
       </main>
       <Footer />
     </>

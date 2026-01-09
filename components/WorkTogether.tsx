@@ -32,7 +32,7 @@ export default function WorkTogether() {
   return (
     <section className={styles.section} id="work-together">
       <div className={styles.container}>
-        <h2 className={styles.mainTitle}>OUR WORK TOGETHER</h2>
+        <h2 className={styles.mainTitle}>Our work together</h2>
         <p className={styles.subtitle}>Simple, Flexible, Tailored to You</p>
         
         <div className={styles.intro}>
