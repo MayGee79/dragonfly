@@ -1,6 +1,7 @@
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import ContentSection from '@/components/ContentSection'
+import SpecialInterests from '@/components/SpecialInterests'
 import Footer from '@/components/Footer'
 import { getPageBySlug } from '@/lib/content'
 import { markdownToHtml } from '@/lib/markdown'
@@ -59,6 +60,7 @@ export default function HomePage() {
             }
             return null
           })}
+        <SpecialInterests />
       </main>
       <Footer />
     </>

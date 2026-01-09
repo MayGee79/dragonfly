@@ -16,7 +16,7 @@ export default function Navigation() {
 
   const menuItems = [
     { href: '/working-together', label: 'Working Together' },
-    { href: '/therapy-and-interests', label: 'Therapy And Interests' },
+    { href: '/#special-interests', label: 'Therapy And Interests' },
     { href: '/fees-and-availability', label: 'Fees and Availability' },
     { href: '/professional-membership', label: 'Professional Membership' },
     { href: '/testimonials', label: 'Testimonials' },
