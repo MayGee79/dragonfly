@@ -25,7 +25,8 @@ const steps = [
 const alsoAvailable = [
   'Single Session Therapy for focused support on single issues',
   'Workshops for Schools on anxiety, resilience, and wellbeing',
-  'Bespoke Talks for organisations'
+  'Bespoke Talks for organisations',
+  'Wellness Walks'
 ]
 
 export default function WorkTogether() {

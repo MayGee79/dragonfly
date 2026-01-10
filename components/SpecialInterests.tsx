@@ -11,22 +11,22 @@ const cards: Card[] = [
   {
     title: 'Anxiety & Panic',
     quote: "I can't stop worrying",
-    link: '/therapy-and-interests#anxiety'
+    link: '/anxiety'
   },
   {
     title: 'Depression',
     quote: "I feel empty and stuck",
-    link: '/therapy-and-interests#depression'
+    link: '/depression'
   },
   {
     title: 'Burnout',
     quote: "I'm running on empty",
-    link: '/therapy-and-interests#burnout'
+    link: '/burnout'
   },
   {
     title: 'Life Transitions',
     quote: "Everything's changing",
-    link: '/therapy-and-interests#transitions'
+    link: '/transitions'
   },
   {
     title: 'Neurodiversity',
@@ -36,27 +36,27 @@ const cards: Card[] = [
   {
     title: 'Menopause',
     quote: "My body's betraying me",
-    link: '/therapy-and-interests#menopause'
+    link: '/menopause'
   },
   {
     title: 'Health Anxiety',
     quote: "I'm scared I'm ill",
-    link: '/therapy-and-interests#health-anxiety'
+    link: '/health-anxiety'
   },
   {
     title: 'Physical Health Issues',
     quote: "What is going to happen to me",
-    link: '/therapy-and-interests#physical-health'
+    link: '/physical-health'
   },
   {
     title: 'Self-Esteem & Personal Growth',
     quote: "I can't do this",
-    link: '/therapy-and-interests#self-esteem'
+    link: '/self-esteem'
   },
   {
     title: 'Young People 11+',
     quote: "I need someone who gets it",
-    link: '/therapy-and-interests#young-people'
+    link: '/young-people'
   }
 ]
 

@@ -1,6 +1,33 @@
 .section {
   padding: var(--spacing-3xl) var(--spacing-lg);
+  padding-top: calc(var(--spacing-3xl) + 30px);
+  padding-bottom: calc(var(--spacing-3xl) + 30px);
+  background-color: #2d3758;
+  position: relative;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
   background-color: var(--color-bg);
+  border-radius: 0 0 50% 50%;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: var(--color-bg);
+  border-radius: 50% 50% 0 0;
 }
 
 .container {
@@ -8,19 +35,24 @@
   margin: 0 auto;
 }
 
+.container {
+  position: relative;
+  z-index: 1;
+}
+
 .mainTitle {
   font-size: var(--font-size-5xl);
   font-weight: 700;
-  color: var(--color-text);
+  color: #ffffff;
   text-align: center;
   margin-bottom: var(--spacing-md);
   line-height: var(--line-height-tight);
 }
 
 .subtitle {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
   font-style: italic;
-  color: var(--color-text);
+  color: rgba(255, 255, 255, 0.85);
   text-align: center;
   margin-bottom: var(--spacing-3xl);
   line-height: var(--line-height-relaxed);
@@ -39,7 +71,7 @@
 
 .column p {
   font-size: var(--font-size-lg);
-  color: var(--color-text);
+  color: rgba(255, 255, 255, 0.9);
   line-height: var(--line-height-relaxed);
   margin-bottom: var(--spacing-lg);
 }
@@ -64,7 +96,7 @@
 .columnTitle {
   font-size: var(--font-size-xl);
   font-weight: 700;
-  color: var(--color-text);
+  color: #ffffff;
   margin-bottom: var(--spacing-md);
 }
 

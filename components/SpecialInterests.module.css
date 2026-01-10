@@ -1,33 +1,6 @@
 .section {
   padding: var(--spacing-3xl) var(--spacing-lg);
-  padding-top: calc(var(--spacing-3xl) + 30px);
-  padding-bottom: calc(var(--spacing-3xl) + 30px);
-  background-color: #2d3758;
-  position: relative;
-  margin-top: -20px;
-  margin-bottom: -20px;
-}
-
-.section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
   background-color: var(--color-bg);
-  border-radius: 0 0 50% 50%;
-}
-
-.section::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  background-color: var(--color-bg);
-  border-radius: 50% 50% 0 0;
 }
 
 .container {
@@ -38,7 +11,7 @@
 .mainTitle {
   font-size: var(--font-size-5xl);
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-text);
   text-align: center;
   margin-bottom: var(--spacing-md);
   line-height: var(--line-height-tight);
@@ -48,7 +21,7 @@
   font-size: var(--font-size-lg);
   font-weight: 400;
   font-style: italic;
-  color: #ffffff;
+  color: var(--color-text);
   text-align: center;
   margin-bottom: var(--spacing-3xl);
   line-height: var(--line-height-tight);
@@ -61,7 +34,7 @@
 }
 
 .card {
-  background-color: #e6eeef;
+  background-color: #2d3758;
   padding: var(--spacing-xl);
   border-radius: 30px;
   text-decoration: none;
@@ -105,7 +78,7 @@
 .cardTitle {
   font-size: var(--font-size-lg);
   font-weight: 700;
-  color: var(--color-text);
+  color: #ffffff;
   margin-bottom: var(--spacing-md);
   line-height: var(--line-height-tight);
   z-index: 2;
@@ -115,7 +88,7 @@
 
 .cardQuote {
   font-size: var(--font-size-base);
-  color: var(--color-text);
+  color: rgba(255, 255, 255, 0.85);
   font-style: italic;
   margin-bottom: var(--spacing-md);
   line-height: var(--line-height-relaxed);
@@ -127,7 +100,7 @@
 
 .cardLink {
   font-size: var(--font-size-base);
-  color: var(--color-text);
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 600;
   text-align: right;
   margin-top: auto;
@@ -143,14 +116,14 @@
 
 .contactText {
   font-size: var(--font-size-lg);
-  color: #ffffff;
+  color: var(--color-text);
   text-decoration: none;
   font-weight: 600;
   transition: color var(--transition-base);
 }
 
 .contactText:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
 }
 
 /* Tablet: 768px - 1023px */

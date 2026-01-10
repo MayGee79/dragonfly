@@ -5,6 +5,8 @@ import SpecialInterests from '@/components/SpecialInterests'
 import WhyWorkWithMe from '@/components/WhyWorkWithMe'
 import WorkTogether from '@/components/WorkTogether'
 import AboutMe from '@/components/AboutMe'
+import PracticalInfo from '@/components/PracticalInfo'
+import Workshops from '@/components/Workshops'
 import Footer from '@/components/Footer'
 import { getPageBySlug } from '@/lib/content'
 import { markdownToHtml } from '@/lib/markdown'
@@ -63,10 +65,12 @@ export default function HomePage() {
             }
             return null
           })}
+        <AboutMe />
         <SpecialInterests />
         <WhyWorkWithMe />
         <WorkTogether />
-        <AboutMe />
+        <PracticalInfo />
+        <Workshops />
       </main>
       <Footer />
     </>
