@@ -36,18 +36,43 @@
 .card {
   background-color: #e6eeef;
   padding: var(--spacing-xl);
-  border-radius: var(--radius-md);
+  border-radius: 30px;
   text-decoration: none;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 180px;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  min-height: 200px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.7s ease-in-out;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  height: 40%;
+  width: 100%;
+  background-color: var(--color-primary);
+  bottom: 0;
+  right: 0;
+  transform: translateY(70px);
+  border-radius: 100%;
+  transition: all 0.7s ease-in-out;
+}
+
+.card:hover::before {
+  transform: scale(7) translate(-20px);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 1px -10px 500px 500px rgba(199, 141, 167, 0.2);
+}
+
+.card:hover .cardTitle,
+.card:hover .cardQuote,
+.card:hover .cardLink {
+  color: #ffffff;
 }
 
 .cardTitle {
@@ -56,6 +81,9 @@
   color: var(--color-text);
   margin-bottom: var(--spacing-md);
   line-height: var(--line-height-tight);
+  z-index: 2;
+  position: relative;
+  transition: color 0.7s ease-in-out;
 }
 
 .cardQuote {
@@ -65,6 +93,9 @@
   margin-bottom: var(--spacing-md);
   line-height: var(--line-height-relaxed);
   flex-grow: 1;
+  z-index: 2;
+  position: relative;
+  transition: color 0.7s ease-in-out;
 }
 
 .cardLink {
@@ -73,6 +104,9 @@
   font-weight: 600;
   text-align: right;
   margin-top: auto;
+  z-index: 2;
+  position: relative;
+  transition: color 0.7s ease-in-out;
 }
 
 .contactLink {
@@ -123,6 +157,7 @@
   .card {
     min-height: 160px;
     padding: var(--spacing-lg);
+    border-radius: 20px;
   }
 
   .cardTitle {

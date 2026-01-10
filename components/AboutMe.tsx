@@ -3,7 +3,7 @@ import styles from './AboutMe.module.css'
 const qualifications = [
   'MA Integrative Counselling & Psychotherapy (Merit) - Roehampton University',
   'BACP Registered (402603)',
-  '25 years NHS clinical experience'
+  '20 years NHS clinical experience'
 ]
 
 export default function AboutMe() {

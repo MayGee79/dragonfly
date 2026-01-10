@@ -10,7 +10,7 @@ sections:
     enabled: true
   - type: content
     content: |
-      Are you facing challenges, changes or choices - and finding that previous strategies just aren't helping anymore?
+      **Are you facing challenges, changes or choices and finding that previous strategies just aren't helping anymore?**
     layout: text-only
     enabled: true
   - type: content
@@ -31,7 +31,7 @@ sections:
 
       Here's what matters: you've been incredibly strong to get this far. You are facing real difficulties, and the strategies that have served you well are not enough anymore. I work with you with both passion and the compassion of someone who has walked the paths and rebuilt - and the professional expertise to help you find your way through.
 
-      There is something deeply rewarding about witnessing clients rediscover their spark - that moment when they realise they have more strength than they knew. When making changes feels possible rather than overwhelming. When clients start to genuinely enjoy life again. Together, you and I will uncover the strengths you already have and build a clear path forward with strategies that benefit you and your life.
+      There is something deeply rewarding about witnessing clients rediscover their spark - that moment when they realise they have more strength than they knew. When making changes feels possible rather than overwhelming. When clients start to genuinely enjoy life again. **Together, you and I will uncover the strengths you already have and build a clear path forward with strategies that benefit you and your life.**
     image: /images/VF_001.png
     layout: three-column
     enabled: true
