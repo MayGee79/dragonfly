@@ -1,12 +1,31 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import styles from './Navigation.module.css'
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  const handleMouseEnter = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current)
+      closeTimeoutRef.current = null
+    }
+    if (!isMenuOpen) {
+      setIsDropdownOpen(true)
+    }
+  }
+
+  const handleMouseLeave = () => {
+    if (!isMenuOpen) {
+      closeTimeoutRef.current = setTimeout(() => {
+        setIsDropdownOpen(false)
+      }, 300)
+    }
+  }
 
   const navLinks = [
     { href: '/', label: 'Home' },
@@ -15,7 +34,7 @@ export default function Navigation() {
   ]
 
   const menuItems = [
-    { href: '/working-together', label: 'Working Together' },
+    { href: '/#work-together', label: 'Working Together' },
     { href: '/#special-interests', label: 'Therapy And Interests' },
     { href: '/fees-and-availability', label: 'Fees and Availability' },
     { href: '/professional-membership', label: 'Professional Membership' },
@@ -47,8 +66,8 @@ export default function Navigation() {
           </li>
           <li 
             className={styles.menuItem}
-            onMouseEnter={() => !isMenuOpen && setIsDropdownOpen(true)}
-            onMouseLeave={() => !isMenuOpen && setIsDropdownOpen(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <button 
               className={styles.menuButton}
