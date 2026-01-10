@@ -48,10 +48,14 @@ export default function WorkTogether() {
         <div className={styles.stepsGrid}>
           {steps.map((step, index) => (
             <div key={index} className={styles.stepCard}>
-              <div className={styles.stepNumber}>{step.number}</div>
-              <h3 className={styles.stepTitle}>{step.title}</h3>
-              <p className={styles.stepSubtitle}>{step.subtitle}</p>
-              <p className={styles.stepDescription}>{step.description}</p>
+              <div className={styles.cardFront}>
+                <div className={styles.stepNumber}>{step.number}</div>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepSubtitle}>{step.subtitle}</p>
+              </div>
+              <div className={styles.cardBack}>
+                <p className={styles.stepDescription}>{step.description}</p>
+              </div>
             </div>
           ))}
         </div>

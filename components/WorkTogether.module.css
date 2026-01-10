@@ -47,15 +47,84 @@
 }
 
 .stepCard {
-  background-color: #2d3758;
+  width: 100%;
+  max-width: 400px;
+  height: 450px;
   padding: var(--spacing-xl);
-  border-radius: var(--radius-md);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: rgba(45, 55, 88, 0.8);
+  backdrop-filter: blur(20px);
   text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  overflow: hidden;
+  --rotate-animation: rotate(45deg);
+  --scale-animation: scale(0);
+}
+
+.stepCard::before {
+  content: '';
+  height: 110%;
+  width: 110%;
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  z-index: -1;
+  background: linear-gradient(
+    to right,
+    #2d3758,
+    #1a1f3a,
+    #2d3758
+  );
+  filter: blur(30px);
+}
+
+.cardFront {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transform: scale(1) rotate(0);
+  transition: transform 600ms ease 100ms, opacity 600ms ease 100ms;
+  z-index: 2;
+  opacity: 1;
+  justify-content: center;
+}
+
+.stepCard:hover .cardFront {
+  transform: rotate(45deg) scale(0);
+  opacity: 0;
+}
+
+.cardBack {
+  display: flex;
+  flex-direction: column;
+  transform: scale(0);
+  transition: transform 600ms ease 100ms, opacity 600ms ease 100ms;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  z-index: 2;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: var(--spacing-xl);
+}
+
+.stepCard:hover .cardBack {
+  transform: scale(1);
+  opacity: 1;
 }
 
 .stepNumber {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background-color: var(--color-primary);
   color: #ffffff;
   font-size: var(--font-size-2xl);
@@ -64,31 +133,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
 }
 
 .stepTitle {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-2xl);
   font-weight: 700;
   color: #ffffff;
   margin-bottom: var(--spacing-sm);
   line-height: var(--line-height-tight);
+  letter-spacing: 1px;
 }
 
 .stepSubtitle {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-lg);
   font-style: italic;
   color: var(--color-primary);
-  margin-bottom: var(--spacing-md);
   line-height: var(--line-height-relaxed);
+  margin: 0;
 }
 
 .stepDescription {
   font-size: var(--font-size-base);
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   line-height: var(--line-height-relaxed);
   text-align: left;
   white-space: pre-line;
+  margin: 0;
 }
 
 .alsoAvailable {
