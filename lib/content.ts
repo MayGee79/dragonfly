@@ -153,3 +153,50 @@ export function getAllBlogPosts(): BlogPost[] {
   }
 }
 
+export function getPaginatedBlogPosts(page: number = 1, perPage: number = 6): {
+  posts: BlogPost[]
+  totalPages: number
+  currentPage: number
+  totalPosts: number
+} {
+  const allPosts = getAllBlogPosts()
+  const totalPosts = allPosts.length
+  const totalPages = Math.ceil(totalPosts / perPage)
+  const startIndex = (page - 1) * perPage
+  const endIndex = startIndex + perPage
+  const posts = allPosts.slice(startIndex, endIndex)
+  
+  return {
+    posts,
+    totalPages,
+    currentPage: page,
+    totalPosts,
+  }
+}
+
+export function getFeaturedBlogPosts(count: number = 3): BlogPost[] {
+  const allPosts = getAllBlogPosts()
+  
+  const featuredPosts = allPosts.filter(post => post.featured)
+  const nonFeaturedPosts = allPosts.filter(post => !post.featured)
+  
+  const combinedPosts = [...featuredPosts, ...nonFeaturedPosts]
+  
+  return combinedPosts.slice(0, count)
+}
+
+export function getAllBlogSlugs(): string[] {
+  try {
+    const blogDirectory = path.join(contentDirectory, 'blog')
+    if (!fs.existsSync(blogDirectory)) {
+      return []
+    }
+    const fileNames = fs.readdirSync(blogDirectory)
+    return fileNames
+      .filter((name) => name.endsWith('.md'))
+      .map((fileName) => fileName.replace(/\.md$/, ''))
+  } catch (error) {
+    console.error('Error reading blog slugs:', error)
+    return []
+  }
+}

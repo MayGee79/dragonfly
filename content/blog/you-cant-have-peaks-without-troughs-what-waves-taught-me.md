@@ -5,7 +5,7 @@ author: Vicky
 featuredImage: /images/screenshot-2026-01-13-at-14.02.10.png
 category: Mental Health
 featured: false
-published: false
+published: true
 ---
 You may have seen my social media post on Christmas Day, when I stood on a cold English beach watching waves.
 
