@@ -1,0 +1,82 @@
+.section {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  background-color: var(--color-bg);
+  min-height: calc(100vh - 200px);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: var(--font-size-5xl);
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: var(--spacing-4xl);
+  line-height: var(--line-height-tight);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.activityCard {
+  background-color: #ffffff;
+  padding: var(--spacing-2xl);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-lg);
+  line-height: var(--line-height-tight);
+}
+
+.description {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Tablet: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: max-width 767px */
+@media (max-width: 767px) {
+  .section {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .activityCard {
+    padding: var(--spacing-xl);
+    min-height: auto;
+  }
+
+  .heading {
+    font-size: var(--font-size-xl);
+  }
+}
