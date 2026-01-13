@@ -25,9 +25,13 @@ export interface BlogPost {
   slug: string
   title: string
   date: string
+  author: string
   featuredImage?: string
   excerpt?: string
   body: string
+  category?: string
+  tags?: string[]
+  featured: boolean
   published: boolean
 }
 
@@ -74,6 +78,26 @@ export function getAllPages(): Page[] {
   }
 }
 
+// Generate excerpt from body content (first 160 characters of plain text)
+function generateExcerpt(body: string, maxLength: number = 160): string {
+  const plainText = body
+    .replace(/^#{1,6}\s+/gm, '')
+    .replace(/\*\*(.*?)\*\*/g, '$1')
+    .replace(/\*(.*?)\*/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/\n+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+  
+  if (plainText.length <= maxLength) {
+    return plainText
+  }
+  
+  const truncated = plainText.substring(0, maxLength)
+  const lastSpace = truncated.lastIndexOf(' ')
+  return (lastSpace > 0 ? truncated.substring(0, lastSpace) : truncated) + '...'
+}
+
 export function getBlogPostBySlug(slug: string): BlogPost | null {
   try {
     const fullPath = path.join(contentDirectory, 'blog', `${slug}.md`)
@@ -83,13 +107,19 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     const { data, content } = matter(fileContents)
     
+    const excerpt = data.excerpt || generateExcerpt(content)
+    
     return {
       slug: data.slug || slug,
       title: data.title,
       date: data.date,
+      author: data.author || 'Vicky',
       featuredImage: data.featuredImage,
-      excerpt: data.excerpt,
+      excerpt,
       body: content,
+      category: data.category,
+      tags: data.tags || [],
+      featured: data.featured || false,
       published: data.published || false,
     }
   } catch (error) {

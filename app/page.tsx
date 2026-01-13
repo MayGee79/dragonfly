@@ -7,11 +7,13 @@ import WorkTogether from '@/components/WorkTogether'
 import AboutMe from '@/components/AboutMe'
 import PracticalInfo from '@/components/PracticalInfo'
 import Workshops from '@/components/Workshops'
+import BlogCarousel from '@/components/BlogCarousel'
 import Footer from '@/components/Footer'
-import { getPageBySlug } from '@/lib/content'
+import { getPageBySlug, getFeaturedBlogPosts } from '@/lib/content'
 import { markdownToHtml } from '@/lib/markdown'
 
 export default function HomePage() {
+  const blogPosts = getFeaturedBlogPosts(9)
   const page = getPageBySlug('home') || {
     slug: 'home',
     title: 'Dragonfly Psychotherapy',
@@ -71,6 +73,7 @@ export default function HomePage() {
         <WorkTogether />
         <PracticalInfo />
         <Workshops />
+        {blogPosts.length > 0 && <BlogCarousel posts={blogPosts} />}
       </main>
       <Footer />
     </>
