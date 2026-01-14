@@ -37,7 +37,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Navigation />
+      <Navigation className="home-nav" />
       <main>
         {page.sections
           .filter((section) => section.enabled !== false)
@@ -75,7 +75,7 @@ export default function HomePage() {
         <Workshops />
         {blogPosts.length > 0 && <BlogCarousel posts={blogPosts} />}
       </main>
-      <Footer />
+      <Footer className="home-footer" />
     </>
   )
 }

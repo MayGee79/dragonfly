@@ -1,9 +1,13 @@
 import Link from 'next/link'
 import styles from './Footer.module.css'
 
-export default function Footer() {
+interface FooterProps {
+  className?: string
+}
+
+export default function Footer({ className }: FooterProps = {}) {
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} ${className || ''}`}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.section}>

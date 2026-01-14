@@ -123,3 +123,20 @@ img {
   display: block;
 }
 
+/* Home page specific styles */
+.nav.home-nav {
+  background-color: #fdf9f9 !important;
+}
+
+.nav.home-nav .dropdown {
+  background-color: #fdf9f9 !important;
+}
+
+.navList.home-nav {
+  background-color: #fdf9f9 !important;
+}
+
+.footer.home-footer {
+  background-color: #fdf9f9 !important;
+}
+

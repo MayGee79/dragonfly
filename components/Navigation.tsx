@@ -4,7 +4,11 @@ import Link from 'next/link'
 import { useState, useRef } from 'react'
 import styles from './Navigation.module.css'
 
-export default function Navigation() {
+interface NavigationProps {
+  className?: string
+}
+
+export default function Navigation({ className }: NavigationProps = {}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null)
@@ -47,7 +51,7 @@ export default function Navigation() {
   ]
 
   return (
-    <nav className={styles.nav}>
+    <nav className={`${styles.nav} ${className || ''}`}>
       <div className={styles.container}>
         <button 
           className={styles.menuToggle}
@@ -58,7 +62,7 @@ export default function Navigation() {
           <span></span>
           <span></span>
         </button>
-        <ul className={`${styles.navList} ${isMenuOpen ? styles.open : ''}`}>
+        <ul className={`${styles.navList} ${isMenuOpen ? styles.open : ''} ${className || ''}`}>
           <li>
             <Link href="/" className={styles.navLink}>
               Home
