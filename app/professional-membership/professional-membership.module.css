@@ -1,6 +1,6 @@
 .section {
   padding: var(--spacing-3xl) var(--spacing-lg);
-  background-color: var(--color-bg);
+  background-color: #fdf9f9;
   min-height: calc(100vh - 200px);
 }
 
@@ -19,17 +19,18 @@
 }
 
 .imageContainer {
-  flex: 0 0 350px;
+  flex: 1;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  background-color: transparent;
 }
 
 .image {
-  max-width: 350px;
   width: 100%;
-  height: auto;
-  border-radius: var(--radius-md);
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
 }
 
 .content {
@@ -40,16 +41,37 @@
 
 .qualificationsSection {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: var(--spacing-xl);
 }
 
-.sectionBlock {
-  background-color: #ffffff;
+.qualificationColumn {
+  flex: 1;
+  background-color: var(--color-bg);
   padding: var(--spacing-xl);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.qualificationImageContainer {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+}
+
+.qualificationImageContainer .image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
 }
 
 .heading {
@@ -58,6 +80,7 @@
   color: var(--color-text);
   margin-bottom: var(--spacing-lg);
   line-height: var(--line-height-tight);
+  margin-top: 0;
 }
 
 .qualificationsList {
@@ -92,11 +115,42 @@
   gap: var(--spacing-xl);
 }
 
+.cpdColumn {
+  flex: 1;
+  background-color: #2d3758;
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.cpdColumn .heading {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--spacing-lg);
+  line-height: var(--line-height-tight);
+  margin-top: 0;
+}
+
 .cpdImageContainer {
-  flex: 0 0 350px;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #2d3758;
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+}
+
+.cpdImageContainer .image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
 }
 
 .cpdImageContainer .image {
@@ -106,35 +160,7 @@
   object-fit: contain;
 }
 
-.cpdSection .sectionBlock {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
 .cpdList {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
-}
-
-.cpdEntry {
-  border-bottom: 1px solid rgba(45, 55, 88, 0.1);
-  padding-bottom: var(--spacing-md);
-}
-
-.cpdEntry:last-child {
-  border-bottom: none;
-}
-
-.cpdDate {
-  font-size: var(--font-size-xl);
-  font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: var(--spacing-sm);
-}
-
-.cpdItems {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -145,7 +171,7 @@
 
 .cpdItem {
   font-size: var(--font-size-base);
-  color: var(--color-text);
+  color: rgba(255, 255, 255, 0.9);
   line-height: var(--line-height-relaxed);
   padding-left: var(--spacing-lg);
   position: relative;
@@ -160,7 +186,7 @@
 }
 
 .membershipBlock {
-  background-color: #2d3758;
+  background-color: var(--color-bg);
   padding: var(--spacing-xl);
   border-radius: var(--radius-md);
   display: flex;
@@ -188,7 +214,7 @@
 
 .membershipText p {
   font-size: var(--font-size-lg);
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-text);
   line-height: var(--line-height-relaxed);
   margin-bottom: var(--spacing-md);
 }
@@ -204,7 +230,7 @@
 }
 
 .link:hover {
-  color: #ffffff;
+  color: var(--color-primary-dark);
 }
 
 /* Tablet: 768px - 1023px */
@@ -229,12 +255,13 @@
     flex-direction: column;
   }
 
-  .imageContainer {
+  .qualificationImageContainer {
     flex: none;
     order: -1;
+    height: auto;
   }
 
-  .sectionBlock {
+  .qualificationColumn {
     padding: var(--spacing-lg);
   }
 
@@ -252,11 +279,12 @@
 
   .cpdImageContainer {
     flex: none;
-    order: -1;
+    order: 0;
+    margin: var(--spacing-lg) 0;
   }
 
-  .cpdDate {
-    font-size: var(--font-size-lg);
+  .cpdColumn {
+    padding: var(--spacing-lg);
   }
 
   .cpdItem {

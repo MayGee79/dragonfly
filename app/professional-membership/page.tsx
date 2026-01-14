@@ -4,29 +4,33 @@ import Link from 'next/link'
 import styles from './professional-membership.module.css'
 
 const qualifications = [
-  'MA Integrative Counselling and Psychotherapy (Merit) Level 7',
-  'Joint Professional Life Coaching and Counselling Diploma Level 5',
-  'Counselling Children and Adolescents Diploma',
+  'Masters in Integrative Counselling and Psychotherapy (Merit)',
+  'Joint Diploma in Counselling & Coaching (Level 5)',
   'Journal Therapy Certificate',
-  "Women's Stress Certificate",
-  'Certificate in Postgraduate Education',
-  'Diploma of Occupational Medicine',
-  'Diploma of Child Health',
-  'Diploma of Obstetrics and Gynaecology',
-  'MB BS (Hons)',
-  'BSc in Basic Medical Sciences (Hons)'
+  'Counselling in Children and Adolesecents Certificate',
+  "Womens' Stress Certificate",
+  'Certificate in PostGraduate Education (Teaching the Teachers)',
+  'Diploma in Occupational Medicine',
+  'Diploma in Child Health',
+  'Diploma in Obstetrics and Gynaecology',
+  'M.R.C.G.P. (Merit)',
+  'MB BS (Honours)',
+  'B.Sc. Chemical Pathology (1st Class Honours)'
 ]
 
 const cpd = [
-  { date: 'December 2025', items: ['An Introduction to ACT', 'Contextual Counselling Online'] },
-  { date: 'August 2025', items: ['OCD & Anxiety Course', 'online'] },
-  { date: 'June 2025', items: ['Understanding Teens Who Find it Hard to Open Up', 'Online workshop'] },
-  { date: 'May 2025', items: ['Health Anxiety Workshop', 'Online', 'Advances in CBT', 'Online'] },
-  { date: 'April 2025', items: ['Single Session Therapy Training with Windy Dryden'] },
-  { date: 'March 2025', items: ['Compassion and Self Harm in Teens Workshop', 'Face to Face', 'Talking Teens Course', 'Face to Face'] },
-  { date: 'February 2025', items: ['Burnt out by Parenting Webinar', 'Online'] },
-  { date: 'January 2025', items: ['Child Safeguarding Training', 'Facing the Storm', 'Contextual Counselling', 'Online'] },
-  { date: 'October 2024', items: ['Burn Out Workshop'] }
+  'CBT for insomnia (ongoing)',
+  'Menopause coach certificate (ongoing)',
+  'Positive parenting certificate (ongoing)',
+  'Neurodiversity coach certificate',
+  'Understanding teens session',
+  'OCD and anxiety course',
+  'Advances in CBT course',
+  'Single session therapy course',
+  'Compassion and self harm in teens session',
+  'Talking teens course',
+  'Facing the storm - decision making during uncertainty course',
+  'Burnout workshop'
 ]
 
 export function generateStaticParams() {
@@ -44,7 +48,7 @@ export default function ProfessionalMembershipPage() {
 
             <div className={styles.content}>
               <div className={styles.qualificationsSection}>
-                <div className={styles.sectionBlock}>
+                <div className={styles.qualificationColumn}>
                   <h2 className={styles.heading}>Qualifications</h2>
                   <ul className={styles.qualificationsList}>
                     {qualifications.map((qual, index) => (
@@ -52,29 +56,29 @@ export default function ProfessionalMembershipPage() {
                     ))}
                   </ul>
                 </div>
-                <div className={styles.imageContainer}>
+                <div className={styles.qualificationImageContainer}>
                   <img src="/images/VF_003.png" alt="Victoria Froome" className={styles.image} />
                 </div>
               </div>
 
               <div className={styles.cpdSection}>
+                <div className={styles.cpdColumn}>
+                  <h2 className={styles.heading}>Continuing Professional Development</h2>
+                  <ul className={styles.cpdList}>
+                    {cpd.slice(0, 5).map((item, index) => (
+                      <li key={index} className={styles.cpdItem}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
                 <div className={styles.cpdImageContainer}>
                   <img src="/images/VF_004.png" alt="Victoria Froome" className={styles.image} />
                 </div>
-                <div className={styles.sectionBlock}>
-                  <h2 className={styles.heading}>Continuing Professional Development</h2>
-                  <div className={styles.cpdList}>
-                    {cpd.map((entry, index) => (
-                      <div key={index} className={styles.cpdEntry}>
-                        <h3 className={styles.cpdDate}>{entry.date}</h3>
-                        <ul className={styles.cpdItems}>
-                          {entry.items.map((item, itemIndex) => (
-                            <li key={itemIndex} className={styles.cpdItem}>{item}</li>
-                          ))}
-                        </ul>
-                      </div>
+                <div className={styles.cpdColumn}>
+                  <ul className={styles.cpdList}>
+                    {cpd.slice(5).map((item, index) => (
+                      <li key={index} className={styles.cpdItem}>{item}</li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </div>
 

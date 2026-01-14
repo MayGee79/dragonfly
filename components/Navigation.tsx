@@ -37,7 +37,7 @@ export default function Navigation() {
     { href: '/#work-together', label: 'Working Together' },
     { href: '/#special-interests', label: 'Therapy And Interests' },
     { href: '/fees-and-availability', label: 'Fees and Availability' },
-    { href: '/professional-membership', label: 'Professional Membership' },
+    { href: '/professional-membership', label: 'Professional Profile' },
     { href: '/testimonials', label: 'Testimonials' },
     { href: '/support-and-resources', label: 'Support and Resources' },
     { href: '/activities-and-tools', label: 'Activities and Tools' },
