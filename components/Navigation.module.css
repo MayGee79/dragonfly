@@ -6,6 +6,18 @@
   z-index: 1000;
 }
 
+.nav:global(.home-nav) {
+  background-color: #fdf9f9 !important;
+}
+
+.nav:global(.home-nav) .dropdown {
+  background-color: #fdf9f9 !important;
+}
+
+.nav:global(.home-nav) .navList {
+  background-color: #fdf9f9 !important;
+}
+
 
 .container {
   max-width: 1280px;
@@ -142,6 +154,10 @@
     transform: translateX(-100%);
     transition: transform var(--transition-base);
     box-shadow: var(--shadow-sm);
+  }
+
+  .nav:global(.home-nav) .navList {
+    background-color: #fdf9f9 !important;
   }
 
 

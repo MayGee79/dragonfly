@@ -30,7 +30,7 @@ export default function Footer({ className }: FooterProps = {}) {
               <li><Link href="/">Home</Link></li>
               <li><Link href="/shop">Shop</Link></li>
               <li><Link href="/faqs">FAQs</Link></li>
-              <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+              <li><Link href="/privacy-policy">Privacy Notice</Link></li>
             </ul>
           </div>
         </div>
