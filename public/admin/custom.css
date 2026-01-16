@@ -1,0 +1,206 @@
+/* Import Century Gothic font */
+@import url('https://fonts.googleapis.com/css2?family=Century+Gothic:wght@400;600;700&display=swap');
+
+:root {
+  --font-main: 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
+  --color-primary: #c78da7;
+  --color-primary-dark: #9e657f;
+  --color-text: #2d3758;
+  --color-bg: #e6eeef;
+  --color-bg-light: #f6f6f6;
+  --color-bg-pink: #fdf9f9;
+}
+
+* {
+  font-family: var(--font-main) !important;
+}
+
+body {
+  background-color: var(--color-bg-pink) !important;
+  color: var(--color-text) !important;
+}
+
+/* Header styling */
+.nc-root,
+[class*="nc-root"] {
+  background-color: var(--color-bg-pink) !important;
+}
+
+[class*="nc-appHeader"],
+[class*="nc-header"] {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid rgba(45, 55, 88, 0.1) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+[class*="nc-appHeader-title"],
+[class*="nc-header-title"] {
+  color: var(--color-text) !important;
+  font-weight: 700 !important;
+  font-size: 24px !important;
+}
+
+/* Buttons */
+button,
+[class*="nc-button"],
+[class*="nc-entryListing-cardButton"],
+[class*="nc-entryEditor-toolbarButton"],
+[class*="nc-widget-topLevelButton"] {
+  background-color: var(--color-primary) !important;
+  color: var(--color-text) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  font-family: var(--font-main) !important;
+}
+
+button:hover,
+[class*="nc-button"]:hover,
+[class*="nc-entryListing-cardButton"]:hover,
+[class*="nc-entryEditor-toolbarButton"]:hover,
+[class*="nc-widget-topLevelButton"]:hover {
+  background-color: var(--color-primary-dark) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Primary buttons */
+[class*="nc-button-primary"],
+button[class*="primary"] {
+  background-color: var(--color-primary) !important;
+  color: var(--color-text) !important;
+}
+
+[class*="nc-button-primary"]:hover,
+button[class*="primary"]:hover {
+  background-color: var(--color-primary-dark) !important;
+  color: #ffffff !important;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="number"],
+input[type="date"],
+input[type="datetime-local"],
+textarea,
+select {
+  border: 2px solid rgba(45, 55, 88, 0.2) !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  font-family: var(--font-main) !important;
+  color: var(--color-text) !important;
+  background-color: #ffffff !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(199, 141, 167, 0.1) !important;
+}
+
+/* Sidebar */
+[class*="nc-sidebar"],
+[class*="nc-collectionSidebar"] {
+  background-color: #ffffff !important;
+  border-right: 1px solid rgba(45, 55, 88, 0.1) !important;
+}
+
+[class*="nc-sidebar-navItem"],
+[class*="nc-collectionSidebar-navItem"] {
+  color: var(--color-text) !important;
+  font-family: var(--font-main) !important;
+}
+
+[class*="nc-sidebar-navItem"]:hover,
+[class*="nc-sidebar-navItem-active"],
+[class*="nc-collectionSidebar-navItem"]:hover,
+[class*="nc-collectionSidebar-navItem-active"] {
+  background-color: var(--color-bg) !important;
+  color: var(--color-primary-dark) !important;
+}
+
+/* Cards */
+[class*="nc-entryListing-card"],
+[class*="nc-card"],
+[class*="nc-entryCard"] {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(45, 55, 88, 0.1) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Links */
+a {
+  color: var(--color-primary) !important;
+  font-family: var(--font-main) !important;
+}
+
+a:hover {
+  color: var(--color-primary-dark) !important;
+}
+
+/* Labels */
+label {
+  color: var(--color-text) !important;
+  font-weight: 600 !important;
+  font-family: var(--font-main) !important;
+}
+
+/* Widget styling */
+[class*="nc-widget-topLevelButton"] {
+  background-color: var(--color-primary) !important;
+  color: var(--color-text) !important;
+  border-radius: 8px !important;
+}
+
+[class*="nc-widget-topLevelButton"]:hover {
+  background-color: var(--color-primary-dark) !important;
+  color: #ffffff !important;
+}
+
+/* Markdown editor */
+[class*="nc-markdownEditor-toolbar"],
+[class*="nc-editorToolbar"] {
+  background-color: var(--color-bg) !important;
+  border-bottom: 1px solid rgba(45, 55, 88, 0.1) !important;
+}
+
+/* Status badges */
+[class*="nc-entryListing-status"],
+[class*="nc-status"] {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+  border-radius: 4px !important;
+  font-family: var(--font-main) !important;
+}
+
+/* Loading spinner */
+[class*="nc-loadingSpinner"],
+[class*="nc-spinner"] {
+  border-color: var(--color-primary) !important;
+}
+
+/* Main content area */
+[class*="nc-mainContainer"],
+[class*="nc-main"] {
+  background-color: var(--color-bg-pink) !important;
+}
+
+/* Editor area */
+[class*="nc-entryEditor"],
+[class*="nc-editor"] {
+  background-color: #ffffff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Text content */
+p, span, div, h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-main) !important;
+  color: var(--color-text) !important;
+}
