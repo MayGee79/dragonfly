@@ -8,6 +8,7 @@ import AboutMe from '@/components/AboutMe'
 import PracticalInfo from '@/components/PracticalInfo'
 import Workshops from '@/components/Workshops'
 import BlogCarousel from '@/components/BlogCarousel'
+import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import { getPageBySlug, getFeaturedBlogPosts } from '@/lib/content'
 import { markdownToHtml } from '@/lib/markdown'
@@ -74,6 +75,7 @@ export default function HomePage() {
         <PracticalInfo />
         <Workshops />
         {blogPosts.length > 0 && <BlogCarousel posts={blogPosts} />}
+        <Contact />
       </main>
       <Footer className="home-footer" />
     </>

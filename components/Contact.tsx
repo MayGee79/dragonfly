@@ -1,0 +1,155 @@
+'use client'
+
+import { useState } from 'react'
+import styles from './Contact.module.css'
+
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    // Formspree endpoint
+    const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xaqqqyoa'
+
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }),
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', phone: '', message: '' })
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  return (
+    <section className={styles.section} id="contact">
+      <div className={styles.container}>
+        <h2 className={styles.title}>Contact</h2>
+        <div className={styles.content}>
+          <div className={styles.leftSection}>
+            <form className={styles.contactForm} onSubmit={handleSubmit}>
+              <div className={styles.formGroup}>
+                <label htmlFor="name" className={styles.label}>Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className={styles.input}
+                  required
+                />
+              </div>
+              <div className={styles.formGroup}>
+                <label htmlFor="email" className={styles.label}>Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className={styles.input}
+                  required
+                />
+              </div>
+              <div className={styles.formGroup}>
+                <label htmlFor="phone" className={styles.label}>Phone</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className={styles.input}
+                />
+              </div>
+              <div className={styles.formGroup}>
+                <label htmlFor="message" className={styles.label}>Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className={styles.textarea}
+                  rows={6}
+                  required
+                />
+              </div>
+              <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </button>
+              {submitStatus === 'success' && (
+                <p className={styles.successMessage}>
+                  Thank you! Your message has been sent.
+                </p>
+              )}
+              {submitStatus === 'error' && (
+                <p className={styles.errorMessage}>
+                  Sorry, there was an error sending your message. Please try again or email us directly.
+                </p>
+              )}
+            </form>
+          </div>
+          <div className={styles.rightSection}>
+            <h3 className={styles.subtitle}>Dragonfly Psychotherapy</h3>
+            <div className={styles.address}>
+              <p>
+                Guildford Therapy Rooms, 3 Beaufort, Parklands, Guildford, GU2 9JX
+              </p>
+              <p className={styles.addressSeparator}>-</p>
+              <p>
+                3 Norells Ride, East Horsley, KT24 5EH
+              </p>
+            </div>
+            <div className={styles.contactDetails}>
+              <p>
+                <strong>Telephone:</strong>{' '}
+                <a href="tel:07546431448">07546 431 448</a>
+              </p>
+              <p>
+                <a href="mailto:victoria@dragonflypsychotherapy.co.uk">
+                  victoria@dragonflypsychotherapy.co.uk
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
