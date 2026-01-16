@@ -27,29 +27,30 @@ export default function Contact() {
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
-    // Formspree endpoint with redirect URL
+    // Formspree endpoint
     const baseEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xaqqqyoa'
     const thankYouUrl = typeof window !== 'undefined' ? `${window.location.origin}/contact/thank-you` : '/contact/thank-you'
+    
+    // Use FormData format (Formspree prefers this over JSON)
+    const formDataToSend = new FormData()
+    formDataToSend.append('name', formData.name)
+    formDataToSend.append('email', formData.email)
+    formDataToSend.append('phone', formData.phone || '')
+    formDataToSend.append('message', formData.message)
+    formDataToSend.append('_next', thankYouUrl)
     
     try {
       const response = await fetch(baseEndpoint, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-          _next: thankYouUrl, // Formspree redirect URL
-        }),
+        body: formDataToSend,
       })
 
       if (response.ok) {
         // Redirect to thank you page
         router.push('/contact/thank-you')
       } else {
+        const errorData = await response.text()
+        console.error('Formspree error:', response.status, errorData)
         setSubmitStatus('error')
         setIsSubmitting(false)
       }
