@@ -1,9 +1,11 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import styles from './Contact.module.css'
 
 export default function Contact() {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,11 +27,12 @@ export default function Contact() {
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
-    // Formspree endpoint
-    const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xaqqqyoa'
-
+    // Formspree endpoint with redirect URL
+    const baseEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xaqqqyoa'
+    const thankYouUrl = typeof window !== 'undefined' ? `${window.location.origin}/contact/thank-you` : '/contact/thank-you'
+    
     try {
-      const response = await fetch(formspreeEndpoint, {
+      const response = await fetch(baseEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,19 +42,20 @@ export default function Contact() {
           email: formData.email,
           phone: formData.phone,
           message: formData.message,
+          _next: thankYouUrl, // Formspree redirect URL
         }),
       })
 
       if (response.ok) {
-        setSubmitStatus('success')
-        setFormData({ name: '', email: '', phone: '', message: '' })
+        // Redirect to thank you page
+        router.push('/contact/thank-you')
       } else {
         setSubmitStatus('error')
+        setIsSubmitting(false)
       }
     } catch (error) {
       console.error('Form submission error:', error)
       setSubmitStatus('error')
-    } finally {
       setIsSubmitting(false)
     }
   }
@@ -128,13 +132,33 @@ export default function Contact() {
           <div className={styles.rightSection}>
             <h3 className={styles.subtitle}>Dragonfly Psychotherapy</h3>
             <div className={styles.address}>
-              <p>
-                Guildford Therapy Rooms, 3 Beaufort, Parklands, Guildford, GU2 9JX
-              </p>
+              <div className={styles.addressItem}>
+                <p>
+                  Guildford Therapy Rooms, 3 Beaufort, Parklands, Guildford, GU2 9JX
+                </p>
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Guildford+Therapy+Rooms,+3+Beaufort,+Parklands,+Guildford,+GU2+9JX"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.directionsLink}
+                >
+                  Get Directions →
+                </a>
+              </div>
               <p className={styles.addressSeparator}>-</p>
-              <p>
-                3 Norells Ride, East Horsley, KT24 5EH
-              </p>
+              <div className={styles.addressItem}>
+                <p>
+                  3 Norells Ride, East Horsley, KT24 5EH
+                </p>
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=3+Norells+Ride,+East+Horsley,+KT24+5EH"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.directionsLink}
+                >
+                  Get Directions →
+                </a>
+              </div>
             </div>
             <div className={styles.contactDetails}>
               <p>

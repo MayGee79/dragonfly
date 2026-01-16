@@ -1,0 +1,115 @@
+.section {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  background-color: var(--color-bg);
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content {
+  background-color: #ffffff;
+  padding: var(--spacing-4xl);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.title {
+  font-size: var(--font-size-5xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xl);
+  line-height: var(--line-height-tight);
+}
+
+.message {
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-3xl);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  padding: var(--spacing-md) var(--spacing-3xl);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background-color var(--transition-base), transform var(--transition-base);
+}
+
+.button:hover {
+  background-color: var(--color-primary-dark);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.buttonSecondary {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  padding: var(--spacing-md) var(--spacing-3xl);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+.buttonSecondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+/* Tablet: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    max-width: 600px;
+  }
+}
+
+/* Mobile: max-width 767px */
+@media (max-width: 767px) {
+  .section {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .content {
+    padding: var(--spacing-2xl);
+  }
+
+  .title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .message {
+    font-size: var(--font-size-base);
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button,
+  .buttonSecondary {
+    width: 100%;
+  }
+}
