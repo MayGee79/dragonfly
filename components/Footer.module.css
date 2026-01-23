@@ -84,6 +84,22 @@
   font-size: var(--font-size-nav);
 }
 
+.adminLink {
+  margin-top: var(--spacing-xs);
+  font-size: 10px;
+  opacity: 0.5;
+}
+
+.adminLink a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: opacity var(--transition-base);
+}
+
+.adminLink a:hover {
+  opacity: 0.8;
+}
+
 /* Mobile: max-width 767px */
 @media (max-width: 767px) {
   .footer {

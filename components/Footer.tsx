@@ -19,6 +19,9 @@ export default function Footer({ className }: FooterProps = {}) {
         </div>
         <div className={styles.copyright}>
           <p>&copy; {new Date().getFullYear()} Dragonfly Psychotherapy. All rights reserved.</p>
+          <p className={styles.adminLink}>
+            <Link href="/admin">Admin</Link>
+          </p>
         </div>
       </div>
     </footer>
