@@ -51,36 +51,109 @@ export async function GET(request: NextRequest) {
 <html>
 <head>
   <title>Authorizing...</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: 50px auto;
+    }
+    #debug {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 4px;
+      margin: 20px 0;
+      font-size: 12px;
+      color: #333;
+      line-height: 1.6;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .success {
+      color: #28a745;
+      font-weight: bold;
+    }
+    .error {
+      color: #dc3545;
+      font-weight: bold;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
 </head>
 <body>
+  <h2>OAuth Authorization</h2>
   <p>Completing authorization...</p>
-  <div id="debug" style="font-size: 12px; color: #666; margin-top: 20px;"></div>
+  <div id="debug"></div>
+  <button id="closeBtn" style="display: none;" onclick="window.close()">Close Window</button>
   <script>
     (function() {
       const debugEl = document.getElementById('debug');
-      function log(msg) {
-        if (debugEl) debugEl.innerHTML += '<br>' + new Date().toLocaleTimeString() + ': ' + msg;
+      const closeBtn = document.getElementById('closeBtn');
+      let autoCloseTimer = null;
+      
+      function log(msg, type) {
+        const time = new Date().toLocaleTimeString();
+        const className = type === 'success' ? 'success' : type === 'error' ? 'error' : '';
+        if (debugEl) {
+          debugEl.innerHTML += '<div class="' + className + '">[' + time + '] ' + msg + '</div>';
+        }
         console.log('[OAuth Callback]', msg);
+      }
+      
+      function showCloseButton() {
+        if (closeBtn) {
+          closeBtn.style.display = 'block';
+        }
+        // Auto-close after 10 seconds if user doesn't click
+        autoCloseTimer = setTimeout(() => {
+          log('Auto-closing window in 3 seconds...', '');
+          setTimeout(() => {
+            if (window.opener && !window.opener.closed) {
+              window.close();
+            }
+          }, 3000);
+        }, 10000);
       }
       
       try {
         log('Starting callback script...');
         const token = ${JSON.stringify(data)};
-        log('Token received: ' + (token.access_token ? 'YES' : 'NO'));
+        log('Token received: ' + (token.access_token ? 'YES ✓' : 'NO ✗'));
+        
+        if (token.access_token) {
+          log('Access token length: ' + token.access_token.length + ' characters', 'success');
+        }
         
         // Decap CMS expects this exact message format
         const message = 'authorization:github:success:' + JSON.stringify(token);
-        log('Message format: ' + message.substring(0, 50) + '...');
+        log('Message format: ' + message.substring(0, 80) + '...');
         
         if (window.opener && !window.opener.closed) {
-          log('window.opener exists, sending postMessage...');
+          log('window.opener exists: YES', 'success');
+          log('Sending postMessage to parent window...');
           window.opener.postMessage(message, '*');
-          log('postMessage sent, closing window...');
+          log('postMessage sent successfully!', 'success');
+          log('Waiting 2 seconds before closing...');
+          showCloseButton();
           setTimeout(() => {
-            window.close();
-          }, 100);
+            log('Closing window now...', '');
+            if (window.opener && !window.opener.closed) {
+              window.close();
+            }
+          }, 2000);
         } else {
-          log('No window.opener, using localStorage fallback...');
+          log('No window.opener found, using localStorage fallback...', '');
           // Fallback: redirect to admin with token in localStorage
           localStorage.setItem('netlify-cms-user', JSON.stringify({
             token: token.access_token,
@@ -90,12 +163,17 @@ export async function GET(request: NextRequest) {
             token: token.access_token,
             backendName: 'github'
           }));
-          log('Token stored, redirecting to admin...');
-          window.location.href = '/admin/';
+          log('Token stored in localStorage', 'success');
+          log('Redirecting to admin in 2 seconds...', '');
+          showCloseButton();
+          setTimeout(() => {
+            window.location.href = '/admin/';
+          }, 2000);
         }
       } catch (error) {
-        log('ERROR: ' + error.message);
-        document.body.innerHTML = '<p style="color: red;">Error: ' + error.message + '</p><p><a href="/admin/">Return to admin</a></p>';
+        log('ERROR: ' + error.message, 'error');
+        log('Stack: ' + error.stack, 'error');
+        document.body.innerHTML = '<h2 style="color: red;">Error</h2><p style="color: red;">' + error.message + '</p><p><a href="/admin/">Return to admin</a></p>';
       }
     })();
   </script>
