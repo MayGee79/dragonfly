@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // Removed 'output: export' to allow API routes for admin authentication
+  // Vercel will handle static optimization automatically
   trailingSlash: true,
   images: {
     unoptimized: true,
   },
-  // Disable static optimization for dynamic routes if needed
-  // But for static export, all pages must be statically generated
 }
 
 module.exports = nextConfig
