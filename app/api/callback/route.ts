@@ -139,19 +139,41 @@ export async function GET(request: NextRequest) {
         const message = 'authorization:github:success:' + JSON.stringify(token);
         log('Message format: ' + message.substring(0, 80) + '...');
         
+        // Store token in localStorage as backup (Decap CMS checks this)
+        localStorage.setItem('netlify-cms-user', JSON.stringify({
+          token: token.access_token,
+          backendName: 'github'
+        }));
+        localStorage.setItem('decap-cms-user', JSON.stringify({
+          token: token.access_token,
+          backendName: 'github'
+        }));
+        log('Token stored in localStorage as backup', 'success');
+        
         if (window.opener && !window.opener.closed) {
           log('window.opener exists: YES', 'success');
           log('Sending postMessage to parent window...');
+          
+          // Send message multiple times to ensure it's received
           window.opener.postMessage(message, '*');
+          setTimeout(() => {
+            window.opener.postMessage(message, '*');
+            log('postMessage sent again (retry)', 'success');
+          }, 500);
+          setTimeout(() => {
+            window.opener.postMessage(message, '*');
+            log('postMessage sent again (final retry)', 'success');
+          }, 1000);
+          
           log('postMessage sent successfully!', 'success');
-          log('Waiting 2 seconds before closing...');
+          log('Waiting 3 seconds before closing...');
           showCloseButton();
           setTimeout(() => {
             log('Closing window now...', '');
             if (window.opener && !window.opener.closed) {
               window.close();
             }
-          }, 2000);
+          }, 3000);
         } else {
           log('No window.opener found, using localStorage fallback...', '');
           // Fallback: redirect to admin with token in localStorage
