@@ -29,7 +29,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-lg);
 }
 
@@ -124,6 +124,20 @@
 
 .contactText:hover {
   color: var(--color-primary-dark);
+}
+
+.blankCard {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+.blankCard:hover::before {
+  transform: translateY(70px);
+}
+
+.blankCard:hover {
+  box-shadow: none;
 }
 
 /* Tablet: 768px - 1023px */

@@ -57,6 +57,16 @@ const cards: Card[] = [
     title: 'Young People 11+',
     quote: "I need someone who gets it",
     link: '/young-people'
+  },
+  {
+    title: 'Rejection Sensitive Dysphoria (RSD)',
+    quote: "When Rejection Feels Unbearable",
+    link: '/rejection-sensitive-dysphoria'
+  },
+  {
+    title: '',
+    quote: '',
+    link: ''
   }
 ]
 
@@ -67,13 +77,25 @@ export default function SpecialInterests() {
         <h2 className={styles.mainTitle}>Special Interest</h2>
         <h3 className={styles.title}>Click what resonates with you</h3>
         <div className={styles.grid}>
-          {cards.map((card, index) => (
-            <Link key={index} href={card.link} className={styles.card}>
-              <h3 className={styles.cardTitle}>{card.title}</h3>
-              <p className={styles.cardQuote}>{card.quote}</p>
-              <span className={styles.cardLink}>Learn More →</span>
-            </Link>
-          ))}
+          {cards.map((card, index) => {
+            // Handle blank placeholder card
+            if (!card.title && !card.quote) {
+              return (
+                <div key={index} className={`${styles.card} ${styles.blankCard}`}>
+                  <h3 className={styles.cardTitle}>&nbsp;</h3>
+                  <p className={styles.cardQuote}>&nbsp;</p>
+                  <span className={styles.cardLink}>&nbsp;</span>
+                </div>
+              )
+            }
+            return (
+              <Link key={index} href={card.link} className={styles.card}>
+                <h3 className={styles.cardTitle}>{card.title}</h3>
+                <p className={styles.cardQuote}>{card.quote}</p>
+                <span className={styles.cardLink}>Learn More →</span>
+              </Link>
+            )
+          })}
         </div>
         <div className={styles.contactLink}>
           <Link href="/#contact" className={styles.contactText}>
