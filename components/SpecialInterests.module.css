@@ -140,6 +140,20 @@
   box-shadow: none;
 }
 
+.contactCard {
+  cursor: pointer;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.contactCard:hover::before {
+  transform: scale(7) translate(-20px);
+}
+
+.contactCard:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
 /* Tablet: 768px - 1023px */
 @media (min-width: 768px) and (max-width: 1023px) {
   .grid {

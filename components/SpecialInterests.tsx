@@ -78,14 +78,14 @@ export default function SpecialInterests() {
         <h3 className={styles.title}>Click what resonates with you</h3>
         <div className={styles.grid}>
           {cards.map((card, index) => {
-            // Handle blank placeholder card
+            // Handle blank placeholder card - now contains contact link
             if (!card.title && !card.quote) {
               return (
-                <div key={index} className={`${styles.card} ${styles.blankCard}`}>
-                  <h3 className={styles.cardTitle}>&nbsp;</h3>
+                <Link key={index} href="/#contact" className={`${styles.card} ${styles.contactCard}`}>
+                  <h3 className={styles.cardTitle}>Not sure where you fit?</h3>
                   <p className={styles.cardQuote}>&nbsp;</p>
-                  <span className={styles.cardLink}>&nbsp;</span>
-                </div>
+                  <span className={styles.cardLink}>Contact me →</span>
+                </Link>
               )
             }
             return (
@@ -96,12 +96,6 @@ export default function SpecialInterests() {
               </Link>
             )
           })}
-        </div>
-        <div className={styles.contactLink}>
-          <Link href="/#contact" className={styles.contactText}>
-            Not sure where you fit?<br />
-            Contact me →
-          </Link>
         </div>
       </div>
     </section>

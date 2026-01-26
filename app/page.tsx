@@ -11,29 +11,65 @@ import BlogCarousel from '@/components/BlogCarousel'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import { getPageBySlug, getFeaturedBlogPosts } from '@/lib/content'
-import { markdownToHtml } from '@/lib/markdown'
 
 export default function HomePage() {
-  const blogPosts = getFeaturedBlogPosts(9)
-  const page = getPageBySlug('home') || {
+  let blogPosts: ReturnType<typeof getFeaturedBlogPosts> = []
+  let page: ReturnType<typeof getPageBySlug> | { slug: string; title: string; sections: any[] } = {
     slug: 'home',
     title: 'Dragonfly Psychotherapy',
-    sections: [
-      {
-        type: 'hero',
-        title: 'Dragonfly Psychotherapy',
-        subtitle: 'Dr Victoria Froome | Integrative Psychotherapist and Former NHS GP',
-        layout: 'text-only',
-        enabled: true,
-      },
-      {
-        type: 'content',
-        title: 'Welcome',
-        content: 'Psychotherapy and counselling services in Surrey',
-        layout: 'text-only',
-        enabled: true,
-      },
-    ],
+    sections: [],
+  }
+
+  try {
+    blogPosts = getFeaturedBlogPosts(9)
+  } catch (error) {
+    console.error('Error loading blog posts:', error)
+    blogPosts = []
+  }
+
+  try {
+    page = getPageBySlug('home') || {
+      slug: 'home',
+      title: 'Dragonfly Psychotherapy',
+      sections: [
+        {
+          type: 'hero',
+          title: 'Dragonfly Psychotherapy',
+          subtitle: 'Dr Victoria Froome | Integrative Psychotherapist and Former NHS GP',
+          layout: 'text-only',
+          enabled: true,
+        },
+        {
+          type: 'content',
+          title: 'Welcome',
+          content: 'Psychotherapy and counselling services in Surrey',
+          layout: 'text-only',
+          enabled: true,
+        },
+      ],
+    }
+  } catch (error) {
+    console.error('Error loading page:', error)
+    page = {
+      slug: 'home',
+      title: 'Dragonfly Psychotherapy',
+      sections: [
+        {
+          type: 'hero',
+          title: 'Dragonfly Psychotherapy',
+          subtitle: 'Dr Victoria Froome | Integrative Psychotherapist and Former NHS GP',
+          layout: 'text-only',
+          enabled: true,
+        },
+        {
+          type: 'content',
+          title: 'Welcome',
+          content: 'Psychotherapy and counselling services in Surrey',
+          layout: 'text-only',
+          enabled: true,
+        },
+      ],
+    }
   }
 
   return (
