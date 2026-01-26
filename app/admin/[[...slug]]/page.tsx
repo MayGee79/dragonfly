@@ -1,4 +1,6 @@
 import Script from 'next/script'
+import Link from 'next/link'
+import styles from './admin.module.css'
 
 export function generateStaticParams() {
   return [{ slug: [] }]
@@ -9,6 +11,23 @@ export default function AdminPage() {
     <>
       {/* Link to config.yml so Decap CMS can find it */}
       <link rel="cms-config-url" href="/admin/config.yml" type="text/yaml" />
+      
+      {/* Admin Navigation Bar */}
+      <nav className={styles.adminNav}>
+        <div className={styles.navContainer}>
+          <Link href="/" className={styles.navLink}>
+            ← Back to Site
+          </Link>
+          <div className={styles.navLinks}>
+            <Link href="/sitemap" className={styles.navLink} target="_blank" rel="noopener noreferrer">
+              View Sitemap
+            </Link>
+            <Link href="/sitemap.xml" className={styles.navLink} target="_blank" rel="noopener noreferrer">
+              XML Sitemap
+            </Link>
+          </div>
+        </div>
+      </nav>
       
       {/* Debug script to log postMessage events */}
       <Script
