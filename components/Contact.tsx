@@ -10,15 +10,21 @@ export default function Contact() {
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
+    consent: false,
+    marketing: false
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const target = e.target
+    const value = target.type === 'checkbox' ? (target as HTMLInputElement).checked : target.value
+    const name = target.name
+    
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     })
   }
 
@@ -36,12 +42,21 @@ export default function Contact() {
     const isDevelopment = typeof window !== 'undefined' && 
       (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
     
+    // Validate required consent checkbox
+    if (!formData.consent) {
+      alert('Please consent to being contacted in response to your enquiry.')
+      setIsSubmitting(false)
+      return
+    }
+
     // Use FormData format (Formspree prefers this over JSON)
     const formDataToSend = new FormData()
     formDataToSend.append('name', formData.name)
     formDataToSend.append('email', formData.email)
     formDataToSend.append('phone', formData.phone || '')
     formDataToSend.append('message', formData.message)
+    formDataToSend.append('consent', formData.consent ? 'Yes' : 'No')
+    formDataToSend.append('marketing_consent', formData.marketing ? 'Yes' : 'No')
     
     // Add custom key if provided (for AJAX submissions)
     // Note: The parameter name might be different - check Formspree docs
@@ -98,7 +113,9 @@ export default function Contact() {
           name: '',
           email: '',
           phone: '',
-          message: ''
+          message: '',
+          consent: false,
+          marketing: false
         })
         // Redirect to thank you page after a short delay
         setTimeout(() => {
@@ -183,6 +200,34 @@ export default function Contact() {
                   required
                 />
               </div>
+              
+              <div className={styles.checkboxGroup}>
+                <label className={styles.checkboxLabel}>
+                  <input
+                    type="checkbox"
+                    name="consent"
+                    checked={formData.consent}
+                    onChange={handleChange}
+                    className={styles.checkbox}
+                    required
+                  />
+                  <span>I consent to Dragonfly Psychotherapy contacting me in response to this enquiry <span className={styles.required}>*</span></span>
+                </label>
+              </div>
+              
+              <div className={styles.checkboxGroup}>
+                <label className={styles.checkboxLabel}>
+                  <input
+                    type="checkbox"
+                    name="marketing"
+                    checked={formData.marketing}
+                    onChange={handleChange}
+                    className={styles.checkbox}
+                  />
+                  <span>I would like to receive occasional updates about workshops, resources and services (optional)</span>
+                </label>
+              </div>
+              
               <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>

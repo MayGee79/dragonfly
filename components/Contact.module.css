@@ -114,6 +114,40 @@
   margin-top: var(--spacing-sm);
 }
 
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  cursor: pointer;
+  line-height: var(--line-height-relaxed);
+}
+
+.checkbox {
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  flex-shrink: 0;
+  accent-color: var(--color-primary);
+}
+
+.checkboxLabel span {
+  flex: 1;
+}
+
+.required {
+  color: #dc3545;
+  font-weight: 600;
+}
+
 .subtitle {
   font-size: var(--font-size-2xl);
   font-weight: 700;

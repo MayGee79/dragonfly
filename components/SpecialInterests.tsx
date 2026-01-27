@@ -54,14 +54,14 @@ const cards: Card[] = [
     link: '/self-esteem'
   },
   {
-    title: 'Young People 11+',
-    quote: "I need someone who gets it",
-    link: '/young-people'
-  },
-  {
     title: 'Rejection Sensitive Dysphoria (RSD)',
     quote: "When Rejection Feels Unbearable",
     link: '/rejection-sensitive-dysphoria'
+  },
+  {
+    title: 'Young People 11+',
+    quote: "I need someone who gets it",
+    link: '/young-people'
   },
   {
     title: '',

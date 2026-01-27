@@ -40,7 +40,7 @@ export default function Navigation({ className }: NavigationProps = {}) {
   const menuItems = [
     { href: '/#work-together', label: 'Working Together' },
     { href: '/#special-interests', label: 'Therapy And Interests' },
-    { href: '/fees-and-availability', label: 'Fees and Availability' },
+    { href: '/#practical-info', label: 'Fees and Availability' },
     { href: '/professional-membership', label: 'Professional Profile' },
     { href: '/testimonials', label: 'Testimonials' },
     { href: '/support-and-resources', label: 'Support and Resources' },
