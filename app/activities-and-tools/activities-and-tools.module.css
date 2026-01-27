@@ -21,31 +21,278 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-xl);
+  gap: var(--spacing-lg);
 }
 
 .activityCard {
-  background-color: #ffffff;
-  padding: var(--spacing-2xl);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-  min-height: 200px;
+  background-color: #2d3758;
+  padding: var(--spacing-xl);
+  border-radius: 30px;
+  text-decoration: none;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.7s ease-in-out;
+  overflow: hidden;
 }
 
-.heading {
-  font-size: var(--font-size-2xl);
+.activityCard::before {
+  content: "";
+  position: absolute;
+  height: 40%;
+  width: 100%;
+  background-color: var(--color-primary);
+  bottom: 0;
+  right: 0;
+  transform: translateY(70px);
+  border-radius: 100%;
+  transition: all 0.7s ease-in-out;
+}
+
+.activityCard:hover::before {
+  transform: scale(7) translate(-20px);
+}
+
+.activityCard:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.activityCard:hover .cardTitle,
+.activityCard:hover .cardQuote,
+.activityCard:hover .cardLink {
+  color: #ffffff;
+}
+
+.cardTitle {
+  font-size: var(--font-size-lg);
   font-weight: 700;
-  color: var(--color-text);
+  color: #ffffff;
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+  z-index: 2;
+  position: relative;
+  transition: color 0.7s ease-in-out;
+}
+
+.cardQuote {
+  font-size: var(--font-size-base);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: var(--line-height-relaxed);
+  flex-grow: 1;
+  margin-bottom: var(--spacing-md);
+  z-index: 2;
+  position: relative;
+  transition: color 0.7s ease-in-out;
+}
+
+.cardLink {
+  font-size: var(--font-size-base);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  text-align: right;
+  margin-top: auto;
+  z-index: 2;
+  position: relative;
+  transition: color 0.7s ease-in-out;
+}
+
+/* Full-width content sections like home – dark band with curved waves */
+.contentSection {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  padding-top: calc(var(--spacing-3xl) + 30px);
+  padding-bottom: calc(var(--spacing-3xl) + 30px);
+  background-color: #2d3758;
+  position: relative;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+.contentSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: var(--color-bg);
+  border-radius: 0 0 50% 50%;
+}
+
+.contentSection::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: var(--color-bg);
+  border-radius: 50% 50% 0 0;
+}
+
+.contentSectionInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.contentTitle {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: #ffffff;
   margin-bottom: var(--spacing-lg);
   line-height: var(--line-height-tight);
 }
 
-.description {
-  font-size: var(--font-size-base);
-  color: var(--color-text);
+.contentIntro {
+  font-size: var(--font-size-lg);
+  color: rgba(255, 255, 255, 0.9);
   line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.contentSection .subheading {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+}
+
+.contentSection .contentBody {
+  font-size: var(--font-size-base);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-lg);
+}
+
+.contentSection .contentBody:last-of-type {
+  margin-bottom: 0;
+}
+
+.contentSection .resourceLink {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.contentSection .resourceLink:hover {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Light blue variant – no extra curves, only the previous section’s wave separates it */
+.contentSectionLight {
+  background-color: var(--color-bg);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: var(--spacing-3xl);
+  padding-bottom: var(--spacing-3xl);
+  color: var(--color-text);
+}
+
+.contentSectionLight::before,
+.contentSectionLight::after {
+  display: none;
+}
+
+.contentSectionLight .contentSectionInner {
+  color: var(--color-text);
+}
+
+.contentSectionLight .contentTitle {
+  color: var(--color-text);
+}
+
+.contentSectionLight .contentIntro {
+  color: var(--color-text);
+}
+
+.contentSectionLight .contentBody {
+  color: var(--color-text);
+}
+
+.contentSectionLight .subheading {
+  color: var(--color-primary);
+}
+
+.contentSectionLight .resourceLink {
+  color: var(--color-primary);
+}
+
+.contentSectionLight .resourceLink:hover {
+  color: var(--color-primary-dark);
+}
+
+.contentSectionLight .contentList,
+.contentSectionLight .promptList,
+.contentSectionLight .contentList li,
+.contentSectionLight .promptList li {
+  color: var(--color-text);
+}
+
+.contentSectionLight .mythList li,
+.contentSectionLight .mythWrong {
+  color: var(--color-text);
+}
+
+.contentSectionLight .mythRight {
+  color: var(--color-primary-dark);
+}
+
+.contentSection .contentList,
+.contentSection .promptList {
+  font-size: var(--font-size-base);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-lg);
+  padding-left: var(--spacing-xl);
+}
+
+.contentSection .contentList li,
+.contentSection .promptList li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.contentSection .promptList {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contentSection .promptList li {
+  font-style: italic;
+  border-left: 3px solid var(--color-primary);
+  padding-left: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.contentSection .mythList {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: var(--spacing-lg);
+}
+
+.contentSection .mythList li {
+  font-size: var(--font-size-base);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-md);
+  padding-left: 0;
+}
+
+.contentSection .mythWrong {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  opacity: 0.85;
+}
+
+.contentSection .mythRight {
+  display: block;
+  color: var(--color-primary);
+  font-weight: 500;
 }
 
 /* Tablet: 768px - 1023px */
@@ -72,11 +319,42 @@
   }
 
   .activityCard {
-    padding: var(--spacing-xl);
-    min-height: auto;
+    min-height: 160px;
+    padding: var(--spacing-lg);
+    border-radius: 20px;
   }
 
-  .heading {
-    font-size: var(--font-size-xl);
+  .cardTitle {
+    font-size: var(--font-size-base);
+  }
+
+  .cardQuote {
+    font-size: var(--font-size-sm);
+  }
+
+  .contentSection {
+    padding: var(--spacing-2xl) var(--spacing-md);
+    padding-top: calc(var(--spacing-2xl) + 24px);
+    padding-bottom: calc(var(--spacing-2xl) + 24px);
+  }
+
+  .contentSection::before,
+  .contentSection::after {
+    height: 36px;
+  }
+
+  .contentSectionInner {
+    padding: 0;
+  }
+
+  .contentTitle {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .contentSection .subheading {
+    font-size: var(--font-size-lg);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-sm);
   }
 }
