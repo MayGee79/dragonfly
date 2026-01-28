@@ -47,41 +47,128 @@
   line-height: var(--line-height-tight);
 }
 
+/* Special-interest-style boxes */
 .contactStrip {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-3xl);
 }
 
-.contactCol {
+.contactCard {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: var(--spacing-xl);
+  border-radius: 30px;
+  text-decoration: none;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
+  justify-content: space-between;
+  min-height: 200px;
+  min-width: 0;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.7s ease-in-out;
+  overflow: hidden;
 }
 
-.contactColText {
+.contactCard::before {
+  content: "";
+  position: absolute;
+  height: 40%;
+  width: 100%;
+  background-color: var(--color-primary);
+  bottom: 0;
+  right: 0;
+  transform: translateY(70px);
+  border-radius: 100%;
+  transition: all 0.7s ease-in-out;
+}
+
+.contactCard:hover::before {
+  transform: scale(7) translate(-20px);
+}
+
+.contactCard:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.contactCard:hover .contactCardTitle,
+.contactCard:hover .contactCardBody,
+.contactCard:hover .contactCardLink {
+  color: #ffffff;
+}
+
+.contactCard:hover .contactCardInnerLink {
+  color: var(--color-text);
+}
+
+.contactCard:hover .contactCardInnerLink:hover {
+  color: #ffffff;
+}
+
+.contactCardTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+  z-index: 2;
+  position: relative;
+  transition: color 0.7s ease-in-out;
+}
+
+.contactCardBody {
   font-size: var(--font-size-base);
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.9);
   line-height: var(--line-height-relaxed);
-  margin: 0;
+  flex-grow: 1;
+  margin-bottom: var(--spacing-md);
+  z-index: 2;
+  position: relative;
+  transition: color 0.7s ease-in-out;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  min-width: 0;
 }
 
-.contactCol a {
+.contactCardBody strong {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 700;
+}
+
+.contactCardLink {
+  font-size: var(--font-size-base);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  text-align: right;
+  margin-top: auto;
+  z-index: 2;
+  position: relative;
+  transition: color 0.7s ease-in-out;
+}
+
+.contactCardInnerLink {
   color: var(--color-primary);
   text-decoration: none;
   font-weight: 600;
-  transition: color var(--transition-base);
+  transition: color 0.7s ease-in-out;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
-.contactCol a:hover {
-  color: rgba(255, 255, 255, 0.95);
+.contactCardInnerLink:hover {
+  color: #ffffff;
   text-decoration: underline;
 }
 
-.contactCol strong {
-  color: rgba(255, 255, 255, 0.95);
-  font-weight: 700;
+.contactCardEmail {
+  letter-spacing: -0.03em;
+  font-size: 14px;
+}
+
+div.contactCard {
+  cursor: default;
 }
 
 .content {
@@ -355,6 +442,20 @@
     grid-template-columns: 1fr;
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-xl);
+  }
+
+  .contactCard {
+    min-height: 160px;
+    padding: var(--spacing-lg);
+    border-radius: 20px;
+  }
+
+  .contactCardTitle {
+    font-size: var(--font-size-base);
+  }
+
+  .contactCardBody {
+    font-size: var(--font-size-sm);
   }
 
   .title {
