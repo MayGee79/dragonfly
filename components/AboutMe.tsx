@@ -23,8 +23,7 @@ export default function AboutMe() {
             </p>
           </div>
           <div className={styles.columnImage}>
-            {/* About Me photo: use public/images/VF_002_about.png — save your new photo with this name to avoid cache */}
-            <img src="/images/VF_002_about.png" alt="Victoria Froome" className={styles.image} />
+            <img src="/images/VF_002_v2.png" alt="Victoria Froome" className={styles.image} />
           </div>
           <div className={styles.column}>
             <h3 className={styles.columnTitle}>Why Dragonfly?</h3>
