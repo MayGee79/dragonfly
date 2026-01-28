@@ -31,7 +31,7 @@ export default function SupportAndResourcesPage() {
               </Link>
 
               <Link
-                href="/resources/Surrey-Children-Young-People-Resources-Guide-January-2026.docx"
+                href="/resources/Surrey-Children-Young-People-Resources-Guide-January-2026.pdf"
                 className={styles.card}
                 download
               >
