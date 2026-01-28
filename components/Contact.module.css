@@ -22,7 +22,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-3xl);
-  background-color: #ffffff;
+  background-color: var(--color-bg);
   padding: var(--spacing-3xl);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);

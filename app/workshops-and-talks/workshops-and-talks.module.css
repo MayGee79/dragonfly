@@ -18,6 +18,19 @@
   line-height: var(--line-height-tight);
 }
 
+.heroImage {
+  margin-bottom: var(--spacing-4xl);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.heroImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

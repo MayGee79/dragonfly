@@ -60,7 +60,7 @@
 
 .threeColumn {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: var(--spacing-xl);
   margin-bottom: var(--spacing-3xl);
 }
@@ -84,12 +84,14 @@
   flex: 0 0 300px;
   display: flex;
   justify-content: center;
+  min-height: 0;
 }
 
 .image {
   width: 100%;
   max-width: 300px;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   border-radius: var(--radius-md);
 }
 
@@ -125,7 +127,7 @@
   font-size: var(--font-size-lg);
   color: var(--color-text);
   line-height: var(--line-height-relaxed);
-  background-color: #fdf9f9;
+  background-color: #eef5f6;
   padding: var(--spacing-md) var(--spacing-xl);
   border-radius: var(--radius-md);
   display: inline-block;

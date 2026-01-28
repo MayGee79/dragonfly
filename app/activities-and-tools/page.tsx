@@ -98,9 +98,13 @@ export default function ActivitiesAndToolsPage() {
 
                 <h3 className={styles.subheading}>Helpful Resources</h3>
                 <p className={styles.contentBody}>
-                  <a href="https://www.mind.org.uk/" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Mind</a>,{' '}
-                  <a href="https://anxietyuk.org.uk" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Anxiety UK (anxietyuk.org.uk)</a>,{' '}
-                  <em>The Anxiety and Phobia Workbook</em> by Edmund Bourne, apps like Headspace or Calm for guided exercises.
+                  <a href="https://www.mind.org.uk/" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Mind</a>
+                  <br />
+                  <a href="https://anxietyuk.org.uk" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Anxiety UK</a>
+                  <br />
+                  <em>The Anxiety and Phobia Workbook</em> by Edmund Bourne
+                  <br />
+                  apps like Headspace or Calm for guided exercises.
                 </p>
           </div>
         </section>
@@ -201,9 +205,11 @@ export default function ActivitiesAndToolsPage() {
 
             <h3 className={styles.subheading}>Further Resources</h3>
             <p className={styles.contentBody}>
-              <a href="https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/stress-anxiety-depression/" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>NHS: Stress, anxiety and depression</a>,{' '}
-              <a href="https://www.mind.org.uk/information-support/types-of-mental-health-problems/stress/" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Mind: Mind&apos;s Guide to Burnout</a>,{' '}
-              <a href="https://www.bacp.co.uk" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>The British Association for Counselling and Psychotherapy (BACP)</a>.
+              <a href="https://www.nhs.uk/every-mind-matters/lifes-challenges/work-related-stress/" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>NHS: Stress, anxiety and depression</a>
+              <br />
+              <a href="https://www.mind.org.uk/workplace/my-mental-health-at-work/" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Mind: Mind&apos;s Guide to Burnout</a>
+              <br />
+              <a href="https://www.bacp.co.uk" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>The British Association for Counselling and Psychotherapy (BACP): BACP Website</a>
             </p>
           </div>
         </section>

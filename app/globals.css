@@ -6,8 +6,8 @@
   --color-primary-active: #634d6b;
   --color-text: #2d3758;
   --color-text-light: #2d3758;
-  --color-bg: #e6eeef;
-  --color-bg-light: #f6f6f6;
+  --color-bg: #eef5f6;
+  --color-bg-light: #eef5f6;
   
   /* Typography Scale */
   --font-size-base: 16px;
@@ -125,18 +125,18 @@ img {
 
 /* Home page specific styles */
 .nav.home-nav {
-  background-color: #fdf9f9 !important;
+  background-color: #eef5f6 !important;
 }
 
 .nav.home-nav .dropdown {
-  background-color: #fdf9f9 !important;
+  background-color: #eef5f6 !important;
 }
 
 .navList.home-nav {
-  background-color: #fdf9f9 !important;
+  background-color: #eef5f6 !important;
 }
 
 .footer.home-footer {
-  background-color: #fdf9f9 !important;
+  background-color: #eef5f6 !important;
 }
 

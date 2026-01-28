@@ -7,15 +7,15 @@
 }
 
 .nav:global(.home-nav) {
-  background-color: #fdf9f9 !important;
+  background-color: #eef5f6 !important;
 }
 
 .nav:global(.home-nav) .dropdown {
-  background-color: #fdf9f9 !important;
+  background-color: #eef5f6 !important;
 }
 
 .nav:global(.home-nav) .navList {
-  background-color: #fdf9f9 !important;
+  background-color: #eef5f6 !important;
 }
 
 
@@ -217,7 +217,7 @@
   }
 
   .nav:global(.home-nav) .navList {
-    background-color: #fdf9f9 !important;
+    background-color: #eef5f6 !important;
   }
 
 
