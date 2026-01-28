@@ -356,22 +356,18 @@ export default function PrivacyPolicyPage() {
                 <h2 className={styles.heading}>13. Cookies</h2>
                 <p>
                   My website uses cookies, which are small files stored on your device that help the
-                  site work properly and help me understand how visitors use it.
+                  site work properly.
                 </p>
                 <ul className={styles.list}>
                   <li><strong>Essential cookies:</strong> These are necessary for the website to function. They do not
-                  collect personal information about you.</li>
-                  <li><strong>Analytics cookies:</strong> I use Google Analytics to understand how visitors use my
-                  website (for example, which pages are most popular). This information is
-                  anonymised and does not identify you personally.</li>
+                  collect personal information about you. My site currently uses only essential
+                  cookies and does not use analytics or other non-essential cookies.</li>
                 </ul>
                 <p>
-                  You can control cookies through your browser settings. You can also opt out of
-                  Google Analytics tracking at tools.google.com/dlpage/gaoptout.
-                </p>
-                <p>
-                  When you first visit my website, you will be asked to consent to non-essential
-                  cookies before they are placed on your device.
+                  You can control cookies through your browser settings. If I introduce analytics
+                  or other non-essential cookies in future, I will ask for your consent before
+                  they are placed on your device, and I will update this notice accordingly. You
+                  can opt out of Google Analytics at any time at tools.google.com/dlpage/gaoptout.
                 </p>
               </section>
 

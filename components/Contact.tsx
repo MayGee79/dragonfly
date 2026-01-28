@@ -33,15 +33,10 @@ export default function Contact() {
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
-    // Formspree endpoint
-    const baseEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xaqqqyoa'
-    // Formspree custom key (if using AJAX, you need either this or disable reCAPTCHA)
+    // Formspree endpoint – must be HTTPS in production
+    const baseEndpoint = (process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xaqqqyoa').replace(/^http:\/\//i, 'https://')
     const formspreeKey = process.env.NEXT_PUBLIC_FORMSPREE_KEY || ''
-    
-    // Check if we're in development (localhost)
-    const isDevelopment = typeof window !== 'undefined' && 
-      (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-    
+
     // Validate required consent checkbox
     if (!formData.consent) {
       alert('Please consent to being contacted in response to your enquiry.')
@@ -64,18 +59,6 @@ export default function Contact() {
       formDataToSend.append('_access_key', formspreeKey)
     }
     
-    // For localhost, we might need to add the referer or use a different approach
-    // Formspree may block localhost requests if domain restrictions are set
-    
-    // Debug logging
-    console.log('Submitting form to:', baseEndpoint)
-    console.log('Form data:', {
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      message: formData.message
-    })
-    
     try {
       const response = await fetch(baseEndpoint, {
         method: 'POST',
@@ -85,24 +68,18 @@ export default function Contact() {
         body: formDataToSend,
       })
 
-      console.log('Response status:', response.status)
-      console.log('Response headers:', Object.fromEntries(response.headers.entries()))
-
       let responseData
       const contentType = response.headers.get('content-type')
       if (contentType && contentType.includes('application/json')) {
         responseData = await response.json()
       } else {
         const text = await response.text()
-        console.log('Response text:', text)
         try {
           responseData = JSON.parse(text)
         } catch {
           responseData = { error: text }
         }
       }
-
-      console.log('Response data:', responseData)
 
       if (response.ok) {
         // Show success message
@@ -124,17 +101,14 @@ export default function Contact() {
       } else {
         // Handle Formspree errors
         if (responseData.errors) {
-          console.error('Formspree validation errors:', responseData.errors)
           alert(`Form submission failed: ${JSON.stringify(responseData.errors)}`)
         } else {
-          console.error('Formspree error:', response.status, responseData)
           alert(`Form submission failed: ${response.status} - ${JSON.stringify(responseData)}`)
         }
         setSubmitStatus('error')
         setIsSubmitting(false)
       }
     } catch (error) {
-      console.error('Form submission error:', error)
       alert(`Network error: ${error instanceof Error ? error.message : 'Unknown error'}`)
       setSubmitStatus('error')
       setIsSubmitting(false)
