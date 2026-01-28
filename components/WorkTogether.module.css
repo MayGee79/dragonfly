@@ -156,7 +156,7 @@
 .stepDescription {
   font-size: var(--font-size-base);
   color: rgba(255, 255, 255, 0.9);
-  line-height: var(--line-height-relaxed);
+  line-height: 1.25;
   text-align: left;
   white-space: pre-line;
   margin: 0;
@@ -194,6 +194,7 @@
   color: rgba(255, 255, 255, 0.9);
   text-align: center;
   padding: var(--spacing-sm) 0;
+  line-height: 1.25;
 }
 
 .closing {
