@@ -34,7 +34,16 @@ export default function SupportAndResourcesPage() {
 
               <div className={styles.resourceCard}>
                 <h2 className={styles.heading}>Local Resource List</h2>
-                <p className={styles.description}>Coming soon.</p>
+                <p className={styles.description}>
+                  Surrey Children &amp; Young People Resources Guide (January 2026) — a local guide to support and services for children and young people.
+                </p>
+                <Link 
+                  href="/resources/Surrey-Children-Young-People-Resources-Guide-January-2026.docx" 
+                  className={styles.link}
+                  download
+                >
+                  Download Surrey Children &amp; Young People Resources Guide (January 2026)
+                </Link>
               </div>
             </div>
           </div>
