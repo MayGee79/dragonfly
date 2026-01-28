@@ -64,6 +64,7 @@
 }
 
 .links a {
+  font-size: var(--font-size-sm);
   color: var(--color-text-light);
   transition: color var(--transition-base);
   text-decoration: none;
@@ -71,6 +72,27 @@
 
 .links a:hover {
   color: var(--color-primary);
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.socialIcon {
+  color: var(--color-text-light);
+  transition: color var(--transition-base);
+  line-height: 0;
+}
+
+.socialIcon:hover {
+  color: var(--color-primary);
+}
+
+.socialIcon svg {
+  display: block;
 }
 
 .copyright {
@@ -81,13 +103,13 @@
 
 .copyright p {
   color: var(--color-text-light);
-  font-size: var(--font-size-nav);
+  font-size: var(--font-size-sm);
 }
 
 .adminLink {
   margin-top: var(--spacing-xs);
-  font-size: 10px;
-  opacity: 0.5;
+  font-size: var(--font-size-sm);
+  opacity: 0.7;
 }
 
 .adminLink a {
