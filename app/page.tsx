@@ -7,24 +7,15 @@ import WorkTogether from '@/components/WorkTogether'
 import AboutMe from '@/components/AboutMe'
 import PracticalInfo from '@/components/PracticalInfo'
 import Workshops from '@/components/Workshops'
-import BlogCarousel from '@/components/BlogCarousel'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-import { getPageBySlug, getFeaturedBlogPosts } from '@/lib/content'
+import { getPageBySlug } from '@/lib/content'
 
 export default function HomePage() {
-  let blogPosts: ReturnType<typeof getFeaturedBlogPosts> = []
   let page: ReturnType<typeof getPageBySlug> | { slug: string; title: string; sections: any[] } = {
     slug: 'home',
     title: 'Dragonfly Psychotherapy',
     sections: [],
-  }
-
-  try {
-    blogPosts = getFeaturedBlogPosts(9)
-  } catch (error) {
-    console.error('Error loading blog posts:', error)
-    blogPosts = []
   }
 
   try {
@@ -110,7 +101,6 @@ export default function HomePage() {
         <WorkTogether />
         <PracticalInfo />
         <Workshops />
-        {blogPosts.length > 0 && <BlogCarousel posts={blogPosts} />}
         <Contact />
       </main>
       <Footer className="home-footer" />

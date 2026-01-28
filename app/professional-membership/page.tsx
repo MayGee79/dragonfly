@@ -23,14 +23,14 @@ const cpd = [
   'Menopause coach certificate (ongoing)',
   'Positive parenting certificate (ongoing)',
   'Neurodiversity coach certificate',
-  'Understanding teens session',
-  'OCD and anxiety course',
-  'Advances in CBT course',
-  'Single session therapy course',
-  'Compassion and self harm in teens session',
-  'Talking teens course',
-  'Facing the storm - decision making during uncertainty course',
-  'Burnout workshop'
+  'Understanding teens',
+  'OCD and anxiety',
+  'Advances in CBT',
+  'Single session therapy',
+  'Compassion and self harm in teen',
+  'Talking teens',
+  'Facing the storm — decision making during uncertainty',
+  'Burnout'
 ]
 
 export function generateStaticParams() {
@@ -63,9 +63,9 @@ export default function ProfessionalMembershipPage() {
 
               <div className={styles.cpdSection}>
                 <div className={styles.cpdColumn}>
-                  <h2 className={styles.heading}>Continuing Professional Development</h2>
+                  <h2 className={styles.heading}>Recent Continuing Professional Development</h2>
                   <ul className={styles.cpdList}>
-                    {cpd.slice(0, 5).map((item, index) => (
+                    {cpd.slice(0, 6).map((item, index) => (
                       <li key={index} className={styles.cpdItem}>{item}</li>
                     ))}
                   </ul>
@@ -75,7 +75,7 @@ export default function ProfessionalMembershipPage() {
                 </div>
                 <div className={styles.cpdColumn}>
                   <ul className={styles.cpdList}>
-                    {cpd.slice(5).map((item, index) => (
+                    {cpd.slice(6).map((item, index) => (
                       <li key={index} className={styles.cpdItem}>{item}</li>
                     ))}
                   </ul>

@@ -4,13 +4,13 @@ import styles from './PracticalInfo.module.css'
 const fees = [
   { price: 'Free', description: '15-minute consultation' },
   { price: '£95', description: 'Standard 50-minute session' },
-  { price: '£140', description: 'Extended 75-minute session' },
+  { price: '£150', description: 'Extended 75-minute session' },
   { price: 'POA', description: 'Workshops & talks' }
 ]
 
 const locations = [
   { name: 'Guildford', address: 'Beaufort Parklands GU2 9JX' },
-  { name: 'West Horsley', address: 'The Street KT24 6AX' },
+  { name: 'East Horsley', address: '3 Norells Ride KT24 5EH' },
   { name: 'Online', address: 'Secure video platform' }
 ]
 

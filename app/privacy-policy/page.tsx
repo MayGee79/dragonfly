@@ -109,7 +109,7 @@ export default function PrivacyPolicyPage() {
                 </ul>
                 <p>
                   <strong>Please note:</strong> Initially, bookings for wellness walks are handled through the venue
-                  (West Horsley Place). Their privacy notice will apply to the booking process. Once
+                  (East Horsley Place). Their privacy notice will apply to the booking process. Once
                   you attend a walk, this privacy notice applies to any information I collect directly.
                 </p>
 

@@ -98,7 +98,7 @@ export default function ActivitiesAndToolsPage() {
 
                 <h3 className={styles.subheading}>Helpful Resources</h3>
                 <p className={styles.contentBody}>
-                  <a href="https://mind.org.uk" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Mind (mind.org.uk)</a>,{' '}
+                  <a href="https://www.mind.org.uk/" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Mind</a>,{' '}
                   <a href="https://anxietyuk.org.uk" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Anxiety UK (anxietyuk.org.uk)</a>,{' '}
                   <em>The Anxiety and Phobia Workbook</em> by Edmund Bourne, apps like Headspace or Calm for guided exercises.
                 </p>
@@ -202,7 +202,7 @@ export default function ActivitiesAndToolsPage() {
             <h3 className={styles.subheading}>Further Resources</h3>
             <p className={styles.contentBody}>
               <a href="https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/stress-anxiety-depression/" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>NHS: Stress, anxiety and depression</a>,{' '}
-              <a href="https://mind.org.uk/information-support/types-of-mental-health-problems/stress/" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Mind: Mind&apos;s Guide to Burnout</a>,{' '}
+              <a href="https://www.mind.org.uk/information-support/types-of-mental-health-problems/stress/" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Mind: Mind&apos;s Guide to Burnout</a>,{' '}
               <a href="https://www.bacp.co.uk" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>The British Association for Counselling and Psychotherapy (BACP)</a>.
             </p>
           </div>

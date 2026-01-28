@@ -5,7 +5,7 @@
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -18,38 +18,95 @@
   line-height: var(--line-height-tight);
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xl);
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-lg);
 }
 
 .workshopCard {
-  background-color: #ffffff;
-  padding: var(--spacing-2xl);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
+  background-color: #2d3758;
+  padding: var(--spacing-xl);
+  border-radius: 30px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.7s ease-in-out;
+  overflow: hidden;
 }
 
-.heading {
-  font-size: var(--font-size-2xl);
+.workshopCard::before {
+  content: "";
+  position: absolute;
+  height: 40%;
+  width: 100%;
+  background-color: var(--color-primary);
+  bottom: 0;
+  right: 0;
+  transform: translateY(70px);
+  border-radius: 100%;
+  transition: all 0.7s ease-in-out;
+}
+
+.workshopCard:hover::before {
+  transform: scale(7) translate(-20px);
+}
+
+.workshopCard:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.workshopCard:hover .cardTitle,
+.workshopCard:hover .cardQuote,
+.workshopCard:hover .cardLink {
+  color: #ffffff;
+}
+
+.cardTitle {
+  font-size: var(--font-size-lg);
   font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: var(--spacing-lg);
+  color: #ffffff;
+  margin-bottom: var(--spacing-md);
   line-height: var(--line-height-tight);
+  z-index: 2;
+  position: relative;
+  transition: color 0.7s ease-in-out;
 }
 
-.description {
+.cardQuote {
   font-size: var(--font-size-base);
-  color: var(--color-text);
+  color: rgba(255, 255, 255, 0.85);
   line-height: var(--line-height-relaxed);
-  margin-bottom: 0;
+  flex-grow: 1;
+  margin-bottom: var(--spacing-md);
+  z-index: 2;
+  position: relative;
+  transition: color 0.7s ease-in-out;
+}
+
+.cardLink {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  text-align: center;
+  margin-top: auto;
+  z-index: 2;
+  position: relative;
+  transition: color 0.7s ease-in-out;
 }
 
 /* Tablet: 768px - 1023px */
 @media (min-width: 768px) and (max-width: 1023px) {
   .container {
-    max-width: 800px;
+    max-width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
@@ -64,11 +121,31 @@
     margin-bottom: var(--spacing-xl);
   }
 
-  .workshopCard {
-    padding: var(--spacing-xl);
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--spacing-md);
+    overflow-x: auto;
+    padding-bottom: var(--spacing-sm);
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .heading {
-    font-size: var(--font-size-xl);
+  .workshopCard {
+    scroll-snap-align: start;
+    min-width: 240px;
+  }
+
+  .workshopCard {
+    min-height: 160px;
+    padding: var(--spacing-lg);
+    border-radius: 20px;
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-base);
+  }
+
+  .cardQuote {
+    font-size: var(--font-size-sm);
   }
 }

@@ -15,7 +15,7 @@ features:
 mainContent: |
   As an integrative psychotherapist, I bring genuine warmth and psychological expertise to every session. What makes my approach unique? Twenty years as an NHS GP means I also understand the medical reality of what you're experiencing. This dual understanding enhances our work, aiming for more effective therapy.
 
-  You're already being brave just by considering reaching out. In our work together, there's no judgement, no pressure to be 'fixed,' and no timeline you need to follow. This is your safe space to be exactly where you are, to feel what you're feeling, and to gently explore what comes next. I'm here to walk alongside you with warmth and understanding as you write your next chapter - one filled with greater clarity, self-compassion, and hope.
+  You're already being strong just by considering reaching out. In our work together, there's no judgement, no pressure to be 'fixed,' and no timeline you need to follow. This is your safe space to be exactly where you are, to feel what you're feeling, and to gently explore what comes next. I'm here to walk alongside you with warmth and understanding as you write your next chapter - one filled with greater clarity, self-compassion, and hope.
 
   If you choose to work with me, you're not just getting a therapist - you're gaining a genuine ally on your journey. Clients have told me how much they value feeling truly seen and heard. One client recently shared, "You have been an incredible support for me. I will never forget you Vicky". And these words stay with me, as a reminder of why my work matters.
 

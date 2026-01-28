@@ -19,7 +19,7 @@ export default function YoungPeoplePage() {
 
             <div className={styles.content}>
               <div className={styles.sectionBlock}>
-                <h2 className={styles.heading}>Common challenges include:</h2>
+                <h2 className={styles.heading}>Young peoples&apos; struggles that steal your spark.</h2>
                 <ul className={styles.list}>
                   <li>Academic pressure and exam stress</li>
                   <li>Anxiety and mood difficulties</li>

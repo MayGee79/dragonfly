@@ -60,8 +60,8 @@ sections:
       both, depending on their week.
 
       ## 8. How much does therapy cost?
-      Sessions cost £95 for 50 minutes. I also offer 75-minute single-session therapy at
-      £140, which can be useful for focused work or as a stand-alone consultation. A free
+      Sessions cost £95 for 50 minutes. I also offer 75-minute extended sessions at
+      £150, which can be useful for focused work or as a stand-alone consultation. A free
       15-minute initial phone or online conversation is available to help you decide if we're
       a good fit.
 

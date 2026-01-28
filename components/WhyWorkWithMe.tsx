@@ -32,15 +32,16 @@ export default function WhyWorkWithMe() {
           Deep Therapeutic Understanding, Enhanced by Medical Insight – A Unique Combination
         </p>
         
-        <h3 className={styles.featureHeading}>What I offer:</h3>
-        
-        <div className={styles.featureGrid}>
+        <div className={styles.featureCardsWrap}>
+          <h3 className={styles.featureHeading}>What I offer:</h3>
+          <div className={styles.featureGrid}>
           {features.map((feature, index) => (
             <div key={index} className={styles.featureCard}>
-              <h4 className={styles.featureTitle}>{feature.title}</h4>
-              <p className={styles.featureDescription}>{feature.description}</p>
+              <h4 className={styles.cardTitle}>{feature.title}</h4>
+              <p className={styles.cardQuote}>{feature.description}</p>
             </div>
           ))}
+          </div>
         </div>
 
         <div className={styles.content}>
@@ -49,7 +50,7 @@ export default function WhyWorkWithMe() {
           </p>
           
           <p>
-            You're already being brave just by considering reaching out. In our work together, there's no judgement, no pressure to be 'fixed,' and no timeline you need to follow. This is your safe space to be exactly where you are, to feel what you're feeling, and to gently explore what comes next. I'm here to walk alongside you with warmth and understanding as you write your next chapter - one filled with greater clarity, self-compassion, and hope.
+            You're already being strong just by considering reaching out. In our work together, there's no judgement, no pressure to be 'fixed,' and no timeline you need to follow. This is your safe space to be exactly where you are, to feel what you're feeling, and to gently explore what comes next. I'm here to walk alongside you with warmth and understanding as you write your next chapter - one filled with greater clarity, self-compassion, and hope.
           </p>
           
           <p>

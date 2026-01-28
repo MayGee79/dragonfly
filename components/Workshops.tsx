@@ -12,7 +12,9 @@ const workshopTopics = [
   'Managing Teen Anxiety',
   'Building Confidence & Resilience',
   'Understanding Neurodiversity',
-  'Menopause in the Workplace'
+  'Menopause in the Workplace',
+  'Burnout',
+  'Maintaining good mental health'
 ]
 
 export default function Workshops() {
@@ -36,7 +38,7 @@ export default function Workshops() {
           </div>
 
           <div className={styles.card}>
-            <h3 className={styles.cardTitle}>Current Workshop Topics:</h3>
+            <h3 className={styles.cardTitle}>Example Workshop Topics:</h3>
             <ul className={styles.topicsList}>
               {workshopTopics.map((topic, index) => (
                 <li key={index} className={styles.topicItem}>{topic}</li>
