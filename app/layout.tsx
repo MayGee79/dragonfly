@@ -9,6 +9,7 @@ const quicksand = Quicksand({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://dragonflypreview.vercel.app'),
   title: 'Counselling and Psychotherapy in Surrey | Dragonfly Psychotherapy',
   description: 'Psychotherapy and counselling services in Surrey - Depression, Anxiety, Burn Out, Life Transitions, Impact of Physical Ill Health, Neurodiversity, Self Esteem',
   authors: [{ name: 'Dragonfly Psychotherapy' }],

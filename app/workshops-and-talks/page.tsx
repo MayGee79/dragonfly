@@ -25,7 +25,7 @@ export default function WorkshopsAndTalksPage() {
             <h1 className={styles.title}>Workshops and Talks</h1>
 
             <div className={styles.heroImage}>
-              <img src="/images/Workshops_001.png" alt="" className={styles.heroImg} />
+              <img src="/images/Workshops_001.png" alt="Workshops and talks illustration" className={styles.heroImg} />
             </div>
 
             <div className={styles.grid}>
