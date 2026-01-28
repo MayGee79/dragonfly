@@ -51,7 +51,7 @@ export default function PracticalInfo() {
           <div className={styles.card}>
             <h3 className={styles.cardTitle}>Availability</h3>
             <p className={styles.availabilityText}>
-              I have slots across the week, giving flexibility to when we can work together.
+              I have slots across the week, and can often offer short-notice or same-week appointments when needed.
             </p>
           </div>
         </div>
