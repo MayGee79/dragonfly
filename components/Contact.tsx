@@ -119,6 +119,47 @@ export default function Contact() {
     <section className={styles.section} id="contact">
       <div className={styles.container}>
         <h2 className={styles.title}>Contact</h2>
+
+        <div className={styles.contactStrip}>
+          <div className={styles.contactCol}>
+            <p className={styles.contactColText}>
+              Guildford Therapy Rooms, 3 Beaufort, Parklands, Guildford, GU2 9JX
+            </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Guildford+Therapy+Rooms,+3+Beaufort,+Parklands,+Guildford,+GU2+9JX"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.directionsLink}
+            >
+              Get Directions →
+            </a>
+          </div>
+          <div className={styles.contactCol}>
+            <p className={styles.contactColText}>
+              3 Norells Ride, East Horsley, KT24 5EH
+            </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=3+Norells+Ride,+East+Horsley,+KT24+5EH"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.directionsLink}
+            >
+              Get Directions →
+            </a>
+          </div>
+          <div className={styles.contactCol}>
+            <p className={styles.contactColText}>
+              <strong>Telephone:</strong>{' '}
+              <a href="tel:07546431448">07546 431 448</a>
+            </p>
+            <p className={styles.contactColText}>
+              <a href="mailto:victoria@dragonflypsychotherapy.co.uk">
+                victoria@dragonflypsychotherapy.co.uk
+              </a>
+            </p>
+          </div>
+        </div>
+
         <div className={styles.content}>
           <div className={styles.leftSection}>
             <form 
@@ -216,49 +257,6 @@ export default function Contact() {
                 </p>
               )}
             </form>
-          </div>
-          <div className={styles.rightSection}>
-            <h3 className={styles.subtitle}>Dragonfly Psychotherapy</h3>
-            <div className={styles.address}>
-              <div className={styles.addressItem}>
-                <p>
-                  Guildford Therapy Rooms, 3 Beaufort, Parklands, Guildford, GU2 9JX
-                </p>
-                <a 
-                  href="https://www.google.com/maps/search/?api=1&query=Guildford+Therapy+Rooms,+3+Beaufort,+Parklands,+Guildford,+GU2+9JX"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.directionsLink}
-                >
-                  Get Directions →
-                </a>
-              </div>
-              <p className={styles.addressSeparator}>-</p>
-              <div className={styles.addressItem}>
-                <p>
-                  3 Norells Ride, East Horsley, KT24 5EH
-                </p>
-                <a 
-                  href="https://www.google.com/maps/search/?api=1&query=3+Norells+Ride,+East+Horsley,+KT24+5EH"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.directionsLink}
-                >
-                  Get Directions →
-                </a>
-              </div>
-            </div>
-            <div className={styles.contactDetails}>
-              <p>
-                <strong>Telephone:</strong>{' '}
-                <a href="tel:07546431448">07546 431 448</a>
-              </p>
-              <p>
-                <a href="mailto:victoria@dragonflypsychotherapy.co.uk">
-                  victoria@dragonflypsychotherapy.co.uk
-                </a>
-              </p>
-            </div>
           </div>
         </div>
       </div>

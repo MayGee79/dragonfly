@@ -1,50 +1,131 @@
+/* Navy band with curved top/bottom like other sections */
 .section {
   padding: var(--spacing-3xl) var(--spacing-lg);
+  padding-top: calc(var(--spacing-3xl) + 30px);
+  padding-bottom: calc(var(--spacing-3xl) + 30px);
+  background-color: #2d3758;
+  position: relative;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
   background-color: var(--color-bg);
-  min-height: auto;
+  border-radius: 0 0 50% 50%;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: var(--color-bg);
+  border-radius: 50% 50% 0 0;
 }
 
 .container {
   max-width: 1000px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .title {
   font-size: var(--font-size-4xl);
   font-weight: 700;
-  color: var(--color-text);
+  color: #ffffff;
   text-align: center;
   margin-bottom: var(--spacing-3xl);
   line-height: var(--line-height-tight);
 }
 
-.content {
+.contactStrip {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-3xl);
-  background-color: var(--color-bg);
-  padding: var(--spacing-3xl);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-3xl);
 }
 
-.leftSection,
-.rightSection {
+.contactCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.contactColText {
+  font-size: var(--font-size-base);
+  color: rgba(255, 255, 255, 0.95);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+.contactCol a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-base);
+}
+
+.contactCol a:hover {
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: underline;
+}
+
+.contactCol strong {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 700;
+}
+
+.content {
+  display: block;
+  padding: 0;
+  border-radius: var(--radius-md);
+}
+
+.leftSection {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+  background-color: var(--color-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-xl);
 }
 
 .contactForm {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.contactForm .formGroup:nth-child(3),
+.contactForm .formGroup:nth-child(4),
+.contactForm .checkboxGroup,
+.contactForm .submitButton,
+.contactForm .successMessage,
+.contactForm .errorMessage {
+  grid-column: 1 / -1;
 }
 
 .formGroup {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
+}
+
+/* Form sits on light card – dark text */
+.leftSection .label {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text);
 }
 
 .label {
@@ -55,20 +136,39 @@
 
 .input,
 .textarea {
-  padding: var(--spacing-sm) var(--spacing-md);
-  border: 2px solid rgba(45, 55, 88, 0.2);
-  border-radius: var(--radius-md);
+  padding: 12px var(--spacing-md);
+  border: 0;
+  border-radius: 8px;
   font-size: var(--font-size-base);
   font-family: var(--font-main);
   color: var(--color-text);
-  transition: border-color var(--transition-base);
+  transition: background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   background-color: #ffffff;
+}
+
+.leftSection .input,
+.leftSection .textarea {
+  background-color: #ffffff;
+  color: var(--color-text);
+  border: 1px solid rgba(45, 55, 88, 0.15);
+}
+
+.leftSection .input::placeholder,
+.leftSection .textarea::placeholder {
+  color: rgba(45, 55, 88, 0.5);
 }
 
 .input:focus,
 .textarea:focus {
   outline: none;
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.leftSection .input:focus,
+.leftSection .textarea:focus {
+  background-color: #ffffff;
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px var(--color-primary);
 }
 
 .textarea {
@@ -76,23 +176,24 @@
   min-height: 120px;
 }
 
+/* Uiverse-style gradient button with site primary colours */
 .submitButton {
-  background-color: var(--color-primary);
-  color: var(--color-text);
+  background: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+  color: #ffffff;
   font-size: var(--font-size-lg);
-  font-weight: 600;
-  padding: var(--spacing-md) var(--spacing-3xl);
+  font-weight: 700;
+  padding: 10px 24px;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color var(--transition-base), transform var(--transition-base);
+  transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   align-self: flex-start;
 }
 
 .submitButton:hover:not(:disabled) {
-  background-color: var(--color-primary-dark);
-  color: #ffffff;
-  transform: translateY(-2px);
+  opacity: 0.95;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(175, 147, 184, 0.4);
 }
 
 .submitButton:disabled {
@@ -101,14 +202,14 @@
 }
 
 .successMessage {
-  color: var(--color-primary-dark);
+  color: var(--color-text);
   font-size: var(--font-size-base);
   font-weight: 600;
   margin-top: var(--spacing-sm);
 }
 
 .errorMessage {
-  color: #dc3545;
+  color: #c53030;
   font-size: var(--font-size-base);
   font-weight: 600;
   margin-top: var(--spacing-sm);
@@ -130,6 +231,10 @@
   line-height: var(--line-height-relaxed);
 }
 
+.leftSection .checkboxLabel {
+  color: var(--color-text);
+}
+
 .checkbox {
   margin-top: 4px;
   width: 18px;
@@ -144,7 +249,7 @@
 }
 
 .required {
-  color: #dc3545;
+  color: #c53030;
   font-weight: 600;
 }
 
@@ -232,31 +337,28 @@
     max-width: 800px;
   }
 
-  .content {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
-    padding: var(--spacing-2xl);
+  .contactStrip {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* Mobile: max-width 767px */
 @media (max-width: 767px) {
   .section {
-    padding: var(--spacing-2xl) var(--spacing-md);
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+    padding-top: calc(var(--spacing-2xl) + 30px);
+    padding-bottom: calc(var(--spacing-2xl) + 30px);
   }
 
-  .content {
+  .contactStrip {
     grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
-    padding: var(--spacing-xl);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
   }
 
   .title {
     font-size: var(--font-size-3xl);
     margin-bottom: var(--spacing-xl);
-  }
-
-  .subtitle {
-    font-size: var(--font-size-xl);
   }
 }

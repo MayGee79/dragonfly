@@ -275,12 +275,12 @@ export default function ActivitiesAndToolsPage() {
 
             <h3 className={styles.subheading} id="dot-to-dot">Dot to Dot</h3>
             <p className={styles.contentBody}>
-              Content to be added.
+              <a href="/resources/Minful-Dot-to-Dots.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Mindful Dot to Dots</a> — printable dot-to-dot activities for focused, calming attention.
             </p>
 
             <h3 className={styles.subheading} id="word-searches">Word Searches</h3>
             <p className={styles.contentBody}>
-              Content to be added later.
+              <a href="/resources/Therapeutic-Wordsearch-Collection.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Therapeutic Wordsearch Collection</a> — a set of therapeutic word searches to support reflection and relaxation.
             </p>
           </div>
         </section>
