@@ -1,6 +1,16 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import styles from './testimonials.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Testimonials',
+  description: 'What clients say about working with Dragonfly Psychotherapy. Integrative psychotherapy in Surrey and online.',
+  openGraph: {
+    title: 'Testimonials | Dragonfly Psychotherapy',
+    description: 'Client testimonials from Dragonfly Psychotherapy.',
+  },
+}
 
 const testimonials = [
   {

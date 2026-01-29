@@ -2,6 +2,16 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import styles from './transitions.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Life Transitions',
+  description: 'Support through life transitions with integrative psychotherapy in Surrey and online. Change, loss, identity, and finding your way forward.',
+  openGraph: {
+    title: 'Life Transitions | Dragonfly Psychotherapy',
+    description: 'Support through life transitions with integrative psychotherapy in Surrey and online.',
+  },
+}
 
 export function generateStaticParams() {
   return []

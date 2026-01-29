@@ -2,6 +2,16 @@ import Link from 'next/link'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import styles from './workshops-and-talks.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Workshops and Talks',
+  description: 'Workshops and talks on anxiety, resilience, burnout, and mental health for schools, parents, and organisations. Surrey and online.',
+  openGraph: {
+    title: 'Workshops and Talks | Dragonfly Psychotherapy',
+    description: 'Workshops and talks on mental health for schools, parents, and organisations.',
+  },
+}
 
 const workshops = [
   { title: 'Anxiety In Teens Workshop', description: '', linkText: 'Please enquire →' },

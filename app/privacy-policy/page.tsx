@@ -1,6 +1,17 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import styles from './privacy-policy.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Privacy Notice',
+  description: 'Privacy notice for Dragonfly Psychotherapy. How we collect, use, and protect your personal information. UK GDPR compliant.',
+  openGraph: {
+    title: 'Privacy Notice | Dragonfly Psychotherapy',
+    description: 'Privacy notice for Dragonfly Psychotherapy. UK GDPR compliant.',
+  },
+  robots: { index: true, follow: true },
+}
 
 export function generateStaticParams() {
   return []

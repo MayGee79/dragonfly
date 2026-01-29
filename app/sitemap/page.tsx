@@ -3,6 +3,13 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { getAllBlogPosts } from '@/lib/content'
 import styles from './sitemap.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Sitemap',
+  description: 'Sitemap of all pages on Dragonfly Psychotherapy. Find therapy topics, resources, blog, and contact.',
+  robots: { index: true, follow: true },
+}
 
 export default function SitemapPage() {
   const blogPosts = getAllBlogPosts()

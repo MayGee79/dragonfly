@@ -3,6 +3,16 @@ import Hero from '@/components/Hero'
 import Footer from '@/components/Footer'
 import { getPageBySlug } from '@/lib/content'
 import styles from './faqs.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'FAQs',
+  description: 'Frequently asked questions about therapy, sessions, fees, and how to get started with Dragonfly Psychotherapy in Surrey and online.',
+  openGraph: {
+    title: 'FAQs | Dragonfly Psychotherapy',
+    description: 'Frequently asked questions about therapy, sessions, fees, and how to get started with Dragonfly Psychotherapy in Surrey and online.',
+  },
+}
 
 function parseFaqs(content: string): { question: string; answer: string[] }[] {
   if (!content?.trim()) return []
@@ -47,7 +57,25 @@ export default function FAQsPage() {
           />
         )}
         {faqs.length > 0 && (
-          <section className={styles.section}>
+          <>
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  '@context': 'https://schema.org',
+                  '@type': 'FAQPage',
+                  mainEntity: faqs.map((faq) => ({
+                    '@type': 'Question',
+                    name: faq.question,
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: faq.answer.join(' '),
+                    },
+                  })),
+                }),
+              }}
+            />
+            <section className={styles.section}>
             <div className={styles.container}>
               <div className={styles.grid}>
                 {faqs.map((faq, index) => (
@@ -63,6 +91,7 @@ export default function FAQsPage() {
               </div>
             </div>
           </section>
+          </>
         )}
       </main>
       <Footer />

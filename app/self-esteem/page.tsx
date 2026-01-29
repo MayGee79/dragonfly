@@ -2,6 +2,16 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import styles from './self-esteem.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Self-Esteem & Personal Growth',
+  description: 'Build self-esteem and personal growth with integrative psychotherapy in Surrey and online. A space to reconnect with your strengths and values.',
+  openGraph: {
+    title: 'Self-Esteem & Personal Growth | Dragonfly Psychotherapy',
+    description: 'Build self-esteem and personal growth with integrative psychotherapy in Surrey and online.',
+  },
+}
 
 export function generateStaticParams() {
   return []

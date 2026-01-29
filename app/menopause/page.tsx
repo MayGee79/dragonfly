@@ -2,6 +2,16 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import styles from './menopause.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Menopause',
+  description: 'Support through menopause and perimenopause with integrative psychotherapy in Surrey and online. A space to explore the emotional and physical impact of hormonal change.',
+  openGraph: {
+    title: 'Menopause | Dragonfly Psychotherapy',
+    description: 'Support through menopause and perimenopause with integrative psychotherapy in Surrey and online.',
+  },
+}
 
 export function generateStaticParams() {
   return []

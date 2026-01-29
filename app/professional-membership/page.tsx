@@ -2,6 +2,16 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import styles from './professional-membership.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Professional Membership',
+  description: 'Dr Victoria Froome is a BACP-registered integrative psychotherapist. Qualifications, CPD, and professional profile.',
+  openGraph: {
+    title: 'Professional Membership | Dragonfly Psychotherapy',
+    description: 'BACP-registered integrative psychotherapist. Qualifications and professional profile.',
+  },
+}
 
 const qualifications = [
   'Masters in Integrative Counselling and Psychotherapy (Merit)',

@@ -2,6 +2,16 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import styles from './rejection-sensitive-dysphoria.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Rejection Sensitive Dysphoria (RSD)',
+  description: 'Support for rejection sensitive dysphoria with integrative psychotherapy in Surrey and online. When rejection feels unbearable.',
+  openGraph: {
+    title: 'Rejection Sensitive Dysphoria (RSD) | Dragonfly Psychotherapy',
+    description: 'Support for RSD with integrative psychotherapy in Surrey and online.',
+  },
+}
 
 export function generateStaticParams() {
   return []

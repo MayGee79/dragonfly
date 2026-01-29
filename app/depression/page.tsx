@@ -2,6 +2,16 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import styles from './depression.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Depression',
+  description: 'Support for depression with integrative psychotherapy in Surrey and online. A safe space to explore low mood, loss of interest, and finding your way forward.',
+  openGraph: {
+    title: 'Depression | Dragonfly Psychotherapy',
+    description: 'Support for depression with integrative psychotherapy in Surrey and online.',
+  },
+}
 
 export function generateStaticParams() {
   return []

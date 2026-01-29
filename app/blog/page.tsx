@@ -3,6 +3,16 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { getAllBlogPosts } from '@/lib/content'
 import styles from './blog.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: 'Blog posts from Dragonfly Psychotherapy on mental health, wellbeing, and integrative psychotherapy. Surrey and online.',
+  openGraph: {
+    title: 'Blog | Dragonfly Psychotherapy',
+    description: 'Blog posts on mental health and integrative psychotherapy.',
+  },
+}
 
 export default function BlogPage() {
   const posts = getAllBlogPosts()

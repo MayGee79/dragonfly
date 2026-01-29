@@ -2,6 +2,16 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import styles from './support-and-resources.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Support and Resources',
+  description: 'National and local mental health resources from Dragonfly Psychotherapy. Hub of Hope, Surrey Children & Young People guide, and more.',
+  openGraph: {
+    title: 'Support and Resources | Dragonfly Psychotherapy',
+    description: 'National and local mental health resources and support links.',
+  },
+}
 
 export function generateStaticParams() {
   return []

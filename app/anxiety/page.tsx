@@ -1,6 +1,16 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import styles from './anxiety.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Anxiety & Panic',
+  description: 'Understanding and managing anxiety with integrative psychotherapy in Surrey and online. Support for worry, panic, and anxiety-related difficulties.',
+  openGraph: {
+    title: 'Anxiety & Panic | Dragonfly Psychotherapy',
+    description: 'Understanding and managing anxiety with integrative psychotherapy in Surrey and online.',
+  },
+}
 
 export function generateStaticParams() {
   return []

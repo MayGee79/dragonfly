@@ -2,6 +2,16 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import styles from './health-anxiety.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Health Anxiety',
+  description: 'Support for health anxiety and illness-related worry with integrative psychotherapy in Surrey and online. Understanding and managing fear about your health.',
+  openGraph: {
+    title: 'Health Anxiety | Dragonfly Psychotherapy',
+    description: 'Support for health anxiety with integrative psychotherapy in Surrey and online.',
+  },
+}
 
 export function generateStaticParams() {
   return []

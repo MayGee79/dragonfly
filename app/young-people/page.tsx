@@ -2,6 +2,16 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import styles from './young-people.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Young People 11+',
+  description: 'Therapy for young people aged 11 and over in Surrey and online. A safe space for teens navigating school, relationships, and identity.',
+  openGraph: {
+    title: 'Young People 11+ | Dragonfly Psychotherapy',
+    description: 'Therapy for young people aged 11+ in Surrey and online.',
+  },
+}
 
 export function generateStaticParams() {
   return []

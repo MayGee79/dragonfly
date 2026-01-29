@@ -2,6 +2,16 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import styles from './burnout.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Burnout',
+  description: 'Recover from burnout with integrative psychotherapy in Surrey and online. Support for exhaustion, overwhelm, and rebuilding your energy and boundaries.',
+  openGraph: {
+    title: 'Burnout | Dragonfly Psychotherapy',
+    description: 'Recover from burnout with integrative psychotherapy in Surrey and online.',
+  },
+}
 
 export function generateStaticParams() {
   return []

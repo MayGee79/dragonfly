@@ -1,6 +1,16 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import styles from './activities-and-tools.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Activities and Tools',
+  description: 'Self-help resources, mindfulness exercises, and printable tools from Dragonfly Psychotherapy. Anxiety, resilience, and wellbeing support.',
+  openGraph: {
+    title: 'Activities and Tools | Dragonfly Psychotherapy',
+    description: 'Self-help resources, mindfulness exercises, and printable tools for anxiety and wellbeing.',
+  },
+}
 
 const activities = [
   {

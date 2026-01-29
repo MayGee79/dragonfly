@@ -2,6 +2,16 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import styles from './shop.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Shop',
+  description: 'Dragonfly Psychotherapy shop. Therapeutic resources and materials.',
+  openGraph: {
+    title: 'Shop | Dragonfly Psychotherapy',
+    description: 'Therapeutic resources and materials from Dragonfly Psychotherapy.',
+  },
+}
 
 export function generateStaticParams() {
   return []

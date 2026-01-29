@@ -2,6 +2,13 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import styles from './thank-you.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Thank You',
+  description: 'Your message has been sent. Dragonfly Psychotherapy will get back to you soon.',
+  robots: { index: false, follow: true },
+}
 
 export function generateStaticParams() {
   return []

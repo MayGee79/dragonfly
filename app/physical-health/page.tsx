@@ -2,6 +2,16 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import styles from './physical-health.module.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Physical Health Issues',
+  description: 'Support when living with physical illness or health concerns with integrative psychotherapy in Surrey and online. Mind and body together.',
+  openGraph: {
+    title: 'Physical Health Issues | Dragonfly Psychotherapy',
+    description: 'Support when living with physical illness with integrative psychotherapy in Surrey and online.',
+  },
+}
 
 export function generateStaticParams() {
   return []
