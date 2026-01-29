@@ -4,7 +4,7 @@ import Footer from '@/components/Footer'
 import { getPageBySlug } from '@/lib/content'
 import styles from './faqs.module.css'
 
-function parseFaqs(content: string): { question: string; answer: string }[] {
+function parseFaqs(content: string): { question: string; answer: string[] }[] {
   if (!content?.trim()) return []
   const blocks = content.split(/\n\s*## \d+\.\s*/).filter(Boolean)
   return blocks.map((block) => {
