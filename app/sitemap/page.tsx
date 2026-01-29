@@ -30,7 +30,6 @@ export default function SitemapPage() {
   const resourcesPages = [
     { title: 'Support and Resources', url: '/support-and-resources' },
     { title: 'Activities and Tools', url: '/activities-and-tools' },
-    { title: 'Book Reviews', url: '/book-reviews' },
     { title: 'Testimonials', url: '/testimonials' },
   ]
 

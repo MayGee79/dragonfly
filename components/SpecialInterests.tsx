@@ -74,7 +74,7 @@ export default function SpecialInterests() {
   return (
     <section className={styles.section} id="special-interests">
       <div className={styles.container}>
-        <h2 className={styles.mainTitle}>Special Interest</h2>
+        <h2 className={styles.mainTitle}>Special Interests</h2>
         <h3 className={styles.title}>Click what resonates with you</h3>
         <div className={styles.grid}>
           {cards.map((card, index) => {

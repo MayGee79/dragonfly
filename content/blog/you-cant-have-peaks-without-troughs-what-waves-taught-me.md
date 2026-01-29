@@ -43,7 +43,7 @@ Since then, I've returned to Watts again and again. And this week, watching thos
 
 He talked about how life moves in waves - crests and troughs, peaks and valleys - and how our suffering often comes from forgetting this.
 
-***"We see the trough go down, down, down and think it keeps going forever — that it will never rise back up again into a crest. We forget that trough implies crest, and crest implies trough."*** - Alan Watts, *Out of Your Mind: Tricksters, Interdependence, and the Cosmic Game of Hide and Seek*
+***"We see the trough go down, down, down and think it keeps going forever - that it will never rise back up again into a crest. We forget that trough implies crest, and crest implies trough."*** - Alan Watts, *Out of Your Mind: Tricksters, Interdependence, and the Cosmic Game of Hide and Seek*
 
 You cannot have one without the other. Nobody ever saw a wave that was all peak.
 

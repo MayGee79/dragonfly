@@ -22,7 +22,7 @@ sections:
       young people who are struggling. My aim is always to help you rediscover your
       spark, build confidence, and find a sustainable way forward.
 
-      ## 2. What makes your approach different
+      ## 2. What makes your approach different?
       My background as both a former NHS GP and a psychotherapist means I
       understand how closely emotional and physical wellbeing are linked. I combine
       medical insight with psychological expertise to offer a truly holistic approach. Clients

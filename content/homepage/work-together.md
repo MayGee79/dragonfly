@@ -1,5 +1,5 @@
 ---
-mainTitle: Our work together
+mainTitle: Our Work Together
 subtitle: Simple, Flexible, Tailored to You
 introText: |
   I'm an integrative therapist - which means I draw from a range of different skills - including CBT, psychodynamic, person-centred and mindfulness approaches. This blend will depend on any specific issues or goals that we have identified for you and may well adjust over the course of our work, creating a plan unique for you. There are no generic one-size-fits-all solutions.
@@ -23,5 +23,5 @@ alsoAvailable:
   - Workshops for Schools on anxiety, resilience, and wellbeing
   - Bespoke Talks for organisations
   - Wellness Walks
-closingText: If this resonates with you please get in touch. And you can head down to my pages with resources and sources of support, activities and tools, book reviews and blogs to see if there is something to help you get started.
+closingText: If this resonates with you please get in touch. And you can head down to my pages with resources and sources of support, activities, tools and blogs to see if there is something to help you get started.
 ---

@@ -46,7 +46,6 @@ export default function Navigation({ className }: NavigationProps = {}) {
     { href: '/support-and-resources', label: 'Support and Resources' },
     { href: '/activities-and-tools', label: 'Activities and Tools' },
     { href: '/workshops-and-talks', label: 'Workshops and Talks' },
-    { href: '/book-reviews', label: 'Book Reviews' },
     { href: '/blog', label: 'Blogs' },
   ]
 

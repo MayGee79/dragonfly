@@ -29,7 +29,7 @@ const cpd = [
   'Single session therapy',
   'Compassion and self harm in teen',
   'Talking teens',
-  'Facing the storm — decision making during uncertainty',
+  'Facing the storm - decision making during uncertainty',
   'Burnout'
 ]
 

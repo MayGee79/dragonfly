@@ -1,16 +1,16 @@
 ---
-mainTitle: Why work with me?
-featureHeading: "What I offer:"
+mainTitle: Why Work With Me?
+featureHeading: "What I Offer:"
 features:
-  - title: Safe space
+  - title: Safe Space
     description: to explore without judgment
-  - title: Practical tools
+  - title: Practical Tools
     description: that work in daily life
-  - title: Whole-person understanding
+  - title: Whole-Person Understanding
     description: your mind, body, and circumstances matter
-  - title: Authentic care
+  - title: Authentic Care
     description: you'll feel heard, valued, and understood
-  - title: True collaboration
+  - title: True Collaboration
     description: your goals, your pace, your journey
 mainContent: |
   As an integrative psychotherapist, I bring genuine warmth and psychological expertise to every session. What makes my approach unique? Twenty years as an NHS GP means I also understand the medical reality of what you're experiencing. This dual understanding enhances our work, aiming for more effective therapy.

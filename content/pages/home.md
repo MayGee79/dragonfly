@@ -24,8 +24,9 @@ sections:
       **Health fears** that dominate your mind.
       **Physical illness** that limits your life.
       **Self-doubt** that holds you back.
-      **Young people** who are struggling.
       **Neurodiversity** that makes you feel different.
+      **Feedback** that hits bone-deep.
+      **Young people** struggles that steal your spark.
       ---IMAGE---
       **I'm Vicky, an integrative psychotherapist with almost 20 years as an NHS GP behind me.** I understand both the emotional weight you're carrying and the physical reality of what you're experiencing.
 

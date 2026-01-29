@@ -2,23 +2,23 @@ import styles from './WhyWorkWithMe.module.css'
 
 const features = [
   {
-    title: 'Safe space',
+    title: 'Safe Space',
     description: 'to explore without judgment'
   },
   {
-    title: 'Practical tools',
+    title: 'Practical Tools',
     description: 'that work in daily life'
   },
   {
-    title: 'Whole-person understanding',
+    title: 'Whole-Person Understanding',
     description: 'your mind, body, and circumstances matter'
   },
   {
-    title: 'Authentic care',
+    title: 'Authentic Care',
     description: "you'll feel heard, valued, and understood"
   },
   {
-    title: 'True collaboration',
+    title: 'True Collaboration',
     description: 'your goals, your pace, your journey'
   }
 ]
@@ -27,13 +27,13 @@ export default function WhyWorkWithMe() {
   return (
     <section className={styles.section} id="why-work-with-me">
       <div className={styles.container}>
-        <h2 className={styles.mainTitle}>Why work with me?</h2>
+        <h2 className={styles.mainTitle}>Why Work With Me?</h2>
         <p className={styles.subtitle}>
           Deep Therapeutic Understanding, Enhanced by Medical Insight – A Unique Combination
         </p>
         
         <div className={styles.featureCardsWrap}>
-          <h3 className={styles.featureHeading}>What I offer:</h3>
+          <h3 className={styles.featureHeading}>What I Offer:</h3>
           <div className={styles.featureGrid}>
           {features.map((feature, index) => (
             <div key={index} className={styles.featureCard}>

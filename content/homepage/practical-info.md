@@ -4,7 +4,7 @@ fees:
   - Free - 15-minute consultation
   - £95 - Standard 50-minute session
   - £150 - Extended 75-minute session
-  - POA - Workshops & talks
+  - POA - Workshops, talks & walks
 locations:
   - Guildford - Beaufort Parklands GU2 9JX
   - East Horsley - 3 Norells Ride KT24 5EH

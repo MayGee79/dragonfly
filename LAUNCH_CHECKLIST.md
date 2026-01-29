@@ -2,7 +2,31 @@
 
 Use this as the single source of truth before going live. Tick items when done.
 
-**Important:** Any changes made when completing the steps below **must be implemented without affecting the look and UI**. The current design, layout, colours, typography, and behaviour of the site must stay the same unless a step explicitly calls for a visible change.
+**Important:** Any changes made when completing the steps below **must be implemented without affecting the look and UI**.
+
+---
+
+## How to do this checklist
+
+1. **Work in order** – Do sections 1 → 2 → 3 → 4 → 5, then 6 last.
+2. **Test locally first** – Run `npm run dev`, open http://localhost:3000. See `DEBUG_WORKFLOW.md` for safe changes.
+3. **Tick when done** – Change `- [ ]` to `- [x]` for each item you’ve completed.
+4. **Don’t go live** until sections 1–5 are all ticked.
+
+**Step 2 (Debug) – what to do:**
+- **Run through main flows:** Open home, click nav links (Working Together, Contact, Support and Resources, etc.), open a blog post, go to FAQs. Fix any broken links or obvious bugs.
+- **Test contact form:** Fill in name, email, message, tick consent, click Send. Check your Formspree inbox (or the email Formspree sends to) and confirm the submission arrived.
+- **Check responsive:** Resize the browser or use DevTools (F12 → device toolbar). Check home, nav menu, contact section, and one other page on a narrow width (e.g. 375px). Note any layout breaks to fix later.
+- **Build warnings:** Run `npm run build`. If you see warnings (e.g. metadataBase), we can fix them without changing the UI (see DEBUG_WORKFLOW.md).
+
+**Step 3 (SEO) – what to do:**
+- **robots / sitemap:** Already in the repo (`app/robots.ts`, `app/sitemap.ts`). Before go-live, set `NEXT_PUBLIC_SITE_URL` in Vercel (or your host) to your live URL.
+- **metadataBase:** Already in `app/layout.tsx`. Same env var above.
+- **Favicon:** Add a small image (e.g. `public/favicon.ico` or `app/icon.png`) so the browser tab shows your icon.
+
+**Step 4–5:** Read each bullet; confirm or configure as described. Step 6 only after 1–5 are done.
+
+--- The current design, layout, colours, typography, and behaviour of the site must stay the same unless a step explicitly calls for a visible change.
 
 **Client instruction:** Do not take the site live until everything below (including cyber security, debug, SEO, and meta) is complete. **Go live only when all other sections are done.**
 

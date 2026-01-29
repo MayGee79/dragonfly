@@ -28,7 +28,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-xl);
   margin-bottom: var(--spacing-3xl);
 }
@@ -42,7 +42,7 @@
 .cardTitle {
   font-size: var(--font-size-xl);
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-primary);
   margin-bottom: var(--spacing-lg);
 }
 
@@ -69,7 +69,7 @@
 .highlight {
   font-size: var(--font-size-lg);
   font-weight: 700;
-  color: var(--color-primary);
+  color: #ffffff;
 }
 
 .description {

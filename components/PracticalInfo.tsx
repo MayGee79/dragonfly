@@ -5,7 +5,7 @@ const fees = [
   { price: 'Free', description: '15-minute consultation' },
   { price: '£95', description: 'Standard 50-minute session' },
   { price: '£150', description: 'Extended 75-minute session' },
-  { price: 'POA', description: 'Workshops & talks' }
+  { price: 'POA', description: 'Workshops, talks & walks' }
 ]
 
 const locations = [
@@ -18,7 +18,7 @@ export default function PracticalInfo() {
   return (
     <section className={styles.section} id="practical-info">
       <div className={styles.container}>
-        <h2 className={styles.mainTitle}>Practical information</h2>
+        <h2 className={styles.mainTitle}>Practical Information</h2>
         
         <div className={styles.grid}>
           <div className={styles.card}>

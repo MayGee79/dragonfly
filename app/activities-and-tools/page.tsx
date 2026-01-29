@@ -54,12 +54,12 @@ export default function ActivitiesAndToolsPage() {
           <div className={styles.contentSectionInner}>
             <h2 className={styles.contentTitle}>Understanding &amp; Managing Anxiety</h2>
                 <p className={styles.contentIntro}>
-                  Anxiety is exhausting. If you&apos;re living with it, you already know how much energy it takes — the racing thoughts, the physical tension, the constant sense of dread or &quot;what if&quot;. The good news is that anxiety responds well to the right strategies. This guide offers some practical tools to help you feel more in control.
+                  Anxiety is exhausting. If you&apos;re living with it, you already know how much energy it takes - the racing thoughts, the physical tension, the constant sense of dread or &quot;what if&quot;. The good news is that anxiety responds well to the right strategies. This guide offers some practical tools to help you feel more in control.
                 </p>
 
                 <h3 className={styles.subheading}>What&apos;s Actually Happening</h3>
                 <p className={styles.contentBody}>
-                  Anxiety is your brain&apos;s threat-detection system working overtime. It evolved to keep us safe from danger, but in modern life it often fires when there&apos;s no real threat — just uncertainty, stress, or things we can&apos;t control. Your body responds as if there&apos;s a tiger in the room: heart racing, muscles tense, breathing shallow, mind scanning for danger. It&apos;s not a sign of weakness or failure — it&apos;s a misfiring alarm system, and we can learn to calm it down.
+                  Anxiety is your brain&apos;s threat-detection system working overtime. It evolved to keep us safe from danger, but in modern life it often fires when there&apos;s no real threat - just uncertainty, stress, or things we can&apos;t control. Your body responds as if there&apos;s a tiger in the room: heart racing, muscles tense, breathing shallow, mind scanning for danger. It&apos;s not a sign of weakness or failure - it&apos;s a misfiring alarm system, and we can learn to calm it down.
                 </p>
 
                 <h3 className={styles.subheading}>You Might Notice</h3>
@@ -83,17 +83,17 @@ export default function ActivitiesAndToolsPage() {
                   Anxious thoughts often feel absolutely true and urgent. But thoughts are not facts. When you notice an anxious thought, try asking: Is this definitely true? What&apos;s the evidence? What would I say to a friend thinking this? What&apos;s the most likely outcome (not the worst)?
                 </p>
                 <p className={styles.contentBody}>
-                  You don&apos;t have to believe every thought your mind produces. Sometimes the most helpful thing is simply to notice: &quot;There&apos;s that anxious thought again&quot; — and let it pass without engaging with it.
+                  You don&apos;t have to believe every thought your mind produces. Sometimes the most helpful thing is simply to notice: &quot;There&apos;s that anxious thought again&quot; - and let it pass without engaging with it.
                 </p>
 
                 <h3 className={styles.subheading}>Daily Habits That Help</h3>
                 <p className={styles.contentBody}>
-                  Movement matters — even a 20-minute walk can reduce anxiety significantly. Limit caffeine and alcohol, which both worsen anxiety symptoms. Prioritise sleep (anxiety and poor sleep feed each other). Stay connected with people who support you. And be gentle with yourself — managing anxiety is hard work.
+                  Movement matters - even a 20-minute walk can reduce anxiety significantly. Limit caffeine and alcohol, which both worsen anxiety symptoms. Prioritise sleep (anxiety and poor sleep feed each other). Stay connected with people who support you. And be gentle with yourself - managing anxiety is hard work.
                 </p>
 
                 <h3 className={styles.subheading}>When Self-Help Isn&apos;t Enough</h3>
                 <p className={styles.contentBody}>
-                  These strategies can help, but sometimes anxiety needs more than self-help. If anxiety is significantly affecting your work, relationships, or quality of life — or if you&apos;re experiencing panic attacks, avoiding situations, or feeling unable to cope — therapy can make a real difference. As a former NHS GP turned psychotherapist, I understand anxiety from both a medical and psychological perspective, and I&apos;d be glad to help.
+                  These strategies can help, but sometimes anxiety needs more than self-help. If anxiety is significantly affecting your work, relationships, or quality of life - or if you&apos;re experiencing panic attacks, avoiding situations, or feeling unable to cope - therapy can make a real difference. As a former NHS GP turned psychotherapist, I understand anxiety from both a medical and psychological perspective, and I&apos;d be glad to help.
                 </p>
 
                 <h3 className={styles.subheading}>Helpful Resources</h3>
@@ -163,7 +163,7 @@ export default function ActivitiesAndToolsPage() {
 
             <h3 className={styles.subheading}>Common Myths</h3>
             <ul className={styles.mythList}>
-              <li><span className={styles.mythWrong}>False: &quot;Confident people never doubt themselves.&quot;</span><br /><span className={styles.mythRight}>True: Everyone has doubts—confidence means acting despite them.</span></li>
+              <li><span className={styles.mythWrong}>False: &quot;Confident people never doubt themselves.&quot;</span><br /><span className={styles.mythRight}>True: Everyone has doubts-confidence means acting despite them.</span></li>
               <li><span className={styles.mythWrong}>False: &quot;Resilience means staying positive all the time.&quot;</span><br /><span className={styles.mythRight}>True: Resilience includes feeling your emotions and still moving forward.</span></li>
               <li><span className={styles.mythWrong}>False: &quot;Some people are just born confident/resilient.&quot;</span><br /><span className={styles.mythRight}>True: These are skills. You can develop and strengthen them.</span></li>
             </ul>
@@ -218,12 +218,12 @@ export default function ActivitiesAndToolsPage() {
           <div className={styles.contentSectionInner}>
             <h2 className={styles.contentTitle}>Mindfulness: A Gentle Introduction</h2>
             <p className={styles.contentIntro}>
-              Mindfulness is simply about paying attention to the present moment, without judgement. It sounds simple, but in our busy lives, we spend most of our time lost in thoughts about the past or future. These exercises can help you find a little more calm and clarity. There&apos;s no right or wrong way to do them — just see what works for you.
+              Mindfulness is simply about paying attention to the present moment, without judgement. It sounds simple, but in our busy lives, we spend most of our time lost in thoughts about the past or future. These exercises can help you find a little more calm and clarity. There&apos;s no right or wrong way to do them - just see what works for you.
             </p>
 
             <h3 className={styles.subheading}>Mindful Breathing</h3>
             <p className={styles.contentBody}>
-              Find somewhere comfortable and close your eyes if that feels okay. Breathe naturally and simply notice your breath — the rise and fall of your chest, the air moving in and out. When your mind wanders (and it will — that&apos;s completely normal), gently guide your attention back to your breath. Even two or three minutes can help.
+              Find somewhere comfortable and close your eyes if that feels okay. Breathe naturally and simply notice your breath - the rise and fall of your chest, the air moving in and out. When your mind wanders (and it will - that&apos;s completely normal), gently guide your attention back to your breath. Even two or three minutes can help.
             </p>
 
             <h3 className={styles.subheading}>The 5-4-3-2-1 Grounding Exercise</h3>
@@ -233,26 +233,26 @@ export default function ActivitiesAndToolsPage() {
 
             <h3 className={styles.subheading}>Leaves on a Stream</h3>
             <p className={styles.contentBody}>
-              This visualisation comes from Acceptance and Commitment Therapy and helps create distance from difficult thoughts. Imagine a gentle stream with leaves floating on the surface. As thoughts arise — any thoughts, positive or negative — picture placing each one on a leaf and watching it drift away. You&apos;re not trying to stop your thoughts or change them, just observing them come and go. If you get caught up in a thought, that&apos;s okay — simply notice it happened and return to the stream.
+              This visualisation comes from Acceptance and Commitment Therapy and helps create distance from difficult thoughts. Imagine a gentle stream with leaves floating on the surface. As thoughts arise - any thoughts, positive or negative - picture placing each one on a leaf and watching it drift away. You&apos;re not trying to stop your thoughts or change them, just observing them come and go. If you get caught up in a thought, that&apos;s okay - simply notice it happened and return to the stream.
             </p>
 
             <h3 className={styles.subheading}>Body Scan</h3>
             <p className={styles.contentBody}>
-              Lie down or sit comfortably and bring your attention slowly through your body, starting at your toes and moving up to the top of your head. Simply notice what you find — areas of tension, warmth, discomfort, or ease. You don&apos;t need to change anything; just observe with curiosity. This helps you reconnect with your body and often releases tension you didn&apos;t know you were holding.
+              Lie down or sit comfortably and bring your attention slowly through your body, starting at your toes and moving up to the top of your head. Simply notice what you find - areas of tension, warmth, discomfort, or ease. You don&apos;t need to change anything; just observe with curiosity. This helps you reconnect with your body and often releases tension you didn&apos;t know you were holding.
             </p>
 
             <h3 className={styles.subheading}>Mindful Walking</h3>
             <p className={styles.contentBody}>
-              You can practise mindfulness while walking — no need to sit still. Walk at a comfortable pace and bring your attention to the sensations: your feet on the ground, the movement of your body, the air on your skin, the sounds around you. When your mind drifts to your to-do list or yesterday&apos;s conversation, gently bring it back to the experience of walking.
+              You can practise mindfulness while walking - no need to sit still. Walk at a comfortable pace and bring your attention to the sensations: your feet on the ground, the movement of your body, the air on your skin, the sounds around you. When your mind drifts to your to-do list or yesterday&apos;s conversation, gently bring it back to the experience of walking.
             </p>
 
             <h3 className={styles.subheading}>Loving-Kindness</h3>
             <p className={styles.contentBody}>
-              Sit quietly and silently repeat phrases of kindness, first to yourself: &quot;May I be happy. May I be healthy. May I be safe.&quot; Then extend these wishes to others — someone you love, someone neutral, even someone difficult. This practice cultivates warmth and compassion, and research shows it genuinely shifts our emotional state over time.
+              Sit quietly and silently repeat phrases of kindness, first to yourself: &quot;May I be happy. May I be healthy. May I be safe.&quot; Then extend these wishes to others - someone you love, someone neutral, even someone difficult. This practice cultivates warmth and compassion, and research shows it genuinely shifts our emotional state over time.
             </p>
 
             <p className={styles.contentBody}>
-              Start small. Even a few minutes of mindfulness practice can make a difference. Be patient with yourself — a wandering mind isn&apos;t failure, it&apos;s just what minds do. The practice is in the gentle returning, again and again.
+              Start small. Even a few minutes of mindfulness practice can make a difference. Be patient with yourself - a wandering mind isn&apos;t failure, it&apos;s just what minds do. The practice is in the gentle returning, again and again.
             </p>
 
             <p className={styles.contentBody}>
@@ -275,12 +275,12 @@ export default function ActivitiesAndToolsPage() {
 
             <h3 className={styles.subheading} id="dot-to-dot">Dot to Dot</h3>
             <p className={styles.contentBody}>
-              <a href="/resources/Minful-Dot-to-Dots.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Mindful Dot to Dots</a> — printable dot-to-dot activities for focused, calming attention.
+              <a href="/resources/Minful-Dot-to-Dots.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Mindful Dot to Dots</a> - printable dot-to-dot activities for focused, calming attention.
             </p>
 
             <h3 className={styles.subheading} id="word-searches">Word Searches</h3>
             <p className={styles.contentBody}>
-              <a href="/resources/Therapeutic-Wordsearch-Collection.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Therapeutic Wordsearch Collection</a> — a set of therapeutic word searches to support reflection and relaxation.
+              <a href="/resources/Therapeutic-Wordsearch-Collection.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Therapeutic Wordsearch Collection</a> - a set of therapeutic word searches to support reflection and relaxation.
             </p>
           </div>
         </section>

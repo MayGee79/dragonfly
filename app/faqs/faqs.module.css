@@ -1,0 +1,115 @@
+.section {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  background-color: var(--color-bg);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.card {
+  background-color: #2d3758;
+  padding: var(--spacing-xl);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.7s ease-in-out;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  height: 40%;
+  width: 100%;
+  background-color: var(--color-primary);
+  bottom: 0;
+  right: 0;
+  transform: translateY(70px);
+  border-radius: 100%;
+  transition: all 0.7s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover::before {
+  transform: scale(7) translate(-20px);
+}
+
+.card:hover .cardTitle,
+.card:hover .cardAnswer {
+  color: #ffffff;
+}
+
+.cardTitle {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+  z-index: 2;
+  position: relative;
+  transition: color 0.7s ease-in-out;
+}
+
+.cardAnswer {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: var(--line-height-relaxed);
+  flex-grow: 1;
+  z-index: 2;
+  position: relative;
+  transition: color 0.7s ease-in-out;
+}
+
+.cardAnswer p {
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.cardAnswer p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tablet: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile: max-width 767px */
+@media (max-width: 767px) {
+  .section {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .card {
+    min-height: 160px;
+    padding: var(--spacing-lg);
+    border-radius: 20px;
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-sm);
+  }
+
+  .cardAnswer {
+    font-size: var(--font-size-xs, 0.875rem);
+  }
+}

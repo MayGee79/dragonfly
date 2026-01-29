@@ -1,5 +1,5 @@
 ---
-mainTitle: Special Interest
+mainTitle: Special Interests
 subtitle: Click what resonates with you
 contactButtonText: Not sure where you fit?
 contactButtonHoverText: Contact me

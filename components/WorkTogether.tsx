@@ -23,17 +23,17 @@ const steps = [
 ]
 
 const alsoAvailable = [
-  'Single Session Therapy for focused support on single issues',
-  'Workshops for Schools on anxiety, resilience, and wellbeing',
-  'Bespoke Talks for organisations',
-  'Wellness Walks'
+  'Single session therapy for focused support on single issues',
+  'Wellness walks',
+  'Bespoke workshops and talks',
+  'On demand education'
 ]
 
 export default function WorkTogether() {
   return (
     <section className={styles.section} id="work-together">
       <div className={styles.container}>
-        <h2 className={styles.mainTitle}>Our work together</h2>
+        <h2 className={styles.mainTitle}>Our Work Together</h2>
         <p className={styles.subtitle}>Simple, Flexible, Tailored to You</p>
         
         <div className={styles.intro}>
@@ -71,7 +71,7 @@ export default function WorkTogether() {
 
         <div className={styles.closing}>
           <p>
-            If this resonates with you please get in touch. And you can head down to my pages with resources and sources of support, activities and tools, book reviews and blogs to see if there is something to help you get started.
+            If this resonates with you please get in touch. And you can head down to my pages with resources and sources of support, activities, tools and blogs to see if there is something to help you get started.
           </p>
         </div>
 

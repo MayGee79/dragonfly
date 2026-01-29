@@ -10,7 +10,7 @@ export default function AboutMe() {
   return (
     <section className={styles.section} id="about-me">
       <div className={styles.container}>
-        <h2 className={styles.mainTitle}>About me</h2>
+        <h2 className={styles.mainTitle}>About Me</h2>
         <p className={styles.subtitle}>Your Therapist & Ally</p>
         
         <div className={styles.threeColumn}>

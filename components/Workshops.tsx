@@ -2,10 +2,10 @@ import Link from 'next/link'
 import styles from './Workshops.module.css'
 
 const facilitateFor = [
-  { name: 'Schools', description: 'Student anxiety, exam stress, resilience' },
-  { name: 'Parents', description: 'Supporting anxious teens' },
-  { name: 'Organizations', description: 'Workplace wellbeing, menopause awareness' },
-  { name: 'Community Groups', description: 'Bespoke topics' }
+  'Schools',
+  'Parents',
+  'Organisations',
+  'Community Groups'
 ]
 
 const workshopTopics = [
@@ -14,24 +14,28 @@ const workshopTopics = [
   'Understanding Neurodiversity',
   'Menopause in the Workplace',
   'Burnout',
-  'Maintaining good mental health'
+  'Maintaining Good Mental Health'
+]
+
+const onDemandTopics = [
+  'Menopause',
+  'Rejection Sensitivity Dysphoria'
 ]
 
 export default function Workshops() {
   return (
     <section className={styles.section} id="workshops">
       <div className={styles.container}>
-        <h2 className={styles.mainTitle}>Workshops & Speaking</h2>
-        <p className={styles.subtitle}>Group Support & Educational Talks</p>
+        <h2 className={styles.mainTitle}>Education, Workshops and Talks</h2>
+        <p className={styles.subtitle}>Awareness, Support and Learning</p>
         
         <div className={styles.grid}>
           <div className={styles.card}>
-            <h3 className={styles.cardTitle}>I facilitate workshops for:</h3>
+            <h3 className={styles.cardTitle}>I Facilitate Workshops For:</h3>
             <ul className={styles.list}>
               {facilitateFor.map((item, index) => (
                 <li key={index} className={styles.listItem}>
-                  <span className={styles.highlight}>{item.name}</span>
-                  <span className={styles.description}>{item.description}</span>
+                  <span className={styles.highlight}>{item}</span>
                 </li>
               ))}
             </ul>
@@ -46,11 +50,20 @@ export default function Workshops() {
             </ul>
             <p className={styles.note}>Custom workshops available on request</p>
           </div>
+
+          <div className={styles.card}>
+            <h3 className={styles.cardTitle}>Example On Demand Topics:</h3>
+            <ul className={styles.topicsList}>
+              {onDemandTopics.map((topic, index) => (
+                <li key={index} className={styles.topicItem}>{topic}</li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className={styles.buttonContainer}>
           <Link href="/#contact" className={styles.button}>
-            Enquire About Workshops
+            Enquire Here
           </Link>
         </div>
       </div>
