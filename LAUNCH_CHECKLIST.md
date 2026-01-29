@@ -54,22 +54,22 @@ Use this as the single source of truth before going live. Tick items when done.
 - [ ] **robots.txt:** Implemented in `app/robots.ts`. Ensure `NEXT_PUBLIC_SITE_URL` is set in production so the sitemap URL in robots is correct.
 - [ ] **Sitemap:** Implemented in `app/sitemap.ts`. Confirm `NEXT_PUBLIC_SITE_URL` is set in production so sitemap URLs use the live domain.
 - [ ] **Root metadata and OG/twitter:** Implemented in `app/layout.tsx` (`metadataBase`, `openGraph`, `twitter`). Add a default share image later if desired (e.g. `openGraph.images`).
-- [ ] **Favicon:** Add a favicon (e.g. `app/icon.png` or `public/favicon.ico`) and reference it so the site has an icon in tabs and bookmarks.
+- [x] **Favicon:** Add a favicon (e.g. `app/icon.png` or `public/favicon.ico`) and reference it so the site has an icon in tabs and bookmarks.
 
 ---
 
 ## 4. Legal and compliance
 
-- [ ] **Cookies and analytics:** The privacy notice is aligned with “essential cookies only at launch” (no Google Analytics, no non-essential cookies). If you add analytics or non-essential cookies later, add a cookie-consent banner and update the privacy notice to match.
-- [ ] **Contact consent:** The contact form in `components/Contact.tsx` requires explicit consent and sends it to Formspree. Confirm the Formspree form and consent fields are used in production and that form submissions are reviewed.
+- [x] **Cookies and analytics:** The privacy notice is aligned with “essential cookies only at launch” (no Google Analytics, no non-essential cookies). If you add analytics or non-essential cookies later, add a cookie-consent banner and update the privacy notice to match.
+- [x] **Contact consent:** The contact form in `components/Contact.tsx` requires explicit consent and sends it to Formspree. Confirm the Formspree form and consent fields are used in production and that form submissions are reviewed.
 
 ---
 
 ## 5. Configuration and content
 
-- [ ] **Decap CMS:** In `public/admin/config.yml`, set `base_url` to the production URL for go-live. If the site is static on 123.reg, ensure `auth_endpoint` points to a working OAuth/proxy (e.g. Vercel oauth-server).
-- [ ] **Contact form:** Confirm `NEXT_PUBLIC_FORMSPREE_ENDPOINT` (and `NEXT_PUBLIC_FORMSPREE_KEY` if used) in production. Fallback is `https://formspree.io/f/xaqqqyoa` (see `components/Contact.tsx`).
-- [ ] **Docs:** `SITEMAP_GUIDE.md` has been updated to match the current site (e.g. Book Reviews removed from Resources).
+- [x] **Decap CMS:** In `public/admin/config.yml`, set `base_url` to the production URL for go-live. If the site is static on 123.reg, ensure `auth_endpoint` points to a working OAuth/proxy (e.g. Vercel oauth-server).
+- [x] **Contact form:** Confirm `NEXT_PUBLIC_FORMSPREE_ENDPOINT` (and `NEXT_PUBLIC_FORMSPREE_KEY` if used) in production. Fallback is `https://formspree.io/f/xaqqqyoa` (see `components/Contact.tsx`).
+- [x] **Docs:** `SITEMAP_GUIDE.md` has been updated to match the current site (e.g. Book Reviews removed from Resources).
 
 ---
 

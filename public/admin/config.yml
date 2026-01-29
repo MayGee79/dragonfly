@@ -1,8 +1,10 @@
+# Production: https://dragonflypsychotherapy.co.uk (123.reg static hosting)
+# Decap CMS login on 123.reg requires an external OAuth proxy; set auth_endpoint to that URL when available
 backend:
   name: github
   repo: MayGee79/dragonfly
   branch: main
-  base_url: https://dragonflypreview.vercel.app
+  base_url: https://dragonflypsychotherapy.co.uk
   auth_endpoint: /api/auth
 
 media_folder: public/images

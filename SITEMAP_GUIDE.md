@@ -37,7 +37,7 @@ Sitemaps are files that list all the pages on your website. There are two types:
 - **0.9** - Blog listing page
 - **0.8** - Main therapy pages (Anxiety, Depression, etc.)
 - **0.7** - Services, Shop, FAQs
-- **0.6** - Resources, Activities, Book Reviews
+- **0.6** - Resources, Activities, Testimonials
 - **0.3** - Privacy Policy, Sitemap page
 
 **Change Frequencies:**
@@ -58,7 +58,7 @@ Sitemaps are files that list all the pages on your website. There are two types:
 **Sections:**
 1. **Main Pages** - All therapy topic pages
 2. **Services** - Workshops, Professional Membership, Shop
-3. **Resources** - Support resources, Activities, Book Reviews, Testimonials
+3. **Resources** - Support resources, Activities, Testimonials
 4. **Blog Posts** - All published blog posts with dates
 5. **Information** - Blog listing, FAQs, Privacy Policy
 

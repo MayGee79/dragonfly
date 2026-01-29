@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Removed 'output: export' to allow API routes for admin authentication
-  // Vercel will handle static optimization automatically
+  // Static export for 123.reg FTP deploy: build produces out/ for upload to dragonflypsychotherapy.co.uk
+  output: 'export',
   trailingSlash: true,
   images: {
     unoptimized: true,

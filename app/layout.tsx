@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: 'Counselling and Psychotherapy in Surrey | Dragonfly Psychotherapy',
   description: 'Psychotherapy and counselling services in Surrey - Depression, Anxiety, Burn Out, Life Transitions, Impact of Physical Ill Health, Neurodiversity, Self Esteem',
   authors: [{ name: 'Dragonfly Psychotherapy' }],
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
