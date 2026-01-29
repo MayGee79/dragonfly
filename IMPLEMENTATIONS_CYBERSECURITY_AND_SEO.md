@@ -1,4 +1,4 @@
-# Implementations: Cybersecurity, SEO, Meta & Local SEO
+# Implementations: Cybersecurity, Privacy & Legal, SEO, Meta & Local SEO
 
 Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsychotherapy.co.uk).
 
@@ -15,7 +15,20 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 2. SEO – Technical
+## 2. Privacy policies and legal
+
+| Item | Implementation |
+|------|----------------|
+| **Privacy Notice page** | Full privacy notice at `/privacy-policy` (`app/privacy-policy/page.tsx`). Covers data controller (Victoria Froome, Dragonfly Psychotherapy), lawful basis, what is collected (therapy clients, wellness walks, resource purchasers, CPD, workshops, website visitors, enquiries), sensitive data, confidentiality, security, sharing, retention, rights (access, correction, deletion, etc.), marketing, cookies, breaches, links, changes, and contact. |
+| **UK GDPR / DPA** | Notice states compliance with UK GDPR, Data Protection Act 2018, and professional codes (BACP, UKCP). ICO registration (ZB904048) and contact details included. |
+| **Cookies** | Section 13 (Cookies): essential cookies only; no analytics or non-essential cookies at launch. Notice states that if analytics or non-essential cookies are added later, consent will be sought and the notice updated. Optional link to Google Analytics opt-out. |
+| **Contact consent (legal)** | Contact form requires explicit consent (“I consent to Dragonfly Psychotherapy contacting me in response to this enquiry”). Consent and marketing consent are sent with the submission (Formspree). Aligns with lawful basis for processing enquiries. |
+| **Young people** | Section 6 of privacy notice: under-18s, parental consent for under-13s, record-keeping until 25 or 7 years after work ends. |
+| **Metadata for privacy page** | Privacy Notice page has its own title and description and is set to be indexed (`robots: index, follow`) so the policy is findable. |
+
+---
+
+## 3. SEO – Technical
 
 | Item | Implementation |
 |------|----------------|
@@ -26,7 +39,7 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 3. Meta & Open Graph
+## 4. Meta & Open Graph
 
 | Item | Implementation |
 |------|----------------|
@@ -40,7 +53,7 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 4. Page-level SEO & Meta
+## 5. Page-level SEO & Meta
 
 | Item | Implementation |
 |------|----------------|
@@ -52,7 +65,7 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 5. Structured Data (Schema.org)
+## 6. Structured Data (Schema.org)
 
 | Item | Implementation |
 |------|----------------|
@@ -62,7 +75,7 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 6. Local SEO
+## 7. Local SEO
 
 | Item | Implementation |
 |------|----------------|
@@ -72,7 +85,7 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 7. Search Console & Sitemaps
+## 8. Search Console & Sitemaps
 
 | Item | Implementation |
 |------|----------------|
@@ -82,7 +95,7 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 8. Configuration & Docs
+## 9. Configuration & Docs
 
 | Item | Implementation |
 |------|----------------|
@@ -92,7 +105,7 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 9. Go-live & Hosting
+## 10. Go-live & Hosting
 
 | Item | Implementation |
 |------|----------------|
@@ -103,7 +116,7 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 10. Files Touched (reference)
+## 11. Files Touched (reference)
 
 - **Layout / global:** `app/layout.tsx` (metadata, OG, Twitter, robots, favicon).
 - **Homepage:** `app/page.tsx` (LocalBusiness schema).
