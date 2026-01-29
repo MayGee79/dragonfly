@@ -63,8 +63,58 @@ export default function HomePage() {
     }
   }
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dragonflypsychotherapy.co.uk'
+
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    '@id': `${baseUrl}/#organization`,
+    name: 'Dragonfly Psychotherapy',
+    description: 'Integrative psychotherapy and counselling in Surrey and online. Dr Victoria Froome, BACP-registered. Guildford, East Horsley, and remote sessions.',
+    url: baseUrl,
+    telephone: '+44-7546-431-448',
+    email: 'victoria@dragonflypsychotherapy.co.uk',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '3 Beaufort, Parklands',
+      addressLocality: 'Guildford',
+      addressRegion: 'Surrey',
+      postalCode: 'GU2 9JX',
+      addressCountry: 'GB',
+    },
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=Guildford+Therapy+Rooms,+3+Beaufort,+Parklands,+Guildford,+GU2+9JX',
+    areaServed: [
+      { '@type': 'City', name: 'Guildford' },
+      { '@type': 'City', name: 'East Horsley' },
+      { '@type': 'City', name: 'Woking' },
+      { '@type': 'City', name: 'Cobham' },
+      { '@type': 'City', name: 'Godalming' },
+      { '@type': 'City', name: 'Leatherhead' },
+      { '@type': 'City', name: 'Dorking' },
+      { '@type': 'AdministrativeArea', name: 'Surrey' },
+    ],
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 51.2354,
+      longitude: -0.5743,
+      addressLocality: 'Guildford',
+      addressRegion: 'Surrey',
+    },
+    priceRange: '££',
+    openingHours: 'By appointment',
+    sameAs: [
+      'https://www.facebook.com/profile.php?id=61570517201870',
+      'https://www.instagram.com/dragonflypsychotherapy/',
+      'https://www.linkedin.com/in/victoria-froome-71a723342/',
+    ],
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
       <Navigation className="home-nav" />
       <main>
         {page.sections
