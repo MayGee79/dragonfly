@@ -26,6 +26,7 @@ export default function SitemapPage() {
     { title: 'Self-Esteem & Personal Growth', url: '/self-esteem' },
     { title: 'Young People 11+', url: '/young-people' },
     { title: 'Rejection Sensitive Dysphoria (RSD)', url: '/rejection-sensitive-dysphoria' },
+    { title: 'Neurodiversity (ADHD/Autism)', url: '/neurodiversity' },
   ]
 
   const servicesPages = [

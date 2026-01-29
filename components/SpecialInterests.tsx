@@ -31,7 +31,7 @@ const cards: Card[] = [
   {
     title: 'Neurodiversity',
     quote: "I don't fit in",
-    link: '/therapy-and-interests#neurodiversity'
+    link: '/neurodiversity'
   },
   {
     title: 'Menopause',

@@ -1,9 +1,8 @@
 name: Deploy to 123.reg
 
+# Disabled on push: site is on Vercel. Run manually if you use 123.reg FTP.
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
