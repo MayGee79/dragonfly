@@ -143,7 +143,6 @@
     overflow-x: auto;
     padding-bottom: var(--spacing-sm);
     scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
   }
 
   .workshopCard {
