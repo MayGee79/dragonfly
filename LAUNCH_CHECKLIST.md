@@ -77,12 +77,11 @@ Use this as the single source of truth before going live. Tick items when done.
 
 **Only after sections 1–5 are complete.**
 
-- [ ] **Decide hosting:** 123.reg (static FTP) or Vercel (Node). The current workflow deploys from `./out/` to 123.reg via FTP; that only works if the site is built as a static export.
-- [ ] **If 123.reg:** Add `output: 'export'` in `next.config.js` so `npm run build` produces the `out/` folder. Ensure Decap CMS auth uses an external provider and `public/admin/config.yml` `base_url` / `auth_endpoint` point to the right URLs.
-- [ ] **If Vercel:** Use Vercel’s GitHub integration (or a Vercel-based workflow). No `out/` or static export needed.
-- [ ] **GitHub Actions secrets** (for 123.reg): Set `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD` in the repo’s Settings → Secrets and variables → Actions. See `DEPLOYMENT.md`.
-- [ ] **Production env:** Set `NEXT_PUBLIC_SITE_URL` to the live URL (e.g. in GitHub env or host dashboard). Used by the sitemap and metadata.
-- [ ] Point domain DNS at the host (123.reg or Vercel).
-- [ ] Confirm SSL (HTTPS) and any redirects (e.g. www → apex or vice versa).
-- [ ] Submit `sitemap.xml` in Google Search Console (and Bing if used).
-- [ ] If you add analytics later, create the property and link Search Console to it.
+- [x] **Decide hosting:** Vercel (Node) with GitHub integration. Custom domain dragonflypsychotherapy.co.uk.
+- [x] **Vercel:** GitHub integration in use. No static export needed.
+- [x] **GitHub Actions:** FTP deploy workflow set to manual trigger only (Vercel handles deployment).
+- [x] **Production env:** `NEXT_PUBLIC_SITE_URL` set in Vercel to live URL. Used by sitemap and metadata.
+- [x] Point domain DNS at Vercel.
+- [x] Confirm SSL (HTTPS) and redirects.
+- [x] Submit `sitemap.xml` in Google Search Console (and Bing).
+- [x] Analytics: Google Analytics (GA4) with cookie consent banner. Search Console linked.

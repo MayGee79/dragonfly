@@ -11,7 +11,7 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 | **Contact form – HTTPS** | Form submission uses Formspree over HTTPS. Code forces HTTPS (any `http://` endpoint is replaced with `https://`). See `components/Contact.tsx`. |
 | **Contact form – consent** | Required consent checkbox: “I consent to Dragonfly Psychotherapy contacting me in response to this enquiry.” HTML `required` + JS validation; submission blocked if unchecked. Consent and marketing consent sent as “Yes”/“No” in payload. |
 | **No secrets in client code** | No API keys or secrets in client-side code. Formspree endpoint uses `NEXT_PUBLIC_FORMSPREE_ENDPOINT` (or fallback); optional key via env. OAuth credentials only in server-side API routes (Vercel env). |
-| **Privacy notice** | Privacy notice aligned with “essential cookies only” at launch (no Google Analytics, no non-essential cookies). Section 13 (Cookies) states essential-only and that non-essential cookies would require consent and an updated notice. |
+| **Privacy notice** | Privacy notice aligned with cookie consent. Section 13 (Cookies) covers essential cookies and analytics (Google Analytics); non-essential analytics load only after user consent via banner. |
 
 ---
 
@@ -21,14 +21,24 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 |------|----------------|
 | **Privacy Notice page** | Full privacy notice at `/privacy-policy` (`app/privacy-policy/page.tsx`). Covers data controller (Victoria Froome, Dragonfly Psychotherapy), lawful basis, what is collected (therapy clients, wellness walks, resource purchasers, CPD, workshops, website visitors, enquiries), sensitive data, confidentiality, security, sharing, retention, rights (access, correction, deletion, etc.), marketing, cookies, breaches, links, changes, and contact. |
 | **UK GDPR / DPA** | Notice states compliance with UK GDPR, Data Protection Act 2018, and professional codes (BACP, UKCP). ICO registration (ZB904048) and contact details included. |
-| **Cookies** | Section 13 (Cookies): essential cookies only; no analytics or non-essential cookies at launch. Notice states that if analytics or non-essential cookies are added later, consent will be sought and the notice updated. Optional link to Google Analytics opt-out. |
+| **Cookies** | Section 13 (Cookies): essential cookies + analytics (Google Analytics). Cookie consent banner (`components/CookieConsent.tsx`) appears on first visit; GA loads only after user accepts. Consent/decline stored in localStorage. Optional link to Google Analytics opt-out. |
 | **Contact consent (legal)** | Contact form requires explicit consent (“I consent to Dragonfly Psychotherapy contacting me in response to this enquiry”). Consent and marketing consent are sent with the submission (Formspree). Aligns with lawful basis for processing enquiries. |
 | **Young people** | Section 6 of privacy notice: under-18s, parental consent for under-13s, record-keeping until 25 or 7 years after work ends. |
 | **Metadata for privacy page** | Privacy Notice page has its own title and description and is set to be indexed (`robots: index, follow`) so the policy is findable. |
 
 ---
 
-## 3. SEO – Technical
+## 3. Analytics & Cookie Consent
+
+| Item | Implementation |
+|------|----------------|
+| **Google Analytics (GA4)** | GA4 property with Measurement ID `G-39GL2MNTGV`. Loaded only after user accepts cookies via consent banner. Tracks page views, sessions, traffic sources. |
+| **Cookie consent banner** | `components/CookieConsent.tsx` – fixed banner at bottom of page. Explains analytics use, links to Privacy Policy. Accept loads GA and stores preference; Decline stores preference without loading GA. Preference in localStorage so banner does not re-show. |
+| **GDPR alignment** | Analytics cookies are non-essential; consent required before loading. Accept/Decline choices honoured. |
+
+---
+
+## 4. SEO – Technical
 
 | Item | Implementation |
 |------|----------------|
@@ -39,7 +49,7 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 4. Meta & Open Graph
+## 5. Meta & Open Graph
 
 | Item | Implementation |
 |------|----------------|
@@ -53,7 +63,7 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 5. Page-level SEO & Meta
+## 6. Page-level SEO & Meta
 
 | Item | Implementation |
 |------|----------------|
@@ -65,7 +75,7 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 6. Structured Data (Schema.org)
+## 7. Structured Data (Schema.org)
 
 | Item | Implementation |
 |------|----------------|
@@ -75,7 +85,7 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 7. Local SEO
+## 8. Local SEO
 
 | Item | Implementation |
 |------|----------------|
@@ -85,7 +95,7 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 8. Search Console & Sitemaps
+## 9. Search Console & Sitemaps
 
 | Item | Implementation |
 |------|----------------|
@@ -95,7 +105,7 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 9. Configuration & Docs
+## 10. Configuration & Docs
 
 | Item | Implementation |
 |------|----------------|
@@ -105,7 +115,7 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 10. Go-live & Hosting
+## 11. Go-live & Hosting
 
 | Item | Implementation |
 |------|----------------|
@@ -116,9 +126,10 @@ Summary of all implementations done for Dragonfly Psychotherapy (dragonflypsycho
 
 ---
 
-## 11. Files Touched (reference)
+## 12. Files Touched (reference)
 
-- **Layout / global:** `app/layout.tsx` (metadata, OG, Twitter, robots, favicon).
+- **Layout / global:** `app/layout.tsx` (metadata, OG, Twitter, robots, favicon; CookieConsent).
+- **Cookie consent:** `components/CookieConsent.tsx`, `components/CookieConsent.module.css`.
 - **Homepage:** `app/page.tsx` (LocalBusiness schema).
 - **Sitemap / robots:** `app/sitemap.ts`, `app/robots.ts`.
 - **Contact:** `components/Contact.tsx` (HTTPS, consent).
