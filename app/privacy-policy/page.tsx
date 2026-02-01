@@ -371,14 +371,17 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <ul className={styles.list}>
                   <li><strong>Essential cookies:</strong> These are necessary for the website to function. They do not
-                  collect personal information about you. My site currently uses only essential
-                  cookies and does not use analytics or other non-essential cookies.</li>
+                  collect personal information about you.</li>
+                  <li><strong>Analytics cookies (Google Analytics):</strong> I use Google Analytics to understand how
+                  visitors use my website (for example, which pages are viewed and how people find the
+                  site). These cookies are only placed on your device if you click "Accept" when the
+                  cookie consent banner appears. If you click "Decline", analytics cookies are not
+                  used. You can change your choice at any time by clearing your browser data or
+                  cookies for this site.</li>
                 </ul>
                 <p>
-                  You can control cookies through your browser settings. If I introduce analytics
-                  or other non-essential cookies in future, I will ask for your consent before
-                  they are placed on your device, and I will update this notice accordingly. You
-                  can opt out of Google Analytics at any time at tools.google.com/dlpage/gaoptout.
+                  You can control cookies through your browser settings. You can also opt out of
+                  Google Analytics at any time at tools.google.com/dlpage/gaoptout.
                 </p>
               </section>
 
