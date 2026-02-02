@@ -4,136 +4,137 @@ import { getAllBlogPosts } from '@/lib/content'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dragonflypreview.vercel.app'
   
-  // Static pages
+  // With trailingSlash: true, canonical URLs have trailing slashes. Sitemap must list
+  // those URLs so Google crawls the final URL (200) instead of the redirect (301).
   const staticPages = [
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/anxiety`,
+      url: `${baseUrl}/anxiety/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/depression`,
+      url: `${baseUrl}/depression/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/burnout`,
+      url: `${baseUrl}/burnout/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/transitions`,
+      url: `${baseUrl}/transitions/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/menopause`,
+      url: `${baseUrl}/menopause/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/health-anxiety`,
+      url: `${baseUrl}/health-anxiety/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/physical-health`,
+      url: `${baseUrl}/physical-health/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/self-esteem`,
+      url: `${baseUrl}/self-esteem/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/young-people`,
+      url: `${baseUrl}/young-people/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/rejection-sensitive-dysphoria`,
+      url: `${baseUrl}/rejection-sensitive-dysphoria/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/neurodiversity`,
+      url: `${baseUrl}/neurodiversity/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/workshops-and-talks`,
+      url: `${baseUrl}/workshops-and-talks/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/professional-membership`,
+      url: `${baseUrl}/professional-membership/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/shop`,
+      url: `${baseUrl}/shop/`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/support-and-resources`,
+      url: `${baseUrl}/support-and-resources/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/activities-and-tools`,
+      url: `${baseUrl}/activities-and-tools/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/testimonials`,
+      url: `${baseUrl}/testimonials/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/faqs`,
+      url: `${baseUrl}/faqs/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/privacy-policy`,
+      url: `${baseUrl}/privacy-policy/`,
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/blog`,
+      url: `${baseUrl}/blog/`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/sitemap`,
+      url: `${baseUrl}/sitemap/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.3,
@@ -142,7 +143,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Dynamic blog posts
   const blogPosts = getAllBlogPosts().map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
+    url: `${baseUrl}/blog/${post.slug}/`,
     lastModified: post.date ? new Date(post.date) : new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
