@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Thank You',
-  description: 'Your message has been sent. Dragonfly Psychotherapy will get back to you soon.',
+  description: 'Your message has been sent successfully. Dragonfly Psychotherapy will get back to you as soon as possible.',
   robots: { index: false, follow: true },
 }
 
@@ -24,7 +24,7 @@ export default function ThankYouPage() {
             <div className={styles.content}>
               <h1 className={styles.title}>Thank You!</h1>
               <p className={styles.message}>
-                Your message has been sent successfully. I'll get back to you as soon as possible.
+                Your message has been sent successfully. I'll get back to you as soon as possible. Please check your spam email if you do not hear from me within 24 hours.
               </p>
               <div className={styles.actions}>
                 <Link href="/" className={styles.button}>
