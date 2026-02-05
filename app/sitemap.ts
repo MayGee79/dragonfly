@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { getAllBlogPosts } from '@/lib/content'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dragonflypreview.vercel.app'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dragonflypsychotherapy.co.uk'
   
   // With trailingSlash: true, canonical URLs have trailing slashes. Sitemap must list
   // those URLs so Google crawls the final URL (200) instead of the redirect (301).

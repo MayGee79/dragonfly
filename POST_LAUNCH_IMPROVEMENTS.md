@@ -76,4 +76,12 @@ Improvements implemented after the Dragonfly Psychotherapy site went live at dra
 
 ---
 
+## 10. Canonical URLs (Search Console – Duplicate without user-selected canonical)
+
+| What | Google Search Console reported "Duplicate without user-selected canonical" – pages not being indexed because no canonical URL was specified. |
+|------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| Implementation | Added `middleware.ts` to pass request pathname. Updated `app/layout.tsx` to use `generateMetadata` with `alternates.canonical` on every page. Canonical URLs match trailing-slash config (e.g. `https://dragonflypsychotherapy.co.uk/faqs/`). Updated sitemap base URL fallback to `https://dragonflypsychotherapy.co.uk`. Ensures `NEXT_PUBLIC_SITE_URL` is set in production. |
+
+---
+
 *Document created: January 2026*
