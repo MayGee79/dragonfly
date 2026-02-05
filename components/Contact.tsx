@@ -33,59 +33,31 @@ export default function Contact() {
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
-    // Formspree endpoint – must be HTTPS in production
-    const baseEndpoint = (process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xaqqqyoa').replace(/^http:\/\//i, 'https://')
-    const formspreeKey = process.env.NEXT_PUBLIC_FORMSPREE_KEY || ''
-
-    // Validate required consent checkbox
     if (!formData.consent) {
       alert('Please consent to being contacted in response to your enquiry.')
       setIsSubmitting(false)
       return
     }
 
-    // Use FormData format (Formspree prefers this over JSON)
-    const formDataToSend = new FormData()
-    formDataToSend.append('name', formData.name)
-    formDataToSend.append('email', formData.email)
-    formDataToSend.append('phone', formData.phone || '')
-    formDataToSend.append('message', formData.message)
-    formDataToSend.append('consent', formData.consent ? 'Yes' : 'No')
-    formDataToSend.append('marketing_consent', formData.marketing ? 'Yes' : 'No')
-    
-    // Add custom key if provided (for AJAX submissions)
-    // Note: The parameter name might be different - check Formspree docs
-    if (formspreeKey) {
-      formDataToSend.append('_access_key', formspreeKey)
-    }
-    
     try {
-      const response = await fetch(baseEndpoint, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-        },
-        body: formDataToSend,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || '',
+          message: formData.message,
+          consent: formData.consent,
+          marketing: formData.marketing,
+        }),
       })
 
-      let responseData
-      const contentType = response.headers.get('content-type')
-      if (contentType && contentType.includes('application/json')) {
-        responseData = await response.json()
-      } else {
-        const text = await response.text()
-        try {
-          responseData = JSON.parse(text)
-        } catch {
-          responseData = { error: text }
-        }
-      }
+      const responseData = await response.json().catch(() => ({ error: 'Unknown error' }))
 
       if (response.ok) {
-        // Show success message
         setSubmitStatus('success')
         setIsSubmitting(false)
-        // Clear form
         setFormData({
           name: '',
           email: '',
@@ -94,17 +66,12 @@ export default function Contact() {
           consent: false,
           marketing: false
         })
-        // Redirect to thank you page after a short delay
         setTimeout(() => {
           router.push('/contact/thank-you')
         }, 2000)
       } else {
-        // Handle Formspree errors
-        if (responseData.errors) {
-          alert(`Form submission failed: ${JSON.stringify(responseData.errors)}`)
-        } else {
-          alert(`Form submission failed: ${response.status} - ${JSON.stringify(responseData)}`)
-        }
+        const message = responseData.error || `Submission failed (${response.status})`
+        alert(message)
         setSubmitStatus('error')
         setIsSubmitting(false)
       }
@@ -164,8 +131,6 @@ export default function Contact() {
             <form 
               className={styles.contactForm} 
               onSubmit={handleSubmit}
-              action="https://formspree.io/f/xaqqqyoa"
-              method="POST"
             >
               <div className={styles.formGroup}>
                 <label htmlFor="name" className={styles.label}>Name</label>

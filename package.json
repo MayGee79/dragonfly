@@ -10,20 +10,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "next": "^14.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "gray-matter": "^4.0.3",
     "remark": "^15.0.0",
-    "remark-html": "^16.0.0"
+    "remark-html": "^16.0.0",
+    "resend": "^6.9.1"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "typescript": "^5.0.0",
     "eslint": "^8.0.0",
-    "eslint-config-next": "^14.0.0"
+    "eslint-config-next": "^14.0.0",
+    "typescript": "^5.0.0"
   }
 }
-
