@@ -45,6 +45,7 @@ export default function SitemapPage() {
     { title: 'Blog', url: '/blog' },
     { title: 'FAQs', url: '/faqs' },
     { title: 'Privacy Policy', url: '/privacy-policy' },
+    { title: 'Sitemap', url: '/sitemap' },
   ]
 
   return (
