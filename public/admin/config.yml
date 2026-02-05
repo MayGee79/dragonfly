@@ -13,41 +13,65 @@ public_folder: /images
 collections:
   - name: "pages"
     label: "Pages"
-    folder: "content/pages"
-    create: true
-    slug: "{{slug}}"
-    filter: { field: "type", value: "page" }
-    fields:
-      - { label: "Type", name: "type", widget: "hidden", default: "page" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Slug", name: "slug", widget: "string", pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Slug must be lowercase and contain only letters, numbers, and dashes"] }
-      - { label: "Meta Description", name: "metaDescription", widget: "text", required: false }
-      - label: "Sections"
-        name: "sections"
-        widget: "list"
-        types:
-          - label: "Hero Section"
-            name: "hero"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
-              - { label: "Image", name: "image", widget: "image", required: false }
-              - { label: "Layout", name: "layout", widget: "select", options: ["text-only", "text-image", "image-text", "logo-header"], default: "text-only" }
-              - { label: "Enabled", name: "enabled", widget: "boolean", default: true }
-          - label: "Content Section"
-            name: "content"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string", required: false }
-              - { label: "Content", name: "content", widget: "markdown" }
-              - { label: "Image", name: "image", widget: "image", required: false }
-              - { label: "Layout", name: "layout", widget: "select", options: ["text-only", "text-image", "image-text", "three-column"], default: "text-only" }
-              - { label: "Enabled", name: "enabled", widget: "boolean", default: true }
-
-  - name: "professional-membership"
-    label: "Professional Profile"
     files:
+      - name: "home"
+        label: "Home"
+        file: "content/pages/home.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Slug", name: "slug", widget: "string", default: "home" }
+          - { label: "Meta Description", name: "metaDescription", widget: "text", required: false }
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            types:
+              - label: "Hero Section"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Layout", name: "layout", widget: "select", options: ["text-only", "text-image", "image-text", "logo-header"], default: "text-only" }
+                  - { label: "Enabled", name: "enabled", widget: "boolean", default: true }
+              - label: "Content Section"
+                name: "content"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string", required: false }
+                  - { label: "Content", name: "content", widget: "markdown" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Layout", name: "layout", widget: "select", options: ["text-only", "text-image", "image-text", "three-column"], default: "text-only" }
+                  - { label: "Enabled", name: "enabled", widget: "boolean", default: true }
+      - name: "faqs"
+        label: "FAQs"
+        file: "content/pages/faqs.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Slug", name: "slug", widget: "string", default: "faqs" }
+          - { label: "Meta Description", name: "metaDescription", widget: "text", required: false }
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            types:
+              - label: "Hero Section"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Layout", name: "layout", widget: "select", options: ["text-only", "text-image", "image-text", "logo-header"], default: "text-only" }
+                  - { label: "Enabled", name: "enabled", widget: "boolean", default: true }
+              - label: "Content Section"
+                name: "content"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string", required: false }
+                  - { label: "Content", name: "content", widget: "markdown" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Layout", name: "layout", widget: "select", options: ["text-only", "text-image", "image-text", "three-column"], default: "text-only" }
+                  - { label: "Enabled", name: "enabled", widget: "boolean", default: true }
       - name: "professional-membership"
         label: "Professional Profile"
         file: "content/pages/professional-membership.md"
@@ -66,10 +90,6 @@ collections:
             fields:
               - { label: "Item", name: "item", widget: "string" }
           - { label: "Membership Text (BACP info)", name: "membershipText", widget: "markdown" }
-
-  - name: "testimonials"
-    label: "Testimonials"
-    files:
       - name: "testimonials"
         label: "Testimonials"
         file: "content/pages/testimonials.md"
@@ -121,3 +141,4 @@ collections:
       - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Published", name: "published", widget: "boolean", default: false }
+

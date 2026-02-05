@@ -1,7 +1,6 @@
 ---
 title: Home
 slug: home
-type: page
 metaDescription: Psychotherapy and counselling services in Surrey - Depression, Anxiety, Burn Out, Life Transitions, Impact of Physical Ill Health, Neurodiversity, Self Esteem
 sections:
   - type: hero

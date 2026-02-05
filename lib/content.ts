@@ -205,9 +205,8 @@ export function getAllPages(): Page[] {
       return []
     }
     const fileNames = fs.readdirSync(pagesDirectory)
-    const excludeSlugs = ['professional-membership', 'testimonials']
     const pages = fileNames
-      .filter((name) => name.endsWith('.md') && !excludeSlugs.includes(name.replace(/\.md$/, '')))
+      .filter((name) => name.endsWith('.md'))
       .map((fileName) => {
         const slug = fileName.replace(/\.md$/, '')
         return getPageBySlug(slug)

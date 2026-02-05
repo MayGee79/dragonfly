@@ -1,7 +1,6 @@
 ---
 title: FAQs
 slug: faqs
-type: page
 metaDescription: FAQ – Dragonfly Psychotherapy - Your Questions Answered | Counselling & Psychotherapy in Guildford, Horsley, Surrey and online across the UK
 sections:
   - type: hero

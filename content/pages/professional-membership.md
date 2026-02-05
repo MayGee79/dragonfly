@@ -1,7 +1,6 @@
 ---
 title: Professional Qualifications and Membership
 slug: professional-membership
-type: professional-profile
 metaDescription: Dr Victoria Froome is a BACP-registered integrative psychotherapist. Qualifications, CPD, and professional profile.
 qualifications:
   - item: Masters in Integrative Counselling and Psychotherapy (Merit)

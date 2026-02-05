@@ -1,7 +1,6 @@
 ---
 title: Testimonials
 slug: testimonials
-type: testimonials
 metaDescription: What clients say about working with Dragonfly Psychotherapy. Integrative psychotherapy in Surrey and online.
 testimonials:
   - quote: "Many thanks for all your help. It has been really useful and I feel like I have the tools to keep going with it now"
