@@ -21,6 +21,7 @@ export default function Hero({ title, subtitle, image, layout = 'text-only' }: H
               <p className={styles.tagline}>Supporting adults and young people through life's challenges, changes and choices</p>
               <p className={styles.heroName}>Dr Victoria Froome</p>
               <p className={styles.heroRole}>Integrative Psychotherapist and Former NHS GP</p>
+              <a href="/#contact" className={styles.btnShine}>Get in touch</a>
             </div>
           </div>
         )}
