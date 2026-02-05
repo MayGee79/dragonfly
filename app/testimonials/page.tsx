@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import { getTestimonialsPage } from '@/lib/content'
 import styles from './testimonials.module.css'
 import type { Metadata } from 'next'
 
@@ -12,19 +13,10 @@ export const metadata: Metadata = {
   },
 }
 
-const testimonials = [
-  {
-    quote: "Many thanks for all your help. It has been really useful and I feel like I have the tools to keep going with it now",
-    author: "AD"
-  },
-  {
-    quote: "You have been an incredible support for me. I will never forget you Vicky",
-    author: "AH"
-  },
-  {
-    quote: "These sessions have been so helpful, I so appreciate it",
-    author: "KK"
-  }
+const fallbackTestimonials = [
+  { quote: "Many thanks for all your help. It has been really useful and I feel like I have the tools to keep going with it now", author: "AD" },
+  { quote: "You have been an incredible support for me. I will never forget you Vicky", author: "AH" },
+  { quote: "These sessions have been so helpful, I so appreciate it", author: "KK" },
 ]
 
 export function generateStaticParams() {
@@ -32,6 +24,9 @@ export function generateStaticParams() {
 }
 
 export default function TestimonialsPage() {
+  const cmsPage = getTestimonialsPage()
+  const testimonials = cmsPage?.testimonials?.length ? cmsPage.testimonials : fallbackTestimonials
+
   return (
     <>
       <Navigation />

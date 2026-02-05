@@ -1,6 +1,8 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
+import { getProfessionalMembershipPage } from '@/lib/content'
+import { markdownToHtml } from '@/lib/markdown'
 import styles from './professional-membership.module.css'
 import type { Metadata } from 'next'
 
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
   },
 }
 
-const qualifications = [
+const fallbackQualifications = [
   'Masters in Integrative Counselling and Psychotherapy (Merit)',
   'Joint Diploma in Counselling & Coaching (Level 5)',
   'Journal Therapy Certificate',
@@ -25,10 +27,10 @@ const qualifications = [
   'Diploma in Obstetrics and Gynaecology',
   'M.R.C.G.P. (Merit)',
   'MB BS (Honours)',
-  'B.Sc. Chemical Pathology (1st Class Honours)'
+  'B.Sc. Chemical Pathology (1st Class Honours)',
 ]
 
-const cpd = [
+const fallbackCpd = [
   'CBT for insomnia (ongoing)',
   'Menopause coach certificate (ongoing)',
   'Positive parenting certificate (ongoing)',
@@ -40,14 +42,20 @@ const cpd = [
   'Compassion and self harm in teen',
   'Talking teens',
   'Facing the storm - decision making during uncertainty',
-  'Burnout'
+  'Burnout',
 ]
 
 export function generateStaticParams() {
   return []
 }
 
-export default function ProfessionalMembershipPage() {
+export default async function ProfessionalMembershipPage() {
+  const cmsPage = getProfessionalMembershipPage()
+  const qualifications = cmsPage?.qualifications?.length ? cmsPage.qualifications : fallbackQualifications
+  const cpd = cmsPage?.cpd?.length ? cmsPage.cpd : fallbackCpd
+  const membershipHtml = cmsPage?.membershipText
+    ? await markdownToHtml(cmsPage.membershipText)
+    : null
   return (
     <>
       <Navigation />
@@ -97,15 +105,21 @@ export default function ProfessionalMembershipPage() {
                   <img src="/images/bacp.png" alt="BACP" className={styles.membershipImage} />
                 </div>
                 <div className={styles.membershipText}>
-                  <p>
-                    I am a registered member of the British Association of Counselling and Psychotherapy, member number 402603. So you can be reassured that I work to their standards, and within their ethical framework.
-                  </p>
-                  <p>
-                    If you would like to know more please find them here:{' '}
-                    <Link href="https://www.bacp.co.uk" target="_blank" rel="noopener noreferrer" className={styles.link}>
-                      www.bacp.co.uk
-                    </Link>
-                  </p>
+                  {membershipHtml ? (
+                    <div dangerouslySetInnerHTML={{ __html: membershipHtml }} />
+                  ) : (
+                    <>
+                      <p>
+                        I am a registered member of the British Association of Counselling and Psychotherapy, member number 402603. So you can be reassured that I work to their standards, and within their ethical framework.
+                      </p>
+                      <p>
+                        If you would like to know more please find them here:{' '}
+                        <Link href="https://www.bacp.co.uk" target="_blank" rel="noopener noreferrer" className={styles.link}>
+                          www.bacp.co.uk
+                        </Link>
+                      </p>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

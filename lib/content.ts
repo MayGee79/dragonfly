@@ -56,6 +56,148 @@ export function getPageBySlug(slug: string): Page | null {
   }
 }
 
+export interface ProfessionalMembershipPage {
+  title: string
+  slug: string
+  metaDescription?: string
+  qualifications: string[]
+  cpd: string[]
+  membershipText: string
+}
+
+export function getProfessionalMembershipPage(): ProfessionalMembershipPage | null {
+  try {
+    const fullPath = path.join(contentDirectory, 'professional-membership.md')
+    if (!fs.existsSync(fullPath)) {
+      return null
+    }
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
+    const { data } = matter(fileContents)
+
+    const qualifications = Array.isArray(data.qualifications)
+      ? data.qualifications.map((q: { item?: string } | string) => (typeof q === 'string' ? q : q?.item ?? '')).filter(Boolean)
+      : []
+
+    const cpd = Array.isArray(data.cpd)
+      ? data.cpd.map((c: { item?: string } | string) => (typeof c === 'string' ? c : c?.item ?? '')).filter(Boolean)
+      : []
+
+    return {
+      title: data.title || 'Professional Qualifications and Membership',
+      slug: data.slug || 'professional-membership',
+      metaDescription: data.metaDescription,
+      qualifications,
+      cpd,
+      membershipText: data.membershipText || '',
+    }
+  } catch (error) {
+    console.error('Error reading professional-membership page:', error)
+    return null
+  }
+}
+
+export interface Testimonial {
+  quote: string
+  author: string
+}
+
+export interface TestimonialsPage {
+  title: string
+  slug: string
+  metaDescription?: string
+  testimonials: Testimonial[]
+}
+
+export function getTestimonialsPage(): TestimonialsPage | null {
+  try {
+    const fullPath = path.join(contentDirectory, 'testimonials.md')
+    if (!fs.existsSync(fullPath)) {
+      return null
+    }
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
+    const { data } = matter(fileContents)
+
+    const testimonials: Testimonial[] = Array.isArray(data.testimonials)
+      ? data.testimonials
+          .map((t: { quote?: string; author?: string }) => ({
+            quote: t?.quote ?? '',
+            author: t?.author ?? '',
+          }))
+          .filter((t) => t.quote)
+      : []
+
+    return {
+      title: data.title || 'Testimonials',
+      slug: data.slug || 'testimonials',
+      metaDescription: data.metaDescription,
+      testimonials,
+    }
+  } catch (error) {
+    console.error('Error reading testimonials page:', error)
+    return null
+  }
+}
+
+export interface ShopProduct {
+  productTitle: string
+  productQuantity?: string
+  productLink: string
+  linkText: string
+}
+
+export interface ShopCategory {
+  categoryTitle: string
+  categoryDescription: string
+  products: ShopProduct[]
+}
+
+export interface ShopPage {
+  title: string
+  slug: string
+  metaDescription?: string
+  categories: ShopCategory[]
+}
+
+export function getShopPage(): ShopPage | null {
+  try {
+    const fullPath = path.join(contentDirectory, 'shop.md')
+    if (!fs.existsSync(fullPath)) {
+      return null
+    }
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
+    const { data } = matter(fileContents)
+
+    const categories: ShopCategory[] = Array.isArray(data.categories)
+      ? data.categories
+          .map((c: { categoryTitle?: string; categoryDescription?: string; products?: ShopProduct[] }) => ({
+            categoryTitle: c?.categoryTitle ?? '',
+            categoryDescription: c?.categoryDescription ?? '',
+            products: Array.isArray(c?.products)
+              ? c.products
+                  .map((p: { productTitle?: string; productQuantity?: string; productLink?: string; linkText?: string }) => ({
+                    productTitle: p?.productTitle ?? '',
+                    productQuantity: p?.productQuantity || undefined,
+                    productLink: p?.productLink ?? '',
+                    linkText: p?.linkText ?? '',
+                  }))
+                  .filter((p) => p.productTitle && p.productLink)
+              : [],
+          }))
+          .filter((c) => c.categoryTitle)
+      : []
+
+    return {
+      title: data.title || 'Dragonfly Shop',
+      slug: data.slug || 'shop',
+      metaDescription: data.metaDescription,
+      categories,
+    }
+  } catch (error) {
+    console.error('Error reading shop page:', error)
+    return null
+  }
+}
+
 export function getAllPages(): Page[] {
   try {
     const pagesDirectory = path.join(contentDirectory, 'pages')

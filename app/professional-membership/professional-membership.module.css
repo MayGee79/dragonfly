@@ -223,6 +223,16 @@
   margin-bottom: 0;
 }
 
+.membershipText a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  transition: color var(--transition-base);
+}
+
+.membershipText a:hover {
+  color: var(--color-primary-dark);
+}
+
 .link {
   color: var(--color-primary);
   text-decoration: underline;

@@ -43,6 +43,70 @@ collections:
               - { label: "Layout", name: "layout", widget: "select", options: ["text-only", "text-image", "image-text", "three-column"], default: "text-only" }
               - { label: "Enabled", name: "enabled", widget: "boolean", default: true }
 
+  - name: "professional-membership"
+    label: "Professional Profile"
+    files:
+      - name: "professional-membership"
+        label: "Professional Profile"
+        file: "content/professional-membership.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Slug", name: "slug", widget: "string", default: "professional-membership" }
+          - { label: "Meta Description", name: "metaDescription", widget: "text", required: false }
+          - label: "Qualifications"
+            name: "qualifications"
+            widget: "list"
+            fields:
+              - { label: "Item", name: "item", widget: "string" }
+          - label: "Recent Continuing Professional Development"
+            name: "cpd"
+            widget: "list"
+            fields:
+              - { label: "Item", name: "item", widget: "string" }
+          - { label: "Membership Text (BACP info)", name: "membershipText", widget: "markdown" }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    files:
+      - name: "testimonials"
+        label: "Testimonials"
+        file: "content/testimonials.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Slug", name: "slug", widget: "string", default: "testimonials" }
+          - { label: "Meta Description", name: "metaDescription", widget: "text", required: false }
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Author (initials)", name: "author", widget: "string" }
+
+  - name: "shop"
+    label: "Shop"
+    files:
+      - name: "shop"
+        label: "Shop"
+        file: "content/shop.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Slug", name: "slug", widget: "string", default: "shop" }
+          - { label: "Meta Description", name: "metaDescription", widget: "text", required: false }
+          - label: "Categories"
+            name: "categories"
+            widget: "list"
+            fields:
+              - { label: "Category Title", name: "categoryTitle", widget: "string" }
+              - { label: "Category Description", name: "categoryDescription", widget: "text" }
+              - label: "Products"
+                name: "products"
+                widget: "list"
+                fields:
+                  - { label: "Product Title", name: "productTitle", widget: "string" }
+                  - { label: "Quantity (optional, e.g. 12)", name: "productQuantity", widget: "string", required: false }
+                  - { label: "Link URL", name: "productLink", widget: "string" }
+                  - { label: "Link Text", name: "linkText", widget: "string" }
+
   - name: "blog"
     label: "Blog"
     folder: "content/blog"
