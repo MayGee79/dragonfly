@@ -67,7 +67,7 @@ export interface ProfessionalMembershipPage {
 
 export function getProfessionalMembershipPage(): ProfessionalMembershipPage | null {
   try {
-    const fullPath = path.join(contentDirectory, 'professional-membership.md')
+    const fullPath = path.join(contentDirectory, 'pages', 'professional-membership.md')
     if (!fs.existsSync(fullPath)) {
       return null
     }
@@ -110,7 +110,7 @@ export interface TestimonialsPage {
 
 export function getTestimonialsPage(): TestimonialsPage | null {
   try {
-    const fullPath = path.join(contentDirectory, 'testimonials.md')
+    const fullPath = path.join(contentDirectory, 'pages', 'testimonials.md')
     if (!fs.existsSync(fullPath)) {
       return null
     }
@@ -205,8 +205,9 @@ export function getAllPages(): Page[] {
       return []
     }
     const fileNames = fs.readdirSync(pagesDirectory)
+    const excludeSlugs = ['professional-membership', 'testimonials']
     const pages = fileNames
-      .filter((name) => name.endsWith('.md'))
+      .filter((name) => name.endsWith('.md') && !excludeSlugs.includes(name.replace(/\.md$/, '')))
       .map((fileName) => {
         const slug = fileName.replace(/\.md$/, '')
         return getPageBySlug(slug)

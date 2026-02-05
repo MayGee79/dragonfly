@@ -16,7 +16,9 @@ collections:
     folder: "content/pages"
     create: true
     slug: "{{slug}}"
+    filter: { field: "type", value: "page" }
     fields:
+      - { label: "Type", name: "type", widget: "hidden", default: "page" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Slug", name: "slug", widget: "string", pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Slug must be lowercase and contain only letters, numbers, and dashes"] }
       - { label: "Meta Description", name: "metaDescription", widget: "text", required: false }
@@ -48,7 +50,7 @@ collections:
     files:
       - name: "professional-membership"
         label: "Professional Profile"
-        file: "content/professional-membership.md"
+        file: "content/pages/professional-membership.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Slug", name: "slug", widget: "string", default: "professional-membership" }
@@ -70,7 +72,7 @@ collections:
     files:
       - name: "testimonials"
         label: "Testimonials"
-        file: "content/testimonials.md"
+        file: "content/pages/testimonials.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Slug", name: "slug", widget: "string", default: "testimonials" }
@@ -119,15 +121,3 @@ collections:
       - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Published", name: "published", widget: "boolean", default: false }
-
-  - name: "sections"
-    label: "Reusable Sections"
-    folder: "content/sections"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Slug", name: "slug", widget: "string", pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Slug must be lowercase and contain only letters, numbers, and dashes"] }
-      - { label: "Content", name: "content", widget: "markdown" }
-      - { label: "Image", name: "image", widget: "image", required: false }
-      - { label: "Layout", name: "layout", widget: "select", options: ["text-only", "text-image", "image-text"], default: "text-only" }
