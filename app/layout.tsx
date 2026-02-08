@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { headers } from 'next/headers'
 import { Quicksand } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import CookieConsent from '@/components/CookieConsent'
 import './globals.css'
 
@@ -62,6 +63,7 @@ export default function RootLayout({
       <body className={quicksand.variable}>
         {children}
         <CookieConsent />
+        <Analytics />
       </body>
     </html>
   )
