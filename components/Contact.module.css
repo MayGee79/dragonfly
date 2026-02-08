@@ -175,6 +175,8 @@ div.contactCard {
   display: block;
   padding: 0;
   border-radius: var(--radius-md);
+  min-width: 0;
+  overflow-x: hidden;
 }
 
 .leftSection {
@@ -185,6 +187,8 @@ div.contactCard {
   border-radius: 12px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   padding: var(--spacing-xl);
+  min-width: 0;
+  overflow-x: hidden;
 }
 
 .contactForm {
@@ -231,6 +235,9 @@ div.contactCard {
   color: var(--color-text);
   transition: background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   background-color: #ffffff;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .leftSection .input,
@@ -434,8 +441,19 @@ div.contactCard {
   .section {
     padding-left: var(--spacing-md);
     padding-right: var(--spacing-md);
-    padding-top: calc(var(--spacing-2xl) + 30px);
-    padding-bottom: calc(var(--spacing-2xl) + 30px);
+    padding-top: calc(var(--spacing-2xl) + 28px);
+    padding-bottom: calc(var(--spacing-2xl) + 28px);
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+
+  .section::before,
+  .section::after {
+    height: 28px;
+  }
+
+  .section {
+    overflow-x: hidden;
   }
 
   .contactStrip {
@@ -461,5 +479,27 @@ div.contactCard {
   .title {
     font-size: var(--font-size-3xl);
     margin-bottom: var(--spacing-xl);
+  }
+
+  .container {
+    overflow-x: hidden;
+  }
+
+  .leftSection {
+    padding: var(--spacing-md);
+  }
+
+  .contactForm {
+    grid-template-columns: 1fr;
+    min-width: 0;
+  }
+
+  .formGroup {
+    min-width: 0;
+  }
+
+  .input,
+  .textarea {
+    min-width: 0;
   }
 }

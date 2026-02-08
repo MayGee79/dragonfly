@@ -334,13 +334,15 @@
 
   .contentSection {
     padding: var(--spacing-2xl) var(--spacing-md);
-    padding-top: calc(var(--spacing-2xl) + 24px);
-    padding-bottom: calc(var(--spacing-2xl) + 24px);
+    padding-top: calc(var(--spacing-2xl) + 28px);
+    padding-bottom: calc(var(--spacing-2xl) + 28px);
+    margin-top: -10px;
+    margin-bottom: -10px;
   }
 
   .contentSection::before,
   .contentSection::after {
-    height: 36px;
+    height: 28px;
   }
 
   .contentSectionInner {

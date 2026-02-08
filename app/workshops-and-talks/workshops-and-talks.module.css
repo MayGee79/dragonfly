@@ -36,7 +36,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-lg);
 }
 
@@ -122,7 +122,7 @@
   }
 
   .grid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -138,16 +138,8 @@
   }
 
   .grid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: 1fr;
     gap: var(--spacing-md);
-    overflow-x: auto;
-    padding-bottom: var(--spacing-sm);
-    scroll-snap-type: x mandatory;
-  }
-
-  .workshopCard {
-    scroll-snap-align: start;
-    min-width: 240px;
   }
 
   .workshopCard {

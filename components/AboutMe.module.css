@@ -154,6 +154,15 @@
 @media (max-width: 767px) {
   .section {
     padding: var(--spacing-2xl) var(--spacing-md);
+    padding-top: calc(var(--spacing-2xl) + 20px);
+    padding-bottom: calc(var(--spacing-2xl) + 20px);
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+
+  .section::before,
+  .section::after {
+    height: 28px;
   }
 
   .mainTitle {

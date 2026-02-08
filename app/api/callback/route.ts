@@ -48,7 +48,7 @@ export async function GET(request: NextRequest) {
     // Return HTML that posts message to opener (for popup flow)
     // Decap CMS expects the message in a specific format
     const html = `<!DOCTYPE html>
-<html>
+<html lang="en-GB">
 <head>
   <title>Authorizing...</title>
   <style>

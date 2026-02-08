@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import styles from './global-error.module.css'
 
 interface GlobalErrorProps {
   error: Error & { digest?: string }
@@ -15,32 +16,12 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
   return (
     <html lang="en-GB">
       <body>
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          minHeight: '100vh',
-          padding: '2rem',
-          textAlign: 'center',
-          fontFamily: 'system-ui, sans-serif'
-        }}>
-          <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Something went wrong!</h1>
-          <p style={{ marginBottom: '2rem', color: '#2d3758' }}>
+        <div className={styles.container}>
+          <h1 className={styles.title}>Something went wrong!</h1>
+          <p className={styles.message}>
             {error.message || 'An unexpected error occurred'}
           </p>
-          <button
-            onClick={reset}
-            style={{
-              padding: '0.75rem 1.5rem',
-              backgroundColor: '#9a82a3',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer',
-              fontSize: '1rem'
-            }}
-          >
+          <button onClick={reset} className={styles.button}>
             Try again
           </button>
         </div>
