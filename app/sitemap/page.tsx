@@ -50,7 +50,7 @@ export default function SitemapPage() {
 
   return (
     <>
-      <Navigation />
+      <Navigation className="home-nav" />
       <main className={styles.main}>
         <div className={styles.container}>
           <h1 className={styles.title}>Sitemap</h1>
@@ -138,7 +138,7 @@ export default function SitemapPage() {
           </section>
         </div>
       </main>
-      <Footer />
+      <Footer className="home-footer" />
     </>
   )
 }

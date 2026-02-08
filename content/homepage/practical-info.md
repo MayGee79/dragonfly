@@ -1,14 +1,14 @@
 ---
 mainTitle: Practical Information
 fees:
-  - Free - 15-minute consultation
-  - £95 - Standard 50-minute session
-  - £150 - Extended 75-minute session
-  - POA - Workshops, talks & walks
+  - { price: "Free", description: "15-minute consultation" }
+  - { price: "£95", description: "Standard 50-minute session" }
+  - { price: "£150", description: "Extended 75-minute session" }
+  - { price: "POA", description: "Workshops, talks & walks" }
 locations:
-  - Guildford - Beaufort Parklands GU2 9JX
-  - East Horsley - 3 Norells Ride KT24 5EH
-  - Online - Secure video platform
-  - Easily accessible from Cobham, Godalming, Leatherhead, Dorking and surrounding villages
-availabilityText: I have slots across the week, giving flexibility to when we can work together.
+  - { name: Guildford, address: Beaufort Parklands GU2 9JX }
+  - { name: East Horsley, address: 3 Norells Ride KT24 5EH }
+  - { name: Online, address: Secure video platform }
+locationsNote: Easily accessible from Cobham, Godalming, Leatherhead, Dorking and surrounding villages
+availabilityText: I have slots across the week, and can often offer short-notice or same-week appointments when needed.
 ---

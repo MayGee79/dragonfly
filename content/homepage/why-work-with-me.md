@@ -1,5 +1,6 @@
 ---
 mainTitle: Why Work With Me?
+subtitle: Deep Therapeutic Understanding, Enhanced by Medical Insight – A Unique Combination
 featureHeading: "What I Offer:"
 features:
   - title: Safe Space

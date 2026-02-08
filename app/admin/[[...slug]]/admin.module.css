@@ -1,6 +1,6 @@
 .adminNav {
   background-color: #2d3758;
-  padding: var(--spacing-md) var(--spacing-lg);
+  padding: 0.5rem 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -21,6 +21,13 @@
   align-items: center;
 }
 
+.navRight {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+  margin-left: auto;
+}
+
 .navLinks {
   display: flex;
   gap: var(--spacing-lg);
@@ -28,18 +35,35 @@
 }
 
 .navLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 36px;
+  padding: 0;
+  box-sizing: border-box;
   color: #ffffff;
   text-decoration: none;
-  font-size: var(--font-size-base);
-  font-weight: 500;
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: 4px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 11px;
+  font-weight: bold;
+  font-family: inherit;
+  border-radius: 0.6rem;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .navLink:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #af93b8;
+  box-shadow: 0 0 20px rgba(175, 147, 184, 0.5), 0 2px 4px rgba(0, 0, 0, 0.2);
   color: #ffffff;
+}
+
+button.navLink {
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .dropdown {
@@ -48,21 +72,34 @@
 }
 
 .dropdownTrigger {
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: var(--font-size-base);
-  font-weight: 500;
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: 4px;
-  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 36px;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-weight: bold;
+  font-size: 11px;
   font-family: inherit;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .dropdownTrigger:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #af93b8;
+  box-shadow: 0 0 20px rgba(175, 147, 184, 0.5), 0 2px 4px rgba(0, 0, 0, 0.2);
   color: #ffffff;
+}
+
+.dropdownTrigger:active {
+  transform: scale(0.98);
 }
 
 .dropdownMenu {
@@ -86,9 +123,9 @@
   display: block;
   color: #ffffff;
   text-decoration: none;
-  font-size: var(--font-size-base);
+  font-size: 11px;
   font-weight: 500;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: 0.35em 0.7em;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 

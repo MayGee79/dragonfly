@@ -148,7 +148,8 @@
   margin-bottom: var(--spacing-lg);
 }
 
-.testimonial {
+.testimonial,
+.content blockquote {
   background-color: var(--color-primary);
   padding: var(--spacing-xl);
   border-radius: var(--radius-md);

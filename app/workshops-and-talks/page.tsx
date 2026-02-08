@@ -28,7 +28,7 @@ export function generateStaticParams() {
 export default function WorkshopsAndTalksPage() {
   return (
     <>
-      <Navigation />
+      <Navigation className="home-nav" />
       <main>
         <section className={styles.section}>
           <div className={styles.container}>
@@ -50,7 +50,7 @@ export default function WorkshopsAndTalksPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer className="home-footer" />
     </>
   )
 }

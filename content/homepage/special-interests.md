@@ -31,7 +31,11 @@ cards:
   - title: Self-Esteem & Personal Growth
     quote: I can't do this
     link: /self-esteem
+  - title: Rejection Sensitive Dysphoria (RSD)
+    quote: When Rejection Feels Unbearable
+    link: /rejection-sensitive-dysphoria
   - title: Young People 11+
     quote: I need someone who gets it
     link: /young-people
+contactCardTitle: Not sure where you fit?
 ---

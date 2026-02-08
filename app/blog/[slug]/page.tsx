@@ -86,7 +86,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const htmlContent = markdownToHtml(post.body)
 
-  // Structured data for SEO
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dragonflypsychotherapy.co.uk'
+  const postUrl = `${baseUrl}/blog/${resolvedParams.slug}/`
+  const imageUrl = post.featuredImage
+    ? (post.featuredImage.startsWith('http') ? post.featuredImage : `${baseUrl}${post.featuredImage.startsWith('/') ? post.featuredImage : '/' + post.featuredImage}`)
+    : undefined
+  const logoUrl = `${baseUrl}/images/dragonfly_logo_blue.png`
+
+  // Structured data for SEO and AI discoverability
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -97,13 +104,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       name: post.author,
     },
     datePublished: post.date,
-    image: post.featuredImage,
+    dateModified: post.date,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': postUrl,
+    },
+    ...(imageUrl && { image: imageUrl }),
     publisher: {
       '@type': 'Organization',
       name: 'Dragonfly Psychotherapy',
       logo: {
         '@type': 'ImageObject',
-        url: '/images/dragonfly-logo.png',
+        url: logoUrl,
       },
     },
   }
@@ -114,7 +126,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <Navigation />
+      <Navigation className="home-nav" />
       <main>
         <article className={styles.article}>
           <div className={styles.container}>
@@ -158,7 +170,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </article>
       </main>
-      <Footer />
+      <Footer className="home-footer" />
     </>
   )
 }

@@ -1,4 +1,7 @@
-# Production: https://dragonflypsychotherapy.co.uk – OAuth via auth_endpoint
+# Local: run "npm run cms" for decap-server proxy, then open /admin
+# Production: GitHub OAuth via auth_endpoint
+local_backend: true
+
 backend:
   name: github
   repo: MayGee79/dragonfly
@@ -140,4 +143,3 @@ collections:
       - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Published", name: "published", widget: "boolean", default: false }
-

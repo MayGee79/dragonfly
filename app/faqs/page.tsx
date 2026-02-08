@@ -47,7 +47,7 @@ export default function FAQsPage() {
 
   return (
     <>
-      <Navigation />
+      <Navigation className="home-nav" />
       <main>
         {heroSection && (
           <Hero
@@ -94,7 +94,7 @@ export default function FAQsPage() {
           </>
         )}
       </main>
-      <Footer />
+      <Footer className="home-footer" />
     </>
   )
 }

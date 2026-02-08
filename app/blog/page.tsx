@@ -19,7 +19,7 @@ export default function BlogPage() {
 
   return (
     <>
-      <Navigation />
+      <Navigation className="home-nav" />
       <main>
         <section className={styles.blogSection}>
           <div className={styles.container}>
@@ -57,7 +57,7 @@ export default function BlogPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer className="home-footer" />
     </>
   )
 }

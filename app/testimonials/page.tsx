@@ -29,7 +29,7 @@ export default function TestimonialsPage() {
 
   return (
     <>
-      <Navigation />
+      <Navigation className="home-nav" />
       <main>
         <section className={styles.section}>
           <div className={styles.container}>
@@ -46,7 +46,7 @@ export default function TestimonialsPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer className="home-footer" />
     </>
   )
 }

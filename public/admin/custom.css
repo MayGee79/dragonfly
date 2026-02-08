@@ -5,88 +5,108 @@
   --font-main: 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
   --color-primary: #af93b8;
   --color-primary-dark: #9a82a3;
+  --color-primary-darker: #7d6585;
   --color-text: #2d3758;
   --color-bg: #eef5f6;
   --color-bg-light: #eef5f6;
   --color-bg-pink: #eef5f6;
 }
 
-* {
+/* Admin CMS styles – Decap CMS. Scoped to #nc-root. */
+#nc-root,
+#nc-root * {
   font-family: var(--font-main) !important;
 }
 
-body {
-  background-color: var(--color-bg-pink) !important;
+/* Do NOT hide CMS header – Publish/Save button must stay visible at bottom-left of editor */
+
+/* Slightly smaller base font in CMS area */
+#nc-root {
+  font-size: 14px !important;
+}
+
+#nc-root {
   color: var(--color-text) !important;
 }
 
 /* Header styling */
+#nc-root,
 .nc-root,
 [class*="nc-root"] {
   background-color: var(--color-bg-pink) !important;
 }
 
+#nc-root header,
+#nc-root [class*="appHeader"],
+#nc-root [class*="header"],
 [class*="nc-appHeader"],
 [class*="nc-header"] {
   background-color: #ffffff !important;
   border-bottom: 1px solid rgba(45, 55, 88, 0.1) !important;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+  position: sticky !important;
+  top: 44px !important;
+  z-index: 999 !important;
 }
 
 [class*="nc-appHeader-title"],
 [class*="nc-header-title"] {
   color: var(--color-text) !important;
   font-weight: 700 !important;
-  font-size: 24px !important;
+  font-size: 18px !important;
 }
 
-/* Buttons */
-button,
-[class*="nc-button"],
-[class*="nc-entryListing-cardButton"],
-[class*="nc-entryEditor-toolbarButton"],
-[class*="nc-widget-topLevelButton"] {
-  background-color: var(--color-primary) !important;
-  color: var(--color-text) !important;
-  border: none !important;
-  border-radius: 8px !important;
-  font-weight: 600 !important;
-  transition: all 0.3s ease !important;
+/* Primary / Save / Publish – lavender fill */
+#nc-root [class*="nc-button-primary"],
+#nc-root [class*="nc-workflowCard-button"],
+#nc-root [class*="nc-appHeader-actions"] button,
+#nc-root [class*="nc-appHeader-actions"] [class*="nc-button"],
+#nc-root [class*="nc-entryEditor-toolbarButton"][class*="Save"],
+#nc-root [class*="nc-entryEditor-toolbarButton"][class*="Publish"],
+#nc-root button[class*="primary"],
+#nc-root button[class*="Save"],
+#nc-root button[class*="Publish"] {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   font-family: var(--font-main) !important;
-}
-
-button:hover,
-[class*="nc-button"]:hover,
-[class*="nc-entryListing-cardButton"]:hover,
-[class*="nc-entryEditor-toolbarButton"]:hover,
-[class*="nc-widget-topLevelButton"]:hover {
-  background-color: var(--color-primary-dark) !important;
+  font-weight: bold !important;
   color: #ffffff !important;
-  transform: translateY(-2px) !important;
-}
-
-/* Primary buttons */
-[class*="nc-button-primary"],
-button[class*="primary"] {
+  padding: 0.5em 1.2em !important;
+  border: none !important;
+  border-radius: 0.6rem !important;
   background-color: var(--color-primary) !important;
-  color: var(--color-text) !important;
+  font-size: 11px !important;
+  min-height: 24px !important;
+  transition: 0.3s ease !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
 }
 
-[class*="nc-button-primary"]:hover,
-button[class*="primary"]:hover {
+#nc-root [class*="nc-appHeader-actions"] button:hover,
+#nc-root [class*="nc-appHeader-actions"] [class*="nc-button"]:hover,
+#nc-root [class*="nc-button-primary"]:hover,
+#nc-root button[class*="primary"]:hover {
   background-color: var(--color-primary-dark) !important;
+  box-shadow: 0 0 20px rgba(175, 147, 184, 0.6), 0 2px 4px rgba(0, 0, 0, 0.2) !important;
   color: #ffffff !important;
+}
+
+#nc-root [class*="nc-appHeader-actions"] button:active,
+#nc-root [class*="nc-appHeader-actions"] [class*="nc-button"]:active,
+#nc-root [class*="nc-button-primary"]:active,
+#nc-root button[class*="primary"]:active {
+  transform: scale(0.98) !important;
 }
 
 /* Input fields */
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="number"],
-input[type="date"],
-input[type="datetime-local"],
-textarea,
-select {
+#nc-root input[type="text"],
+#nc-root input[type="email"],
+#nc-root input[type="url"],
+#nc-root input[type="number"],
+#nc-root input[type="date"],
+#nc-root input[type="datetime-local"],
+#nc-root textarea,
+#nc-root select {
   border: 2px solid rgba(45, 55, 88, 0.2) !important;
   border-radius: 8px !important;
   padding: 8px 12px !important;
@@ -95,84 +115,267 @@ select {
   background-color: #ffffff !important;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
+#nc-root input:focus,
+#nc-root textarea:focus,
+#nc-root select:focus {
   outline: none !important;
   border-color: var(--color-primary) !important;
   box-shadow: 0 0 0 3px rgba(199, 141, 167, 0.1) !important;
 }
 
 /* Sidebar */
-[class*="nc-sidebar"],
-[class*="nc-collectionSidebar"] {
+#nc-root [class*="nc-sidebar"],
+#nc-root [class*="nc-collectionSidebar"] {
   background-color: #ffffff !important;
   border-right: 1px solid rgba(45, 55, 88, 0.1) !important;
 }
 
-[class*="nc-sidebar-navItem"],
-[class*="nc-collectionSidebar-navItem"] {
-  color: var(--color-text) !important;
+/* Content, Quick add, and sidebar nav – KINGFRESS style */
+#nc-root [class*="nc-sidebar-navItem"],
+#nc-root [class*="nc-collectionSidebar-navItem"],
+#nc-root [class*="nc-collectionSidebar-section"] > a,
+#nc-root [class*="nc-collectionSidebar-section"] > button,
+#nc-root [class*="nc-collectionTopBar"] button,
+#nc-root [class*="nc-collectionTopBar"] a,
+#nc-root [class*="nc-entryListing-topBar"] button,
+#nc-root [class*="nc-entryListing-topBar"] a {
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
   font-family: var(--font-main) !important;
+  font-weight: bold !important;
+  color: #ffffff !important;
+  padding: 0.5em 1.2em !important;
+  border: none !important;
+  border-radius: 0.6rem !important;
+  background-color: var(--color-text) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  font-size: 11px !important;
+  cursor: pointer !important;
+  transition: 0.3s ease !important;
+  text-decoration: none !important;
+  margin: 2px 3px !important;
 }
 
-[class*="nc-sidebar-navItem"]:hover,
-[class*="nc-sidebar-navItem-active"],
-[class*="nc-collectionSidebar-navItem"]:hover,
-[class*="nc-collectionSidebar-navItem-active"] {
-  background-color: var(--color-bg) !important;
-  color: var(--color-primary-dark) !important;
+#nc-root [class*="nc-sidebar-navItem"]:hover,
+#nc-root [class*="nc-collectionSidebar-navItem"]:hover,
+#nc-root [class*="nc-collectionSidebar-section"] > a:hover,
+#nc-root [class*="nc-collectionSidebar-section"] > button:hover,
+#nc-root [class*="nc-collectionTopBar"] button:hover,
+#nc-root [class*="nc-collectionTopBar"] a:hover,
+#nc-root [class*="nc-entryListing-topBar"] button:hover,
+#nc-root [class*="nc-entryListing-topBar"] a:hover {
+  background-color: var(--color-primary-dark) !important;
+  box-shadow: 0 0 20px rgba(175, 147, 184, 0.5), 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+#nc-root [class*="nc-sidebar-navItem-active"],
+#nc-root [class*="nc-collectionSidebar-navItem-active"] {
+  background-color: var(--color-primary) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 2px var(--color-primary-dark), 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+#nc-root [class*="nc-sidebar-navItem-active"]:hover,
+#nc-root [class*="nc-collectionSidebar-navItem-active"]:hover {
+  background-color: var(--color-primary-dark) !important;
+  box-shadow: 0 0 20px rgba(175, 147, 184, 0.6), 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  color: #ffffff !important;
+}
+
+/* Header nav: Content, Workflow, Media – KINGFRESS style */
+#nc-root [class*="nc-appHeader"] a,
+#nc-root [class*="nc-appHeader"] button,
+#nc-root [class*="nc-header"] a,
+#nc-root [class*="nc-header"] button {
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  font-family: var(--font-main) !important;
+  font-weight: bold !important;
+  color: #ffffff !important;
+  padding: 0.5em 1.2em !important;
+  border: none !important;
+  border-radius: 0.6rem !important;
+  background-color: var(--color-text) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  font-size: 11px !important;
+  transition: 0.3s ease !important;
+  text-decoration: none !important;
+}
+
+#nc-root [class*="nc-appHeader"] a:hover,
+#nc-root [class*="nc-appHeader"] button:hover,
+#nc-root [class*="nc-header"] a:hover,
+#nc-root [class*="nc-header"] button:hover {
+  background-color: var(--color-primary-dark) !important;
+  box-shadow: 0 0 20px rgba(175, 147, 184, 0.5), 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Center Content, Media, Quick add in the middle of the header bar */
+#nc-root header > div,
+#nc-root [class*="appHeader"] > div,
+#nc-root [class*="nc-appHeader"] > div {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  flex-wrap: wrap !important;
+}
+
+#nc-root [class*="nc-appHeader"] ul,
+#nc-root [class*="nc-appHeader"] [class*="nav"],
+#nc-root [class*="nc-appHeader-right"],
+#nc-root [class*="nc-appHeader-actions"] {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+/* Quick add button – wider */
+#nc-root [class*="nc-appHeader-actions"] button:first-child,
+#nc-root [class*="nc-appHeader-actions"] > button,
+#nc-root [class*="nc-appHeader-actions"] [class*="dropdown"] button {
+  min-width: 110px !important;
+  padding: 0.5em 1.2em !important;
+}
+
+/* Remove icons and arrows from Content, Media, Quick add – hide via CSS (JS also removes from DOM) */
+#nc-root [class*="nc-appHeader"] svg,
+#nc-root [class*="nc-appHeader"] a svg,
+#nc-root [class*="nc-appHeader"] button svg,
+#nc-root [class*="nc-header"] svg,
+#nc-root [class*="nc-header"] a svg,
+#nc-root [class*="nc-header"] button svg,
+#nc-root [class*="nc-appHeader-nav"] svg,
+#nc-root [class*="nc-appHeader-actions"] svg,
+#nc-root [class*="nc-appHeader"] [class*="nav"] svg,
+#nc-root [class*="nc-appHeader"] [class*="Nav"] svg,
+#nc-root [class*="appHeader"] svg,
+#nc-root [class*="AppHeader"] svg,
+#nc-root [class*="nc-appHeader-actions"] [class*="dropdown"] svg,
+#nc-root [class*="nc-appHeader-actions"] [class*="Dropdown"] svg,
+#nc-root header svg,
+#nc-root [role="banner"] svg {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* Remove arrow/caret from Quick add */
+#nc-root [class*="nc-appHeader-actions"] button::after,
+#nc-root [class*="nc-appHeader-actions"] button::before,
+#nc-root [class*="nc-appHeader-actions"] [class*="dropdown"] button::after,
+#nc-root [class*="nc-appHeader-actions"] [class*="dropdown"] button::before,
+#nc-root [class*="nc-appHeader-actions"] [class*="Dropdown"] button::after,
+#nc-root [class*="nc-appHeader-actions"] [class*="Dropdown"] button::before,
+#nc-root [class*="nc-appHeader-actions"] [class*="caret"],
+#nc-root [class*="nc-appHeader-actions"] [class*="chevron"] {
+  display: none !important;
+  content: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* View toggle icons (list/gallery) below Pages section – make white */
+#nc-root [class*="nc-collectionTopBar"] svg,
+#nc-root [class*="nc-entryListing-topBar"] svg,
+#nc-root [class*="nc-viewControls"] svg,
+#nc-root [class*="nc-collectionTopBar"] svg path,
+#nc-root [class*="nc-entryListing-topBar"] svg path,
+#nc-root [class*="nc-viewControls"] svg path,
+#nc-root [class*="nc-collectionTopBar"] svg circle,
+#nc-root [class*="nc-entryListing-topBar"] svg circle,
+#nc-root [class*="nc-viewControls"] svg circle {
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
 }
 
 /* Cards */
-[class*="nc-entryListing-card"],
-[class*="nc-card"],
-[class*="nc-entryCard"] {
+#nc-root [class*="nc-entryListing-card"],
+#nc-root [class*="nc-card"],
+#nc-root [class*="nc-entryCard"] {
   background-color: #ffffff !important;
   border: 1px solid rgba(45, 55, 88, 0.1) !important;
   border-radius: 8px !important;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Links */
-a {
-  color: var(--color-primary) !important;
-  font-family: var(--font-main) !important;
+/* File cards (Home, FAQs, etc.) – 2 columns, small square cards */
+#nc-root ul[class*="CardsGrid"] {
+  display: grid !important;
+  grid-template-columns: repeat(2, 120px) !important;
+  gap: 1rem !important;
+  list-style: none !important;
+  padding: 1rem !important;
+  margin: 0 !important;
 }
-
-a:hover {
-  color: var(--color-primary-dark) !important;
+#nc-root ul[class*="CardsGrid"] li {
+  width: 120px !important;
+  height: 120px !important;
+  overflow: hidden !important;
+}
+#nc-root a[class*="GridCardLink"] {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 120px !important;
+  height: 120px !important;
+  padding: 0.5rem !important;
+  font-size: 12px !important;
+  border-radius: 6px !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
 }
 
 /* Labels */
-label {
+#nc-root label {
   color: var(--color-text) !important;
   font-weight: 600 !important;
+  font-size: 11px !important;
   font-family: var(--font-main) !important;
 }
 
-/* Widget styling */
-[class*="nc-widget-topLevelButton"] {
+/* Widget buttons – KINGFRESS style, primary colour */
+#nc-root [class*="nc-widget-topLevelButton"] {
+  font-family: var(--font-main) !important;
+  font-weight: bold !important;
   background-color: var(--color-primary) !important;
-  color: var(--color-text) !important;
-  border-radius: 8px !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 0.6rem !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  font-size: 11px !important;
+  padding: 0.5em 1.2em !important;
+  transition: 0.3s ease !important;
 }
 
-[class*="nc-widget-topLevelButton"]:hover {
+#nc-root [class*="nc-widget-topLevelButton"]:hover {
   background-color: var(--color-primary-dark) !important;
   color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(175, 147, 184, 0.6), 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+#nc-root [class*="nc-widget-topLevelButton"]:active {
+  transform: scale(0.98) !important;
 }
 
 /* Markdown editor */
-[class*="nc-markdownEditor-toolbar"],
-[class*="nc-editorToolbar"] {
+#nc-root [class*="nc-markdownEditor-toolbar"],
+#nc-root [class*="nc-editorToolbar"] {
   background-color: var(--color-bg) !important;
   border-bottom: 1px solid rgba(45, 55, 88, 0.1) !important;
 }
 
 /* Status badges */
-[class*="nc-entryListing-status"],
-[class*="nc-status"] {
+#nc-root [class*="nc-entryListing-status"],
+#nc-root [class*="nc-status"] {
   background-color: var(--color-bg) !important;
   color: var(--color-text) !important;
   border-radius: 4px !important;
@@ -180,27 +383,36 @@ label {
 }
 
 /* Loading spinner */
-[class*="nc-loadingSpinner"],
-[class*="nc-spinner"] {
+#nc-root [class*="nc-loadingSpinner"],
+#nc-root [class*="nc-spinner"] {
   border-color: var(--color-primary) !important;
 }
 
 /* Main content area */
-[class*="nc-mainContainer"],
-[class*="nc-main"] {
+#nc-root [class*="nc-mainContainer"],
+#nc-root [class*="nc-main"] {
   background-color: var(--color-bg-pink) !important;
 }
 
 /* Editor area */
-[class*="nc-entryEditor"],
-[class*="nc-editor"] {
+#nc-root [class*="nc-entryEditor"],
+#nc-root [class*="nc-editor"] {
   background-color: #ffffff !important;
   border-radius: 8px !important;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Text content */
-p, span, div, h1, h2, h3, h4, h5, h6 {
+#nc-root p,
+#nc-root span,
+#nc-root div,
+#nc-root h1,
+#nc-root h2,
+#nc-root h3,
+#nc-root h4,
+#nc-root h5,
+#nc-root h6 {
   font-family: var(--font-main) !important;
   color: var(--color-text) !important;
 }
+

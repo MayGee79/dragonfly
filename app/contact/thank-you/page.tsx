@@ -17,7 +17,7 @@ export function generateStaticParams() {
 export default function ThankYouPage() {
   return (
     <>
-      <Navigation />
+      <Navigation className="home-nav" />
       <main>
         <section className={styles.section}>
           <div className={styles.container}>
@@ -38,7 +38,7 @@ export default function ThankYouPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer className="home-footer" />
     </>
   )
 }

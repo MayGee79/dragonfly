@@ -20,7 +20,7 @@ export function generateStaticParams() {
 export default function DepressionPage() {
   return (
     <>
-      <Navigation />
+      <Navigation className="home-nav" />
       <main>
         <section className={styles.section}>
           <div className={styles.container}>
@@ -71,7 +71,7 @@ export default function DepressionPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer className="home-footer" />
     </>
   )
 }

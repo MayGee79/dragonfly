@@ -26,14 +26,14 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
           fontFamily: 'system-ui, sans-serif'
         }}>
           <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Something went wrong!</h1>
-          <p style={{ marginBottom: '2rem', color: '#666' }}>
+          <p style={{ marginBottom: '2rem', color: '#2d3758' }}>
             {error.message || 'An unexpected error occurred'}
           </p>
           <button
             onClick={reset}
             style={{
               padding: '0.75rem 1.5rem',
-              backgroundColor: '#0066cc',
+              backgroundColor: '#9a82a3',
               color: 'white',
               border: 'none',
               borderRadius: '4px',

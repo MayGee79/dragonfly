@@ -24,7 +24,7 @@ export default function Error({ error, reset }: ErrorProps) {
       textAlign: 'center'
     }}>
       <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Something went wrong!</h1>
-      <p style={{ marginBottom: '2rem', color: '#666' }}>
+      <p style={{ marginBottom: '2rem', color: '#2d3758' }}>
         {error.message || 'An unexpected error occurred'}
       </p>
       <div style={{ display: 'flex', gap: '1rem' }}>
@@ -32,7 +32,7 @@ export default function Error({ error, reset }: ErrorProps) {
           onClick={reset}
           style={{
             padding: '0.75rem 1.5rem',
-            backgroundColor: '#0066cc',
+            backgroundColor: '#9a82a3',
             color: 'white',
             border: 'none',
             borderRadius: '4px',
@@ -46,8 +46,8 @@ export default function Error({ error, reset }: ErrorProps) {
           href="/"
           style={{
             padding: '0.75rem 1.5rem',
-            backgroundColor: '#f0f0f0',
-            color: '#333',
+            backgroundColor: '#eef5f6',
+            color: '#2d3758',
             textDecoration: 'none',
             borderRadius: '4px',
             fontSize: '1rem'
