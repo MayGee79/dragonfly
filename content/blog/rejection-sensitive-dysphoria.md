@@ -1,12 +1,12 @@
 ---
 title: Rejection sensitive dysphoria
 date: 2025-12-15T18:08:00.000+00:00
-featuredImage: /images/screenshot-2026-01-13-at-17.57.09.png
+featuredImage: https://img1.wsimg.com/isteam/ip/5f255e9c-5e13-437c-8056-c7807a041c11/Sea%20Photo.JPG/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1280
 published: true
 ---
 **THE UNBEARABLE WEIGHT OF "NO":**
 
-**UNDERSTANDING REJECTION SENSITIVE DYSPHORIA**
+## Understanding Rejection Sensitive Dysphoria
 
 **\*When rejection doesn't just sting - it devastates\***
 
@@ -16,7 +16,7 @@ If you recognise this, you may have spent years thinking it was a character flaw
 
 There's a name for this experience: Rejection Sensitive Dysphoria. And understanding it can be the first step toward making peace with a nervous system that feels things deeply.
 
-**What Is Rejection Sensitive Dysphoria?**
+## What Is Rejection Sensitive Dysphoria?
 
 The word "dysphoria" comes from the Greek, meaning "difficult to bear" - and that etymology captures something essential. This isn't ordinary disappointment or the universal human discomfort of rejection. It's an overwhelming emotional response that arrives suddenly, feels unbearable, and is often wildly disproportionate to the triggering event.
 
@@ -36,7 +36,7 @@ The key features include:
 
 People with RSD often describe it as a "wound" rather than a feeling. When asked to characterise the pain, they can speak to its intensity (awful, catastrophic, devastating) but struggle to describe its quality in the way we might describe sadness or anger. It exists in its own category.
 
-**The Science: When Social Pain Becomes Physical Pain**
+## The Science: When Social Pain Becomes Physical Pain
 
 For a long time, describing rejection as "painful" was considered metaphorical. We spoke of "hurt feelings" and "wounded pride" without considering whether these phrases might be literally true. Then came the neuroimaging studies.
 
@@ -48,7 +48,7 @@ Subsequent research has gone further. A 2011 study in the Proceedings of the Nat
 
 This doesn't mean all rejection is physically painful for everyone. But for those with heightened rejection sensitivity, this neural overlap may help explain why the experience feels so overwhelming. The brain is literally processing social rejection as a form of injury.
 
-**RSD and ADHD: A Common but Complex Relationship**
+## RSD and ADHD: A Common but Complex Relationship
 
 Rejection Sensitive Dysphoria is most commonly discussed in relation to ADHD, and for good reason. Dr Dodson has suggested that up to 99% of adults with ADHD experience some degree of RSD, making it one of the most common features of the condition – although it is not included in the diagnostic criteria.
 
@@ -80,7 +80,7 @@ P**ost-Traumatic Stress Disorder**: Early experiences of rejection, neglect, or 
 
 It's worth noting that RSD is not (yet) a formal diagnosis in the DSM-5 or ICD. This doesn't mean the experience isn't real - it clearly is, for millions of people. Rather, it reflects the ongoing evolution of how we understand and categorise emotional experiences.
 
-**Where RSD Shows Up: The Breadth of It**
+## Where RSD Shows Up: The Breadth of It
 
 One of the most challenging aspects of living with RSD is how pervasive it can be. Potential triggers lurk everywhere:
 
@@ -98,7 +98,7 @@ Self-expectations: Not meeting your own standards, making mistakes, missing dead
 
 The common thread is the perception, accurate or not, that someone has withdrawn their approval, respect, or affection. Even ambiguous situations can trigger RSD when interpreted through a lens of anticipated rejection.
 
-**The Coping Strategies That Backfire**
+## The Coping Strategies That Backfire
 
 Living with RSD often means developing strategies to avoid that unbearable feeling. The problem is that many of these strategies create their own problems:
 
@@ -116,7 +116,7 @@ Anger and externalisation: Sometimes the pain of RSD is directed outward as rage
 
 Understanding RSD can help you recognise these patterns - not with self-criticism, but with compassion. These are survival strategies developed to manage genuine pain.
 
-**What Actually Helps**
+## What Actually Helps
 
 There's no magic cure for RSD, but there are approaches that can make a genuine difference:
 
@@ -184,7 +184,7 @@ This doesn't mean becoming hardened or indifferent - rejection will always hurt 
 
 \- Having a "rejection toolkit" ready - activities and thoughts that help you cope
 
-**The Other Side of Sensitivity: A Strengths Perspective**
+## The Other Side of Sensitivity: A Strengths Perspective
 
 It would be easy to frame RSD purely as a problem to be solved. But in my work, I try to resist the pull toward pathology. Yes, RSD involves real suffering - that shouldn't be minimised. But the same neurological wiring that makes rejection feel unbearable often comes with genuine gifts.
 
@@ -222,7 +222,7 @@ But you are not broken. You have a sensitive nervous system that comes with cost
 
 You might not be able to choose whether rejection hurts intensely. But you can choose how to understand your sensitivity - as a flaw to be fixed, or as a feature to be worked with.
 
-**Supporting Someone with RSD**
+## Supporting Someone with RSD
 
 If someone you care about experiences RSD, here's what might help:
 
@@ -236,13 +236,13 @@ Be patient with reassurance-seeking. Yes, it can be repetitive. But the person i
 
 Discuss triggers when things are calm. Help them identify patterns and develop coping strategies during good moments, not in the midst of distress.
 
-**A Final Thought**
+## A Final Thought
 
 If you recognise yourself in this article, I want you to know: your sensitivity is real, it's not a character flaw, and you're not alone. Millions of people share this experience, many of them living rich, connected, meaningful lives alongside their RSD.
 
 The same nervous system that makes rejection feel devastating often comes with gifts: empathy, emotional depth, creativity, the capacity to feel joy as intensely as pain. Learning to live with RSD isn't about becoming someone else - it's about understanding yourself more fully, building the skills to navigate the hard moments, and recognising that your sensitivity, properly channelled, may be one of your greatest strengths.
 
-**References and Further Reading**
+## References and Further Reading
 
 \- Eisenberger, N.I., Lieberman, M.D. & Williams, K.D. (2003). Does rejection hurt? An fMRI study of social exclusion. \*Science\*, 302(5643), 290-292.
 

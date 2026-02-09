@@ -7,6 +7,7 @@ import WorkTogether from '@/components/WorkTogether'
 import AboutMe from '@/components/AboutMe'
 import PracticalInfo from '@/components/PracticalInfo'
 import Workshops from '@/components/Workshops'
+import BlogPreview from '@/components/BlogPreview'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import { getPageBySlug } from '@/lib/content'
@@ -151,6 +152,7 @@ export default function HomePage() {
         <WorkTogether />
         <PracticalInfo />
         <Workshops />
+        <BlogPreview />
         <Contact />
       </main>
       <Footer className="home-footer" />
