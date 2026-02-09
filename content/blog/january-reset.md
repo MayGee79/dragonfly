@@ -1,5 +1,5 @@
 ---
-title: January Reset
+title: January reset
 date: 2026-01-12T13:15:00.000+00:00
 author: Victoria Froome
 featuredImage: /images/VF_002_v2.png

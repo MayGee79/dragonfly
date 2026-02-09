@@ -18,7 +18,29 @@
   font-family: var(--font-main) !important;
 }
 
-/* Do NOT hide CMS header – Publish/Save button must stay visible at bottom-left of editor */
+/* Hide Contents, Media, logout/avatar from CMS header – we use custom nav */
+#nc-root [class*="nc-appHeader-nav"],
+#nc-root [class*="AppHeader-nav"],
+#nc-root [class*="AppHeaderNavLink"],
+#nc-root [class*="AppHeaderButton"] a[href="#/"],
+#nc-root [class*="nc-appHeader"] a[href="#/"],
+#nc-root [class*="nc-appHeader"] a[href="#/media"],
+#nc-root a[href="#/"] span:only-child,
+#nc-root a.header-link-active[href="#/"],
+#nc-root [class*="nc-appHeader-user"],
+#nc-root [class*="nc-appHeader-avatar"],
+#nc-root [class*="AppHeader-user"],
+#nc-root [class*="AppHeader"] [class*="avatar"],
+#nc-root [class*="AppHeader"] [class*="Avatar"] {
+  display: none !important;
+}
+/* Hide Contents and Media (link href #/ and Media button) */
+#nc-root a[href="#/"],
+#nc-root a[href="#/media"],
+#nc-root [class*="AppHeader"] [class*="AppHeaderNavLink"],
+#nc-root [class*="AppHeader"] button[class*="AppHeaderButton"]:not([class*="primary"]) {
+  display: none !important;
+}
 
 /* Slightly smaller base font in CMS area */
 #nc-root {
@@ -47,7 +69,9 @@
   position: sticky !important;
   top: 44px !important;
   z-index: 999 !important;
+  min-height: 48px !important;
 }
+
 
 [class*="nc-appHeader-title"],
 [class*="nc-header-title"] {
@@ -56,11 +80,14 @@
   font-size: 18px !important;
 }
 
-/* Primary / Save / Publish – lavender fill */
+/* Primary / Save / Publish – lavender fill, large and prominent */
 #nc-root [class*="nc-button-primary"],
 #nc-root [class*="nc-workflowCard-button"],
 #nc-root [class*="nc-appHeader-actions"] button,
 #nc-root [class*="nc-appHeader-actions"] [class*="nc-button"],
+#nc-root [class*="AppHeaderActions"] button,
+#nc-root [class*="ToolbarSectionMain"] button,
+#nc-root [class*="ToolbarSectionMeta"] button,
 #nc-root [class*="nc-entryEditor-toolbarButton"][class*="Save"],
 #nc-root [class*="nc-entryEditor-toolbarButton"][class*="Publish"],
 #nc-root button[class*="primary"],
@@ -72,14 +99,16 @@
   font-family: var(--font-main) !important;
   font-weight: bold !important;
   color: #ffffff !important;
-  padding: 0.5em 1.2em !important;
+  padding: 0.75em 2em !important;
   border: none !important;
   border-radius: 0.6rem !important;
   background-color: var(--color-primary) !important;
-  font-size: 11px !important;
-  min-height: 24px !important;
+  font-size: 14px !important;
+  min-height: 44px !important;
+  min-width: 140px !important;
   transition: 0.3s ease !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  letter-spacing: 0.02em !important;
 }
 
 #nc-root [class*="nc-appHeader-actions"] button:hover,
@@ -87,7 +116,7 @@
 #nc-root [class*="nc-button-primary"]:hover,
 #nc-root button[class*="primary"]:hover {
   background-color: var(--color-primary-dark) !important;
-  box-shadow: 0 0 20px rgba(175, 147, 184, 0.6), 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 0 20px rgba(175, 147, 184, 0.6), 0 2px 8px rgba(0, 0, 0, 0.2) !important;
   color: #ffffff !important;
 }
 
@@ -96,6 +125,51 @@
 #nc-root [class*="nc-button-primary"]:active,
 #nc-root button[class*="primary"]:active {
   transform: scale(0.98) !important;
+}
+
+/* Publish & Delete entry toolbar buttons – same size, shape, centered text */
+#nc-root [class*="ToolbarSectionMain"] button,
+#nc-root [class*="ToolbarContainer"] button {
+  font-weight: normal !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  line-height: 1 !important;
+  min-width: 140px !important;
+  min-height: 42px !important;
+  padding: 0.5em 1.5em !important;
+  border-radius: 0.6rem !important;
+  font-size: 13px !important;
+  box-sizing: border-box !important;
+}
+
+/* Hide logout/avatar from the editor toolbar – we use our own in the nav */
+#nc-root [class*="ToolbarContainer"] [class*="AvatarDropdown"],
+#nc-root [class*="ToolbarContainer"] [class*="AvatarDropdownButton"] {
+  display: none !important;
+}
+/* Hide the toolbar meta section that only contains avatar (when it's the last child) */
+#nc-root [class*="ToolbarContainer"] > [class*="ToolbarSectionMeta"] {
+  display: none !important;
+}
+
+/* Fix the toolbar so it stays visible – Decap uses ToolbarContainer */
+#nc-root [class*="ToolbarContainer"],
+#nc-root [class*="toolbarContainer"] {
+  position: fixed !important;
+  top: 92px !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  background: #ffffff !important;
+  padding: 0.5rem 1rem !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+/* Prevent editor content from hiding under the fixed toolbar */
+#nc-root [class*="EditorContainer"] > [class*="Editor"],
+#nc-root [class*="EditorContainer"] > div:last-child {
+  padding-top: 60px !important;
 }
 
 /* Input fields */
@@ -307,28 +381,28 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* File cards (Home, FAQs, etc.) – 2 columns, small square cards */
+/* File cards (Home, FAQs, etc.) – 2 columns, square cards */
 #nc-root ul[class*="CardsGrid"] {
   display: grid !important;
-  grid-template-columns: repeat(2, 120px) !important;
-  gap: 1rem !important;
+  grid-template-columns: repeat(2, 160px) !important;
+  gap: 0.5rem !important;
   list-style: none !important;
   padding: 1rem !important;
   margin: 0 !important;
 }
 #nc-root ul[class*="CardsGrid"] li {
-  width: 120px !important;
-  height: 120px !important;
+  width: 160px !important;
+  height: 160px !important;
   overflow: hidden !important;
 }
 #nc-root a[class*="GridCardLink"] {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 120px !important;
-  height: 120px !important;
-  padding: 0.5rem !important;
-  font-size: 12px !important;
+  width: 160px !important;
+  height: 160px !important;
+  padding: 0.75rem !important;
+  font-size: 13px !important;
   border-radius: 6px !important;
   text-align: center !important;
   box-sizing: border-box !important;
@@ -415,4 +489,5 @@
   font-family: var(--font-main) !important;
   color: var(--color-text) !important;
 }
+
 

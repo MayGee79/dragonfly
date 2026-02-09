@@ -142,4 +142,3 @@ collections:
       - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
       - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Published", name: "published", widget: "boolean", default: false }

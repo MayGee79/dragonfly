@@ -1,5 +1,5 @@
 ---
-title: "You Can't Have Peaks Without Troughs: What Waves Taught Me"
+title: "You can't have peaks without troughs: what waves taught me"
 date: 2025-12-28T14:14:00.000+00:00
 author: Vicky
 featuredImage: /images/screenshot-2026-01-13-at-14.02.10.png

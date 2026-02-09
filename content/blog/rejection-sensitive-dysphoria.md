@@ -1,5 +1,5 @@
 ---
-title: REJECTION SENSITIVE DYSPHORIA
+title: Rejection sensitive dysphoria
 date: 2025-12-15T18:08:00.000+00:00
 featuredImage: /images/screenshot-2026-01-13-at-17.57.09.png
 published: true
