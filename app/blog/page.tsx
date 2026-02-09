@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { getAllBlogPosts } from '@/lib/content'
+import BlogPostsList from './BlogPostsList'
 import styles from './blog.module.css'
 import type { Metadata } from 'next'
 
@@ -27,32 +27,7 @@ export default function BlogPage() {
             {posts.length === 0 ? (
               <p className={styles.empty}>No blog posts yet. Check back soon!</p>
             ) : (
-              <div className={styles.posts}>
-                {posts.map((post) => (
-                  <article key={post.slug} className={styles.post}>
-                    <Link href={`/blog/${post.slug}`}>
-                      {post.featuredImage && (
-                        <img 
-                          src={post.featuredImage} 
-                          alt={post.title}
-                          className={styles.image}
-                        />
-                      )}
-                      <h2 className={styles.postTitle}>{post.title}</h2>
-                      {post.excerpt && (
-                        <p className={styles.excerpt}>{post.excerpt}</p>
-                      )}
-                      <time className={styles.date}>
-                        {new Date(post.date).toLocaleDateString('en-GB', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}
-                      </time>
-                    </Link>
-                  </article>
-                ))}
-              </div>
+              <BlogPostsList posts={posts} />
             )}
           </div>
         </section>

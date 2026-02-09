@@ -1,7 +1,7 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
-import { getBlogPostBySlug, getAllBlogSlugs } from '@/lib/content'
+import { getBlogPostBySlug, getAllBlogSlugs, getAllBlogPosts } from '@/lib/content'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import styles from './blog-post.module.css'
@@ -86,6 +86,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const htmlContent = markdownToHtml(post.body)
 
+  const allPosts = getAllBlogPosts()
+  const currentIndex = allPosts.findIndex((p) => p.slug === resolvedParams.slug)
+  const prevPost = currentIndex >= 0 && currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null
+  const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null
+
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dragonflypsychotherapy.co.uk'
   const postUrl = `${baseUrl}/blog/${resolvedParams.slug}/`
   const imageUrl = post.featuredImage
@@ -163,6 +168,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 ))}
               </div>
             )}
+
+            <nav className={styles.postNav}>
+              <div className={styles.navLinks}>
+                {prevPost ? (
+                  <Link href={`/blog/${prevPost.slug}`} className={styles.prevLink}>
+                    ← {prevPost.title}
+                  </Link>
+                ) : (
+                  <span className={styles.navPlaceholder} />
+                )}
+                {nextPost ? (
+                  <Link href={`/blog/${nextPost.slug}`} className={styles.nextLink}>
+                    {nextPost.title} →
+                  </Link>
+                ) : (
+                  <span className={styles.navPlaceholder} />
+                )}
+              </div>
+            </nav>
 
             <div className={styles.backLink}>
               <Link href="/blog">← Back to all posts</Link>
