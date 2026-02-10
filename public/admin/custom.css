@@ -371,7 +371,7 @@
   stroke: #ffffff !important;
 }
 
-/* Cards */
+/* Cards – keep subtle styling but don’t override Decap’s list/card layout */
 #nc-root [class*="nc-entryListing-card"],
 #nc-root [class*="nc-card"],
 #nc-root [class*="nc-entryCard"] {
@@ -379,33 +379,6 @@
   border: 1px solid rgba(45, 55, 88, 0.1) !important;
   border-radius: 8px !important;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* File cards (Home, FAQs, etc.) – 2 columns, square cards */
-#nc-root ul[class*="CardsGrid"] {
-  display: grid !important;
-  grid-template-columns: repeat(2, 160px) !important;
-  gap: 0.5rem !important;
-  list-style: none !important;
-  padding: 1rem !important;
-  margin: 0 !important;
-}
-#nc-root ul[class*="CardsGrid"] li {
-  width: 160px !important;
-  height: 160px !important;
-  overflow: hidden !important;
-}
-#nc-root a[class*="GridCardLink"] {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 160px !important;
-  height: 160px !important;
-  padding: 0.75rem !important;
-  font-size: 13px !important;
-  border-radius: 6px !important;
-  text-align: center !important;
-  box-sizing: border-box !important;
 }
 
 /* Labels */

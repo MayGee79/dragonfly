@@ -105,6 +105,21 @@ collections:
             fields:
               - { label: "Quote", name: "quote", widget: "text" }
               - { label: "Author (initials)", name: "author", widget: "string" }
+      - name: "workshops-and-talks"
+        label: "Workshops and Talks"
+        file: "content/pages/workshops-and-talks.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Slug", name: "slug", widget: "string", default: "workshops-and-talks" }
+          - { label: "Meta Description", name: "metaDescription", widget: "text", required: false }
+          - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+          - label: "Workshops"
+            name: "workshops"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - { label: "Link Text", name: "linkText", widget: "string" }
 
   - name: "shop"
     label: "Shop"

@@ -108,6 +108,52 @@ export interface TestimonialsPage {
   testimonials: Testimonial[]
 }
 
+export interface WorkshopItem {
+  title: string
+  description: string
+  linkText: string
+}
+
+export interface WorkshopsPage {
+  title: string
+  slug: string
+  metaDescription?: string
+  heroImage?: string
+  workshops: WorkshopItem[]
+}
+
+export function getWorkshopsPage(): WorkshopsPage | null {
+  try {
+    const fullPath = path.join(contentDirectory, 'pages', 'workshops-and-talks.md')
+    if (!fs.existsSync(fullPath)) {
+      return null
+    }
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
+    const { data } = matter(fileContents)
+
+    const workshops: WorkshopItem[] = Array.isArray(data.workshops)
+      ? data.workshops
+          .map((w: { title?: string; description?: string; linkText?: string }) => ({
+            title: w?.title ?? '',
+            description: w?.description ?? '',
+            linkText: w?.linkText ?? 'Please enquire →',
+          }))
+          .filter((w) => w.title)
+      : []
+
+    return {
+      title: data.title || 'Workshops and Talks',
+      slug: data.slug || 'workshops-and-talks',
+      metaDescription: data.metaDescription,
+      heroImage: data.heroImage,
+      workshops,
+    }
+  } catch (error) {
+    console.error('Error reading workshops-and-talks page:', error)
+    return null
+  }
+}
+
 export function getTestimonialsPage(): TestimonialsPage | null {
   try {
     const fullPath = path.join(contentDirectory, 'pages', 'testimonials.md')

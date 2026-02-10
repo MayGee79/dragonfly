@@ -15,7 +15,7 @@ export default async function AdminPage() {
     <>
       {/* Local: config.local.yml. Production: config.yml (GitHub OAuth) */}
       <link rel="cms-config-url" href={configUrl} type="text/yaml" />
-      <link rel="stylesheet" href="/admin/custom.css?v=31" />
+      <link rel="stylesheet" href="/admin/custom.css?v=36" />
       {/* Admin Navigation Bar */}
       <nav className={styles.adminNav}>
         <div className={styles.navContainer}>
@@ -68,17 +68,6 @@ export default async function AdminPage() {
             try { localStorage.removeItem('netlify-cms-user'); localStorage.removeItem('decap-cms-user'); } catch(e){}
             window.location.href = '/admin';
           });
-        })();`}
-      </Script>
-      <Script id="collection-cards-grid" strategy="afterInteractive">
-        {`(function(){
-          function applyGrid() {
-            var ul = document.querySelector('#nc-root ul[class*="CardsGrid"]');
-            if (ul) ul.style.cssText = 'display:grid!important;grid-template-columns:repeat(2,160px)!important;gap:0.5rem!important;';
-          }
-          [500, 1500, 3000, 5000].forEach(function(ms){ setTimeout(applyGrid, ms); });
-          var root = document.getElementById('nc-root');
-          if (root) new MutationObserver(applyGrid).observe(root, { childList: true, subtree: true });
         })();`}
       </Script>
       <Script id="remove-header-icons" strategy="afterInteractive">

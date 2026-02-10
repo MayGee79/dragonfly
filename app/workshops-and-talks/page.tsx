@@ -1,43 +1,48 @@
 import Link from 'next/link'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import { getWorkshopsPage } from '@/lib/content'
+import WorkshopGallery from './WorkshopGallery'
 import styles from './workshops-and-talks.module.css'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
-  title: 'Workshops and Talks',
-  description: 'Workshops and talks on anxiety, resilience, burnout, and mental health for schools, parents, and organisations. Surrey and online.',
-  openGraph: {
-    title: 'Workshops and Talks | Dragonfly Psychotherapy',
-    description: 'Workshops and talks on mental health for schools, parents, and organisations.',
-  },
+export function generateMetadata(): Metadata {
+  const page = getWorkshopsPage()
+  return {
+    title: page?.title || 'Workshops and Talks',
+    description: page?.metaDescription || 'Workshops and talks on anxiety, resilience, burnout, and mental health for schools, parents, and organisations. Surrey and online.',
+    openGraph: {
+      title: `${page?.title || 'Workshops and Talks'} | Dragonfly Psychotherapy`,
+      description: page?.metaDescription || 'Workshops and talks on mental health for schools, parents, and organisations.',
+    },
+  }
 }
-
-const workshops = [
-  { title: 'Anxiety In Teens Workshop', description: '', linkText: 'Please enquire →' },
-  { title: 'Resilience and Confidence in Teens Workshop', description: '', linkText: 'Please enquire →' },
-  { title: 'Young people sports team building', description: '', linkText: 'Please enquire →' },
-  { title: 'Burnout', description: '', linkText: 'Please enquire →' },
-  { title: 'Maintaining Good Mental Health', description: '', linkText: 'Please enquire →' },
-  { title: 'For bespoke workshops, get in touch.', description: 'Please feel free to contact me about your requirement as I am able to make a bespoke workshop.', linkText: 'Get in touch →' }
-]
 
 export function generateStaticParams() {
   return []
 }
 
 export default function WorkshopsAndTalksPage() {
+  const page = getWorkshopsPage()
+  const workshops = page?.workshops ?? []
+  const heroImage = page?.heroImage || '/images/Workshops_001.png'
+
   return (
     <>
       <Navigation className="home-nav" />
       <main>
         <section className={styles.section}>
           <div className={styles.container}>
-            <h1 className={styles.title}>Workshops and Talks</h1>
+            <h1 className={styles.title}>{page?.title || 'Workshops and Talks'}</h1>
 
-            <div className={styles.heroImage}>
-              <img src="/images/Workshops_001.png" alt="Workshops and talks illustration" className={styles.heroImg} />
-            </div>
+            <WorkshopGallery
+              images={[
+                { src: heroImage.startsWith('/') ? heroImage : `/${heroImage}`, alt: 'Workshops and talks' },
+                { src: '/images/Workshops_002.png', alt: 'Workshop with worry cards and activities' },
+                { src: '/images/Workshops_003.png', alt: 'Workshop group at the table' },
+                { src: '/images/Workshops_004.png', alt: 'Workshop materials and feeling wheel' },
+              ]}
+            />
 
             <div className={styles.grid}>
               {workshops.map((workshop, index) => (

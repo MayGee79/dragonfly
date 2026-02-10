@@ -285,7 +285,7 @@ export default function ActivitiesAndToolsPage() {
 
             <h3 className={styles.subheading} id="dot-to-dot">Dot to Dot</h3>
             <p className={styles.contentBody}>
-              <a href="/resources/Minful-Dot-to-Dots.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Mindful Dot to Dots</a> - printable dot-to-dot activities for focused, calming attention.
+              <a href="/resources/Mindful-Dot-to-Dots.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Mindful Dot to Dots</a> - printable dot-to-dot activities for focused, calming attention.
             </p>
 
             <h3 className={styles.subheading} id="word-searches">Word Searches</h3>
