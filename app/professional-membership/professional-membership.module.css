@@ -47,7 +47,7 @@
 
 .qualificationColumn {
   flex: 1;
-  background-color: var(--color-bg);
+  background-color: #ebe6ee;
   padding: var(--spacing-xl);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
@@ -60,7 +60,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-bg);
+  background-color: #ebe6ee;
   padding: var(--spacing-xl);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
