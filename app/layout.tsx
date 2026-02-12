@@ -16,8 +16,9 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dragonflypsychother
 export async function generateMetadata(): Promise<Metadata> {
   const headersList = await headers()
   const pathname = headersList.get('x-pathname') || '/'
-  const canonicalPath = pathname === '/' ? '/' : pathname.endsWith('/') ? pathname : `${pathname}/`
-  const canonicalUrl = pathname === '/' ? `${baseUrl}/` : `${baseUrl}${canonicalPath}`
+  // No trailing slash (matches trailingSlash: false) so Google gets 200, not redirect
+  const pathNoSlash = pathname === '/' ? '' : pathname.replace(/\/$/, '')
+  const canonicalUrl = `${baseUrl}${pathNoSlash || '/'}`
 
   return {
     metadataBase: new URL(baseUrl),
