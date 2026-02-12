@@ -57,12 +57,7 @@ export default function Contact() {
 
       if (response.ok) {
         if (typeof window !== 'undefined') {
-          const w = window as { gtag?: (c: string, n: string, p?: object) => void; dataLayer?: unknown[] }
-          if (typeof w.gtag === 'function') {
-            w.gtag('event', 'contact_form_submit')
-          } else if (Array.isArray(w.dataLayer) && localStorage.getItem('cookie-consent') === 'accepted') {
-            w.dataLayer.push(['event', 'contact_form_submit', {}])
-          }
+          sessionStorage.setItem('contact_form_submitted', '1')
         }
         setSubmitStatus('success')
         setIsSubmitting(false)

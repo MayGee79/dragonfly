@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import { ContactFormConversion } from '@/components/ContactFormConversion'
 import Link from 'next/link'
 import styles from './thank-you.module.css'
 import type { Metadata } from 'next'
@@ -17,6 +18,7 @@ export function generateStaticParams() {
 export default function ThankYouPage() {
   return (
     <>
+      <ContactFormConversion />
       <Navigation className="home-nav" />
       <main>
         <section className={styles.section}>
