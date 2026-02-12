@@ -56,8 +56,13 @@ export default function Contact() {
       const responseData = await response.json().catch(() => ({ error: 'Unknown error' }))
 
       if (response.ok) {
-        if (typeof window !== 'undefined' && typeof (window as { gtag?: (c: string, n: string, p?: object) => void }).gtag === 'function') {
-          (window as { gtag: (c: string, n: string, p?: object) => void }).gtag('event', 'contact_form_submit')
+        if (typeof window !== 'undefined') {
+          const w = window as { gtag?: (c: string, n: string, p?: object) => void; dataLayer?: unknown[] }
+          if (typeof w.gtag === 'function') {
+            w.gtag('event', 'contact_form_submit')
+          } else if (Array.isArray(w.dataLayer) && localStorage.getItem('cookie-consent') === 'accepted') {
+            w.dataLayer.push(['event', 'contact_form_submit', {}])
+          }
         }
         setSubmitStatus('success')
         setIsSubmitting(false)
