@@ -1,3 +1,4 @@
+import { sanitizeForDisplay } from '@/lib/markdown'
 import styles from './ContentSection.module.css'
 
 interface ContentSectionProps {
@@ -33,8 +34,8 @@ export default function ContentSection({
   // Handle three-column layout
   if (layout === 'three-column' && content.includes('---IMAGE---')) {
     const parts = content.split('---IMAGE---')
-    const leftContent = markdownToHtml(parts[0].trim())
-    const rightContent = markdownToHtml(parts[1]?.trim() || '')
+    const leftContent = sanitizeForDisplay(markdownToHtml(parts[0].trim()))
+    const rightContent = sanitizeForDisplay(markdownToHtml(parts[1]?.trim() || ''))
     
     return (
       <section className={styles.section}>
@@ -63,7 +64,7 @@ export default function ContentSection({
     )
   }
 
-  const htmlContent = markdownToHtml(content)
+  const htmlContent = sanitizeForDisplay(markdownToHtml(content))
 
   return (
     <section className={styles.section}>

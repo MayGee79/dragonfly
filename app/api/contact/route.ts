@@ -1,6 +1,37 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000
+const RATE_LIMIT_MAX = 5
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>()
+
+function getClientIp(request: NextRequest): string {
+  return request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
+    request.headers.get('x-real-ip') ||
+    'unknown'
+}
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now()
+  const entry = rateLimitMap.get(ip)
+  if (!entry) return false
+  if (now > entry.resetAt) {
+    rateLimitMap.delete(ip)
+    return false
+  }
+  return entry.count >= RATE_LIMIT_MAX
+}
+
+function recordRequest(ip: string): void {
+  const now = Date.now()
+  const entry = rateLimitMap.get(ip)
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS })
+  } else {
+    entry.count += 1
+  }
+}
+
 const RESEND_API_KEY = process.env.RESEND_API_KEY
 const CONTACT_EMAIL_TO = process.env.CONTACT_EMAIL_TO || 'victoria@dragonflypsychotherapy.co.uk'
 // Resend free tier without domain: can only send TO your Resend account email. Set this for local testing.
@@ -14,6 +45,14 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       { error: 'Email is not configured. Please try again later.' },
       { status: 503 }
+    )
+  }
+
+  const ip = getClientIp(request)
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: 'Too many requests. Please try again later.' },
+      { status: 429 }
     )
   }
 
@@ -103,6 +142,7 @@ export async function POST(request: NextRequest) {
     console.error('Resend confirmation error:', confirmError)
   }
 
+  recordRequest(ip)
   return NextResponse.json({ ok: true, id: enquiryData?.id })
 }
 

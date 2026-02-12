@@ -9,16 +9,10 @@ export async function GET(request: NextRequest) {
   const clientSecret = process.env.OAUTH_CLIENT_SECRET
 
   if (!code) {
-    // Debug: show what we received
-    const debugInfo = {
-      url: request.url,
-      searchParams: Object.fromEntries(searchParams.entries()),
-      headers: Object.fromEntries(request.headers.entries()),
-    }
-    return new NextResponse(
-      `Missing authorization code. Debug info: ${JSON.stringify(debugInfo, null, 2)}`,
-      { status: 400, headers: { 'Content-Type': 'text/plain' } }
-    )
+    return new NextResponse('Missing authorization code. Please try again.', {
+      status: 400,
+      headers: { 'Content-Type': 'text/plain' },
+    })
   }
 
   if (!clientId || !clientSecret) {
@@ -44,6 +38,10 @@ export async function GET(request: NextRequest) {
     if (data.error) {
       return new NextResponse(`Error: ${data.error_description || data.error}`, { status: 400 })
     }
+
+    const protocol = request.headers.get('x-forwarded-proto') || 'https'
+    const host = request.headers.get('host') || 'localhost:3000'
+    const targetOrigin = `${protocol}://${host}`
 
     // Return HTML that posts message to opener (for popup flow)
     // Decap CMS expects the message in a specific format
@@ -98,15 +96,23 @@ export async function GET(request: NextRequest) {
   <button id="closeBtn" style="display: none;" onclick="window.close()">Close Window</button>
   <script>
     (function() {
+      const targetOrigin = ${JSON.stringify(targetOrigin)};
       const debugEl = document.getElementById('debug');
       const closeBtn = document.getElementById('closeBtn');
       let autoCloseTimer = null;
+      
+      function escapeHtml(s) {
+        if (s == null) return '';
+        const d = document.createElement('div');
+        d.textContent = String(s);
+        return d.innerHTML;
+      }
       
       function log(msg, type) {
         const time = new Date().toLocaleTimeString();
         const className = type === 'success' ? 'success' : type === 'error' ? 'error' : '';
         if (debugEl) {
-          debugEl.innerHTML += '<div class="' + className + '">[' + time + '] ' + msg + '</div>';
+          debugEl.innerHTML += '<div class="' + className + '">[' + escapeHtml(time) + '] ' + escapeHtml(msg) + '</div>';
         }
         console.log('[OAuth Callback]', msg);
       }
@@ -155,13 +161,13 @@ export async function GET(request: NextRequest) {
           log('Sending postMessage to parent window...');
           
           // Send message multiple times to ensure it's received
-          window.opener.postMessage(message, '*');
+          window.opener.postMessage(message, targetOrigin);
           setTimeout(() => {
-            window.opener.postMessage(message, '*');
+            window.opener.postMessage(message, targetOrigin);
             log('postMessage sent again (retry)', 'success');
           }, 500);
           setTimeout(() => {
-            window.opener.postMessage(message, '*');
+            window.opener.postMessage(message, targetOrigin);
             log('postMessage sent again (final retry)', 'success');
           }, 1000);
           
@@ -193,9 +199,9 @@ export async function GET(request: NextRequest) {
           }, 2000);
         }
       } catch (error) {
-        log('ERROR: ' + error.message, 'error');
-        log('Stack: ' + error.stack, 'error');
-        document.body.innerHTML = '<h2 style="color: red;">Error</h2><p style="color: red;">' + error.message + '</p><p><a href="/admin/">Return to admin</a></p>';
+        log('ERROR: ' + (error && error.message), 'error');
+        log('Stack: ' + (error && error.stack), 'error');
+        document.body.innerHTML = '<h2 style="color: red;">Error</h2><p style="color: red;">' + escapeHtml(error && error.message) + '</p><p><a href="/admin/">Return to admin</a></p>';
       }
     })();
   </script>

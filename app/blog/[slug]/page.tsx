@@ -2,6 +2,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { getBlogPostBySlug, getAllBlogSlugs, getAllBlogPosts } from '@/lib/content'
+import { sanitizeForDisplay } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import styles from './blog-post.module.css'
@@ -91,7 +92,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     })
   }
 
-  const htmlContent = markdownToHtml(post.body)
+  const htmlContent = sanitizeForDisplay(markdownToHtml(post.body))
 
   const allPosts = getAllBlogPosts()
   const currentIndex = allPosts.findIndex((p) => p.slug === resolvedParams.slug)

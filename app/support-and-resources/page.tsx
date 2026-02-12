@@ -44,6 +44,8 @@ export default function SupportAndResourcesPage() {
                 href="/resources/Surrey-Children-Young-People-Resources-Guide-January-2026.pdf"
                 className={styles.card}
                 download
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <h2 className={styles.cardTitle}>Local Resource List</h2>
                 <p className={styles.cardQuote}>

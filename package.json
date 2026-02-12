@@ -2,8 +2,12 @@
   "name": "dragonfly-psychotherapy",
   "version": "1.0.0",
   "private": true,
+  "overrides": {
+    "glob": "^10.5.0"
+  },
   "scripts": {
     "dev": "next dev",
+    "dev:clean": "rm -rf .next && next dev",
     "cms": "npx decap-server",
     "build": "next build",
     "start": "next start",
@@ -13,20 +17,22 @@
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
     "gray-matter": "^4.0.3",
-    "next": "^14.0.0",
+    "next": "^14.2.35",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remark": "^15.0.0",
     "remark-html": "^16.0.0",
-    "resend": "^6.9.1"
+    "resend": "^6.9.1",
+    "sanitize-html": "^2.17.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "@types/sanitize-html": "^2.16.0",
     "decap-server": "^3.5.0",
     "eslint": "^8.0.0",
-    "eslint-config-next": "^14.0.0",
+    "eslint-config-next": "^14.2.35",
     "typescript": "^5.0.0"
   }
 }
