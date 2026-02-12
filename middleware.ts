@@ -8,7 +8,9 @@ export function middleware(request: NextRequest) {
   requestHeaders.set('x-pathname', request.nextUrl.pathname)
 
   const secret = process.env.ADMIN_ACCESS_SECRET
-  if (secret && request.nextUrl.pathname.startsWith('/admin')) {
+  const path = request.nextUrl.pathname
+  const isAdminStatic = path === '/admin/config.yml' || path === '/admin/config.local.yml' || path.startsWith('/admin/') && /\.(css|js|yml|yaml)$/i.test(path)
+  if (secret && path.startsWith('/admin') && !isAdminStatic) {
     const cookie = request.cookies.get(ADMIN_COOKIE)?.value
     const param = request.nextUrl.searchParams.get('admin_secret')
 

@@ -32,6 +32,7 @@ export default async function AdminPage() {
               </div>
             </div>
             <a href="https://analytics.google.com/analytics/web/" className={styles.navLink} target="_blank" rel="noopener noreferrer">Analytics</a>
+            <a href="https://search.google.com/search-console?utm_source=about-page&resource_id=https://www.dragonflypsychotherapy.co.uk/" className={styles.navLink} target="_blank" rel="noopener noreferrer">Search Console</a>
           </div>
           <div className={styles.navRight}>
             <button type="button" className={styles.navLink} id="admin-logout-btn" aria-label="Log out">Log out</button>
