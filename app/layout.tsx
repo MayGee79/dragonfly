@@ -11,13 +11,12 @@ const quicksand = Quicksand({
   variable: '--font-quicksand',
 })
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dragonflypsychotherapy.co.uk'
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dragonflypsychotherapy.co.uk'
 
 export async function generateMetadata(): Promise<Metadata> {
   const headersList = await headers()
   const pathname = headersList.get('x-pathname') || '/'
-  // No trailing slash (matches trailingSlash: false) so Google gets 200, not redirect
-  const pathNoSlash = pathname === '/' ? '' : pathname.replace(/\/$/, '')
+  const pathNoSlash = pathname === '/' ? '' : pathname.replace(/\/$/, '') || ''
   const canonicalUrl = `${baseUrl}${pathNoSlash || '/'}`
 
   return {

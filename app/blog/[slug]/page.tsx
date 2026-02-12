@@ -15,6 +15,8 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }))
 }
 
+const siteBaseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dragonflypsychotherapy.co.uk'
+
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const resolvedParams = await params
   const post = getBlogPostBySlug(resolvedParams.slug)
@@ -25,9 +27,14 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     }
   }
 
+  const canonicalPath = `/blog/${resolvedParams.slug}`
   return {
     title: `${post.title} | Dragonfly Psychotherapy`,
     description: post.excerpt || `Read ${post.title} on Dragonfly Psychotherapy blog.`,
+    alternates: {
+      canonical: `${siteBaseUrl}${canonicalPath}`,
+    },
+    robots: { index: true, follow: true },
     openGraph: {
       title: post.title,
       description: post.excerpt || `Read ${post.title} on Dragonfly Psychotherapy blog.`,

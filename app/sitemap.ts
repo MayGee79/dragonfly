@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { getAllBlogPosts } from '@/lib/content'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dragonflypsychotherapy.co.uk'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dragonflypsychotherapy.co.uk'
   
   // Use URLs without trailing slash (trailingSlash: false) so Google crawls directly (200), no redirects
   const staticPages = [
