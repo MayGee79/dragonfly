@@ -227,6 +227,83 @@
   color: var(--color-primary-dark);
 }
 
+/* Printable resource cards – adapted from Uiverse.io */
+.resourceCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}
+
+.resourceCard {
+  width: 100%;
+  min-width: 190px;
+  height: 254px;
+  border-radius: 20px;
+  background: var(--color-bg);
+  position: relative;
+  padding: 1.8rem;
+  border: 2px solid var(--color-primary-light);
+  transition: 0.5s ease-out;
+  overflow: visible;
+}
+
+.resourceCardDetails {
+  color: var(--color-text);
+  height: 100%;
+  gap: 0.5em;
+  display: grid;
+  place-content: center;
+}
+
+.resourceCardButton {
+  transform: translate(-50%, 125%);
+  width: 60%;
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.3s ease-out;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  font-family: var(--font-main);
+}
+
+.resourceCardBody {
+  color: var(--color-primary-darker);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+.resourceCardTitle {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--color-text);
+}
+
+.resourceCard:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+}
+
+.resourceCard:hover .resourceCardButton {
+  transform: translate(-50%, 50%);
+  opacity: 1;
+}
+
+.resourceCardButton:hover {
+  background-color: var(--color-primary-dark);
+  color: #fff;
+}
+
 .contentSectionLight .contentList,
 .contentSectionLight .promptList,
 .contentSectionLight .contentList li,
@@ -358,5 +435,22 @@
     font-size: var(--font-size-lg);
     margin-top: var(--spacing-xl);
     margin-bottom: var(--spacing-sm);
+  }
+
+  .resourceCardsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .resourceCard {
+    min-width: unset;
+    height: auto;
+    min-height: 220px;
+  }
+
+  /* Show Download button on touch devices (no hover) */
+  .resourceCard .resourceCardButton {
+    transform: translate(-50%, 50%);
+    opacity: 1;
   }
 }

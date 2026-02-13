@@ -275,23 +275,42 @@ export default function ActivitiesAndToolsPage() {
           <div className={styles.contentSectionInner}>
             <h2 className={styles.contentTitle}>Printable Resources</h2>
             <p className={styles.contentIntro}>
-              Downloads and worksheets to support your practice. Pick a section below to find what you need.
+              Downloads and worksheets to support your practice. Hover over a card to download.
             </p>
 
-            <h3 className={styles.subheading} id="mindful-colouring">Mindful Colouring</h3>
-            <p className={styles.contentBody}>
-              Content to be added.
-            </p>
+            <div className={styles.resourceCardsGrid}>
+              <div className={styles.resourceCard} id="mindful-colouring">
+                <div className={styles.resourceCardDetails}>
+                  <p className={styles.resourceCardTitle}>Mindful Colouring</p>
+                  <p className={styles.resourceCardBody}>Mindful colouring sheet to support focus and relaxation.</p>
+                </div>
+                <a href="/resources/paint_splatter.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
+              </div>
 
-            <h3 className={styles.subheading} id="dot-to-dot">Dot to Dot</h3>
-            <p className={styles.contentBody}>
-              <a href="/resources/Mindful-Dot-to-Dots.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Mindful Dot to Dots</a> - printable dot-to-dot activities for focused, calming attention.
-            </p>
+              <div className={styles.resourceCard} id="dot-to-dot">
+                <div className={styles.resourceCardDetails}>
+                  <p className={styles.resourceCardTitle}>Dot to Dot</p>
+                  <p className={styles.resourceCardBody}>Printable dot-to-dot activities for focused, calming attention.</p>
+                </div>
+                <a href="/resources/Mindful-Dot-to-Dots.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
+              </div>
 
-            <h3 className={styles.subheading} id="word-searches">Word Searches</h3>
-            <p className={styles.contentBody}>
-              <a href="/resources/Therapeutic-Wordsearch-Collection.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceLink}>Therapeutic Wordsearch Collection</a> - a set of therapeutic word searches to support reflection and relaxation.
-            </p>
+              <div className={styles.resourceCard} id="word-searches">
+                <div className={styles.resourceCardDetails}>
+                  <p className={styles.resourceCardTitle}>Word Searches</p>
+                  <p className={styles.resourceCardBody}>Therapeutic word searches to support reflection and relaxation.</p>
+                </div>
+                <a href="/resources/Therapeutic-Wordsearch-Collection.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
+              </div>
+
+              <div className={styles.resourceCard} id="reflective-journal">
+                <div className={styles.resourceCardDetails}>
+                  <p className={styles.resourceCardTitle}>Reflective Journal</p>
+                  <p className={styles.resourceCardBody}>A printable journal to support reflection and self-awareness.</p>
+                </div>
+                <a href="/resources/Reflective-Journal.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
+              </div>
+            </div>
           </div>
         </section>
       </main>
