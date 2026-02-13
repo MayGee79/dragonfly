@@ -229,15 +229,18 @@
 
 /* Printable resource cards – adapted from Uiverse.io */
 .resourceCardsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--spacing-xl);
   margin-top: var(--spacing-xl);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .resourceCard {
-  width: 100%;
-  min-width: 190px;
+  width: 190px;
+  flex-shrink: 0;
   height: 254px;
   border-radius: 20px;
   background: var(--color-bg);
@@ -438,14 +441,15 @@
   }
 
   .resourceCardsGrid {
-    grid-template-columns: 1fr;
     gap: var(--spacing-lg);
   }
 
   .resourceCard {
-    min-width: unset;
-    height: auto;
+    width: 100%;
+    max-width: 280px;
     min-height: 220px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* Show Download button on touch devices (no hover) */
