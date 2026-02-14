@@ -9,7 +9,8 @@ export default async function AdminPage() {
   const headersList = await headers()
   const host = headersList.get('host') || ''
   const isLocal = host.startsWith('localhost') || host.startsWith('127.0.0.1')
-  const configUrl = isLocal ? '/admin/config.local.yml' : '/admin/config.yml'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dragonflypsychotherapy.co.uk'
+  const configUrl = isLocal ? '/admin/config.local.yml' : `${baseUrl}/admin/config.yml`
 
   return (
     <>

@@ -9,7 +9,10 @@ export function middleware(request: NextRequest) {
 
   const secret = process.env.ADMIN_ACCESS_SECRET
   const path = request.nextUrl.pathname
-  const isAdminStatic = path === '/admin/config.yml' || path === '/admin/config.local.yml' || path.startsWith('/admin/') && /\.(css|js|yml|yaml)$/i.test(path)
+  const pathNoTrailing = path.replace(/\/$/, '')
+  const isAdminStatic = path === '/admin/config.yml' || path === '/admin/config.local.yml' ||
+    pathNoTrailing === '/admin/config.yml' || pathNoTrailing === '/admin/config.local.yml' ||
+    (path.startsWith('/admin/') && /\.(css|js|yml|yaml)$/i.test(pathNoTrailing))
   if (secret && path.startsWith('/admin') && !isAdminStatic) {
     const cookie = request.cookies.get(ADMIN_COOKIE)?.value
     const param = request.nextUrl.searchParams.get('admin_secret')
