@@ -7,6 +7,8 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Self-Esteem & Personal Growth',
   description: 'Build self-esteem and personal growth with integrative psychotherapy in Surrey and online. A space to reconnect with your strengths and values.',
+  alternates: { canonical: 'https://www.dragonflypsychotherapy.co.uk/self-esteem' },
+  robots: { index: true, follow: true },
   openGraph: {
     title: 'Self-Esteem & Personal Growth | Dragonfly Psychotherapy',
     description: 'Build self-esteem and personal growth with integrative psychotherapy in Surrey and online.',

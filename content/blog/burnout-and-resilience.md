@@ -6,6 +6,7 @@ featuredImage: https://img1.wsimg.com/isteam/ip/5f255e9c-5e13-437c-8056-c7807a04
 category: Mental Health
 featured: false
 published: true
+excerpt: "Burnout in healthcare and beyond: why self-care matters, the scale of the problem, and evidence-based steps for prevention and recovery. A therapist's perspective."
 ---
 
 ## Burn Out and Resilience – 13 January 2025

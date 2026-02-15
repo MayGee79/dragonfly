@@ -7,6 +7,8 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Health Anxiety',
   description: 'Support for health anxiety and illness-related worry with integrative psychotherapy in Surrey and online. Understanding and managing fear about your health.',
+  alternates: { canonical: 'https://www.dragonflypsychotherapy.co.uk/health-anxiety' },
+  robots: { index: true, follow: true },
   openGraph: {
     title: 'Health Anxiety | Dragonfly Psychotherapy',
     description: 'Support for health anxiety with integrative psychotherapy in Surrey and online.',

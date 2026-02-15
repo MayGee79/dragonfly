@@ -10,7 +10,7 @@ workshops:
   - title: Resilience and Confidence in Teens Workshop
     description: ""
     linkText: Please enquire →
-  - title: Young people sports team building
+  - title: Young People Sports Team Building
     description: ""
     linkText: Please enquire →
   - title: Burnout
@@ -19,7 +19,7 @@ workshops:
   - title: Maintaining Good Mental Health
     description: ""
     linkText: Please enquire →
-  - title: For bespoke workshops, get in touch.
+  - title: For Bespoke Workshops, Get In Touch.
     description: Please feel free to contact me about your requirement as I am able to make a bespoke workshop.
     linkText: Get in touch →
 ---

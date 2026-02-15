@@ -3,6 +3,7 @@ title: "Finding hope in autumn's transformation"
 date: 2025-10-06T00:00:00.000+00:00
 featuredImage: /images/autumn-transformation.jpg
 published: true
+excerpt: "Finding hope when recovery feels slow: how autumn's wisdom – letting go and change – can reframe burnout, anxiety and depression. A therapist's reflection."
 ---
 **The colours of change: finding hope in autumn's transformation**
 

@@ -10,7 +10,7 @@ workshopTopics:
   - Managing Teen Anxiety
   - Building Confidence & Resilience
   - Understanding Neurodiversity
-  - Young people sports team building
+  - Young People Sports Team Building
   - Menopause in the Workplace
   - Burnout
   - Maintaining Good Mental Health

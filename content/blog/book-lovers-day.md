@@ -3,6 +3,7 @@ title: "Book lovers day"
 date: 2025-08-09T00:00:00.000+00:00
 featuredImage: /images/book-lovers-day-reading-pile.jpg
 published: true
+excerpt: "Why books matter for wellbeing: the comfort of reading, the power of story, and how books can support mental health. A psychotherapist's reflection for Book Lovers' Day."
 ---
 **Why books mean so much (and why my 'to-read' list never stops growing)**
 

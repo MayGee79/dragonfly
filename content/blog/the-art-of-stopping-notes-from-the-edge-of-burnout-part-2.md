@@ -3,6 +3,7 @@ title: "The art of stopping - notes from the edge of burnout part 2"
 date: 2025-11-01T00:00:00.000+00:00
 featuredImage: /images/art-of-stopping-dogs.png
 published: true
+excerpt: "Part two: why slowing down feels impossible and how small pauses can protect wellbeing. The art of stopping – notes from the edge of burnout."
 ---
 Psychotherapy and counselling for adults and young people (11+) in Guildford and Horsley, Surrey, with online sessions across the UK.
 

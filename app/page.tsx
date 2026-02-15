@@ -64,7 +64,7 @@ export default function HomePage() {
     }
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dragonflypsychotherapy.co.uk'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dragonflypsychotherapy.co.uk'
 
   const localBusinessSchema = {
     '@context': 'https://schema.org',

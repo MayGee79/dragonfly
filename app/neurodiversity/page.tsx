@@ -6,6 +6,8 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Neurodiversity (ADHD/Autism)',
   description: 'Support for neurodivergent individuals with integrative psychotherapy in Surrey and online. ADHD, autism, late diagnosis, masking, and celebrating neurodivergent strengths.',
+  alternates: { canonical: 'https://www.dragonflypsychotherapy.co.uk/neurodiversity' },
+  robots: { index: true, follow: true },
   openGraph: {
     title: 'Neurodiversity (ADHD/Autism) | Dragonfly Psychotherapy',
     description: 'Support for neurodivergent individuals with integrative psychotherapy in Surrey and online.',

@@ -3,6 +3,7 @@ title: "The art of stopping - notes from the edge of burnout part one"
 date: 2025-10-31T00:00:00.000+00:00
 featuredImage: /images/art-of-stopping-do-not-disturb.png
 published: true
+excerpt: "Part one: burnout and masking – why we look fine but run on empty, and how to recognise and address burnout before it escalates. Notes from a psychotherapist."
 ---
 A two-part reflection on burnout and balance from Dragonfly Psychotherapy, Guildford and Horsley, Surrey. Explore how masking hides exhaustion, why slowing down feels so hard, and how small pauses can restore wellbeing. Online therapy available UK-wide.
 

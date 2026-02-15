@@ -3,6 +3,7 @@ title: "Growth begins at the edge: the power of leaving your comfort zone"
 date: 2025-09-04T00:00:00.000+00:00
 featuredImage: /images/growth-comfort-zone-parasailing.jpg
 published: true
+excerpt: "Why stepping outside your comfort zone helps with anxiety and depression – and how small steps can build confidence and hope. A psychotherapist's view from Surrey."
 ---
 We often hear that growth happens outside of our comfort zone - but what does that really mean, especially when you're living with anxiety or depression?
 

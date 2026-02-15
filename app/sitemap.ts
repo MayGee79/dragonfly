@@ -1,9 +1,13 @@
 import { MetadataRoute } from 'next'
 import { getAllBlogPosts } from '@/lib/content'
 
+// Canonical base URL for sitemap: always www, no trailing slash. Prevents "Page with redirect" and
+// "Alternative page with proper canonical tag" by only listing final URLs that return 200.
+const SITEMAP_BASE = 'https://www.dragonflypsychotherapy.co.uk'
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dragonflypsychotherapy.co.uk'
-  
+  const baseUrl = SITEMAP_BASE
+
   // Use URLs without trailing slash (trailingSlash: false) so Google crawls directly (200), no redirects
   const staticPages = [
     {

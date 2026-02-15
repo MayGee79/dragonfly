@@ -6,6 +6,7 @@ featuredImage: /images/four-roses-june-2025.jpg
 category: Mental Health
 featured: false
 published: true
+excerpt: "Why a mid-year reset matters: how to pause, reflect and recalibrate without adding more to your to-do list. A psychotherapist's guide."
 ---
 **The Power of a Mid-Year Reset: Why It's Time to Pause, Reflect, and Recalibrate**
 

@@ -6,6 +6,7 @@ featuredImage: https://img1.wsimg.com/isteam/ip/5f255e9c-5e13-437c-8056-c7807a04
 category: Mental Health
 featured: false
 published: true
+excerpt: "Stress Awareness Month: how stress affects us, practical steps to manage it, and when therapy can help. From breathing exercises to boundaries and support resources."
 ---
 **Stress Awareness Month – April 2025**
 

@@ -99,8 +99,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const prevPost = currentIndex >= 0 && currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null
   const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dragonflypsychotherapy.co.uk'
-  const postUrl = `${baseUrl}/blog/${resolvedParams.slug}/`
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dragonflypsychotherapy.co.uk'
+  const postUrl = `${baseUrl}/blog/${resolvedParams.slug}`
   const imageUrl = post.featuredImage
     ? (post.featuredImage.startsWith('http') ? post.featuredImage : `${baseUrl}${post.featuredImage.startsWith('/') ? post.featuredImage : '/' + post.featuredImage}`)
     : undefined

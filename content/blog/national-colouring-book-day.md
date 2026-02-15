@@ -3,6 +3,7 @@ title: "National colouring book day"
 date: 2025-08-02T00:00:00.000+00:00
 featuredImage: /images/national-colouring-book-day.jpg
 published: true
+excerpt: "The therapeutic power of colouring for stress and anxiety: why National Colouring Book Day is a reminder of a simple, evidence-backed way to support mental wellbeing."
 ---
 **The therapeutic power of colouring: why a simple activity can support your mental wellbeing**
 

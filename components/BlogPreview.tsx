@@ -6,7 +6,7 @@ const PREVIEW_COUNT = 4
 
 export default function BlogPreview() {
   const posts = getFeaturedBlogPosts(PREVIEW_COUNT)
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dragonflypsychotherapy.co.uk'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dragonflypsychotherapy.co.uk'
 
   return (
     <section className={styles.section} id="blog-preview">

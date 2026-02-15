@@ -6,9 +6,10 @@ featuredImage: https://img1.wsimg.com/isteam/ip/5f255e9c-5e13-437c-8056-c7807a04
 category: Mental Health
 featured: false
 published: true
+excerpt: "Neurodiversity Week: challenges in education and the workplace for neurodivergent individuals, and how we can better support autism, ADHD, dyslexia and other neurodivergent conditions."
 ---
 
-**Neurodiversity Week – 17th to 23rd March 2025**
+## Neurodiversity Week – 17th to 23rd March 2025
 
 Neurodiversity Week is a great opportunity to celebrate and raise awareness about the diversity of brain functioning. It's a time to reflect on how individuals with neurodivergent conditions, such as autism, ADHD, dyslexia, and others, experience the world differently. For me as a therapist, and for others such as teachers and employers, it's a call to action to better understand and support the neurodiverse community, particularly in the realms of education and the workplace.
 

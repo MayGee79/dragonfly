@@ -7,6 +7,8 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Life Transitions',
   description: 'Support through life transitions with integrative psychotherapy in Surrey and online. Change, loss, identity, and finding your way forward.',
+  alternates: { canonical: 'https://www.dragonflypsychotherapy.co.uk/transitions' },
+  robots: { index: true, follow: true },
   openGraph: {
     title: 'Life Transitions | Dragonfly Psychotherapy',
     description: 'Support through life transitions with integrative psychotherapy in Surrey and online.',

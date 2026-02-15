@@ -7,6 +7,8 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Menopause',
   description: 'Support through menopause and perimenopause with integrative psychotherapy in Surrey and online. A space to explore the emotional and physical impact of hormonal change.',
+  alternates: { canonical: 'https://www.dragonflypsychotherapy.co.uk/menopause' },
+  robots: { index: true, follow: true },
   openGraph: {
     title: 'Menopause | Dragonfly Psychotherapy',
     description: 'Support through menopause and perimenopause with integrative psychotherapy in Surrey and online.',

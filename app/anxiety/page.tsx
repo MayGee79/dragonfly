@@ -6,6 +6,8 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Anxiety & Panic',
   description: 'Understanding and managing anxiety with integrative psychotherapy in Surrey and online. Support for worry, panic, and anxiety-related difficulties.',
+  alternates: { canonical: 'https://www.dragonflypsychotherapy.co.uk/anxiety' },
+  robots: { index: true, follow: true },
   openGraph: {
     title: 'Anxiety & Panic | Dragonfly Psychotherapy',
     description: 'Understanding and managing anxiety with integrative psychotherapy in Surrey and online.',

@@ -6,6 +6,7 @@ featuredImage: /images/VF_002_v2.png
 category: Mental Health
 featured: false
 published: true
+excerpt: "A therapist's guide to a January reset that works: why traditional resolutions fail and how to make sustainable, kind-to-yourself change."
 ---
 **The January Reset That Actually Works**
 

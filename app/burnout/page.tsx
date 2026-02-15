@@ -7,6 +7,8 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Burnout',
   description: 'Recover from burnout with integrative psychotherapy in Surrey and online. Support for exhaustion, overwhelm, and rebuilding your energy and boundaries.',
+  alternates: { canonical: 'https://www.dragonflypsychotherapy.co.uk/burnout' },
+  robots: { index: true, follow: true },
   openGraph: {
     title: 'Burnout | Dragonfly Psychotherapy',
     description: 'Recover from burnout with integrative psychotherapy in Surrey and online.',
