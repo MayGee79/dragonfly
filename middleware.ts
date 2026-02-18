@@ -4,11 +4,19 @@ import type { NextRequest } from 'next/server'
 const ADMIN_COOKIE = 'admin_access'
 
 export function middleware(request: NextRequest) {
+  const path = request.nextUrl.pathname
+
+  // Redirect trailing-slash URLs to canonical (no slash) so Search Console validates one URL form
+  if (path.length > 1 && path.endsWith('/')) {
+    const url = request.nextUrl.clone()
+    url.pathname = path.slice(0, -1)
+    return NextResponse.redirect(url, 301)
+  }
+
   const requestHeaders = new Headers(request.headers)
   requestHeaders.set('x-pathname', request.nextUrl.pathname)
 
   const secret = process.env.ADMIN_ACCESS_SECRET
-  const path = request.nextUrl.pathname
   const pathNoTrailing = path.replace(/\/$/, '')
   const isAdminStatic = path === '/admin/config.yml' || path === '/admin/config.local.yml' ||
     pathNoTrailing === '/admin/config.yml' || pathNoTrailing === '/admin/config.local.yml' ||
