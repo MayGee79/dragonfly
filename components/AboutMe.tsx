@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styles from './AboutMe.module.css'
 
 const qualifications = [
@@ -23,7 +24,7 @@ export default function AboutMe() {
             </p>
           </div>
           <div className={styles.columnImage}>
-            <img src="/images/VF_002_v2.png" alt="Victoria Froome" className={styles.image} />
+            <Image src="/images/VF_002_v2.png" alt="Victoria Froome" className={styles.image} width={525} height={788} sizes="(max-width: 768px) 100vw, 525px" />
           </div>
           <div className={styles.column}>
             <h3 className={styles.columnTitle}>Why Dragonfly?</h3>

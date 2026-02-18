@@ -54,12 +54,17 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <head>
-        <link rel="preload" href="/images/dragonfly_logo_white.png" as="image" />
+        {/* Inline critical CSS so first paint shows correct colors before external CSS loads (reduces perceived LCP delay) */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: 'body{margin:0;background:#eef5f6}[data-hero]{background:#2d3758}',
+          }}
+        />
       </head>
       <body>
         {children}
         <CookieConsent />
-        <Analytics />
+        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )

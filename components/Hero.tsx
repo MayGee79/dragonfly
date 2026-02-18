@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styles from './Hero.module.css'
 
 interface HeroProps {
@@ -9,12 +10,12 @@ interface HeroProps {
 
 export default function Hero({ title, subtitle, image, layout = 'text-only' }: HeroProps) {
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} data-hero>
       <div className={styles.container}>
         {layout === 'logo-header' && (
           <div className={styles.logoHeader}>
             <div className={styles.logoContainer}>
-              <img src="/images/dragonfly_logo_white.png" alt="Dragonfly Psychotherapy" className={styles.heroLogo} fetchPriority="high" />
+              <Image src="/images/dragonfly_logo_white.png" alt="Dragonfly Psychotherapy" className={styles.heroLogo} width={260} height={260} sizes="260px" priority />
             </div>
             <div className={styles.heroTextContent}>
               <h1 className={styles.headline}>Compassionate Psychotherapy in Surrey &amp; Online</h1>

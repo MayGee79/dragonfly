@@ -6,7 +6,7 @@ const nextConfig = {
   // trailingSlash: false (default) – avoids 301 redirects so Google indexes pages directly
   trailingSlash: false,
   images: {
-    unoptimized: true,
+    unoptimized: false, // allow WebP/AVIF and responsive sizes on Vercel
   },
   webpack(config) {
     // Reduce "Legacy JavaScript" warnings by removing Next's legacy polyfill bundle.

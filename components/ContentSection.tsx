@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { sanitizeForDisplay } from '@/lib/markdown'
 import styles from './ContentSection.module.css'
 
@@ -49,7 +50,7 @@ export default function ContentSection({
             </div>
             {image && (
               <div className={styles.column}>
-                <img src={image} alt={title || 'Content image'} className={styles.image} />
+                <Image src={image} alt={title || 'Content image'} className={styles.image} width={665} height={998} sizes="(max-width: 768px) 100vw, 665px" />
               </div>
             )}
             <div className={styles.column}>
@@ -89,7 +90,7 @@ export default function ContentSection({
             </div>
             {image && (
               <div className={styles.column}>
-                <img src={image} alt={title || 'Content image'} className={styles.image} />
+                <Image src={image} alt={title || 'Content image'} className={styles.image} width={665} height={998} sizes="(max-width: 768px) 100vw, 665px" />
               </div>
             )}
           </div>
@@ -98,12 +99,12 @@ export default function ContentSection({
           <div className={layout === 'text-image' ? styles.textImage : styles.imageText}>
             {layout === 'image-text' && image && (
               <div className={styles.imageContainer}>
-                <img src={image} alt={title || 'Content image'} className={styles.image} />
+                <Image src={image} alt={title || 'Content image'} className={styles.image} width={665} height={998} sizes="(max-width: 768px) 100vw, 665px" />
               </div>
             )}
             {(!content || content.trim() === '') && image ? (
               <div className={styles.imageOnly}>
-                <img src={image} alt={title || 'Content image'} className={styles.image} />
+                <Image src={image} alt={title || 'Content image'} className={styles.image} width={665} height={998} sizes="(max-width: 768px) 100vw, 665px" />
               </div>
             ) : (
               <div className={styles.textContent}>
@@ -116,7 +117,7 @@ export default function ContentSection({
             )}
             {layout === 'text-image' && image && content && content.trim() !== '' && (
               <div className={styles.imageContainer}>
-                <img src={image} alt={title || 'Content image'} className={styles.image} />
+                <Image src={image} alt={title || 'Content image'} className={styles.image} width={665} height={998} sizes="(max-width: 768px) 100vw, 665px" />
               </div>
             )}
           </div>
