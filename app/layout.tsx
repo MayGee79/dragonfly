@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
 import { headers } from 'next/headers'
+import dynamic from 'next/dynamic'
 import { Analytics } from '@vercel/analytics/next'
-import CookieConsent from '@/components/CookieConsent'
 import './globals.css'
+
+// Load in separate chunk so cookie banner JS doesn't add to initial long task (Lighthouse TBT)
+const CookieConsent = dynamic(() => import('@/components/CookieConsent'), { ssr: false })
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dragonflypsychotherapy.co.uk'
 
@@ -54,6 +57,9 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <head>
+        {/* Preconnect for blog images and GA (used on blog pages / after cookie consent); Lighthouse may flag "unused" on homepage only */}
+        <link rel="preconnect" href="https://img1.wsimg.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         {/* Inline critical CSS so first paint shows correct colors before external CSS loads (reduces perceived LCP delay) */}
         <style
           dangerouslySetInnerHTML={{
