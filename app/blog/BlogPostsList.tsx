@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import BlogFeaturedImage from '@/components/BlogFeaturedImage'
 import styles from './blog.module.css'
 import type { BlogPost } from '@/lib/content'
 
@@ -30,9 +31,11 @@ export default function BlogPostsList({ posts }: BlogPostsListProps) {
               <div className={`${styles.cover} ${!post.featuredImage ? styles.coverNoImage : ''}`}>
                 {post.featuredImage && (
                   <div className={styles.coverImageWrapper}>
-                    <img
+                    <BlogFeaturedImage
                       src={post.featuredImage}
                       alt={post.title}
+                      variant="card"
+                      wrapperClassName={styles.coverImageFillWrapper}
                       className={styles.coverImage}
                     />
                   </div>

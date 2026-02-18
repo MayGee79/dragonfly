@@ -50,7 +50,7 @@ export default function ContentSection({
             </div>
             {image && (
               <div className={styles.column}>
-                <Image src={image} alt={title || 'Content image'} className={styles.image} width={665} height={998} sizes="(max-width: 768px) 100vw, 665px" />
+                <Image src={image} alt={title || 'Content image'} className={styles.image} width={665} height={998} sizes="(max-width: 768px) 100vw, 665px" quality={75} />
               </div>
             )}
             <div className={styles.column}>
@@ -90,7 +90,7 @@ export default function ContentSection({
             </div>
             {image && (
               <div className={styles.column}>
-                <Image src={image} alt={title || 'Content image'} className={styles.image} width={665} height={998} sizes="(max-width: 768px) 100vw, 665px" />
+                <Image src={image} alt={title || 'Content image'} className={styles.image} width={665} height={998} sizes="(max-width: 768px) 100vw, 665px" quality={75} />
               </div>
             )}
           </div>
@@ -99,12 +99,12 @@ export default function ContentSection({
           <div className={layout === 'text-image' ? styles.textImage : styles.imageText}>
             {layout === 'image-text' && image && (
               <div className={styles.imageContainer}>
-                <Image src={image} alt={title || 'Content image'} className={styles.image} width={665} height={998} sizes="(max-width: 768px) 100vw, 665px" />
+                <Image src={image} alt={title || 'Content image'} className={styles.image} width={665} height={998} sizes="(max-width: 768px) 100vw, 665px" quality={75} />
               </div>
             )}
             {(!content || content.trim() === '') && image ? (
               <div className={styles.imageOnly}>
-                <Image src={image} alt={title || 'Content image'} className={styles.image} width={665} height={998} sizes="(max-width: 768px) 100vw, 665px" />
+                <Image src={image} alt={title || 'Content image'} className={styles.image} width={665} height={998} sizes="(max-width: 768px) 100vw, 665px" quality={75} />
               </div>
             ) : (
               <div className={styles.textContent}>
@@ -117,7 +117,7 @@ export default function ContentSection({
             )}
             {layout === 'text-image' && image && content && content.trim() !== '' && (
               <div className={styles.imageContainer}>
-                <Image src={image} alt={title || 'Content image'} className={styles.image} width={665} height={998} sizes="(max-width: 768px) 100vw, 665px" />
+                <Image src={image} alt={title || 'Content image'} className={styles.image} width={665} height={998} sizes="(max-width: 768px) 100vw, 665px" quality={75} />
               </div>
             )}
           </div>

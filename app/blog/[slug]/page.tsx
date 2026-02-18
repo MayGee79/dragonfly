@@ -5,6 +5,7 @@ import { getBlogPostBySlug, getAllBlogSlugs, getAllBlogPosts } from '@/lib/conte
 import { sanitizeForDisplay } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
+import BlogFeaturedImage from '@/components/BlogFeaturedImage'
 import styles from './blog-post.module.css'
 
 interface BlogPostPageProps {
@@ -29,6 +30,11 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 
   const canonicalPath = `/blog/${resolvedParams.slug}`
+  const ogImage = post.featuredImage
+    ? post.featuredImage.startsWith('http')
+      ? post.featuredImage
+      : `${siteBaseUrl}${post.featuredImage.startsWith('/') ? post.featuredImage : '/' + post.featuredImage}`
+    : undefined
   return {
     title: `${post.title} | Dragonfly Psychotherapy`,
     description: post.excerpt || `Read ${post.title} on Dragonfly Psychotherapy blog.`,
@@ -42,7 +48,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       type: 'article',
       publishedTime: post.date,
       authors: [post.author],
-      images: post.featuredImage ? [post.featuredImage] : [],
+      images: ogImage ? [ogImage] : [],
     },
   }
 }
@@ -156,9 +162,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {post.featuredImage && (
               <div className={styles.featuredImageContainer}>
-                <img 
-                  src={post.featuredImage} 
-                  alt={post.title} 
+                <BlogFeaturedImage
+                  src={post.featuredImage}
+                  alt={post.title}
+                  variant="post"
                   className={styles.featuredImage}
                 />
               </div>

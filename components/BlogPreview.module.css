@@ -83,12 +83,19 @@
   padding: var(--spacing-md) var(--spacing-md) 0;
 }
 
-.image {
+.imageWrapper {
+  position: relative;
   width: 100%;
   height: 160px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: center;
-  background-color: rgba(0, 0, 0, 0.15);
 }
 
 .postTitle {
@@ -177,7 +184,7 @@
     min-height: 0;
   }
 
-  .image {
+  .imageWrapper {
     height: 140px;
   }
 }

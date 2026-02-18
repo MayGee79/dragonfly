@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import { getFeaturedBlogPosts } from '@/lib/content'
+import BlogFeaturedImage from '@/components/BlogFeaturedImage'
 import styles from './BlogPreview.module.css'
 
 const PREVIEW_COUNT = 4
 
 export default function BlogPreview() {
   const posts = getFeaturedBlogPosts(PREVIEW_COUNT)
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dragonflypsychotherapy.co.uk'
 
   return (
     <section className={styles.section} id="blog-preview">
@@ -17,19 +17,15 @@ export default function BlogPreview() {
         ) : (
           <>
             <div className={styles.posts}>
-              {posts.map((post) => {
-                const imageUrl = post.featuredImage
-                  ? post.featuredImage.startsWith('http')
-                    ? post.featuredImage
-                    : `${baseUrl}${post.featuredImage!.startsWith('/') ? post.featuredImage : '/' + post.featuredImage}`
-                  : undefined
-                return (
+              {posts.map((post) => (
                   <article key={post.slug} className={styles.post}>
                     <Link href={`/blog/${post.slug}`}>
-                      {imageUrl && (
-                        <img
-                          src={imageUrl}
+                      {post.featuredImage && (
+                        <BlogFeaturedImage
+                          src={post.featuredImage}
                           alt=""
+                          variant="card"
+                          wrapperClassName={styles.imageWrapper}
                           className={styles.image}
                         />
                       )}
@@ -46,8 +42,7 @@ export default function BlogPreview() {
                       </time>
                     </Link>
                   </article>
-                )
-              })}
+              ))}
             </div>
             <div className={styles.linkWrap}>
               <Link href="/blog" className={styles.link}>

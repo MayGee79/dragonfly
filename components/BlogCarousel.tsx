@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import Link from 'next/link'
+import BlogFeaturedImage from '@/components/BlogFeaturedImage'
 import styles from './BlogCarousel.module.css'
 
 interface BlogPost {
@@ -87,11 +88,12 @@ export default function BlogCarousel({ posts }: BlogCarouselProps) {
                 {post.featuredImage && (
                   <div className={styles.imageContainer}>
                     <Link href={`/blog/${post.slug}`}>
-                      <img 
-                        src={post.featuredImage} 
-                        alt={post.title} 
+                      <BlogFeaturedImage
+                        src={post.featuredImage}
+                        alt={post.title}
+                        variant="card"
+                        wrapperClassName={styles.imageFillWrapper}
                         className={styles.image}
-                        loading="lazy"
                       />
                     </Link>
                   </div>

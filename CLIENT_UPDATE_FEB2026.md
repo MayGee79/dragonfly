@@ -80,9 +80,18 @@ Indexing can take from a few days to a few weeks. Re-check **Coverage** or **Pag
 
 ---
 
-## 7. Admin CMS Improvements
+## 7. Performance (PageSpeed)
 
-### 7.1 Admin config.yml 404 Fix (Desktop & Mobile)
+- **Preconnected origins (#4)** – Added `preconnect` for `img1.wsimg.com` (blog images) and `www.googletagmanager.com` (GA) so the browser can open connections earlier.
+- **LCP (#5)** – Already optimised: hero logo uses `next/image` with `priority`, critical CSS inlined for hero background, below-the-fold sections loaded with `dynamic()` so they don’t block. No code change needed; re-run PageSpeed to confirm LCP timing.
+- **Third parties (#6)** – Blog featured images from `img1.wsimg.com` and `shop.charliemackesy.com` now go through Next.js image optimisation: `remotePatterns` added in `next.config.js`, and all blog featured images (BlogPreview, BlogList, BlogCarousel, BlogPostsList, and individual post page) use `next/image` via `BlogFeaturedImage`. The browser no longer loads those images directly from third-party origins; Next serves optimised variants from your domain, reducing third-party request impact.
+- **Large payloads (#7)** – Same change as #6: blog images are now optimised and sized by Next (quality 75, responsive `sizes`), so smaller image payloads. Local and remote featured images use the shared `BlogFeaturedImage` component with appropriate `sizes` for cards vs post header.
+
+---
+
+## 8. Admin CMS Improvements
+
+### 8.1 Admin config.yml 404 Fix (Desktop & Mobile)
 
 - **Problem:** Decap CMS could not load `config.yml` (404 error), blocking admin access. On mobile, this happened specifically when trying to log in.
 - **Fix:**
@@ -90,20 +99,20 @@ Indexing can take from a few days to a few weeks. Re-check **Coverage** or **Pag
   - Config URL is now an **absolute URL** in production (e.g. `https://www.dragonflypsychotherapy.co.uk/admin/config.yml`) to avoid mobile browsers resolving relative paths differently
   - Middleware supports trailing slash variants (`/admin/config.yml/`) for compatibility
 
-### 7.2 Search Console Link
+### 8.2 Search Console Link
 
 - Added a **Search Console** link in the admin navigation bar, next to Analytics, pointing to your Google Search Console property for dragonflypsychotherapy.co.uk
 
 ---
 
-## 8. Printable Resources (Activities & Tools Page)
+## 9. Printable Resources (Activities & Tools Page)
 
-### 8.1 New PDFs Added
+### 9.1 New PDFs Added
 
 - **Paint Splatter Colouring** – Mindful colouring sheet (`paint_splatter.pdf`)
 - **Reflective Journal** – Printable journal for reflection and self-awareness (`Reflective-Journal.pdf`)
 
-### 8.2 Resource Card Design
+### 9.2 Resource Card Design
 
 - Each printable resource is now displayed as a card with:
   - Title and short description
@@ -111,20 +120,20 @@ Indexing can take from a few days to a few weeks. Re-check **Coverage** or **Pag
   - Lilac/primary colour styling matching the site
   - **Centred layout** on desktop and mobile
 
-### 8.3 PDF Updates
+### 9.3 PDF Updates
 
 - `paint_splatter.pdf` updated from your latest version
 - `Reflective-Journal.pdf` updated from your latest version
 
 ---
 
-## 9. Attempted Change (Reverted)
+## 10. Attempted Change (Reverted)
 
 - **Understanding & Managing Anxiety section** – Attempted to switch from blue background to light lilac with curved separators. Reverted due to rendering and layout issues; section remains the original dark blue with standard curves.
 
 ---
 
-## 10. Deployment
+## 11. Deployment
 
 - Changes pushed to GitHub (`main` branch).
 - Vercel deploys automatically on push
