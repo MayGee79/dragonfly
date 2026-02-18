@@ -1,16 +1,19 @@
+import dynamic from 'next/dynamic'
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import ContentSection from '@/components/ContentSection'
-import SpecialInterests from '@/components/SpecialInterests'
-import WhyWorkWithMe from '@/components/WhyWorkWithMe'
-import WorkTogether from '@/components/WorkTogether'
-import AboutMe from '@/components/AboutMe'
-import PracticalInfo from '@/components/PracticalInfo'
-import Workshops from '@/components/Workshops'
-import BlogPreview from '@/components/BlogPreview'
-import Contact from '@/components/Contact'
-import Footer from '@/components/Footer'
 import { getPageBySlug } from '@/lib/content'
+
+// Below-the-fold sections: load with dynamic() so their CSS is in separate chunks and does not block the critical path
+const AboutMe = dynamic(() => import('@/components/AboutMe'), { ssr: true })
+const SpecialInterests = dynamic(() => import('@/components/SpecialInterests'), { ssr: true })
+const WhyWorkWithMe = dynamic(() => import('@/components/WhyWorkWithMe'), { ssr: true })
+const WorkTogether = dynamic(() => import('@/components/WorkTogether'), { ssr: true })
+const PracticalInfo = dynamic(() => import('@/components/PracticalInfo'), { ssr: true })
+const Workshops = dynamic(() => import('@/components/Workshops'), { ssr: true })
+const BlogPreview = dynamic(() => import('@/components/BlogPreview'), { ssr: true })
+const Contact = dynamic(() => import('@/components/Contact'), { ssr: true })
+const Footer = dynamic(() => import('@/components/Footer'), { ssr: true })
 
 export default function HomePage() {
   let page: ReturnType<typeof getPageBySlug> | { slug: string; title: string; sections: any[] } = {

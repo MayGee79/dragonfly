@@ -1,15 +1,8 @@
 import type { Metadata } from 'next'
 import { headers } from 'next/headers'
-import { Quicksand } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import CookieConsent from '@/components/CookieConsent'
 import './globals.css'
-
-const quicksand = Quicksand({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-quicksand',
-})
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dragonflypsychotherapy.co.uk'
 
@@ -60,7 +53,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-GB">
-      <body className={quicksand.variable}>
+      <head>
+        <link rel="preload" href="/images/dragonfly_logo_white.png" as="image" />
+      </head>
+      <body>
         {children}
         <CookieConsent />
         <Analytics />
