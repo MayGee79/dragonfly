@@ -87,6 +87,8 @@ Indexing can take from a few days to a few weeks. Re-check **Coverage** or **Pag
 - **Third parties (#6)** – Blog featured images from `img1.wsimg.com` and `shop.charliemackesy.com` now go through Next.js image optimisation: `remotePatterns` added in `next.config.js`, and all blog featured images (BlogPreview, BlogList, BlogCarousel, BlogPostsList, and individual post page) use `next/image` via `BlogFeaturedImage`. The browser no longer loads those images directly from third-party origins; Next serves optimised variants from your domain, reducing third-party request impact.
 - **Large payloads (#7)** – Same change as #6: blog images are now optimised and sized by Next (quality 75, responsive `sizes`), so smaller image payloads. Local and remote featured images use the shared `BlogFeaturedImage` component with appropriate `sizes` for cards vs post header.
 
+**PageSpeed result (18 Feb 2026):** Homepage reported **100** for Performance, **100** Accessibility, **100** Best Practices (Mobile & Desktop).
+
 ---
 
 ## 8. Admin CMS Improvements

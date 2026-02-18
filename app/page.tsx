@@ -76,6 +76,7 @@ export default function HomePage() {
     name: 'Dragonfly Psychotherapy',
     description: 'Integrative psychotherapy and counselling in Surrey and online. Dr Victoria Froome, BACP-registered. Guildford, East Horsley, and remote sessions.',
     url: baseUrl,
+    image: `${baseUrl}/images/dragonfly_logo_blue.png`,
     telephone: '+44-7546-431-448',
     email: 'victoria@dragonflypsychotherapy.co.uk',
     address: {
