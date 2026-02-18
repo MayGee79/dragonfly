@@ -24,7 +24,7 @@ export default function AboutMe() {
             </p>
           </div>
           <div className={styles.columnImage}>
-            <Image src="/images/VF_002_v2.png" alt="Victoria Froome" className={styles.image} width={525} height={788} sizes="(max-width: 768px) 100vw, 525px" quality={75} />
+            <Image src="/images/VF_002_v2.png" alt="Victoria Froome" className={styles.image} width={525} height={788} sizes="(max-width: 768px) 100vw, 525px" quality={70} />
           </div>
           <div className={styles.column}>
             <h3 className={styles.columnTitle}>Why Dragonfly?</h3>

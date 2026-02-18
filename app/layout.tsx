@@ -54,9 +54,6 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <head>
-        {/* Preconnect to third-party origins so the browser can open connections earlier */}
-        <link rel="preconnect" href="https://img1.wsimg.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         {/* Inline critical CSS so first paint shows correct colors before external CSS loads (reduces perceived LCP delay) */}
         <style
           dangerouslySetInnerHTML={{

@@ -11,7 +11,7 @@ const nextConfig = {
   images: {
     unoptimized: false,
     // Match display sizes so PageSpeed gets smaller files (hero 260px, About Me 525px)
-    deviceSizes: [260, 525, 640, 665, 750, 828, 1080, 1200, 1920, 2048],
+    deviceSizes: [260, 384, 512, 525, 640, 665, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     // Allow blog featured images from external CDNs (Next optimizes & serves from our origin → fewer third-party requests, smaller payloads)
     remotePatterns: [

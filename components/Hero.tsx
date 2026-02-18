@@ -15,7 +15,7 @@ export default function Hero({ title, subtitle, image, layout = 'text-only' }: H
         {layout === 'logo-header' && (
           <div className={styles.logoHeader}>
             <div className={styles.logoContainer}>
-              <Image src="/images/dragonfly_logo_white.png" alt="Dragonfly Psychotherapy" className={styles.heroLogo} width={260} height={260} sizes="260px" quality={75} priority />
+              <Image src="/images/dragonfly_logo_white.png" alt="Dragonfly Psychotherapy" className={styles.heroLogo} width={260} height={260} sizes="(max-width: 767px) 140px, 260px" quality={70} priority />
             </div>
             <div className={styles.heroTextContent}>
               <h1 className={styles.headline}>Compassionate Psychotherapy in Surrey &amp; Online</h1>
