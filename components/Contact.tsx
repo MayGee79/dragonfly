@@ -193,7 +193,7 @@ export default function Contact() {
                     className={styles.checkbox}
                     required
                   />
-                  <span>I consent to Dragonfly Psychotherapy contacting me in response to this enquiry <span className={styles.required}>*</span></span>
+                  <span>I agree for my details to be stored and used for the purposes of accessing services or consultation with Dr Victoria Froome at Dragonfly Psychotherapy. I consent to being contacted in response to this enquiry. <span className={styles.required}>*</span></span>
                 </label>
               </div>
               
@@ -206,7 +206,7 @@ export default function Contact() {
                     onChange={handleChange}
                     className={styles.checkbox}
                   />
-                  <span>I would like to receive occasional updates about workshops, resources and services (optional)</span>
+                  <span>I agree to receive occasional updates about workshops, resources and services (optional)</span>
                 </label>
               </div>
               
