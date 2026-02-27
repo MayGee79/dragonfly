@@ -1,10 +1,16 @@
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { getWorkshopsPage } from '@/lib/content'
-import WorkshopGallery from './WorkshopGallery'
 import styles from './workshops-and-talks.module.css'
 import type { Metadata } from 'next'
+
+// Load gallery in a separate chunk so it doesn't block the page; image loads only when this chunk is in view
+const WorkshopGallery = dynamic(() => import('./WorkshopGallery'), {
+  ssr: true,
+  loading: () => <div className={styles.galleryPlaceholder} aria-hidden="true" />,
+})
 
 export function generateMetadata(): Metadata {
   const page = getWorkshopsPage()
