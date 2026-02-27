@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
@@ -75,7 +76,7 @@ export default async function ProfessionalMembershipPage() {
                   </ul>
                 </div>
                 <div className={styles.qualificationImageContainer}>
-                  <img src="/images/VF_003.png" alt="Victoria Froome" className={styles.image} />
+                  <Image src="/images/VF_003.png" alt="Victoria Froome" className={styles.image} width={400} height={600} sizes="(max-width: 768px) 100vw, 400px" quality={65} />
                 </div>
               </div>
 
@@ -89,7 +90,7 @@ export default async function ProfessionalMembershipPage() {
                   </ul>
                 </div>
                 <div className={styles.cpdImageContainer}>
-                  <img src="/images/VF_004.png" alt="Victoria Froome" className={styles.image} />
+                  <Image src="/images/VF_004.png" alt="Victoria Froome" className={styles.image} width={400} height={600} sizes="(max-width: 768px) 100vw, 400px" quality={65} />
                 </div>
                 <div className={styles.cpdColumn}>
                   <ul className={styles.cpdList}>
@@ -102,7 +103,7 @@ export default async function ProfessionalMembershipPage() {
 
               <div className={styles.membershipBlock}>
                 <div className={styles.membershipImageContainer}>
-                  <img src="/images/bacp.png" alt="BACP" className={styles.membershipImage} />
+                  <Image src="/images/bacp.png" alt="BACP" className={styles.membershipImage} width={200} height={80} sizes="200px" quality={65} />
                 </div>
                 <div className={styles.membershipText}>
                   {membershipHtml ? (

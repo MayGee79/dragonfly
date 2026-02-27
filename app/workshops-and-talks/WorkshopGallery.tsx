@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import styles from './workshops-and-talks.module.css'
 
 interface WorkshopGalleryProps {
@@ -14,6 +15,8 @@ export default function WorkshopGallery({ images }: WorkshopGalleryProps) {
   const prev = () => setIndex((i) => (i - 1 + n) % n)
 
   if (n === 0) return null
+
+  const current = images[index]
 
   return (
     <div className={styles.galleryWrap}>
@@ -31,10 +34,14 @@ export default function WorkshopGallery({ images }: WorkshopGalleryProps) {
         onClick={next}
         aria-label="Next image (click to change)"
       >
-        <img
-          key={index}
-          src={images[index].src}
-          alt={images[index].alt}
+        <Image
+          key={current.src}
+          src={current.src}
+          alt={current.alt}
+          width={480}
+          height={360}
+          sizes="(max-width: 768px) 100vw, 480px"
+          quality={65}
           className={styles.galleryImg}
         />
       </button>

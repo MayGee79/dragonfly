@@ -38,7 +38,7 @@ export default function BlogFeaturedImage({
         height={600}
         className={className}
         sizes="(max-width: 767px) 100vw, 200px"
-        quality={75}
+        quality={65}
         priority={priority}
       />
     )
@@ -53,7 +53,7 @@ export default function BlogFeaturedImage({
         fill
         className={className}
         sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 25vw"
-        quality={75}
+        quality={65}
         loading={priority ? 'eager' : 'lazy'}
       />
     </div>
