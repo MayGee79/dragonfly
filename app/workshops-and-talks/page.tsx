@@ -41,6 +41,16 @@ export default function WorkshopsAndTalksPage() {
                 { src: '/images/Workshops_002.png', alt: 'Workshop with worry cards and activities' },
                 { src: '/images/Workshops_003.png', alt: 'Workshop group at the table' },
                 { src: '/images/Workshops_004.png', alt: 'Workshop materials and feeling wheel' },
+                { src: '/images/workshop-gallery-01.png', alt: 'Sunflower artworks from a workshop at the table' },
+                { src: '/images/workshop-gallery-02.png', alt: 'Workshop table with strength cards, tree of life worksheets and materials' },
+                { src: '/images/workshop-gallery-03.png', alt: 'Strength Cards for Adolescents and Tree of Life activity at Dragonfly Psychotherapy' },
+                { src: '/images/workshop-gallery-04.png', alt: 'Workshop facilitator with strength cards and materials' },
+                { src: '/images/workshop-gallery-05.png', alt: 'I feel and I have achieved whiteboard from a session at West Horsley Place' },
+                { src: '/images/workshop-gallery-06.png', alt: 'Group discussion around the workshop table' },
+                { src: '/images/workshop-gallery-07.png', alt: 'Creative workshop with paints and strength cards' },
+                { src: '/images/workshop-gallery-08.png', alt: 'Painting and reflection activity at the workshop' },
+                { src: '/images/workshop-gallery-09.png', alt: 'Values cards and workshop materials at the table' },
+                { src: '/images/workshop-gallery-10.png', alt: 'Workshop space set up for sessions' },
               ]}
             />
 
