@@ -49,16 +49,18 @@ export default function WorkshopGallery({ images }: WorkshopGalleryProps) {
         aria-label="Next image (click to change)"
       >
         {inView ? (
-          <Image
-            key={current.src}
-            src={current.src}
-            alt={current.alt}
-            width={480}
-            height={360}
-            sizes="(max-width: 768px) 100vw, 480px"
-            quality={65}
-            className={styles.galleryImg}
-          />
+          <span className={styles.galleryImgWrap}>
+            <Image
+              key={current.src}
+              src={current.src}
+              alt={current.alt}
+              fill
+              sizes="(max-width: 768px) 100vw, 480px"
+              quality={65}
+              className={styles.galleryImg}
+              style={{ objectFit: 'contain' }}
+            />
+          </span>
         ) : (
           <span className={styles.galleryImgPlaceholder} />
         )}

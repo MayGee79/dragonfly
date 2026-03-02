@@ -53,13 +53,19 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
-.galleryImg {
+/* Wrapper for fill image so full image is visible (contain); avoids crop/truncation on varying aspect ratios */
+.galleryImgWrap {
+  position: relative;
   display: block;
   width: 100%;
   max-width: 480px;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
   border: 10px solid var(--color-bg-light, #f2f2f2);
+  background: var(--color-bg-light, #f2f2f2);
+}
+
+.galleryImg {
+  object-fit: contain;
 }
 
 .galleryImgPlaceholder {
