@@ -5,6 +5,9 @@ import BlogPostsList from './BlogPostsList'
 import styles from './blog.module.css'
 import type { Metadata } from 'next'
 
+// Always fetch latest post list (no static snapshot)
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Blog',
   description: 'Blog posts from Dragonfly Psychotherapy on mental health, wellbeing, and integrative psychotherapy. Surrey and online.',
