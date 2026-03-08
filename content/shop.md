@@ -6,11 +6,11 @@ categories:
   - categoryTitle: HANDBOOKS
     categoryDescription: "These handbooks offer practical information, support and resources for use in life's many transitions"
     products:
-      - productTitle: "REJECTION SENSITIVE DYSPHORIA – A SENSITIVE GUIDE (DRAGONFLY)"
+      - productTitle: "REJECTION SENSITIVE DYSPHORIA – HANDBOOK"
         productQuantity: ""
         productLink: "https://www.amazon.co.uk/Rejection-Sensitive-Dysphoria-Sensitive-DRAGONFLY-ebook/dp/B0GQZ7TD17"
         linkText: View on Amazon
-      - productTitle: "REJECTION SENSITIVE DYSPHORIA – A SENSITIVE GUIDE (DRAGONFLY)"
+      - productTitle: "REJECTION SENSITIVE DYSPHORIA – COMPANION WORKBOOK"
         productQuantity: ""
         productLink: "https://www.amazon.co.uk/Rejection-Sensitive-Dysphoria-Sensitive-DRAGONFLY-ebook/dp/B0GR6HHLLB"
         linkText: View on Amazon
