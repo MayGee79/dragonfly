@@ -32,6 +32,12 @@
   gap: var(--spacing-xl);
 }
 
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-xl);
+}
+
 .categoryTitle {
   font-size: var(--font-size-3xl);
   font-weight: 700;
@@ -61,10 +67,11 @@
   gap: var(--spacing-lg);
   align-items: center;
   text-align: center;
+  justify-content: space-between;
 }
 
 .productTitle {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-base);
   font-weight: 700;
   color: var(--color-text);
   line-height: var(--line-height-relaxed);
@@ -72,7 +79,7 @@
 }
 
 .productQuantity {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-sm);
   color: var(--color-text);
   font-weight: 600;
   margin: 0;
@@ -82,12 +89,13 @@
   display: inline-block;
   background-color: var(--color-primary);
   color: var(--color-text);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-sm);
   font-weight: 600;
-  padding: var(--spacing-md) var(--spacing-3xl);
+  padding: var(--spacing-sm) var(--spacing-xl);
   border-radius: var(--radius-md);
   text-decoration: none;
   transition: background-color var(--transition-base), transform var(--transition-base);
+  margin-top: auto;
 }
 
 .productLink:hover {
@@ -118,16 +126,20 @@
     font-size: var(--font-size-2xl);
   }
 
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+
   .productCard {
     padding: var(--spacing-xl);
   }
 
   .productTitle {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-sm);
   }
 
   .productLink {
-    font-size: var(--font-size-base);
-    padding: var(--spacing-sm) var(--spacing-xl);
+    font-size: var(--font-size-xs, 0.75rem);
+    padding: var(--spacing-sm) var(--spacing-lg);
   }
 }

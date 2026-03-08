@@ -20,6 +20,18 @@ const fallbackCategories = [
     categoryDescription: "These handbooks offer practical information, support and resources for use in life's many transitions",
     products: [
       {
+        productTitle: "REJECTION SENSITIVE DYSPHORIA – A SENSITIVE GUIDE (DRAGONFLY)",
+        productQuantity: undefined,
+        productLink: 'https://www.amazon.co.uk/Rejection-Sensitive-Dysphoria-Sensitive-DRAGONFLY-ebook/dp/B0GQZ7TD17',
+        linkText: 'View on Amazon',
+      },
+      {
+        productTitle: "REJECTION SENSITIVE DYSPHORIA – A SENSITIVE GUIDE (DRAGONFLY)",
+        productQuantity: undefined,
+        productLink: 'https://www.amazon.co.uk/Rejection-Sensitive-Dysphoria-Sensitive-DRAGONFLY-ebook/dp/B0GR6HHLLB',
+        linkText: 'View on Amazon',
+      },
+      {
         productTitle: "STARTING UNIVERSITY? A GUIDE FOR STUDENTS: WHAT YOUR MENTAL HEALTH NEEDS YOU TO KNOW",
         productQuantity: undefined,
         productLink: 'https://www.etsy.com/uk/listing/4364741398/starting-university-the-mental-health?ls=r&external=1&rec_type=ss&ref=landingpage_similar_listing_top-1&dd=1&content_source=69f9fc52f8e61ad225f4a34a030fd612%253ALT91c2924fbdaabae40f5f77dfe227541428a40697&logging_key=69f9fc52f8e61ad225f4a34a030fd612%3ALT91c2924fbdaabae40f5f77dfe227541428a40697',
@@ -64,6 +76,7 @@ export default function ShopPage() {
                   <h2 className={styles.categoryTitle}>{category.categoryTitle}</h2>
                   <p className={styles.categoryDescription}>{category.categoryDescription}</p>
 
+                  <div className={styles.productGrid}>
                   {category.products.map((product, prodIndex) => (
                     <div key={prodIndex} className={styles.productCard}>
                       <h3 className={styles.productTitle}>{product.productTitle}</h3>
@@ -80,6 +93,7 @@ export default function ShopPage() {
                       </Link>
                     </div>
                   ))}
+                  </div>
                 </section>
               ))}
             </div>
