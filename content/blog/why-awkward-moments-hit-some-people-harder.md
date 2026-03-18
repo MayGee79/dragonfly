@@ -8,7 +8,7 @@ featured: false
 published: true
 excerpt: "On social mistakes, the replay button in your brain, and rejection sensitive dysphoria. Awkward Moments Day, 18 March 2026."
 ---
-**On social mistakes, the replay button in your brain, and rejection sensitive dysphoria**
+## On social mistakes, the replay button in your brain, and rejection sensitive dysphoria
 
 Today is Awkward Moments Day, and honestly, I think we could all do with a gentler conversation about this.
 
@@ -18,13 +18,13 @@ But for some people, the moment does not fade. It loops. It replays at 2am, or i
 
 If that sounds familiar, I want you to know that you are not being dramatic. And you are not alone.
 
-**The replay button is not a character flaw**
+## The replay button is not a character flaw
 
 Our brains are wired to pay attention to social mistakes. From an evolutionary perspective, this makes sense - social belonging was essential for survival, so any signal that we might have damaged a relationship triggers an alert. The problem is that for some people, that alert system is dialled up much higher than average.
 
 This can be true for people with anxiety, for people who grew up in environments where mistakes were punished or noticed harshly, and for neurodivergent people whose brains process social information differently. The awkward moment itself is the same as anyone else's. The internal response is vastly different.
 
-**When "a bit embarrassing" becomes genuinely painful**
+## When "a bit embarrassing" becomes genuinely painful
 
 I see this pattern frequently - and it often connects to something called rejection sensitive dysphoria, or RSD. This is a term used to describe the intense emotional pain that some people experience in response to perceived rejection, criticism, or failure. It is not a formal diagnosis, but it is increasingly recognised as a significant feature in the lives of many neurodivergent people, particularly those with ADHD.
 
@@ -32,7 +32,7 @@ With RSD, an awkward social moment does not just feel embarrassing. It can feel 
 
 I have written about this in depth in my new book, [Rejection Sensitive Dysphoria: A Dragonfly Handbook](https://www.amazon.co.uk/Rejection-Sensitive-Dysphoria-Sensitive-DRAGONFLY-ebook/dp/B0GQZ7TD17), which explores what RSD is, how it shows up, and practical ways to work with it. If this resonates, you might find it useful. It is available now as an ebook, with the paperback following any day now. There is a handbook and a companion workbook.
 
-**What actually helps**
+## What actually helps
 
 If you are someone whose brain has a particularly persistent replay button, here are a few things worth knowing:
 
@@ -44,7 +44,7 @@ If you are someone whose brain has a particularly persistent replay button, here
 
 If awkward moments or social anxiety are significantly affecting your day-to-day life - if you are avoiding situations, withdrawing, or spending hours replaying interactions - that is worth exploring with someone. Therapy can help you understand the pattern and find ways to live with less of the sting.
 
-**A final thought**
+## A final thought
 
 Awkward moments are universal. They are part of being human, not evidence that you have done something terribly wrong. But if your experience of them feels bigger, sharper, and more painful than other people seem to find them, please do not dismiss that. It is telling you something worth listening to.
 
