@@ -1,6 +1,6 @@
 ---
 title: "What Is Normal Teenage Behaviour and What Is a Mental Health Concern?"
-date: 2026-04-06T00:00:00.000+00:00
+date: 2026-03-29T00:00:00.000+00:00
 author: Victoria Froome
 featuredImage: /images/rainbow-streak-february-2026.png
 category: Mental Health
