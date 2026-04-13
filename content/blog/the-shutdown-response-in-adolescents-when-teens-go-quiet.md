@@ -1,6 +1,6 @@
 ---
 title: "The Shutdown Response in Adolescents: When Teens Go Quiet"
-date: 2026-04-13T10:29:00.000+02:00
+date: 2026-04-13T11:05:00.000+02:00
 featuredImage: public/images/Hedgehog 2024.jpg
 excerpt: >
   There is a particular kind of silence from a teenager that is different from
