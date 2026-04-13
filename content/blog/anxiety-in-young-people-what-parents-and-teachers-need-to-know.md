@@ -11,8 +11,6 @@ excerpt: "Anxiety in young people often shows up as stomach aches, anger, perfec
 
 When adults picture an anxious child, they often imagine a quiet, clingy, visibly nervous little person. And sometimes anxiety does look like that. But more often, anxiety in young people wears disguises that adults do not recognise - and that is where things get more complicated.
 
-## The disguises anxiety wears
-
 Anxiety in children and adolescents frequently presents as physical symptoms. Stomach aches are the classic one - the child who complains of tummy pain every school morning but is fine at weekends. Headaches, nausea, dizziness, fatigue, and a general sense of feeling “unwell” without any identifiable medical cause. These are not made up. Anxiety genuinely produces these symptoms. The child really does feel ill, and dismissing their physical experience as fabrication undermines trust and leaves the underlying anxiety unaddressed.
 
 Anger and irritability are common anxiety presentations that adults frequently misinterpret. An anxious child whose nervous system is in chronic high alert may have very little tolerance for additional stressors. The result looks like anger, defiance, or aggression - slamming doors, shouting, meltdowns over seemingly trivial things. The adult sees a “difficult” child. The child is actually overwhelmed and drowning.
@@ -26,8 +24,6 @@ Avoidance in young people takes many forms beyond school refusal: declining invi
 Reassurance-seeking in anxious young people can be relentless and is often exhausting for parents. “Will it be okay?” “What if something goes wrong?” “Are you sure?” “But what if…” The instinct is to reassure, and reassurance does provide temporary relief. But as with adult anxiety, excessive reassurance-seeking creates a dependency that maintains the anxiety cycle. The child learns that the only way to manage uncertainty is through external confirmation, rather than developing their own capacity to tolerate not knowing.
 
 Sleep difficulties are both a symptom of anxiety and a factor that maintains it. Anxious young people often have difficulty falling asleep (the mind will not switch off), staying asleep (waking with anxious thoughts), or experience nightmares. Poor sleep then reduces their emotional resilience the following day, making them more vulnerable to anxiety, creating a vicious cycle.
-
-## What parents and teachers can do
 
 So what can parents and teachers do? The first step is recognition. Understanding that the stomach aches, the anger, the people-pleasing, and the avoidance may be anxiety rather than character traits or behavioural choices changes the response entirely. You move from “stop being difficult” to “you seem to be finding this really hard right now” - and that shift makes an enormous difference to a child who is struggling.
 
