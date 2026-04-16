@@ -372,12 +372,11 @@ export default function PrivacyPolicyPage() {
                 <ul className={styles.list}>
                   <li><strong>Essential cookies:</strong> These are necessary for the website to function. They do not
                   collect personal information about you.</li>
-                  <li><strong>Analytics cookies (Google Analytics):</strong> I use Google Analytics to understand how
-                  visitors use my website (for example, which pages are viewed and how people find the
-                  site). These cookies are only placed on your device if you click "Accept" when the
-                  cookie consent banner appears. If you click "Decline", analytics cookies are not
-                  used. You can change your choice at any time by clearing your browser data or
-                  cookies for this site.</li>
+                  <li><strong>Analytics (Google Analytics and Vercel Analytics / Speed Insights):</strong> I use analytics to
+                  understand how visitors use my website (for example, which pages are viewed and how people find the
+                  site) and to monitor performance. These analytics tools are only loaded if you click "Accept" when the
+                  cookie consent banner appears. If you click "Decline", they are not loaded. You can change your choice
+                  at any time by clearing your browser data or cookies for this site.</li>
                 </ul>
                 <p>
                   You can control cookies through your browser settings. You can also opt out of

@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
 import { headers } from 'next/headers'
 import dynamic from 'next/dynamic'
-import { Analytics } from '@vercel/analytics/next'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 
 // Load in separate chunk so cookie banner JS doesn't add to initial long task (Lighthouse TBT)
 const CookieConsent = dynamic(() => import('@/components/CookieConsent'), { ssr: false })
+const AnalyticsLoader = dynamic(() => import('@/components/AnalyticsLoader'), { ssr: false })
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dragonflypsychotherapy.co.uk'
 
@@ -71,8 +70,7 @@ export default function RootLayout({
       <body>
         {children}
         <CookieConsent />
-        {process.env.NODE_ENV === 'production' && <Analytics />}
-        {process.env.NODE_ENV === 'production' && <SpeedInsights />}
+        {process.env.NODE_ENV === 'production' && <AnalyticsLoader />}
       </body>
     </html>
   )
