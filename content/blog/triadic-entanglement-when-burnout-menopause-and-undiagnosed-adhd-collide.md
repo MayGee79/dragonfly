@@ -19,16 +19,7 @@ We talk about the double empathy problem in neurodiversity. We understand bidire
 
 Here's what makes this triad so insidious: the symptoms are almost identical.
 
-| Symptom | Burnout | Menopause | ADHD |
-| --- | --- | --- | --- |
-| Brain fog | ✓ | ✓ | ✓ |
-| Exhaustion | ✓ | ✓ | ✓ |
-| Sleep disruption | ✓ | ✓ | ✓ |
-| Emotional dysregulation | ✓ | ✓ | ✓ |
-| Difficulty concentrating | ✓ | ✓ | ✓ |
-| Memory problems | ✓ | ✓ | ✓ |
-| Reduced motivation | ✓ | ✓ | ✓ |
-| Overwhelm | ✓ | ✓ | ✓ |
+![Symptom overlap table showing that brain fog, exhaustion, sleep disruption, emotional dysregulation, difficulty concentrating, memory problems, reduced motivation, and overwhelm can appear in burnout, menopause, and ADHD.](/images/triadic-entanglement-table-2026-05-16.png)
 
 When a woman in her 40s or 50s presents with these symptoms, which box does she get placed in? Usually the most obvious, most socially acceptable one: “It’s probably just menopause.” Or “You’re clearly burned out - you need to slow down.”
 
