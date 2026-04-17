@@ -310,6 +310,22 @@ export default function ActivitiesAndToolsPage() {
                 </div>
                 <a href="/resources/Reflective-Journal.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
               </div>
+
+              <div className={styles.resourceCard} id="study-hacks-general">
+                <div className={styles.resourceCardDetails}>
+                  <p className={styles.resourceCardTitle}>Study Hacks (General)</p>
+                  <p className={styles.resourceCardBody}>Evidence-based revision and exam strategies young people can actually use.</p>
+                </div>
+                <a href="/resources/Study-Hacks-General.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
+              </div>
+
+              <div className={styles.resourceCard} id="study-hacks-neurodivergent">
+                <div className={styles.resourceCardDetails}>
+                  <p className={styles.resourceCardTitle}>Study Hacks (Neurodivergent)</p>
+                  <p className={styles.resourceCardBody}>Study strategies adapted for ADHD/autistic traits and neurodivergent overwhelm.</p>
+                </div>
+                <a href="/resources/Study-Hacks-Neurodivergent.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
+              </div>
             </div>
           </div>
         </section>
