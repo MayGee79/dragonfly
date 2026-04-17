@@ -3,11 +3,11 @@ excerpt: When burnout, menopause, and undiagnosed ADHD converge, symptoms
   overlap, mask each other, and intensify. Understanding the triad can change
   the path to support and recovery.
 author: Victoria Froome
-featuredImage: /images/triadic-entanglement-2026-05-16.png
+featuredImage: /images/triadic-entanglement-2026-04-16.png
 featured: false
 published: true
 title: "Triadic Entanglement: When Burnout, Menopause, and Undiagnosed ADHD Collide"
-date: 2026-05-16T00:00:00.000+00:00
+date: 2026-04-16T00:00:00.000+00:00
 category: Mental Health
 ---
 
