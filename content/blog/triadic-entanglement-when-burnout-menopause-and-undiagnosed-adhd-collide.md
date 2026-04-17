@@ -10,6 +10,9 @@ title: "Triadic Entanglement: When Burnout, Menopause, and Undiagnosed ADHD Coll
 date: 2026-05-16T00:00:00.000+00:00
 category: Mental Health
 ---
+
+*A note on the title: “triadic entanglement” is a concept from quantum information theory, describing the entanglement of three particles rather than two. I have borrowed the language as a metaphor, because nothing in the clinical literature quite captures what I keep seeing.*
+
 In quantum physics, entanglement describes a phenomenon where particles become so deeply connected that the state of one instantly influences the others - no matter the distance between them. You cannot measure or change one without affecting the rest. They are, in a very real sense, no longer separate things.
 
 This is what happens when burnout, menopause, and undiagnosed ADHD converge in a woman's life. They become entangled - not just coexisting, but fundamentally intertwined. Pull on one thread and the others move. Try to treat one in isolation and the others reassert themselves. They mask each other, mimic each other, and amplify each other in ways that make simple cause-and-effect thinking impossible.
