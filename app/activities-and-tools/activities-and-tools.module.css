@@ -229,9 +229,9 @@
 
 /* Printable resource cards – adapted from Uiverse.io */
 .resourceCardsGrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(190px, 1fr));
+  justify-items: center;
   gap: var(--spacing-xl);
   margin-top: var(--spacing-xl);
   margin-left: auto;
@@ -255,8 +255,16 @@
   color: var(--color-text);
   height: 100%;
   gap: 0.5em;
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.resourceCardTitleSmall {
+  font-size: 0.85em;
+  font-weight: 600;
+  opacity: 0.9;
+  white-space: nowrap;
 }
 
 .resourceCardButton {
@@ -441,6 +449,7 @@
   }
 
   .resourceCardsGrid {
+    grid-template-columns: 1fr;
     gap: var(--spacing-lg);
   }
 
