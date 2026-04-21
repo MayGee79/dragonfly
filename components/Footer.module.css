@@ -74,6 +74,27 @@
   color: var(--color-primary);
 }
 
+.cookieSettings {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  transition: color var(--transition-base);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.cookieSettings:hover {
+  color: var(--color-primary);
+}
+
+.cookieSettings:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .socialLinks {
   display: flex;
   justify-content: center;

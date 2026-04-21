@@ -14,8 +14,6 @@ export function ContactFormConversion() {
     const w = window as { gtag?: (c: string, n: string, p?: object) => void; dataLayer?: unknown[] }
     if (typeof w.gtag === 'function') {
       w.gtag('event', 'contact_form_submit', { transport_type: 'beacon' })
-    } else if (Array.isArray(w.dataLayer) && localStorage.getItem('cookie-consent') === 'accepted') {
-      w.dataLayer.push(['event', 'contact_form_submit', { transport_type: 'beacon' }])
     }
   }, [])
 

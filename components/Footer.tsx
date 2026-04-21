@@ -6,6 +6,16 @@ interface FooterProps {
 }
 
 export default function Footer({ className }: FooterProps = {}) {
+  const openCookieSettings = () => {
+    if (typeof window === 'undefined') return
+    try {
+      localStorage.removeItem('dragonfly_cookie_consent')
+    } catch {
+      // ignore
+    }
+    window.dispatchEvent(new Event('dragonfly:cookie-settings'))
+  }
+
   return (
     <footer className={`${styles.footer} ${className || ''}`}>
       <div className={styles.container}>
@@ -14,6 +24,11 @@ export default function Footer({ className }: FooterProps = {}) {
             <li><Link href="/">Home</Link></li>
             <li><Link href="/sitemap">Sitemap</Link></li>
             <li><Link href="/privacy-policy">Privacy Notice</Link></li>
+            <li>
+              <button type="button" onClick={openCookieSettings} className={styles.cookieSettings}>
+                Cookie settings
+              </button>
+            </li>
           </ul>
           <div className={styles.socialLinks}>
             <a href="https://www.facebook.com/profile.php?id=61570517201870" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className={styles.socialIcon}>
