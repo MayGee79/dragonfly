@@ -2,6 +2,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import styles from './activities-and-tools.module.css'
 import type { Metadata } from 'next'
+import PrintableResourcesGate from './PrintableResourcesGate'
 
 export const metadata: Metadata = {
   title: 'Activities and Tools',
@@ -278,59 +279,61 @@ export default function ActivitiesAndToolsPage() {
               Downloads and worksheets to support your practice. Hover over a card to download.
             </p>
 
-            <div className={styles.resourceCardsGrid}>
-              <div className={styles.resourceCard} id="mindful-colouring">
-                <div className={styles.resourceCardDetails}>
-                  <p className={styles.resourceCardTitle}>Mindful Colouring</p>
-                  <p className={styles.resourceCardBody}>Mindful colouring sheet to support focus and relaxation.</p>
+            <PrintableResourcesGate>
+              <div className={styles.resourceCardsGrid}>
+                <div className={styles.resourceCard} id="mindful-colouring">
+                  <div className={styles.resourceCardDetails}>
+                    <p className={styles.resourceCardTitle}>Mindful Colouring</p>
+                    <p className={styles.resourceCardBody}>Mindful colouring sheet to support focus and relaxation.</p>
+                  </div>
+                  <a href="/resources/paint_splatter.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
                 </div>
-                <a href="/resources/paint_splatter.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
-              </div>
 
-              <div className={styles.resourceCard} id="dot-to-dot">
-                <div className={styles.resourceCardDetails}>
-                  <p className={styles.resourceCardTitle}>Dot to Dot</p>
-                  <p className={styles.resourceCardBody}>Printable dot-to-dot activities for focused, calming attention.</p>
+                <div className={styles.resourceCard} id="dot-to-dot">
+                  <div className={styles.resourceCardDetails}>
+                    <p className={styles.resourceCardTitle}>Dot to Dot</p>
+                    <p className={styles.resourceCardBody}>Printable dot-to-dot activities for focused, calming attention.</p>
+                  </div>
+                  <a href="/resources/Mindful-Dot-to-Dots.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
                 </div>
-                <a href="/resources/Mindful-Dot-to-Dots.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
-              </div>
 
-              <div className={styles.resourceCard} id="word-searches">
-                <div className={styles.resourceCardDetails}>
-                  <p className={styles.resourceCardTitle}>Word Searches</p>
-                  <p className={styles.resourceCardBody}>Therapeutic word searches to support reflection and relaxation.</p>
+                <div className={styles.resourceCard} id="word-searches">
+                  <div className={styles.resourceCardDetails}>
+                    <p className={styles.resourceCardTitle}>Word Searches</p>
+                    <p className={styles.resourceCardBody}>Therapeutic word searches to support reflection and relaxation.</p>
+                  </div>
+                  <a href="/resources/Therapeutic-Wordsearch-Collection.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
                 </div>
-                <a href="/resources/Therapeutic-Wordsearch-Collection.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
-              </div>
 
-              <div className={styles.resourceCard} id="reflective-journal">
-                <div className={styles.resourceCardDetails}>
-                  <p className={styles.resourceCardTitle}>Reflective Journal</p>
-                  <p className={styles.resourceCardBody}>A printable journal to support reflection and self-awareness.</p>
+                <div className={styles.resourceCard} id="reflective-journal">
+                  <div className={styles.resourceCardDetails}>
+                    <p className={styles.resourceCardTitle}>Reflective Journal</p>
+                    <p className={styles.resourceCardBody}>A printable journal to support reflection and self-awareness.</p>
+                  </div>
+                  <a href="/resources/Reflective-Journal.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
                 </div>
-                <a href="/resources/Reflective-Journal.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
-              </div>
 
-              <div className={styles.resourceCard} id="study-hacks-general">
-                <div className={styles.resourceCardDetails}>
-                  <p className={styles.resourceCardTitle}>
-                    Study Hacks <span className={styles.resourceCardTitleSmall}>(General)</span>
-                  </p>
-                  <p className={styles.resourceCardBody}>Evidence-based revision and exam strategies young people can actually use.</p>
+                <div className={styles.resourceCard} id="study-hacks-general">
+                  <div className={styles.resourceCardDetails}>
+                    <p className={styles.resourceCardTitle}>
+                      Study Hacks <span className={styles.resourceCardTitleSmall}>(General)</span>
+                    </p>
+                    <p className={styles.resourceCardBody}>Evidence-based revision and exam strategies young people can actually use.</p>
+                  </div>
+                  <a href="/resources/Study-Hacks-General.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
                 </div>
-                <a href="/resources/Study-Hacks-General.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
-              </div>
 
-              <div className={styles.resourceCard} id="study-hacks-neurodivergent">
-                <div className={styles.resourceCardDetails}>
-                  <p className={styles.resourceCardTitle}>
-                    Study Hacks <span className={styles.resourceCardTitleSmall}>Neurodivergent</span>
-                  </p>
-                  <p className={styles.resourceCardBody}>Study strategies adapted for ADHD/autistic traits and neurodivergent overwhelm.</p>
+                <div className={styles.resourceCard} id="study-hacks-neurodivergent">
+                  <div className={styles.resourceCardDetails}>
+                    <p className={styles.resourceCardTitle}>
+                      Study Hacks <span className={styles.resourceCardTitleSmall}>Neurodivergent</span>
+                    </p>
+                    <p className={styles.resourceCardBody}>Study strategies adapted for ADHD/autistic traits and neurodivergent overwhelm.</p>
+                  </div>
+                  <a href="/resources/Study-Hacks-Neurodivergent.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
                 </div>
-                <a href="/resources/Study-Hacks-Neurodivergent.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
               </div>
-            </div>
+            </PrintableResourcesGate>
           </div>
         </section>
       </main>

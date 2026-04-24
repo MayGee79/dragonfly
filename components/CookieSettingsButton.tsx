@@ -14,7 +14,7 @@ export default function CookieSettingsButton() {
 
   return (
     <button type="button" onClick={openCookieSettings} className={styles.cookieSettings}>
-      Cookie settings
+      Cookie Settings
     </button>
   )
 }

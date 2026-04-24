@@ -36,9 +36,9 @@ export default function Footer({ className }: FooterProps = {}) {
         </div>
         <div className={styles.footerBottom}>
           <p className={styles.footerLeft}>
-            <a href="https://maiven.org.uk" target="_blank" rel="noopener noreferrer">Website by maiven.org.uk</a>
+            <a href="https://lunaclara.studio" target="_blank" rel="noopener noreferrer">Website by LunaClara.Studio</a>
           </p>
-          <p className={styles.footerCenter}>&copy; 2026 Dragonfly Psychotherapy. All rights reserved.</p>
+          <p className={styles.footerCenter}>&copy; 2026 Dragonfly Psychotherapy. All Rights Reserved.</p>
           <p className={styles.footerRight}>
             <Link href="/admin">Admin</Link>
           </p>
