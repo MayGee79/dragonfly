@@ -152,6 +152,7 @@
   padding: 0;
   color: var(--color-primary);
   font-weight: 700;
+  font-size: 1.05rem;
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 0.2em;
@@ -342,6 +343,7 @@
   padding: 0;
   color: var(--color-primary);
   font-weight: 700;
+  font-size: 1.05rem;
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 0.2em;
