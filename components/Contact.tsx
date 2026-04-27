@@ -104,14 +104,14 @@ export default function Contact() {
             <span className={styles.contactCardLink}>Get Directions →</span>
           </a>
           <a
-            href="https://www.google.com/maps/search/?api=1&query=3+Norells+Ride,+East+Horsley,+KT24+5EH"
+            href="https://www.google.com/maps/search/?api=1&query=3+Norrels+Ride,+East+Horsley,+KT24+5EH"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.contactCard}
           >
             <h3 className={styles.contactCardTitle}>East Horsley</h3>
             <p className={styles.contactCardBody}>
-              3 Norells Ride, East Horsley, KT24 5EH
+              3 Norrels Ride, East Horsley, KT24 5EH
             </p>
             <span className={styles.contactCardLink}>Get Directions →</span>
           </a>

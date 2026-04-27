@@ -10,7 +10,7 @@ const fees = [
 
 const locations = [
   { name: 'Guildford', address: 'Beaufort Parklands GU2 9JX' },
-  { name: 'East Horsley', address: '3 Norells Ride KT24 5EH' },
+  { name: 'East Horsley', address: '3 Norrels Ride KT24 5EH' },
   { name: 'Online', address: 'Secure video platform' }
 ]
 
