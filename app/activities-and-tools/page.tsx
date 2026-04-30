@@ -2,7 +2,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import styles from './activities-and-tools.module.css'
 import type { Metadata } from 'next'
-import PrintableResourcesGate from './PrintableResourcesGate'
+import ResourceDownloadGate from '@/components/ResourceDownloadGate'
 
 export const metadata: Metadata = {
   title: 'Activities and Tools',
@@ -279,7 +279,7 @@ export default function ActivitiesAndToolsPage() {
               Downloads and worksheets to support your practice. Hover over a card to download.
             </p>
 
-            <PrintableResourcesGate>
+            <ResourceDownloadGate>
               <div className={styles.resourceCardsGrid}>
                 <div className={styles.resourceCard} id="mindful-colouring">
                   <div className={styles.resourceCardDetails}>
@@ -333,7 +333,7 @@ export default function ActivitiesAndToolsPage() {
                   <a href="/resources/Study-Hacks-Neurodivergent.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
                 </div>
               </div>
-            </PrintableResourcesGate>
+            </ResourceDownloadGate>
           </div>
         </section>
       </main>

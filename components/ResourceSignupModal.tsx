@@ -1,5 +1,6 @@
 'use client'
 
+import type { FormEvent, MouseEvent as ReactMouseEvent } from 'react'
 import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import styles from './ResourceSignupModal.module.css'
@@ -63,11 +64,11 @@ export default function ResourceSignupModal(props: {
 
   if (!isOpen) return null
 
-  const onBackdropMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+  const onBackdropMouseDown = (e: ReactMouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) onCloseAndDownload()
   }
 
-  const onSubmit = async (e: React.FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault()
     setError(null)
 
@@ -102,7 +103,9 @@ export default function ResourceSignupModal(props: {
         </button>
 
         <div className={styles.header}>
-          <h2 className={styles.title} id="resource-modal-title">Get your free resource</h2>
+          <h2 className={styles.title} id="resource-modal-title">
+            Get your free resource
+          </h2>
           <p className={styles.subtitle} id="resource-modal-subtitle">
             Join the Dragonfly mailing list for updates, tools, resources and wellbeing support straight to your inbox.
           </p>
@@ -111,7 +114,9 @@ export default function ResourceSignupModal(props: {
         <div className={styles.body}>
           <form className={styles.form} onSubmit={onSubmit} aria-describedby={errorMessage ? errorId : undefined}>
             <div className={styles.formGroup}>
-              <label className={styles.label} htmlFor={firstNameId}>First name</label>
+              <label className={styles.label} htmlFor={firstNameId}>
+                First name
+              </label>
               <input
                 id={firstNameId}
                 className={styles.input}
@@ -126,7 +131,9 @@ export default function ResourceSignupModal(props: {
             </div>
 
             <div className={styles.formGroup}>
-              <label className={styles.label} htmlFor={emailId}>Email address</label>
+              <label className={styles.label} htmlFor={emailId}>
+                Email address
+              </label>
               <input
                 id={emailId}
                 className={styles.input}
@@ -166,3 +173,4 @@ export default function ResourceSignupModal(props: {
     </div>
   )
 }
+

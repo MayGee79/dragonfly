@@ -1,9 +1,10 @@
 'use client'
 
+import type { MouseEvent as ReactMouseEvent, ReactNode } from 'react'
 import { useCallback, useEffect, useState } from 'react'
-import ResourceSignupModal from './ResourceSignupModal'
+import ResourceSignupModal from '@/components/ResourceSignupModal'
 
-function triggerPdfDownload(url: string) {
+function triggerDownload(url: string) {
   const a = document.createElement('a')
   a.href = url
   a.setAttribute('download', '')
@@ -12,12 +13,13 @@ function triggerPdfDownload(url: string) {
   a.remove()
 }
 
-function isPdfResourceLink(anchor: HTMLAnchorElement) {
+function isResourceDownloadLink(anchor: HTMLAnchorElement) {
   const href = anchor.getAttribute('href') || ''
-  return href.startsWith('/resources/') && href.toLowerCase().endsWith('.pdf')
+  if (!href.startsWith('/resources/')) return false
+  return /\.(pdf|docx|doc)$/i.test(href)
 }
 
-export default function PrintableResourcesGate(props: { children: React.ReactNode }) {
+export default function ResourceDownloadGate(props: { children: ReactNode }) {
   const { children } = props
 
   const [pendingUrl, setPendingUrl] = useState<string | null>(null)
@@ -27,14 +29,14 @@ export default function PrintableResourcesGate(props: { children: React.ReactNod
     setIsOpen(false)
     const url = pendingUrl
     setPendingUrl(null)
-    if (url) triggerPdfDownload(url)
+    if (url) triggerDownload(url)
   }, [pendingUrl])
 
   const subscribedAndDownload = useCallback(() => {
     setIsOpen(false)
     const url = pendingUrl
     setPendingUrl(null)
-    if (url) triggerPdfDownload(url)
+    if (url) triggerDownload(url)
   }, [pendingUrl])
 
   useEffect(() => {
@@ -46,14 +48,14 @@ export default function PrintableResourcesGate(props: { children: React.ReactNod
     }
   }, [isOpen])
 
-  const onClickCapture = (e: React.MouseEvent) => {
+  const onClickCapture = (e: ReactMouseEvent) => {
     if (isOpen) return
     const target = e.target
     if (!(target instanceof Element)) return
 
     const anchor = target.closest('a')
     if (!(anchor instanceof HTMLAnchorElement)) return
-    if (!isPdfResourceLink(anchor)) return
+    if (!isResourceDownloadLink(anchor)) return
 
     e.preventDefault()
 
@@ -66,9 +68,7 @@ export default function PrintableResourcesGate(props: { children: React.ReactNod
 
   return (
     <>
-      <div onClickCapture={onClickCapture}>
-        {children}
-      </div>
+      <div onClickCapture={onClickCapture}>{children}</div>
 
       <ResourceSignupModal
         isOpen={isOpen}
