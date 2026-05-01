@@ -18,7 +18,7 @@ tags:
 
 ## A recognition I did not see coming
 
-This week I went to a talk by Alex Partridge, host of the ADHD Chatter podcast, and Dr Alex George. Right at the start, before the conversation had really begun, Alex Partridge mentioned, almost in passing, that he had been in waiting mode all day.
+Last week I went to a talk by Alex Partridge, host of the ADHD Chatter podcast, and Dr Alex George. Right at the start, before the conversation had really begun, Alex Partridge mentioned, almost in passing, that he had been in waiting mode all day.
 
 I was caught off guard, because the phrase landed in me before my mind had caught up with it. And then, slightly more uncomfortably, I realised that despite spending my professional life in mental health, I had not actually come across the term as a named phenomenon. I had come across the experience, of course. I just had not thought of it as a thing with a name.
 
