@@ -10,6 +10,8 @@
   --color-primary-light: #c4b3cb;
   --color-bg: #b9d5d6;
   --color-bg-light: #b9d5d6;
+  /* Matches main site Professional Membership → Qualifications column */
+  --color-qualifications-bg: #ebe6ee;
   --font-size-base: 16px;
   --font-size-nav: 14px;
   --font-size-sm: 12px;

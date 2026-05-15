@@ -87,22 +87,33 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
   }
 
   return (
-    <div className={styles.wrap}>
+    <div className={styles.page}>
       <header className={styles.hero} id="top">
-        <div className={styles.heroBrand}>
-          <div className={styles.heroLogo}>
-            <Image
-              src="/images/dragonfly_logo_transparent.png"
-              alt="Dragonfly Psychotherapy"
-              width={120}
-              height={120}
-              priority
-            />
+        <div className={styles.heroBanner}>
+          <div className={styles.heroBannerInner}>
+            <div className={styles.heroBrand}>
+              <div className={styles.heroLogo}>
+                <Image
+                  src="/images/dragonfly_logo_transparent.png"
+                  alt="Dragonfly Psychotherapy"
+                  className={styles.heroLogoImg}
+                  width={260}
+                  height={260}
+                  sizes="(max-width: 767px) 140px, 260px"
+                  priority
+                />
+              </div>
+              <div className={styles.heroTextContent}>
+                <h1 className={styles.shopTitle}>Shop</h1>
+                <p className={styles.heroWelcome}>Welcome to the Dragonfly shop.</p>
+              </div>
+            </div>
           </div>
-          <h1 className={styles.shopTitle}>SHOP</h1>
         </div>
+      </header>
+
+      <div className={styles.wrap}>
         <div className={styles.heroIntro}>
-          <p className={styles.heroIntroLead}>Welcome to the Dragonfly shop.</p>
           <p>
             Handbooks, workbooks, and therapeutic resources can be purchased directly here. Digital editions are
             delivered the moment payment is complete: secure download links appear on the thank you page, and the{' '}
@@ -110,127 +121,127 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
           </p>
           <p>This collection is growing steadily, with further handbooks, toolkits, and resources to follow.</p>
         </div>
-      </header>
 
-      <div className={styles.mainLayout}>
-        <aside className={styles.basket} aria-label="Basket and checkout">
-          <h2 className={styles.basketHeading}>Basket</h2>
-          {lineItems.length === 0 ? (
-            <p className={styles.basketEmpty}>Add quantities on the right, then complete checkout here.</p>
-          ) : (
-            <ul className={styles.basketList}>
-              {lineItems.map((l) => (
-                <li key={l.id}>
-                  {l.name} × {l.qty}
-                </li>
-              ))}
-            </ul>
-          )}
-          {hasPhysical && <p className={styles.basketNote}>UK shipping: £4.25 (added at checkout).</p>}
-          {!hasPhysical && lineItems.some((l) => l.kind === 'digital') && (
-            <p className={styles.basketNote}>Digital-only basket: no shipping.</p>
-          )}
+        <div className={styles.mainLayout}>
+          <aside className={styles.basket} aria-label="Basket and checkout">
+            <h2 className={styles.basketHeading}>Basket</h2>
+            {lineItems.length === 0 ? (
+              <p className={styles.basketEmpty}>Add quantities on the right, then complete checkout here.</p>
+            ) : (
+              <ul className={styles.basketList}>
+                {lineItems.map((l) => (
+                  <li key={l.id}>
+                    {l.name} × {l.qty}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {hasPhysical && <p className={styles.basketNote}>UK shipping: £4.25 (added at checkout).</p>}
+            {!hasPhysical && lineItems.some((l) => l.kind === 'digital') && (
+              <p className={styles.basketNote}>Digital-only basket: no shipping.</p>
+            )}
 
-          <div className={styles.checkoutBlock}>
-            <div className={styles.emailRow}>
-              <label htmlFor="shop-email">Email for order confirmation (Stripe)</label>
-              <input
-                id="shop-email"
-                type="email"
-                autoComplete="email"
-                value={customerEmail}
-                onChange={(e) => setCustomerEmail(e.target.value)}
-                placeholder="you@example.com"
-              />
+            <div className={styles.checkoutBlock}>
+              <div className={styles.emailRow}>
+                <label htmlFor="shop-email">Email for order confirmation (Stripe)</label>
+                <input
+                  id="shop-email"
+                  type="email"
+                  autoComplete="email"
+                  value={customerEmail}
+                  onChange={(e) => setCustomerEmail(e.target.value)}
+                  placeholder="you@example.com"
+                />
+              </div>
+
+              <label>
+                <input type="checkbox" checked={acceptTerms} onChange={(e) => setAcceptTerms(e.target.checked)} />
+                <span>
+                  I have read and agree to the{' '}
+                  <Link href="/terms" target="_blank" rel="noopener noreferrer">
+                    Shop Terms and Conditions
+                  </Link>{' '}
+                  and the{' '}
+                  <Link href="/privacy" target="_blank" rel="noopener noreferrer">
+                    Privacy Notice
+                  </Link>
+                  .
+                </span>
+              </label>
+
+              <label>
+                <input type="checkbox" checked={newsletter} onChange={(e) => setNewsletter(e.target.checked)} />
+                <span>
+                  I would like to receive the Dragonfly Psychotherapy newsletter (optional). See Privacy Notice for how
+                  your data is used.
+                </span>
+              </label>
+
+              {error && <p className={styles.error}>{error}</p>}
+
+              <button
+                type="button"
+                className={styles.btn}
+                disabled={loading || lineItems.length === 0}
+                onClick={() => void goToCheckout()}
+              >
+                {loading ? 'Redirecting…' : 'Pay with Stripe'}
+              </button>
             </div>
+          </aside>
 
-            <label>
-              <input type="checkbox" checked={acceptTerms} onChange={(e) => setAcceptTerms(e.target.checked)} />
-              <span>
-                I have read and agree to the{' '}
-                <Link href="/terms" target="_blank" rel="noopener noreferrer">
-                  Shop Terms and Conditions
-                </Link>{' '}
-                and the{' '}
-                <Link href="/privacy" target="_blank" rel="noopener noreferrer">
-                  Privacy Notice
-                </Link>
-                .
-              </span>
-            </label>
-
-            <label>
-              <input type="checkbox" checked={newsletter} onChange={(e) => setNewsletter(e.target.checked)} />
-              <span>
-                I would like to receive the Dragonfly Psychotherapy newsletter (optional). See Privacy Notice for how
-                your data is used.
-              </span>
-            </label>
-
-            {error && <p className={styles.error}>{error}</p>}
-
-            <button
-              type="button"
-              className={styles.btn}
-              disabled={loading || lineItems.length === 0}
-              onClick={() => void goToCheckout()}
-            >
-              {loading ? 'Redirecting…' : 'Pay with Stripe'}
-            </button>
-          </div>
-        </aside>
-
-        <div className={styles.mainContent}>
-          <section className={styles.grid} aria-label="Products">
-            {catalog.map((item) => (
-              <article key={item.id} id={item.slug} className={styles.card}>
-                <div className={styles.coverWrap}>
-                  <Image
-                    src={item.coverImage}
-                    alt={coverAlt(item.name)}
-                    width={320}
-                    height={512}
-                    className={styles.coverImg}
-                    sizes="(max-width: 520px) 50vw, 140px"
-                  />
-                </div>
-                <div className={styles.cardBody}>
-                  <h2 className={styles.cardTitle}>{item.name}</h2>
-                  <p className={styles.desc}>{item.shortDescription}</p>
-                  <div className={styles.qty}>
-                    <label htmlFor={`qty-${item.id}`}>Quantity</label>
-                    <input
-                      id={`qty-${item.id}`}
-                      type="number"
-                      min={0}
-                      max={99}
-                      value={qtyFor(item.id) || ''}
-                      onChange={(e) => setQty(item.id, e.target.value)}
+          <div className={styles.mainContent}>
+            <section className={styles.grid} aria-label="Products">
+              {catalog.map((item) => (
+                <article key={item.id} id={item.slug} className={styles.card}>
+                  <div className={styles.coverWrap}>
+                    <Image
+                      src={item.coverImage}
+                      alt={coverAlt(item.name)}
+                      width={320}
+                      height={512}
+                      className={styles.coverImg}
+                      sizes="(max-width: 520px) 50vw, 140px"
                     />
                   </div>
-                </div>
-              </article>
-            ))}
-          </section>
+                  <div className={styles.cardBody}>
+                    <h2 className={styles.cardTitle}>{item.name}</h2>
+                    <p className={styles.desc}>{item.shortDescription}</p>
+                    <div className={styles.qty}>
+                      <label htmlFor={`qty-${item.id}`}>Quantity</label>
+                      <input
+                        id={`qty-${item.id}`}
+                        type="number"
+                        min={0}
+                        max={99}
+                        value={qtyFor(item.id) || ''}
+                        onChange={(e) => setQty(item.id, e.target.value)}
+                      />
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </section>
 
-          <section className={styles.faq} id="shipping-faq" aria-label="Shipping and returns">
-            <h2>Shipping, returns & contact</h2>
-            <h3>Shipping (UK)</h3>
-            <p>
-              We currently ship within the UK only. If your basket includes a paperback, postage and packaging is £4.25.
-              We aim to post within 2–3 working days of payment.
-            </p>
-            <h3>Returns</h3>
-            <p>
-              Returns are accepted in line with the Shop Terms. Unless the item is faulty or not as described, you are
-              responsible for return postage.
-            </p>
-            <h3>Contact</h3>
-            <p>
-              Order questions:{' '}
-              <a href="mailto:victoria@dragonflypsychotherapy.co.uk">victoria@dragonflypsychotherapy.co.uk</a>
-            </p>
-          </section>
+            <section className={styles.faq} id="shipping-faq" aria-label="Shipping and returns">
+              <h2>Shipping, returns & contact</h2>
+              <h3>Shipping (UK)</h3>
+              <p>
+                We currently ship within the UK only. If your basket includes a paperback, postage and packaging is
+                £4.25. We aim to post within 2–3 working days of payment.
+              </p>
+              <h3>Returns</h3>
+              <p>
+                Returns are accepted in line with the Shop Terms. Unless the item is faulty or not as described, you are
+                responsible for return postage.
+              </p>
+              <h3>Contact</h3>
+              <p>
+                Order questions:{' '}
+                <a href="mailto:victoria@dragonflypsychotherapy.co.uk">victoria@dragonflypsychotherapy.co.uk</a>
+              </p>
+            </section>
+          </div>
         </div>
       </div>
     </div>

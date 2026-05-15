@@ -1,19 +1,50 @@
+.page {
+  width: 100%;
+}
+
 .wrap {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--spacing-2xl) var(--spacing-lg) var(--spacing-4xl);
+  padding: var(--spacing-md) var(--spacing-lg) var(--spacing-4xl);
 }
 
+/* Full-width lilac banner with curved bottom (matches main site sections) */
 .hero {
-  margin-bottom: var(--spacing-2xl);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.heroBanner {
+  position: relative;
+  width: 100%;
+  padding: var(--spacing-3xl) var(--spacing-lg) calc(var(--spacing-3xl) + 50px);
+  background-color: var(--color-qualifications-bg);
+}
+
+.heroBanner::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: var(--color-bg);
+  border-radius: 50% 50% 0 0;
+}
+
+.heroBannerInner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .heroBrand {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
+  gap: var(--spacing-xl);
 }
 
 .heroLogo {
@@ -21,17 +52,38 @@
   line-height: 0;
 }
 
+.heroLogoImg {
+  width: 260px;
+  height: auto;
+}
+
+.heroTextContent {
+  flex: 1;
+  max-width: 520px;
+  text-align: center;
+}
+
 .shopTitle {
-  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-size: var(--font-size-4xl);
   font-weight: 700;
-  letter-spacing: 0.06em;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-sm);
+  line-height: var(--line-height-tight);
+}
+
+.heroWelcome {
   margin: 0;
-  color: var(--color-primary);
+  font-size: var(--font-size-2xl);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-text);
+  line-height: var(--line-height-tight);
 }
 
 .heroIntro {
-  max-width: 720px;
-  margin: 0 auto;
+  max-width: 800px;
+  margin: var(--spacing-sm) auto var(--spacing-3xl);
+  padding: 0 var(--spacing-md);
   text-align: center;
   color: var(--color-text);
 }
@@ -39,16 +91,11 @@
 .heroIntro p {
   margin: 0 0 var(--spacing-md);
   line-height: var(--line-height-relaxed);
+  font-size: var(--font-size-base);
 }
 
 .heroIntro p:last-child {
   margin-bottom: 0;
-}
-
-.heroIntroLead {
-  font-size: var(--font-size-lg);
-  font-weight: 700;
-  color: var(--color-primary);
 }
 
 .mainLayout {
@@ -257,6 +304,12 @@
   margin-bottom: var(--spacing-sm);
 }
 
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 900px) {
   .mainLayout {
     grid-template-columns: 1fr;
@@ -272,9 +325,40 @@
   }
 }
 
-@media (max-width: 1100px) {
-  .grid {
-    grid-template-columns: 1fr;
+@media (max-width: 767px) {
+  .wrap {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .heroBanner {
+    padding: var(--spacing-2xl) var(--spacing-md) calc(var(--spacing-2xl) + 50px);
+  }
+
+  .heroIntro {
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-2xl);
+    padding: 0;
+  }
+
+  .heroBrand {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .heroTextContent {
+    max-width: none;
+  }
+
+  .heroLogoImg {
+    width: 140px;
+  }
+
+  .shopTitle {
+    font-size: var(--font-size-2xl);
+  }
+
+  .heroWelcome {
+    font-size: var(--font-size-base);
   }
 }
 
@@ -293,20 +377,5 @@
 
   .coverImg {
     max-height: 200px;
-  }
-}
-
-@media (max-width: 767px) {
-  .wrap {
-    padding: var(--spacing-xl) var(--spacing-md);
-  }
-
-  .heroBrand {
-    gap: var(--spacing-md);
-  }
-
-  .heroLogo img {
-    width: 88px !important;
-    height: 88px !important;
   }
 }
