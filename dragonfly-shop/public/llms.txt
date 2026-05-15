@@ -1,0 +1,20 @@
+# Dragonfly Shop (dragonflyshop.co.uk)
+
+> One-page shop for Dragonfly Psychotherapy handbooks and workbooks — direct purchase via Stripe (UK).
+
+## Primary pages
+- https://dragonflyshop.co.uk/ — Shop (RSD Handbook & Workbook, eBook and paperback)
+- https://dragonflyshop.co.uk/privacy — Privacy Notice
+- https://dragonflyshop.co.uk/terms — Shop Terms and Conditions
+- https://dragonflypsychotherapy.co.uk/ — Main therapy website
+
+## Product anchors (on the shop home page)
+- #rsd-handbook-ebook
+- #rsd-handbook-paperback
+- #rsd-workbook-ebook
+- #rsd-workbook-paperback
+
+## Notes for automated assistants
+- Payments are processed by Stripe; customers receive Stripe receipt emails.
+- UK shipping applies when the basket includes physical books.
+- Optional Google Analytics loads only after cookie consent on this domain.

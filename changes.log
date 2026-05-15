@@ -4,7 +4,6 @@ Backfilled from `git log` on 2026-05-07.
 Format: YYYY-MM-DD — subject (author) [short-sha]
 
 ## 2026-05
-- 2026-05-11 — Blog: social media comparison and self-worth (Victoria Froome) [uncommitted]
 - 2026-05-03 — Blog: add spaniels disclaimer post (Victoria Froome) [e06ea96]
 - 2026-05-01 — Blog: tweak waiting mode intro (Victoria Froome) [f2b588c]
 
@@ -178,3 +177,19 @@ Format: YYYY-MM-DD — subject (author) [short-sha]
 - 2026-01-06 — Add OAuth server (Marta Giardina) [1df52e0]
 - 2026-01-05 — Update GitHub repository configuration in admin settings (Marta Giardina) [0b4f455]
 - 2026-01-05 — Initial commit (Marta Giardina) [06a26f3]
+
+## Session log (manual)
+- 2026-05-12 — Add `dragonfly-shop/` Next.js 14 Stripe checkout MVP (basket, UK shipping £4.25, success downloads, privacy/terms, sitemap/robots/llms); main site nav SHOP → dragonflyshop.co.uk + `/shop` redirect; add `privacy-notice-final.text` / `shop-terms-final.text` (May)
+- 2026-05-12 — Shop: fix `react-hooks/exhaustive-deps` in `ShopHome` line-items `useMemo`; `npm install` + `npm run build` verified in `dragonfly-shop/` (May)
+- 2026-05-12 — Shop: browser smoke on `http://127.0.0.1:3001` — basket, terms validation, checkout POST; Stripe blocked locally until `.env.local` has price IDs + secret (May)
+- 2026-05-12 — Shop: add `dragonfly-shop/.env.local` template (public URLs + GA id; Stripe keys left empty for local fill-in) (May)
+- 2026-05-12 — Shop: fill four `STRIPE_PRICE_*` IDs in `.env.local` (RSD handbook/workbook ebook + paperback) (May)
+- 2026-05-12 — Shop: restart `npm run dev` on 3001 after env update (May)
+- 2026-05-12 — Shop: `.env.local` — swap to Stripe **test** Price IDs (handbook/workbook ebook + paperback) for sandbox (May)
+- 2026-05-12 — Shop: `.env.local` — add Stripe **test** API keys (local dev; file remains gitignored) (May)
+- 2026-05-12 — Shop: restart `npm run dev` on 3001 (May)
+- 2026-05-12 — Shop: always show digital downloads after paid checkout; remove waiver checkbox; serve PDFs via `/api/download` from `private/downloads/` with Stripe session verification (May)
+- 2026-05-12 — Shop: add `rsd-handbook-ebook.pdf` and `rsd-workbook-ebook.pdf` under `private/downloads/` (May)
+- 2026-05-15 — Shop: restart `npm run dev` on 3001 (May)
+- 2026-05-15 — Shop: hero logo → `public/images/dragonfly_logo_transparent.png` (May)
+- 2026-05-15 — Shop: header logo + SHOP h1; basket column left, products right (May)

@@ -5,6 +5,15 @@ const nextConfig = {
   // Vercel hosting: API routes enabled for Decap CMS login
   // trailingSlash: false (default) – avoids 301 redirects so Google indexes pages directly
   trailingSlash: false,
+  async redirects() {
+    return [
+      {
+        source: '/shop',
+        destination: 'https://dragonflyshop.co.uk/',
+        permanent: true,
+      },
+    ]
+  },
   experimental: {
     optimizeCss: true, // inline critical CSS, may only apply to Pages Router / static export
   },

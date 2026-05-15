@@ -33,7 +33,7 @@ export default function Navigation({ className }: NavigationProps = {}) {
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/shop', label: 'SHOP' },
+    { href: 'https://dragonflyshop.co.uk/', label: 'SHOP' },
     { href: '/faqs', label: 'FAQs' },
   ]
 
