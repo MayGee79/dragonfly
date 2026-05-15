@@ -5,7 +5,7 @@
 .wrap {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--spacing-md) var(--spacing-lg) var(--spacing-4xl);
+  padding: var(--spacing-md) var(--spacing-lg) var(--spacing-2xl);
 }
 
 /* Full-width lilac banner with curved bottom (matches main site sections) */
@@ -187,8 +187,7 @@
 }
 
 .basket {
-  position: sticky;
-  top: var(--spacing-lg);
+  align-self: start;
   background: #ffffff;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
@@ -286,22 +285,51 @@
   margin-top: var(--spacing-sm);
 }
 
-.faq {
-  margin-top: var(--spacing-3xl);
-  background: #ffffff;
-  border-radius: var(--radius-md);
-  padding: var(--spacing-xl);
-  box-shadow: var(--shadow-sm);
+/* Full-width white band with curved top into teal (mirrors hero curve) */
+.faqSection {
+  position: relative;
+  width: 100%;
+  margin-top: var(--spacing-xl);
+  padding: calc(var(--spacing-3xl) + 50px) var(--spacing-lg) var(--spacing-3xl);
+  background-color: #ffffff;
 }
 
-.faq h2 {
+.faqSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: var(--color-bg);
+  border-radius: 0 0 50% 50%;
+}
+
+.faqInner {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.faqInner h2 {
   margin-bottom: var(--spacing-lg);
+  text-align: center;
 }
 
-.faq h3 {
+.faqInner h3 {
   font-size: var(--font-size-lg);
   margin-top: var(--spacing-lg);
   margin-bottom: var(--spacing-sm);
+}
+
+.faqInner p {
+  line-height: var(--line-height-relaxed);
+  margin: 0 0 var(--spacing-md);
+}
+
+.faqInner p:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 1100px) {
@@ -316,7 +344,6 @@
   }
 
   .basket {
-    position: static;
     order: -1;
   }
 
@@ -359,6 +386,10 @@
 
   .heroWelcome {
     font-size: var(--font-size-base);
+  }
+
+  .faqSection {
+    padding: calc(var(--spacing-2xl) + 50px) var(--spacing-md) var(--spacing-2xl);
   }
 }
 

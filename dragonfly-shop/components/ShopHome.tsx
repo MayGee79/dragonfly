@@ -223,27 +223,30 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
               ))}
             </section>
 
-            <section className={styles.faq} id="shipping-faq" aria-label="Shipping and returns">
-              <h2>Shipping, returns & contact</h2>
-              <h3>Shipping (UK)</h3>
-              <p>
-                We currently ship within the UK only. If your basket includes a paperback, postage and packaging is
-                £4.25. We aim to post within 2–3 working days of payment.
-              </p>
-              <h3>Returns</h3>
-              <p>
-                Returns are accepted in line with the Shop Terms. Unless the item is faulty or not as described, you are
-                responsible for return postage.
-              </p>
-              <h3>Contact</h3>
-              <p>
-                Order questions:{' '}
-                <a href="mailto:victoria@dragonflypsychotherapy.co.uk">victoria@dragonflypsychotherapy.co.uk</a>
-              </p>
-            </section>
           </div>
         </div>
       </div>
+
+      <section className={styles.faqSection} id="shipping-faq" aria-label="Shipping and returns">
+        <div className={styles.faqInner}>
+          <h2>Shipping, returns & contact</h2>
+          <h3>Shipping (UK)</h3>
+          <p>
+            We currently ship within the UK only. If your basket includes a paperback, postage and packaging is £4.25. We
+            aim to post within 2–3 working days of payment.
+          </p>
+          <h3>Returns</h3>
+          <p>
+            Returns are accepted in line with the Shop Terms. Unless the item is faulty or not as described, you are
+            responsible for return postage.
+          </p>
+          <h3>Contact</h3>
+          <p>
+            Order questions:{' '}
+            <a href="mailto:victoria@dragonflypsychotherapy.co.uk">victoria@dragonflypsychotherapy.co.uk</a>
+          </p>
+        </div>
+      </section>
     </div>
   )
 }

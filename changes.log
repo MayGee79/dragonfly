@@ -203,3 +203,5 @@ Format: YYYY-MM-DD — subject (author) [short-sha]
 - 2026-05-15 — Fix main site build: exclude `dragonfly-shop/` from root `tsconfig.json` (separate Vercel project) (May)
 - 2026-05-15 — Shop: full-width lilac hero banner with curved bottom edge (main site section style); intro copy below on teal background (May)
 - 2026-05-15 — Shop: fix ShopHome JSX structure (page wrapper, correct div nesting); safer full-width hero CSS without 100vw clip (May)
+- 2026-05-15 — Shop: basket sticky below nav with scrollable max-height; shipping FAQ full-width white section with curved top (May)
+- 2026-05-15 — Shop: remove sticky basket (static in layout); shipping FAQ full-width curved white section (May)
