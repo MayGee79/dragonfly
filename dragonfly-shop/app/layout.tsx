@@ -4,12 +4,28 @@ import './globals.css'
 import ShopNavigation from '@/components/ShopNavigation'
 import ShopFooter from '@/components/ShopFooter'
 
-const ShopCookieConsent = dynamic(() => import('@/components/ShopCookieConsent'), { ssr: false })
+const ShopCookieConsent = dynamic(() => import('@/components/ShopCookieConsent'), { ssr: false, loading: () => null })
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dragonflyshop.co.uk'
+const FALLBACK_SITE_URL = 'https://dragonflyshop.co.uk'
+
+function metadataBaseUrl(): URL {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim()
+  if (!raw) return new URL(FALLBACK_SITE_URL)
+  try {
+    if (/^https?:\/\//i.test(raw)) {
+      return new URL(raw)
+    }
+    return new URL(`http://${raw}`)
+  } catch {
+    console.warn('[dragonfly-shop] Invalid NEXT_PUBLIC_SITE_URL — using fallback. Value was:', JSON.stringify(raw))
+    return new URL(FALLBACK_SITE_URL)
+  }
+}
+
+const metadataBaseResolved = metadataBaseUrl()
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: metadataBaseResolved,
   title: {
     default: 'Dragonfly Shop',
     template: '%s | Dragonfly Shop',
@@ -23,7 +39,7 @@ export const metadata: Metadata = {
     title: 'Dragonfly Shop',
     description:
       'Buy Dragonfly Psychotherapy handbooks and workbooks directly — RSD Handbook and Companion Workbook (eBook and paperback).',
-    url: baseUrl,
+    url: metadataBaseResolved.href,
   },
   robots: { index: true, follow: true },
 }
@@ -41,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <ShopNavigation />
-        <main style={{ flex: 1 }}>{children}</main>
+        <main style={{ flex: 1, width: '100%' }}>{children}</main>
         <ShopFooter />
         <ShopCookieConsent />
       </body>

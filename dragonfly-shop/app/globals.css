@@ -105,3 +105,7 @@ img {
   height: auto;
   display: block;
 }
+
+button {
+  font-family: inherit;
+}

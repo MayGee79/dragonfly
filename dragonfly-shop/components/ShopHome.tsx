@@ -18,6 +18,28 @@ function coverAlt(name: string): string {
   return name
 }
 
+function BasketIconGraphic() {
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden>
+      <circle cx="9.5" cy="20.5" r="1.5" fill="currentColor" />
+      <circle cx="17.5" cy="20.5" r="1.5" fill="currentColor" />
+      <path
+        d="M3 5h3l2 13h13l3-10H10"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) {
   const [basket, setBasket] = useState<Basket>({})
   const [customerEmail, setCustomerEmail] = useState('')
@@ -27,6 +49,14 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
   const [error, setError] = useState<string | null>(null)
 
   const qtyFor = (id: string) => basket[id] ?? 0
+
+  const addOneToBasket = (id: string) => {
+    setBasket((prev) => {
+      const cur = prev[id] ?? 0
+      if (cur >= 99) return prev
+      return { ...prev, [id]: cur + 1 }
+    })
+  }
 
   const setQty = (id: string, raw: string) => {
     const n = Math.max(0, Math.min(99, parseInt(raw, 10) || 0))
@@ -126,7 +156,9 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
           <aside className={styles.basket} aria-label="Basket and checkout">
             <h2 className={styles.basketHeading}>Basket</h2>
             {lineItems.length === 0 ? (
-              <p className={styles.basketEmpty}>Add quantities on the right, then complete checkout here.</p>
+              <p className={styles.basketEmpty}>
+                Click a product&apos;s basket icon or set a quantity, then complete checkout here.
+              </p>
             ) : (
               <ul className={styles.basketList}>
                 {lineItems.map((l) => (
@@ -208,15 +240,31 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
                     <h2 className={styles.cardTitle}>{item.name}</h2>
                     <p className={styles.desc}>{item.shortDescription}</p>
                     <div className={styles.qty}>
-                      <label htmlFor={`qty-${item.id}`}>Quantity</label>
-                      <input
-                        id={`qty-${item.id}`}
-                        type="number"
-                        min={0}
-                        max={99}
-                        value={qtyFor(item.id) || ''}
-                        onChange={(e) => setQty(item.id, e.target.value)}
-                      />
+                      <label className={styles.qtyLabel} htmlFor={`qty-${item.id}`}>
+                        Quantity
+                      </label>
+                      <div className={styles.qtyControls}>
+                        <button
+                          type="button"
+                          className={styles.qtyAddButton}
+                          aria-label={`Add one ${item.name} to basket`}
+                          disabled={qtyFor(item.id) >= 99}
+                          onClick={() => addOneToBasket(item.id)}
+                        >
+                          <span className={styles.qtyAddButtonIcon}>
+                            <BasketIconGraphic />
+                          </span>
+                        </button>
+                        <input
+                          id={`qty-${item.id}`}
+                          type="number"
+                          min={0}
+                          max={99}
+                          value={qtyFor(item.id) || ''}
+                          onChange={(e) => setQty(item.id, e.target.value)}
+                          inputMode="numeric"
+                        />
+                      </div>
                     </div>
                   </div>
                 </article>
