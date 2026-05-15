@@ -36,6 +36,21 @@
   color: var(--color-text);
 }
 
+.heroIntro p {
+  margin: 0 0 var(--spacing-md);
+  line-height: var(--line-height-relaxed);
+}
+
+.heroIntro p:last-child {
+  margin-bottom: 0;
+}
+
+.heroIntroLead {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
 .mainLayout {
   display: grid;
   grid-template-columns: minmax(280px, 320px) 1fr;
@@ -49,40 +64,57 @@
 
 .grid {
   display: grid;
-  gap: var(--spacing-xl);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-lg);
 }
 
 .card {
   scroll-margin-top: 80px;
+  display: flex;
+  flex-direction: column;
   background: #ffffff;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
-  padding: var(--spacing-xl);
   border: 1px solid rgba(45, 55, 88, 0.08);
+  overflow: hidden;
 }
 
-.cardHeader {
-  margin-bottom: var(--spacing-md);
+.coverWrap {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-md) var(--spacing-md) 0;
+  background: linear-gradient(180deg, rgba(185, 213, 214, 0.35) 0%, transparent 100%);
 }
 
-.cardHeader h2 {
-  font-size: var(--font-size-2xl);
-  margin-bottom: var(--spacing-sm);
+.coverImg {
+  width: auto;
+  height: auto;
+  max-width: 180px;
+  max-height: 280px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+}
+
+.cardTitle {
+  font-size: var(--font-size-lg);
+  margin: 0 0 var(--spacing-sm);
+  line-height: var(--line-height-tight);
 }
 
 .desc {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   line-height: var(--line-height-relaxed);
   color: var(--color-text);
-  margin-bottom: var(--spacing-lg);
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-md);
-  align-items: center;
-  margin-bottom: var(--spacing-md);
+  margin: 0 0 var(--spacing-md);
+  flex: 1;
 }
 
 .qty {
@@ -226,6 +258,21 @@
   .basket {
     position: static;
     order: -1;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .coverImg {
+    max-width: 160px;
+    max-height: 240px;
   }
 }
 

@@ -12,6 +12,12 @@ function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
 }
 
+function coverAlt(name: string): string {
+  if (name.includes('Handbook')) return 'Cover: Rejection Sensitive Dysphoria handbook'
+  if (name.includes('Workbook')) return 'Cover: Rejection Sensitive Dysphoria companion workbook'
+  return name
+}
+
 export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) {
   const [basket, setBasket] = useState<Basket>({})
   const [customerEmail, setCustomerEmail] = useState('')
@@ -95,11 +101,15 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
           </div>
           <h1 className={styles.shopTitle}>SHOP</h1>
         </div>
-        <p className={styles.heroIntro}>
-          Buy handbooks and workbooks directly from Dr Victoria Froome. UK postage £4.25 when your basket includes a
-          paperback. Digital editions: after payment you will get secure download links on the thank-you page (see Shop
-          Terms for how digital delivery works).
-        </p>
+        <div className={styles.heroIntro}>
+          <p className={styles.heroIntroLead}>Welcome to the Dragonfly shop.</p>
+          <p>
+            Handbooks, workbooks, and therapeutic resources can be purchased directly here. Digital editions are
+            delivered the moment payment is complete: secure download links appear on the thank you page, and the{' '}
+            <Link href="/terms">Shop Terms</Link> set out the full delivery process.
+          </p>
+          <p>This collection is growing steadily, with further handbooks, toolkits, and resources to follow.</p>
+        </div>
       </header>
 
       <div className={styles.mainLayout}>
@@ -174,11 +184,19 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
           <section className={styles.grid} aria-label="Products">
             {catalog.map((item) => (
               <article key={item.id} id={item.slug} className={styles.card}>
-                <div className={styles.cardHeader}>
-                  <h2>{item.name}</h2>
+                <div className={styles.coverWrap}>
+                  <Image
+                    src={item.coverImage}
+                    alt={coverAlt(item.name)}
+                    width={320}
+                    height={512}
+                    className={styles.coverImg}
+                    sizes="(max-width: 640px) 45vw, 180px"
+                  />
                 </div>
-                <p className={styles.desc}>{item.shortDescription}</p>
-                <div className={styles.row}>
+                <div className={styles.cardBody}>
+                  <h2 className={styles.cardTitle}>{item.name}</h2>
+                  <p className={styles.desc}>{item.shortDescription}</p>
                   <div className={styles.qty}>
                     <label htmlFor={`qty-${item.id}`}>Quantity</label>
                     <input

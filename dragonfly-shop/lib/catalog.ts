@@ -6,6 +6,8 @@ export type CatalogItem = {
   name: string
   shortDescription: string
   kind: ProductKind
+  /** Path under `/public` for product card cover art */
+  coverImage: string
   /** Filename under `private/downloads/` — served only via `/api/download` after Stripe verifies the session */
   privateDownloadFile?: string
 }
@@ -18,6 +20,7 @@ export const CATALOG: CatalogItem[] = [
     shortDescription:
       'If criticism lands like a blow and lingers for days, this handbook was written for you. Lifespan approach to RSD — warmth and clinical depth.',
     kind: 'digital',
+    coverImage: '/images/covers/rsd-handbook-cover.png',
     privateDownloadFile: 'rsd-handbook-ebook.pdf',
   },
   {
@@ -27,6 +30,7 @@ export const CATALOG: CatalogItem[] = [
     shortDescription:
       'Paperback edition — mapped across the lifespan with practical support.',
     kind: 'physical',
+    coverImage: '/images/covers/rsd-handbook-cover.png',
   },
   {
     id: 'rsd-workbook-ebook',
@@ -35,6 +39,7 @@ export const CATALOG: CatalogItem[] = [
     shortDescription:
       'Trigger inventories, emergency tools, communication scripts, and quick reference cards — designed to write in and return to.',
     kind: 'digital',
+    coverImage: '/images/covers/rsd-workbook-cover.png',
     privateDownloadFile: 'rsd-workbook-ebook.pdf',
   },
   {
@@ -43,13 +48,14 @@ export const CATALOG: CatalogItem[] = [
     name: 'RSD Companion Workbook — Paperback',
     shortDescription: 'Paperback companion to the handbook — practical exercises and worksheets.',
     kind: 'physical',
+    coverImage: '/images/covers/rsd-workbook-cover.png',
   },
 ]
 
 export type ClientCatalogItem = Omit<CatalogItem, 'privateDownloadFile'> & { privateDownloadFile?: never }
 
 export function catalogForClient(): ClientCatalogItem[] {
-  return CATALOG.map(({ privateDownloadFile: _d, ...rest }) => rest)
+  return CATALOG.map(({ privateDownloadFile: _privateDownloadFile, ...rest }) => rest)
 }
 
 function requireEnv(name: string): string {
