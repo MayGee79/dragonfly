@@ -194,4 +194,5 @@ Format: YYYY-MM-DD — subject (author) [short-sha]
 - 2026-05-15 — Shop: hero logo → `public/images/dragonfly_logo_transparent.png` (May)
 - 2026-05-15 — Shop: header logo + SHOP h1; basket column left, products right (May)
 - 2026-05-15 — Shop: Vicky feedback — 2-column product grid, book covers, new welcome blurb (May)
+- 2026-05-15 — Shop: product cards — cover left, title/description/qty right (May)
 - 2026-05-15 — Fix main site build: exclude `dragonfly-shop/` from root `tsconfig.json` (separate Vercel project) (May)

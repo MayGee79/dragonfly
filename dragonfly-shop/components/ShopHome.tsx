@@ -191,7 +191,7 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
                     width={320}
                     height={512}
                     className={styles.coverImg}
-                    sizes="(max-width: 640px) 45vw, 180px"
+                    sizes="(max-width: 520px) 50vw, 140px"
                   />
                 </div>
                 <div className={styles.cardBody}>
