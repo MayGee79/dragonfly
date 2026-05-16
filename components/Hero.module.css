@@ -1,11 +1,27 @@
+/* Full-width navy banner with curved bottom (matches shop hero / site sections) */
 .hero {
-  padding: var(--spacing-lg) var(--spacing-lg);
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: var(--spacing-3xl) var(--spacing-lg) calc(var(--spacing-3xl) + 50px);
   background-color: #2d3758;
-  margin: var(--spacing-md);
-  border-radius: var(--radius-md);
+  border-radius: 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: var(--color-bg);
+  border-radius: 50% 50% 0 0;
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -150,14 +166,14 @@
   }
   
   .hero {
-    padding: var(--spacing-2xl) var(--spacing-lg);
+    padding: var(--spacing-2xl) var(--spacing-lg) calc(var(--spacing-2xl) + 50px);
   }
 }
 
 /* Mobile: max-width 767px */
 @media (max-width: 767px) {
   .hero {
-    padding: var(--spacing-xl) var(--spacing-md);
+    padding: var(--spacing-xl) var(--spacing-md) calc(var(--spacing-xl) + 50px);
   }
 
   .logoHeader {

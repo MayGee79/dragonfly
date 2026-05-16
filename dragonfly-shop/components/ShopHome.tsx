@@ -135,7 +135,7 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
               </div>
               <div className={styles.heroTextContent}>
                 <h1 className={styles.shopTitle}>Shop</h1>
-                <p className={styles.heroWelcome}>Welcome to the Dragonfly shop.</p>
+                <p className={styles.heroWelcome}>Welcome to the Dragonfly Shop.</p>
               </div>
             </div>
           </div>
