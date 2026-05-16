@@ -1,6 +1,8 @@
 import fs from 'fs'
 import path from 'path'
+import { head } from '@vercel/blob'
 import { NextResponse } from 'next/server'
+import { vercelBlobCanonicalUrlForDigital } from '@/lib/blobDownloads'
 import { CATALOG, stripePriceIdForCatalogId } from '@/lib/catalog'
 import { getStripe } from '@/lib/stripe'
 
@@ -55,6 +57,41 @@ export async function GET(request: Request) {
 
   if (allowedQty < 1) {
     return forbidden('This file is not part of your order.')
+  }
+
+  const canonicalBlobUrl = vercelBlobCanonicalUrlForDigital(catalogId)
+  if (canonicalBlobUrl) {
+    if (!process.env.BLOB_READ_WRITE_TOKEN) {
+      return NextResponse.json({ error: 'Download storage is not configured.' }, { status: 500 })
+    }
+
+    try {
+      const blobMeta = await head(canonicalBlobUrl)
+      const upstream = await fetch(blobMeta.downloadUrl)
+      if (!upstream.ok || !upstream.body) {
+        return NextResponse.json(
+          { error: 'Download file is temporarily unavailable. Please contact the shop.' },
+          { status: 503 },
+        )
+      }
+
+      const buf = Buffer.from(await upstream.arrayBuffer())
+      const safeName = product.privateDownloadFile.replace(/[^\w.-]+/g, '_')
+
+      return new NextResponse(buf, {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/pdf',
+          'Content-Disposition': `attachment; filename="${safeName}"`,
+          'Cache-Control': 'private, no-store',
+        },
+      })
+    } catch {
+      return NextResponse.json(
+        { error: 'Download file is temporarily unavailable. Please contact the shop.' },
+        { status: 503 },
+      )
+    }
   }
 
   const filePath = path.join(process.cwd(), 'private', 'downloads', product.privateDownloadFile)

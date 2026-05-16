@@ -212,3 +212,4 @@ Format: YYYY-MM-DD — subject (author) [short-sha]
 - 2026-05-15 — Shop: mobile layout — products before checkout panel; simplify qty row; dev:clean script; layout main width fix (May)
 - 2026-05-15 — Shop: matched basket icon + quantity input height; shared shadow on product cards and controls (May)
 - 2026-05-15 — Shop: Pay with Stripe button — lilac hero banner background, navy text (May)
+- 2026-05-15 — Shop: optional Vercel Blob private PDFs via BLOB_DOWNLOAD_URL_* + head/download in /api/download (May)
