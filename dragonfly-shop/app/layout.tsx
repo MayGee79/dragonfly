@@ -31,14 +31,14 @@ export const metadata: Metadata = {
     template: '%s | Dragonfly Shop',
   },
   description:
-    'Buy Dragonfly Psychotherapy handbooks and workbooks directly — RSD Handbook and Companion Workbook (eBook and paperback).',
+    'Buy Dragonfly Psychotherapy handbooks and workbooks directly - RSD Handbook and Companion Workbook (eBook and paperback).',
   openGraph: {
     type: 'website',
     locale: 'en_GB',
     siteName: 'Dragonfly Shop',
     title: 'Dragonfly Shop',
     description:
-      'Buy Dragonfly Psychotherapy handbooks and workbooks directly — RSD Handbook and Companion Workbook (eBook and paperback).',
+      'Buy Dragonfly Psychotherapy handbooks and workbooks directly - RSD Handbook and Companion Workbook (eBook and paperback).',
     url: metadataBaseResolved.href,
   },
   robots: { index: true, follow: true },

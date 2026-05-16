@@ -16,9 +16,9 @@ export const CATALOG: CatalogItem[] = [
   {
     id: 'rsd-handbook-ebook',
     slug: 'rsd-handbook-ebook',
-    name: 'RSD Handbook — eBook',
+    name: 'RSD Handbook - eBook',
     shortDescription:
-      'If criticism lands like a blow and lingers for days, this handbook was written for you. Lifespan approach to RSD — warmth and clinical depth.',
+      'If criticism lands like a blow and lingers for days, this handbook was written for you. Lifespan approach to RSD - warmth and clinical depth.',
     kind: 'digital',
     coverImage: '/images/covers/rsd-handbook-cover.png',
     privateDownloadFile: 'rsd-handbook-ebook.pdf',
@@ -26,18 +26,18 @@ export const CATALOG: CatalogItem[] = [
   {
     id: 'rsd-handbook-paperback',
     slug: 'rsd-handbook-paperback',
-    name: 'RSD Handbook — Paperback',
+    name: 'RSD Handbook - Paperback',
     shortDescription:
-      'Paperback edition — mapped across the lifespan with practical support.',
+      'Paperback edition - mapped across the lifespan with practical support.',
     kind: 'physical',
     coverImage: '/images/covers/rsd-handbook-cover.png',
   },
   {
     id: 'rsd-workbook-ebook',
     slug: 'rsd-workbook-ebook',
-    name: 'RSD Companion Workbook — eBook',
+    name: 'RSD Companion Workbook - eBook',
     shortDescription:
-      'Trigger inventories, emergency tools, communication scripts, and quick reference cards — designed to write in and return to.',
+      'Trigger inventories, emergency tools, communication scripts, and quick reference cards - designed to write in and return to.',
     kind: 'digital',
     coverImage: '/images/covers/rsd-workbook-cover.png',
     privateDownloadFile: 'rsd-workbook-ebook.pdf',
@@ -45,8 +45,8 @@ export const CATALOG: CatalogItem[] = [
   {
     id: 'rsd-workbook-paperback',
     slug: 'rsd-workbook-paperback',
-    name: 'RSD Companion Workbook — Paperback',
-    shortDescription: 'Paperback companion to the handbook — practical exercises and worksheets.',
+    name: 'RSD Companion Workbook - Paperback',
+    shortDescription: 'Paperback companion to the handbook - practical exercises and worksheets.',
     kind: 'physical',
     coverImage: '/images/covers/rsd-workbook-cover.png',
   },
