@@ -6,7 +6,7 @@ import ShopFooter from '@/components/ShopFooter'
 
 const ShopCookieConsent = dynamic(() => import('@/components/ShopCookieConsent'), { ssr: false, loading: () => null })
 
-const FALLBACK_SITE_URL = 'https://dragonflyshop.co.uk'
+const FALLBACK_SITE_URL = 'https://dragonflybooks.co.uk'
 
 function metadataBaseUrl(): URL {
   const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim()
