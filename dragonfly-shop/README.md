@@ -1,4 +1,4 @@
-# Dragonfly Shop (`dragonflybooks.co.uk`)
+# Dragonfly Shop (`dragonflyshop.co.uk`)
 
 Separate Next.js 14 app: one-page Stripe checkout for RSD Handbook & Workbook (eBook + paperback), with Dragonfly-matched header/footer and shop background `#b9d5d6`.
 
@@ -19,7 +19,7 @@ Open [http://localhost:3001](http://localhost:3001) (port 3001 to avoid clashing
 
 1. New Vercel project, root directory **`dragonfly-shop`** (or import this folder as its own repo if you split it later).
 2. Set env vars from `.env.example`.
-3. Add domain **dragonflybooks.co.uk** and point DNS to Vercel.
+3. Add domain **dragonflyshop.co.uk** and point DNS to Vercel.
 
 ## Digital files
 
@@ -27,4 +27,4 @@ Place PDFs in **`private/downloads/`** (see `private/downloads/README.txt`). The
 
 ## Main site link
 
-The main Dragonfly site nav **SHOP** link now points to `https://dragonflybooks.co.uk/`.
+The main Dragonfly site nav **SHOP** link now points to `https://dragonflyshop.co.uk/`.

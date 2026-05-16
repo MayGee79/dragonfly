@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Privacy Notice',
-  description: 'Privacy Notice for Dragonfly Shop (dragonflybooks.co.uk).',
+  description: 'Privacy Notice for Dragonfly Shop (dragonflyshop.co.uk).',
 }
 
 export default function PrivacyPage() {

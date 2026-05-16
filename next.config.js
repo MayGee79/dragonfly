@@ -9,7 +9,7 @@ const nextConfig = {
     return [
       {
         source: '/shop',
-        destination: 'https://dragonflybooks.co.uk/',
+        destination: 'https://dragonflyshop.co.uk/',
         permanent: true,
       },
     ]
