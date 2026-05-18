@@ -155,7 +155,8 @@ export default function ResourceSignupModal(props: {
               <Link href="/privacy-policy" className={styles.privacyLink}>
                 Privacy Notice
               </Link>
-              .
+              . We will email you a link to confirm your subscription (double opt-in) before any marketing emails are
+              sent.
             </p>
 
             <button type="button" className={styles.skipLink} onClick={onCloseAndDownload}>

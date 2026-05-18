@@ -27,17 +27,21 @@ export async function POST(request: NextRequest) {
   if (!firstName) return NextResponse.json({ error: 'First name is required' }, { status: 400 })
   if (!email) return NextResponse.json({ error: 'Email is required' }, { status: 400 })
 
+  const payload: Record<string, unknown> = {
+    email,
+    fields: { name: firstName },
+    status: 'unconfirmed',
+  }
+  const groupId = process.env.MAILERLITE_GROUP_ID?.trim()
+  if (groupId) payload.groups = [groupId]
+
   const res = await fetch(MAILERLITE_ENDPOINT, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      email,
-      fields: { name: firstName },
-      status: 'active',
-    }),
+    body: JSON.stringify(payload),
   })
 
   if (res.status === 409) {
