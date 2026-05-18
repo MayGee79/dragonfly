@@ -1,0 +1,85 @@
+DRAGONFLY PSYCHOTHERAPY
+MailerLite — Suppression / Do-Not-Contact Checklist
+For: GDPR Compliance Audit — Section 5 (Marketing, Consent & PECR)
+Prepared: May 2026
+Completed by: _______________________________  Date: _______________
+
+Purpose
+This checklist helps confirm that people who unsubscribe or opt out are not contacted again, and that imports do not overwrite suppression records. Tick each item when verified in MailerLite (or note “N/A” with reason).
+
+---
+
+1. Access and accountability
+[ ] I can log in to MailerLite with my own account (not a shared password only).
+[ ] MFA / two-factor authentication is enabled on the MailerLite account.
+[ ] Only people who need access have access (no unnecessary shared logins).
+
+---
+
+2. Where subscribers come from (consent trail)
+[ ] Main website resource download form → double opt-in (unconfirmed until they confirm by email).
+[ ] Online shop checkout → optional newsletter tick → double opt-in via Stripe webhook (after webhook is configured in Stripe + Vercel).
+[ ] Therapy Client Agreement / manual sign-up → separate process; consent recorded outside MailerLite where applicable.
+[ ] I do not add email addresses to MailerLite without a clear opt-in or valid soft opt-in basis documented in the Privacy Notice.
+
+---
+
+3. Unsubscribe and suppression
+[ ] Every marketing email includes a clear unsubscribe link (MailerLite default footer is acceptable if enabled).
+[ ] I have opened MailerLite and located the list of unsubscribed / suppressed contacts (Subscribers → filter by unsubscribed, or Reports → unsubscribes).
+[ ] I understand that unsubscribed contacts must not be emailed again unless they re-subscribe through a proper opt-in.
+[ ] When someone emails me asking to stop marketing, I remove them from MailerLite (or mark unsubscribed) and do not only delete from a local spreadsheet.
+
+---
+
+4. Imports and re-subscribes (common failure point)
+[ ] Before importing a CSV or syncing contacts from another tool, I check MailerLite’s import settings.
+[ ] Import is set NOT to re-subscribe people who have previously unsubscribed (review MailerLite import options each time — wording may vary by MailerLite version).
+[ ] I do not “clean” lists by re-importing old addresses without checking suppression status.
+[ ] If I merge lists from events or workshops, I only add people who opted in (or valid soft opt-in applies and is documented).
+
+---
+
+5. Groups and segments (if used)
+[ ] Optional MAILERLITE_GROUP_ID is documented for shop vs main site if separate groups are used.
+[ ] Unsubscribe applies at account/list level as MailerLite configures it — I have confirmed how groups behave on unsubscribe for my setup.
+[ ] Segments used for campaigns exclude unsubscribed / suppressed statuses.
+
+---
+
+6. Record-keeping (demonstrating compliance)
+[ ] MailerLite stores subscription and unsubscribe events (I know where to find them if the ICO or a data subject asks).
+[ ] I can explain how a given person subscribed (e.g. resource form, shop checkout, manual entry date).
+[ ] Privacy Notice section 12 (Marketing Communications) is published and matches how I use MailerLite.
+
+---
+
+7. Test (recommended once per year)
+[ ] Send a test campaign to a test address, click unsubscribe, confirm the address shows as unsubscribed in MailerLite.
+[ ] Attempt a test import including that unsubscribed address — confirm MailerLite refuses or skips re-subscription (per current import settings).
+
+---
+
+8. Sign-off for audit spreadsheet
+When all applicable boxes are ticked:
+
+Section 5 — “Suppression / do-not-contact list maintained” can be marked:  ✓ IN PLACE
+
+Notes / actions required:
+_____________________________________________________________________________
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+Signed: _______________________________
+Dr Victoria Froome (or delegate)
+Date: _______________________________
+
+---
+
+Quick reference — Dragonfly technical setup (May 2026)
+- Main site: MAILERLITE_API_KEY in Vercel (main psychotherapy project).
+- Shop: same key + STRIPE_WEBHOOK_SECRET for checkout.session.completed → newsletter opt-in.
+- Privacy Notice: www.dragonflypsychotherapy.co.uk/privacy-policy
+- Shop privacy: dragonflyshop.co.uk/privacy
+
+If anything in this checklist is unclear, contact your developer or MailerLite support before changing import settings.
