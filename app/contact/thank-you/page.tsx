@@ -26,7 +26,15 @@ export default function ThankYouPage() {
             <div className={styles.content}>
               <h1 className={styles.title}>Thank You!</h1>
               <p className={styles.message}>
-                Your message has been sent successfully. I'll get back to you as soon as possible. Please check your spam email if you do not hear from me within 24 hours.
+                Your message has been sent successfully. I&apos;ll get back to you as soon as possible. Please check
+                your spam folder if you do not hear from me within 24 hours.
+              </p>
+              <p className={styles.privacyNote}>
+                How I use your details is explained in my{' '}
+                <Link href="/privacy-policy" className={styles.privacyLink}>
+                  Privacy Notice
+                </Link>
+                .
               </p>
               <div className={styles.actions}>
                 <Link href="/" className={styles.button}>

@@ -32,7 +32,25 @@
   font-size: var(--font-size-lg);
   color: var(--color-text);
   line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-lg);
+}
+
+.privacyNote {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
   margin-bottom: var(--spacing-3xl);
+}
+
+.privacyLink {
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.privacyLink:hover {
+  color: var(--color-primary-active);
 }
 
 .actions {
