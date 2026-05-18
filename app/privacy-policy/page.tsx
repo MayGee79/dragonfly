@@ -3,7 +3,7 @@ import path from 'path'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import styles from './privacy-policy.module.css'
-import { parsePrivacyNotice } from '@/lib/parsePrivacyNotice'
+import { parsePrivacyNotice, privacySectionId } from '@/lib/parsePrivacyNotice'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -32,7 +32,11 @@ export default function PrivacyPolicyPage() {
 
             <div className={styles.content}>
               {sections.map((section) => (
-                <section key={section.title} className={styles.sectionContent}>
+                <section
+                  key={section.title}
+                  id={privacySectionId(section.title)}
+                  className={styles.sectionContent}
+                >
                   <h2 className={styles.heading}>{section.title}</h2>
                   {section.blocks.map((block, index) =>
                     block.type === 'subheading' ? (

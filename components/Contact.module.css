@@ -168,6 +168,24 @@ div.contactCard {
   grid-column: 1 / -1;
 }
 
+.privacyIntro {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-lg);
+}
+
+.privacyLink {
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.privacyLink:hover {
+  color: var(--color-primary-active);
+}
+
 .formGroup {
   display: flex;
   flex-direction: column;

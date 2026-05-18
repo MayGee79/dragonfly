@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import styles from './Contact.module.css'
 
@@ -131,6 +132,14 @@ export default function Contact() {
 
         <div className={styles.content}>
           <div className={styles.leftSection}>
+            <p className={styles.privacyIntro}>
+              How I use the information you send is explained in my{' '}
+              <Link href="/privacy-policy" className={styles.privacyLink}>
+                Privacy Notice
+              </Link>
+              .
+            </p>
+
             <form 
               className={styles.contactForm} 
               onSubmit={handleSubmit}
@@ -193,7 +202,15 @@ export default function Contact() {
                     className={styles.checkbox}
                     required
                   />
-                  <span>I agree for my details to be stored and used for the purposes of accessing services or consultation with Dr Victoria Froome at Dragonfly Psychotherapy. I consent to being contacted in response to this enquiry. <span className={styles.required}>*</span></span>
+                  <span>
+                    I agree for my details to be stored and used as described in the{' '}
+                    <Link href="/privacy-policy" className={styles.privacyLink}>
+                      Privacy Notice
+                    </Link>
+                    , for the purposes of responding to this enquiry and accessing services or consultation with Dr
+                    Victoria Froome at Dragonfly Psychotherapy. I consent to being contacted in response to this enquiry.{' '}
+                    <span className={styles.required}>*</span>
+                  </span>
                 </label>
               </div>
               
@@ -206,7 +223,13 @@ export default function Contact() {
                     onChange={handleChange}
                     className={styles.checkbox}
                   />
-                  <span>I agree to receive occasional updates about workshops, resources and services (optional)</span>
+                  <span>
+                    I agree to receive occasional updates about workshops, resources and services (optional). See the{' '}
+                    <Link href="/privacy-policy#section-12" className={styles.privacyLink}>
+                      Privacy Notice
+                    </Link>{' '}
+                    for how I handle marketing communications.
+                  </span>
                 </label>
               </div>
               

@@ -153,7 +153,7 @@ export default function ResourceSignupModal(props: {
             <p className={styles.finePrint}>
               No spam, ever. Unsubscribe any time. By subscribing you agree to our{' '}
               <Link href="/privacy-policy" className={styles.privacyLink}>
-                Privacy Policy
+                Privacy Notice
               </Link>
               .
             </p>

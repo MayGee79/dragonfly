@@ -29,6 +29,23 @@ export default function YoungPeoplePage() {
             <h1 className={styles.title}>Young People (11+)</h1>
             <p className={styles.subtitle}>Supportive Therapy for Young People</p>
 
+            <aside className={styles.privacyCallout}>
+              <h2 className={styles.privacyCalloutTitle}>Privacy for young people</h2>
+              <p>
+                I work with young people aged 11 and over. For anyone under 18, I involve parents or guardians
+                appropriately while respecting the young person&apos;s developing autonomy and right to confidentiality.
+                For young people under 13 who use my website or services, I require parental consent before collecting
+                their personal information.
+              </p>
+              <p>
+                Full details are in{' '}
+                <Link href="/privacy-policy#section-6" className={styles.privacyLink}>
+                  section 6 (Young People) of my Privacy Notice
+                </Link>
+                .
+              </p>
+            </aside>
+
             <div className={styles.content}>
               <div className={styles.sectionBlock}>
                 <h2 className={styles.heading}>Young peoples&apos; struggles that steal your spark.</h2>

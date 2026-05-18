@@ -37,6 +37,7 @@
   padding: var(--spacing-2xl);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
+  scroll-margin-top: 88px;
 }
 
 .heading {

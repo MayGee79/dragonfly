@@ -25,6 +25,17 @@ function isServiceSubheading(line: string): boolean {
   return SERVICE_SUBHEADINGS.has(line.trim())
 }
 
+/** Stable anchor for in-page links (e.g. /privacy-policy#section-6). */
+export function privacySectionId(title: string): string {
+  const numbered = title.match(/^(\d+)\./)
+  if (numbered) return `section-${numbered[1]}`
+  if (title === 'Introduction') return 'introduction'
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+}
+
 export function parsePrivacyNotice(raw: string): { lastUpdated: string; sections: PrivacySection[] } {
   const lines = raw.split(/\r?\n/)
   let i = 0
