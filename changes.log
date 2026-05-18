@@ -220,3 +220,4 @@ Format: YYYY-MM-DD — subject (author) [short-sha]
 - 2026-05-16 — Revert shop domain to dragonflyshop.co.uk (main site links, shop fallbacks, legal copy) (May)
 - 2026-05-16 — Main site /privacy-policy: May 2026 notice from content/privacy.txt (May)
 - 2026-05-16 — GDPR §4: contact form + young people privacy links; notice section anchors; shop privacy sync (May)
+- 2026-05-16 — AADC website assessment draft; shop newsletter → MailerLite via Stripe webhook (May)

@@ -1,0 +1,89 @@
+DRAGONFLY PSYCHOTHERAPY
+Age Appropriate Design Code (AADC) — Website Assessment
+Prepared for: GDPR Compliance Audit (April 2026)
+Website(s) assessed: www.dragonflypsychotherapy.co.uk and dragonflyshop.co.uk
+Assessor: Dr Victoria Froome (Dragonfly Psychotherapy)
+Date of assessment: _______________
+Review date: April 2027
+
+Purpose
+This document records a proportionate assessment of how the Dragonfly Psychotherapy public websites interact with children and young people, in line with the ICO Age Appropriate Design Code (Children’s Code). It supports section 13 of the April 2026 GDPR compliance audit.
+
+Scope of assessment
+The assessment covers:
+- The main psychotherapy website (brochure-style information, blog, contact form, resource download sign-up, cookie banner, links to external booking where applicable).
+- The separate online shop (product catalogue, Stripe checkout, digital downloads, optional newsletter opt-in, privacy and terms pages).
+
+It does not cover: therapy clinical records, Client Agreement processes, third-party booking systems used by venues (e.g. wellness walk venue booking), or email marketing beyond what the websites initiate.
+
+Summary conclusion
+Overall risk to children from the websites, when used as designed, is assessed as LOW. The sites are primarily informational and transactional for adults and parents/carers. There is no social networking, no user-generated content, no profiling of children for commercial purposes, and no deliberate targeting of under-13s. Appropriate privacy information for young people is published (Privacy Notice section 6) and signposted on the Young People (11+) services page.
+
+1. Likely users and age range
+- Primary audience: adults seeking psychotherapy, parents/carers of young people aged 11+, and professionals.
+- Young people aged 11–17 may read service pages (including Young People 11+) and may use the contact form with parental involvement where appropriate.
+- The shop sells books and eBooks; purchasers are expected to be adults. Checkout requires acceptance of terms and privacy notice; newsletter marketing is optional and uses double opt-in via MailerLite.
+
+2. Features that could be accessed by under-18s
+| Feature | Access | Notes |
+| Contact form | Open | Collects name, email, phone, message. Consent checkbox links to Privacy Notice. General enquiries retained up to six months per notice. No age gate; under-13s require parental consent per Privacy Notice — enforced operationally if enquiry is from a child. |
+| Resource download (email gate) | Open | Optional MailerLite signup; Privacy Notice linked. Same considerations as contact form. |
+| Blog | Open | Informational only. |
+| Cookie banner | All visitors | Non-essential analytics (Google Analytics) blocked until Accept; Reject available. |
+| Online shop / Stripe checkout | Open | Payment via Stripe; shipping for physical goods. Newsletter opt-in separate and optional; double opt-in email from MailerLite. |
+| Digital downloads | Post-purchase only | Gated by verified Stripe session; not publicly browsable. |
+
+3. AADC standards — proportionate application
+The Code’s 15 standards apply to “likely to be accessed by children.” Given the nature of the service (psychotherapy for adults and 11+ with parental involvement) and the absence of child-directed design, the following approach is adopted:
+
+Standard 1 (Best interests): Site content supports mental health information; no features designed to exploit or harm children.
+
+Standard 2 (Data protection impact): Broader practice DPIAs and Privacy Notice cover processing; this website assessment supplements those for online collection points.
+
+Standards 3–5 (Age-appropriate design, transparency, detrimental use): Privacy Notice section 6 addresses young people; Young People page links to that section. No dark patterns on checkout; marketing opt-in is optional and not pre-ticked.
+
+Standard 6 (Policies and community standards): Shop Terms and Privacy Notice published; therapy governed by separate Client Agreement.
+
+Standards 7–8 (Default settings, data minimisation): Analytics off by default until cookie consent. Contact and checkout collect only fields needed for purpose.
+
+Standard 9 (Data sharing): Described in Privacy Notice (processors: hosting, Stripe, MailerLite, analytics if accepted, etc.).
+
+Standard 10 (Geolocation): Not collected by the websites beyond what analytics may infer if accepted.
+
+Standard 11 (Parental controls): Not applicable as a platform feature; parental involvement addressed in clinical/process terms for under-18 therapy.
+
+Standard 12 (Profiling): No behavioural advertising or child profiling on these sites.
+
+Standard 13 (Nudge techniques): Checkout newsletter not pre-selected; cookie banner offers equal Reject.
+
+Standard 14 (Connected toys/devices): Not applicable.
+
+Standard 15 (Online tools): No child-facing interactive tools beyond standard web forms.
+
+4. Risks identified and mitigations
+| Risk | Level | Mitigation |
+| Under-13 submits contact form without parental consent | Low–medium | Privacy Notice requires parental consent for under-13s; operational response if enquiry appears to be from a child (parental contact, no routine marketing). Consider age-appropriate wording on contact page if enquiries from younger children increase. |
+| Teen uses shop independently | Low | Products are self-help books; no harmful content. Terms and privacy apply; no account creation. |
+| Analytics cookies before consent | Low | Mitigated: GA loads only after Accept. |
+| Newsletter without valid consent | Low | Mitigated: optional opt-in at shop checkout; MailerLite double opt-in (unconfirmed status); main site resource signup links to Privacy Notice. |
+| Digital PDFs shared after purchase | Low | Downloads require paid Stripe session verification; PDFs not in public folders. |
+
+5. Actions taken (website / technical)
+- May 2026 Privacy Notice published on main site and shop.
+- Cookie banner with Accept/Reject on both sites; analytics gated.
+- Young People (11+) page includes privacy callout linking to Privacy Notice section 6.
+- Contact form links to Privacy Notice in intro and consent checkbox.
+- Shop checkout requires terms/privacy acceptance; optional newsletter with Stripe metadata and MailerLite integration via Stripe webhook (double opt-in).
+
+6. Ongoing actions (non-website)
+- Maintain MailerLite suppression list for unsubscribes (audit section 5).
+- Ensure booking confirmation emails for therapy, walks, and CPD link to the Privacy Notice.
+- MFA on Vercel, Stripe, MailerLite, email, and domain host.
+- Annual review of this assessment (April 2027) or when material website features change.
+
+7. Sign-off
+I confirm that this assessment reflects my understanding of how the Dragonfly Psychotherapy websites are used and the steps taken to apply the Age Appropriate Design Code proportionately.
+
+Signed: _______________________________
+Dr Victoria Froome
+Date: _______________________________

@@ -61,6 +61,7 @@ export default async function SuccessPage({
   }
 
   const hasDigitalDownloads = rows.some((r) => r.hasDownload)
+  const newsletterOptIn = session.metadata?.newsletter_opt_in === 'true'
 
   return (
     <div style={{ maxWidth: 720, margin: '48px auto', padding: 24 }}>
@@ -69,6 +70,13 @@ export default async function SuccessPage({
         A payment confirmation should arrive from <strong>Stripe</strong> at the email you used at checkout. If you
         do not see it within a few minutes, please check spam/junk.
       </p>
+      {newsletterOptIn && (
+        <p>
+          You asked to hear about news and resources by email. Please check your inbox for a{' '}
+          <strong>confirmation email</strong> from my mailing list provider to complete your subscription (double
+          opt-in).
+        </p>
+      )}
       <h2 style={{ marginTop: 24 }}>Your items</h2>
       <ul>
         {rows.map((r) => (

@@ -28,3 +28,18 @@ Place PDFs in **`private/downloads/`** (see `private/downloads/README.txt`). The
 ## Main site link
 
 The main Dragonfly site nav **SHOP** link now points to `https://dragonflyshop.co.uk/`.
+
+## Newsletter opt-in (MailerLite)
+
+If the customer ticks the optional newsletter box at checkout, a Stripe webhook adds them to MailerLite with **double opt-in** (`status: unconfirmed`).
+
+1. In Vercel (shop project), set `MAILERLITE_API_KEY` (same key as the main site is fine).
+2. Optionally set `MAILERLITE_GROUP_ID` for a dedicated “shop” group.
+3. In Stripe Dashboard → Developers → Webhooks (live mode), add endpoint:
+   `https://dragonflyshop.co.uk/api/webhooks/stripe`
+   Event: `checkout.session.completed`
+4. Copy the signing secret into Vercel as `STRIPE_WEBHOOK_SECRET` and redeploy.
+
+## Compliance documents
+
+Age Appropriate Design Code website assessment (for GDPR audit section 13): `content/compliance/aadc-website-assessment-2026.txt` in the repo root (main site project).
