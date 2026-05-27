@@ -284,7 +284,7 @@ export default function ActivitiesAndToolsPage() {
                 <div className={styles.resourceCard} id="mindful-colouring">
                   <div className={styles.resourceCardDetails}>
                     <p className={styles.resourceCardTitle}>Mindful Colouring</p>
-                    <p className={styles.resourceCardBody}>Mindful colouring sheet to support focus and relaxation.</p>
+                    <p className={styles.resourceCardBody}>Mindful colouring sheets to support focus and relaxation.</p>
                   </div>
                   <a href="/resources/paint_splatter.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
                 </div>
