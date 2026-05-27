@@ -230,22 +230,25 @@
 /* Printable resource cards – adapted from Uiverse.io */
 .resourceCardsGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(190px, 1fr));
-  justify-items: center;
-  gap: var(--spacing-xl);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  justify-items: stretch;
+  gap: var(--spacing-sm);
   margin-top: var(--spacing-xl);
+  width: 100%;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .resourceCard {
-  width: 190px;
-  flex-shrink: 0;
-  height: 254px;
-  border-radius: 20px;
+  width: 100%;
+  min-width: 0;
+  flex-shrink: 1;
+  height: 220px;
+  border-radius: 14px;
   background: var(--color-bg);
   position: relative;
-  padding: 1.8rem;
+  padding: var(--spacing-md);
   border: 2px solid var(--color-primary-light);
   transition: 0.5s ease-out;
   overflow: visible;
@@ -261,22 +264,22 @@
 }
 
 .resourceCardTitleSmall {
-  font-size: 0.85em;
+  font-size: 0.8em;
   font-weight: 600;
   opacity: 0.9;
-  white-space: nowrap;
+  display: block;
 }
 
 .resourceCardButton {
   transform: translate(-50%, 125%);
-  width: 60%;
-  border-radius: 1rem;
+  width: 72%;
+  border-radius: 0.75rem;
   border: none;
   background-color: var(--color-primary);
   color: #fff;
-  font-size: 1rem;
+  font-size: var(--font-size-sm);
   font-weight: 600;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.5rem;
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -291,13 +294,14 @@
 .resourceCardBody {
   color: var(--color-primary-darker);
   font-size: var(--font-size-sm);
-  line-height: var(--line-height-relaxed);
+  line-height: var(--line-height-normal);
 }
 
 .resourceCardTitle {
-  font-size: 1.5em;
+  font-size: var(--font-size-base);
   font-weight: bold;
   color: var(--color-text);
+  line-height: var(--line-height-tight);
 }
 
 .resourceCard:hover {
@@ -387,6 +391,20 @@
 @media (min-width: 768px) and (max-width: 1023px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .resourceCardsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .resourceCard {
+    height: 240px;
+    padding: var(--spacing-lg);
+  }
+
+  .resourceCardTitle {
+    font-size: var(--font-size-lg);
   }
 }
 

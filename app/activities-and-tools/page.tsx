@@ -332,6 +332,24 @@ export default function ActivitiesAndToolsPage() {
                   </div>
                   <a href="/resources/Study-Hacks-Neurodivergent.pdf" target="_blank" rel="noopener noreferrer" className={styles.resourceCardButton} download>Download</a>
                 </div>
+
+                <div className={styles.resourceCard} id="regulation-beyond-stillness">
+                  <div className={styles.resourceCardDetails}>
+                    <p className={styles.resourceCardTitle}>Regulation Beyond Stillness</p>
+                    <p className={styles.resourceCardBody}>
+                      Guidance on regulation without relying on worksheets — practical ideas for calm and focus.
+                    </p>
+                  </div>
+                  <a
+                    href="/resources/Regulation-Beyond-Stillness-without-Worksheets.docx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.resourceCardButton}
+                    download
+                  >
+                    Download
+                  </a>
+                </div>
               </div>
             </ResourceDownloadGate>
           </div>
