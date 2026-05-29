@@ -100,6 +100,182 @@
   transition: color 0.7s ease-in-out;
 }
 
+/* Content sections (ported from Activities and Tools) */
+.contentSection {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  padding-top: calc(var(--spacing-3xl) + 30px);
+  padding-bottom: calc(var(--spacing-3xl) + 30px);
+  background-color: #2d3758;
+  position: relative;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+.contentSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: var(--color-bg);
+  border-radius: 0 0 50% 50%;
+}
+
+.contentSection::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: var(--color-bg);
+  border-radius: 50% 50% 0 0;
+}
+
+.contentSectionInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.contentTitle {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: var(--spacing-lg);
+  line-height: var(--line-height-tight);
+}
+
+.contentIntro {
+  font-size: var(--font-size-lg);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.contentSection .subheading {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+}
+
+.contentSection .contentBody {
+  font-size: var(--font-size-base);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-lg);
+}
+
+.contentSection .contentBody:last-of-type {
+  margin-bottom: 0;
+}
+
+.contentSection .resourceLink {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.contentSection .resourceLink:hover {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.contentSectionLight {
+  background-color: var(--color-bg);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: var(--spacing-3xl);
+  padding-bottom: var(--spacing-3xl);
+  color: var(--color-text);
+}
+
+.contentSectionLight::before,
+.contentSectionLight::after {
+  display: none;
+}
+
+.contentSectionLight .contentSectionInner {
+  color: var(--color-text);
+}
+
+.contentSectionLight .contentTitle {
+  color: var(--color-text);
+}
+
+.contentSectionLight .contentIntro {
+  color: var(--color-text);
+}
+
+.contentSectionLight .contentBody {
+  color: var(--color-text);
+}
+
+.contentSectionLight .subheading {
+  color: var(--color-primary);
+}
+
+.contentSectionLight .resourceLink {
+  color: var(--color-primary);
+}
+
+.contentSectionLight .resourceLink:hover {
+  color: var(--color-primary-dark);
+}
+
+.contentList {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-lg);
+  padding-left: var(--spacing-xl);
+}
+
+.contentList li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.promptList {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: var(--spacing-lg);
+}
+
+.promptList li {
+  font-style: italic;
+  border-left: 3px solid var(--color-primary);
+  padding-left: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.mythList {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: var(--spacing-lg);
+}
+
+.mythList li {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-md);
+  padding-left: 0;
+}
+
+.mythWrong {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  opacity: 0.85;
+}
+
+.mythRight {
+  display: block;
+  color: var(--color-primary-dark);
+  font-weight: 500;
+}
+
 /* Tablet: 768px - 1023px */
 @media (min-width: 768px) and (max-width: 1023px) {
   .container {
@@ -135,5 +311,29 @@
 
   .cardQuote {
     font-size: var(--font-size-sm);
+  }
+
+  .contentSection {
+    padding: var(--spacing-2xl) var(--spacing-md);
+    padding-top: calc(var(--spacing-2xl) + 28px);
+    padding-bottom: calc(var(--spacing-2xl) + 28px);
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+
+  .contentSection::before,
+  .contentSection::after {
+    height: 28px;
+  }
+
+  .contentTitle {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .contentSection .subheading {
+    font-size: var(--font-size-lg);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-sm);
   }
 }
