@@ -4,7 +4,7 @@ Backfilled from `git log` on 2026-05-07.
 Format: YYYY-MM-DD — subject (author) [short-sha]
 
 ## 2026-05
-- 2026-05-29 — Reorder Support and Resources card grid per Vicky; simplify Activities page (title + 4 cards only) (May Gee) [uncommitted]
+- 2026-05-29 — Reorder Support and Resources card grid per Vicky; simplify Activities page (title + 4 cards only) (May Gee) [3824ea1]
 - 2026-05-29 — Move Study Hacks + Regulation Beyond Stillness to Support and Resources; keep 4 printables on Activities and Tools (May Gee) [d60d666]
 - 2026-05-03 — Blog: add spaniels disclaimer post (Victoria Froome) [e06ea96]
 - 2026-05-01 — Blog: tweak waiting mode intro (Victoria Froome) [f2b588c]
