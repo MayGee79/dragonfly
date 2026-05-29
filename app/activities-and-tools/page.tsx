@@ -24,16 +24,7 @@ export default function ActivitiesAndToolsPage() {
       <main>
         <section className={styles.section}>
           <div className={styles.container}>
-            <h1 className={styles.title}>Activities and Tools</h1>
-          </div>
-        </section>
-
-        <section id="printable-resources" className={`${styles.contentSection} ${styles.contentSectionLight}`}>
-          <div className={styles.contentSectionInner}>
-            <h2 className={styles.contentTitle}>Printable Resources</h2>
-            <p className={styles.contentIntro}>
-              Downloads and worksheets to support your practice. Click a card to download.
-            </p>
+            <h1 className={`${styles.title} ${styles.titleWithGrid}`}>Activities and Tools</h1>
 
             <ResourceDownloadGate>
               <div className={styles.resourceCardsGrid}>

@@ -18,6 +18,10 @@
   line-height: var(--line-height-tight);
 }
 
+.titleWithGrid {
+  margin-bottom: var(--spacing-2xl);
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -234,7 +238,7 @@
   grid-auto-flow: row;
   justify-items: stretch;
   gap: var(--spacing-lg);
-  margin-top: var(--spacing-xl);
+  margin-top: 0;
   width: 100%;
   max-width: 1200px;
   margin-left: auto;
@@ -395,7 +399,7 @@
   }
 
   .resourceCardsGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--spacing-md);
   }
 
@@ -419,8 +423,8 @@
   }
 
   .resourceCardsGrid {
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: var(--spacing-sm);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--spacing-md);
   }
 }
 
@@ -433,6 +437,10 @@
   .title {
     font-size: var(--font-size-3xl);
     margin-bottom: var(--spacing-xl);
+  }
+
+  .titleWithGrid {
+    margin-bottom: var(--spacing-lg);
   }
 
   .activityCard {

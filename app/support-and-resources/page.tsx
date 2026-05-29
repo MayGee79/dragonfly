@@ -29,18 +29,32 @@ export default function SupportAndResourcesPage() {
 
             <ResourceDownloadGate>
               <div className={styles.grid} aria-label="Support and resources navigation and downloads">
-                <a href="#understanding-anxiety" className={styles.card}>
-                  <h2 className={styles.cardTitle}>Anxiety Self Help</h2>
+                <Link
+                  href="/resources/Regulation-Beyond-Stillness-without-Worksheets.docx"
+                  className={styles.card}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <h2 className={styles.cardTitle}>Self Regulation</h2>
                   <p className={styles.cardQuote}>
-                    Practical tools to help you feel more in control.
+                    Guidance on regulation without relying on worksheets - practical ideas for calm and focus.
                   </p>
-                  <span className={styles.cardLink}>Learn more →</span>
-                </a>
+                  <span className={styles.cardLink}>Download →</span>
+                </Link>
 
                 <a href="#mindfulness" className={styles.card}>
                   <h2 className={styles.cardTitle}>Mindfulness</h2>
                   <p className={styles.cardQuote}>
                     A gentle introduction to being present.
+                  </p>
+                  <span className={styles.cardLink}>Learn more →</span>
+                </a>
+
+                <a href="#understanding-anxiety" className={styles.card}>
+                  <h2 className={styles.cardTitle}>Anxiety Self Help</h2>
+                  <p className={styles.cardQuote}>
+                    Practical tools to help you feel more in control.
                   </p>
                   <span className={styles.cardLink}>Learn more →</span>
                 </a>
@@ -52,6 +66,48 @@ export default function SupportAndResourcesPage() {
                   </p>
                   <span className={styles.cardLink}>Learn more →</span>
                 </a>
+
+                <Link
+                  href="/resources/Supporting-Your-Young-Person-At-Home.docx"
+                  className={styles.card}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <h2 className={styles.cardTitle}>Supporting Your Young Person at Home</h2>
+                  <p className={styles.cardQuote}>
+                    A practical guide to help you support your young person at home.
+                  </p>
+                  <span className={styles.cardLink}>Download →</span>
+                </Link>
+
+                <Link
+                  href="/resources/Study-Hacks-General.pdf"
+                  className={styles.card}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <h2 className={styles.cardTitle}>Study Hacks</h2>
+                  <p className={styles.cardQuote}>
+                    Evidence-based revision and exam strategies young people can actually use.
+                  </p>
+                  <span className={styles.cardLink}>Download →</span>
+                </Link>
+
+                <Link
+                  href="/resources/Study-Hacks-Neurodivergent.pdf"
+                  className={`${styles.card} ${styles.cardFullWidthOnDesktop}`}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <h2 className={styles.cardTitle}>Study Hacks (Neurodivergent)</h2>
+                  <p className={styles.cardQuote}>
+                    Study strategies adapted for ADHD/autistic traits and neurodivergent overwhelm.
+                  </p>
+                  <span className={styles.cardLink}>Download →</span>
+                </Link>
 
                 <Link
                   href="https://hubofhope.co.uk"
@@ -78,62 +134,6 @@ export default function SupportAndResourcesPage() {
                     Surrey Children &amp; Young People Resources Guide (January 2026) - support and services for children and young people.
                   </p>
                   <span className={styles.cardLink}>Download guide →</span>
-                </Link>
-
-                <Link
-                  href="/resources/Supporting-Your-Young-Person-At-Home.docx"
-                  className={styles.card}
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <h2 className={styles.cardTitle}>Supporting Your Young Person at Home</h2>
-                  <p className={styles.cardQuote}>
-                    A practical guide to help you support your young person at home.
-                  </p>
-                  <span className={styles.cardLink}>Download →</span>
-                </Link>
-
-                <Link
-                  href="/resources/Study-Hacks-General.pdf"
-                  className={styles.card}
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <h2 className={styles.cardTitle}>Study Hacks (General)</h2>
-                  <p className={styles.cardQuote}>
-                    Evidence-based revision and exam strategies young people can actually use.
-                  </p>
-                  <span className={styles.cardLink}>Download →</span>
-                </Link>
-
-                <Link
-                  href="/resources/Study-Hacks-Neurodivergent.pdf"
-                  className={styles.card}
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <h2 className={styles.cardTitle}>Study Hacks (Neurodivergent)</h2>
-                  <p className={styles.cardQuote}>
-                    Study strategies adapted for ADHD/autistic traits and neurodivergent overwhelm.
-                  </p>
-                  <span className={styles.cardLink}>Download →</span>
-                </Link>
-
-                <Link
-                  href="/resources/Regulation-Beyond-Stillness-without-Worksheets.docx"
-                  className={styles.card}
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <h2 className={styles.cardTitle}>Regulation Beyond Stillness</h2>
-                  <p className={styles.cardQuote}>
-                    Guidance on regulation without relying on worksheets - practical ideas for calm and focus.
-                  </p>
-                  <span className={styles.cardLink}>Download →</span>
                 </Link>
               </div>
             </ResourceDownloadGate>
