@@ -52,7 +52,7 @@ Finally, a perspective that is easy to say and hard to believe when you are in t
 
 If you would like a structured, evidence-based revision and exam strategy guide in a format young people can actually use, download the **Study Hacks** resources - available in general and neurodivergent editions.
 
-You can find them on [Activities and Tools](/activities-and-tools).
+You can find them on [Support and Resources](/support-and-resources).
 
 Dr Victoria Froome  
 Integrative Psychotherapist | Dragonfly Psychotherapy  
