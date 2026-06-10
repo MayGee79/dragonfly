@@ -3,8 +3,12 @@ import path from 'path'
 import { head } from '@vercel/blob'
 import { NextResponse } from 'next/server'
 import { vercelBlobCanonicalUrlForDigital } from '@/lib/blobDownloads'
+import {
+  downloadAccessMessage,
+  getDownloadAccessDenial,
+  retrieveCheckoutSession,
+} from '@/lib/checkoutSession'
 import { CATALOG, stripePriceIdForCatalogId } from '@/lib/catalog'
-import { getStripe } from '@/lib/stripe'
 
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
@@ -15,6 +19,10 @@ function badRequest(message: string) {
 
 function forbidden(message: string) {
   return NextResponse.json({ error: message }, { status: 403 })
+}
+
+function notFound(message: string) {
+  return NextResponse.json({ error: message }, { status: 404 })
 }
 
 export async function GET(request: Request) {
@@ -37,13 +45,17 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'Server configuration error.' }, { status: 500 })
   }
 
-  const stripe = getStripe()
-  const session = await stripe.checkout.sessions.retrieve(sessionId, {
-    expand: ['line_items.data.price'],
-  })
+  const session = await retrieveCheckoutSession(sessionId)
+  if (!session) {
+    return notFound(downloadAccessMessage('not_found'))
+  }
 
-  if (session.payment_status !== 'paid') {
-    return forbidden('Payment not completed.')
+  const denial = getDownloadAccessDenial(session)
+  if (denial) {
+    if (denial === 'not_found') {
+      return notFound(downloadAccessMessage(denial))
+    }
+    return forbidden(downloadAccessMessage(denial))
   }
 
   let allowedQty = 0

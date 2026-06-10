@@ -1,6 +1,11 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { getStripe } from '@/lib/stripe'
+import {
+  downloadAccessMessage,
+  downloadLinkMaxAgeDays,
+  getDownloadAccessDenial,
+  retrieveCheckoutSession,
+} from '@/lib/checkoutSession'
 import { catalogItemByStripePriceId } from '@/lib/catalog'
 
 export const dynamic = 'force-dynamic'
@@ -15,7 +20,7 @@ export default async function SuccessPage({
 }: {
   searchParams: { session_id?: string }
 }) {
-  const sessionId = searchParams.session_id
+  const sessionId = searchParams.session_id?.trim()
   if (!sessionId) {
     return (
       <div style={{ maxWidth: 720, margin: '48px auto', padding: 24 }}>
@@ -28,10 +33,32 @@ export default async function SuccessPage({
     )
   }
 
-  const stripe = getStripe()
-  const session = await stripe.checkout.sessions.retrieve(sessionId, {
-    expand: ['line_items.data.price'],
-  })
+  if (!sessionId.startsWith('cs_')) {
+    return (
+      <div style={{ maxWidth: 720, margin: '48px auto', padding: 24 }}>
+        <h1>Thank you</h1>
+        <p>We could not find that order. If you completed a payment, check your email for the Stripe receipt.</p>
+        <p>
+          <Link href="/">Back to shop</Link>
+        </p>
+      </div>
+    )
+  }
+
+  const session = await retrieveCheckoutSession(sessionId)
+  if (!session) {
+    return (
+      <div style={{ maxWidth: 720, margin: '48px auto', padding: 24 }}>
+        <h1>Thank you</h1>
+        <p>We could not find that order. If you completed a payment, check your email for the Stripe receipt.</p>
+        <p>
+          <Link href="/">Back to shop</Link>
+        </p>
+      </div>
+    )
+  }
+
+  const downloadDenial = getDownloadAccessDenial(session)
 
   const rows: {
     catalogId: string
@@ -61,7 +88,9 @@ export default async function SuccessPage({
   }
 
   const hasDigitalDownloads = rows.some((r) => r.hasDownload)
+  const canDownload = hasDigitalDownloads && !downloadDenial
   const newsletterOptIn = session.metadata?.newsletter_opt_in === 'true'
+  const downloadWindowDays = downloadLinkMaxAgeDays()
 
   return (
     <div style={{ maxWidth: 720, margin: '48px auto', padding: 24 }}>
@@ -89,23 +118,29 @@ export default async function SuccessPage({
       {hasDigitalDownloads && (
         <>
           <h2 style={{ marginTop: 24 }}>Digital downloads</h2>
-          <p>
-            Each link checks your Stripe order before downloading. For your own use only; bookmark this page if you
-            want to download again later.
-          </p>
-          <ul>
-            {rows
-              .filter((r) => r.hasDownload)
-              .map((r) => (
-                <li key={r.catalogId}>
-                  <a
-                    href={`/api/download?session_id=${encodeURIComponent(sessionId)}&catalog=${encodeURIComponent(r.catalogId)}`}
-                  >
-                    {r.title}
-                  </a>
-                </li>
-              ))}
-          </ul>
+          {canDownload ? (
+            <>
+              <p>
+                Each link checks your Stripe order before downloading. For your own use only. Download links stay
+                available for <strong>{downloadWindowDays} days</strong> after purchase — save your files locally.
+              </p>
+              <ul>
+                {rows
+                  .filter((r) => r.hasDownload)
+                  .map((r) => (
+                    <li key={r.catalogId}>
+                      <a
+                        href={`/api/download?session_id=${encodeURIComponent(sessionId)}&catalog=${encodeURIComponent(r.catalogId)}`}
+                      >
+                        {r.title}
+                      </a>
+                    </li>
+                  ))}
+              </ul>
+            </>
+          ) : (
+            <p>{downloadDenial ? downloadAccessMessage(downloadDenial) : 'Downloads are not available for this order.'}</p>
+          )}
         </>
       )}
 
