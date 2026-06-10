@@ -4,6 +4,7 @@ Backfilled from `git log` on 2026-05-07.
 Format: YYYY-MM-DD — subject (author) [short-sha]
 
 ## 2026-06
+- 2026-06-10 — Shop: expire download links after 30 days and block refunded orders (May Gee) [7c29fda]
 - 2026-06-10 — Shop: upgrade /blob 2.4.0 + qs patch (security) (May Gee) [78d6510]
 
 ## 2026-06
