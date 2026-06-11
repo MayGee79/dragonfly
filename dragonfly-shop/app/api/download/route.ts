@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { head } from '@vercel/blob'
+import { get } from '@vercel/blob'
 import { NextResponse } from 'next/server'
 import { vercelBlobCanonicalUrlForDigital } from '@/lib/blobDownloads'
 import {
@@ -78,27 +78,29 @@ export async function GET(request: Request) {
     }
 
     try {
-      const blobMeta = await head(canonicalBlobUrl)
-      const upstream = await fetch(blobMeta.downloadUrl)
-      if (!upstream.ok || !upstream.body) {
+      const blobAccess = canonicalBlobUrl.includes('.private.blob.') ? 'private' : 'public'
+      const result = await get(canonicalBlobUrl, { access: blobAccess })
+      if (!result || result.statusCode !== 200 || !result.stream) {
+        console.error('[download] blob unavailable:', { catalogId, statusCode: result?.statusCode ?? 'null' })
         return NextResponse.json(
           { error: 'Download file is temporarily unavailable. Please contact the shop.' },
           { status: 503 },
         )
       }
 
-      const buf = Buffer.from(await upstream.arrayBuffer())
       const safeName = product.privateDownloadFile.replace(/[^\w.-]+/g, '_')
+      const contentType = result.blob.contentType || 'application/pdf'
 
-      return new NextResponse(buf, {
+      return new NextResponse(result.stream, {
         status: 200,
         headers: {
-          'Content-Type': 'application/pdf',
+          'Content-Type': contentType,
           'Content-Disposition': `attachment; filename="${safeName}"`,
           'Cache-Control': 'private, no-store',
         },
       })
-    } catch {
+    } catch (error) {
+      console.error('[download] blob fetch failed:', { catalogId, error })
       return NextResponse.json(
         { error: 'Download file is temporarily unavailable. Please contact the shop.' },
         { status: 503 },

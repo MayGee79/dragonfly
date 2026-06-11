@@ -1,6 +1,6 @@
 /**
  * Canonical blob URLs from the Vercel Blob dashboard (copy “URL” with no query string).
- * Used by /api/download after Stripe verifies the session — files stay private in Blob.
+ * Used by /api/download after Stripe verifies the session — private blobs are fetched via get(), not public fetch.
  */
 export function vercelBlobCanonicalUrlForDigital(catalogId: string): string | undefined {
   const map: Record<string, string | undefined> = {
