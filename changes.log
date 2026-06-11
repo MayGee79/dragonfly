@@ -238,3 +238,4 @@ Format: YYYY-MM-DD — subject (author) [short-sha]
 - 2026-05-16 — MailerLite suppression checklist for GDPR audit §5 (May)
 - 2026-05-16 — Sync privacy-notice-final.text with live content/privacy.txt (May)
 - 2026-05-27 — Blog: Therapy for Young People — what it is / isn’t, confidentiality, CAMHS vs private (May)
+- 2026-06-11 — Shop: rate limiting (Upstash), generic checkout errors, CSP/Permissions-Policy, bold underlined download links on success page (May)

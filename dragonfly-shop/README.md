@@ -21,6 +21,16 @@ Open [http://localhost:3001](http://localhost:3001) (port 3001 to avoid clashing
 2. Set env vars from `.env.example`.
 3. Add domain **dragonflyshop.co.uk** and point DNS to Vercel.
 
+## Rate limiting (recommended for production)
+
+Checkout, download, and success routes are rate-limited per IP when Upstash Redis is connected:
+
+1. Vercel → **dragonfly-shop** project → **Storage** or **Marketplace** → add **Upstash Redis** (free tier is fine).
+2. Link it to the project — Vercel injects `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`.
+3. Redeploy.
+
+Without Upstash, the shop still works; limits are simply not enforced (useful for local dev).
+
 ## Digital files
 
 Place PDFs in **`private/downloads/`** (see `private/downloads/README.txt`). They are served only through **`/api/download`**, which confirms the Stripe Checkout session is **paid** and includes that product. Do not put sellable PDFs in `public/` or they stay world-readable.

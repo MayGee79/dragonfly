@@ -16,9 +16,16 @@ function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
 }
 
+const CHECKOUT_FAILED_MESSAGE = 'Checkout could not be started. Please try again.'
+
 export async function POST(request: Request) {
   try {
-    const body = (await request.json()) as CheckoutBody
+    let body: CheckoutBody
+    try {
+      body = (await request.json()) as CheckoutBody
+    } catch {
+      return NextResponse.json({ error: 'Invalid request.' }, { status: 400 })
+    }
     if (!body.acceptTerms) {
       return NextResponse.json({ error: 'Terms must be accepted.' }, { status: 400 })
     }
@@ -47,7 +54,7 @@ export async function POST(request: Request) {
     for (const [catalogId, quantity] of merged.entries()) {
       const product = CATALOG.find((c) => c.id === catalogId)
       if (!product) {
-        return NextResponse.json({ error: `Unknown product: ${catalogId}` }, { status: 400 })
+        return NextResponse.json({ error: 'Invalid line item.' }, { status: 400 })
       }
       if (product.kind === 'physical') hasPhysical = true
       if (product.kind === 'digital') hasDigital = true
@@ -100,12 +107,13 @@ export async function POST(request: Request) {
     const session = await stripe.checkout.sessions.create(sessionParams)
 
     if (!session.url) {
-      return NextResponse.json({ error: 'Stripe did not return a checkout URL.' }, { status: 500 })
+      console.error('[checkout] Stripe session created without checkout URL')
+      return NextResponse.json({ error: CHECKOUT_FAILED_MESSAGE }, { status: 500 })
     }
 
     return NextResponse.json({ url: session.url })
   } catch (e) {
-    const message = e instanceof Error ? e.message : 'Checkout failed'
-    return NextResponse.json({ error: message }, { status: 500 })
+    console.error('[checkout] failed:', e)
+    return NextResponse.json({ error: CHECKOUT_FAILED_MESSAGE }, { status: 500 })
   }
 }

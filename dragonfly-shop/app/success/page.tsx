@@ -131,6 +131,7 @@ export default async function SuccessPage({
                     <li key={r.catalogId}>
                       <a
                         href={`/api/download?session_id=${encodeURIComponent(sessionId)}&catalog=${encodeURIComponent(r.catalogId)}`}
+                        style={{ fontWeight: 700, textDecoration: 'underline' }}
                       >
                         {r.title}
                       </a>
