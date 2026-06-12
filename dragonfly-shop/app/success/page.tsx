@@ -109,7 +109,7 @@ export default async function SuccessPage({
           {canDownload ? (
             <>
               <p className={styles.downloadLead}>
-                Your eBooks are ready on this page — they are not attached to the Stripe receipt email.
+                Your eBooks are ready on this page (they will NOT be sent to you via email).
               </p>
               <p className={styles.downloadNote}>
                 Click each button below to save the PDF to your phone, tablet, or computer. You can come back to this
@@ -117,13 +117,14 @@ export default async function SuccessPage({
               </p>
               <ul className={styles.downloadList}>
                 {downloadRows.map((r) => (
-                  <li key={r.catalogId}>
+                  <li key={r.catalogId} className={styles.downloadItem}>
                     <a
                       className={styles.downloadBtn}
                       href={`/api/download?session_id=${encodeURIComponent(sessionId)}&catalog=${encodeURIComponent(r.catalogId)}`}
                     >
-                      Download — {r.title}
+                      DOWNLOAD HERE
                     </a>
+                    <p className={styles.downloadFileName}>{r.title}</p>
                   </li>
                 ))}
               </ul>
@@ -141,7 +142,7 @@ export default async function SuccessPage({
 
       <p>
         A payment confirmation should arrive from <strong>Stripe</strong> at the email you used at checkout. That email
-        is your receipt only — it does not include your files. If you do not see it within a few minutes, please check
+        is your receipt only. It does not include your files. If you do not see it within a few minutes, please check
         spam/junk.
       </p>
       {newsletterOptIn && (

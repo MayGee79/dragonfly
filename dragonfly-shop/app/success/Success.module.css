@@ -39,7 +39,20 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--spacing-lg);
+}
+
+.downloadItem {
+  margin: 0;
+  padding: 0;
+}
+
+.downloadFileName {
+  margin: var(--spacing-sm) 0 0;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  text-align: center;
+  line-height: var(--line-height-relaxed);
 }
 
 .downloadBtn {
