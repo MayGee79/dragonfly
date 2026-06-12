@@ -240,3 +240,4 @@ Format: YYYY-MM-DD — subject (author) [short-sha]
 - 2026-05-27 — Blog: Therapy for Young People — what it is / isn’t, confidentiality, CAMHS vs private (May)
 - 2026-06-11 — Shop: rate limiting (Upstash), generic checkout errors, CSP/Permissions-Policy, bold underlined download links on success page (May)
 - 2026-06-11 — Shop: fix private Blob downloads — use get() instead of unauthenticated fetch on downloadUrl (May)
+- 2026-06-11 — Shop: success page — prominent “Download your files here” callout and download buttons (May)
