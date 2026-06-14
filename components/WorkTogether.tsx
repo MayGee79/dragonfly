@@ -24,7 +24,7 @@ const steps = [
 
 const alsoAvailable = [
   'Single session therapy for focused support on single issues',
-  'Wellness walks',
+  'Therapeutic walks',
   'Bespoke workshops and talks',
   'On demand education'
 ]

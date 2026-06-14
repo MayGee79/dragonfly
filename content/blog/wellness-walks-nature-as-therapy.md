@@ -1,5 +1,5 @@
 ---
-title: "Wellness walks: nature as therapy"
+title: "Therapeutic walks: nature as therapy"
 date: 2025-11-26T00:00:00.000+00:00
 featuredImage: /images/wellness-walks-frosty-leaves.png
 published: true
@@ -8,7 +8,7 @@ published: true
 
 There's something about a crisp, cold morning that makes the world feel full of possibility. The kind of morning where your breath hangs in the air, frost sparkles on the grass, and the low winter sun cuts through bare branches. It's on mornings like these - often during my own early walks with my dogs like today - that I find my mind settling, problems untangling, and fresh perspective emerging.
 
-Good news is that there is now substantial evidence that what many of us intuitively know - that time in nature helps our mental health - is backed by robust research. And it is this evidence that has inspired me to develop something new for my practice: therapeutic wellness walks.
+Good news is that there is now substantial evidence that what many of us intuitively know - that time in nature helps our mental health - is backed by robust research. And it is this evidence that has inspired me to develop something new for my practice: therapeutic walks.
 
 **The Evidence: Why Walking in Nature Works**
 
@@ -30,21 +30,21 @@ Attention Restoration Theory, developed by Kaplan and Kaplan (1989), suggests th
 
 There is also growing evidence that walk-and-talk therapy offers specific advantages over traditional consulting room work for some clients (Revell & McLeod, 2017). Walking side-by-side rather than face-to-face can reduce the intensity of eye contact, making it easier for some people to discuss difficult topics. The shared experience of the environment provides natural metaphors and moments for reflection. And the physical movement itself can help process emotions held in the body - something particularly relevant for those experiencing anxiety or trauma.
 
-**Bringing Wellness Walks to Dragonfly Psychotherapy**
+**Bringing Therapeutic Walks to Dragonfly Psychotherapy**
 
-I'm excited to be developing wellness walks as a new offering, and I've found what I believe is the perfect setting: West Horsley Place (aka Button House from Ghosts). It was also visited by King Henry VIIIth.
+I'm excited to be developing therapeutic walks as a new offering, and I've found what I believe is the perfect setting: West Horsley Place (aka Button House from Ghosts). It was also visited by King Henry VIIIth.
 
 This beautiful historic estate offers 400 tranquil acres of natural beauty with miles of footpaths. There is something grounding about walking through such an ancient landscape.
 
 **What I'm Planning**
 
-**Group Wellness Walks with a Therapeutic Twist:** Guided walks for small groups up to 8, with a therapeutic focus but without the intensity of formal therapy - think of these as supported time in nature with gentle prompts for reflection. Ideal for those who want the benefits of nature-based wellbeing without diving into deeper therapeutic work, who are curious about learning more about therapy or those who simply need a motivation to get outside. These would be free of charge during the trial period, and after that there will be a charge to keep it financially viable.
+**Group Therapeutic Walks:** Guided walks for small groups up to 8, with a therapeutic focus but without the intensity of formal therapy - think of these as supported time in nature with gentle prompts for reflection. Ideal for those who want the benefits of nature-based wellbeing without diving into deeper therapeutic work, who are curious about learning more about therapy or those who simply need a motivation to get outside. These would be free of charge during the trial period, and after that there will be a charge to keep it financially viable.
 
 **Seasonal Offerings:** I'm also considering seasonal group walks - perhaps a winter walk focusing on rest and renewal, or spring walks exploring themes of growth and change. These would offer the benefits of shared experience and a gentle community.
 
 **Individual Therapeutic Walks:** One-to-one sessions combining gentle walking with therapy. These could be held at a number of different sites to suit you. They will be particularly suited to clients who find the traditional consulting room environment challenging, those working through burnout and needing to reconnect with their bodies, or anyone who simply thinks and processes better while moving.
 
-**Frontline Wellness Walks:** Separate to this, honouring my background in the NHS and my own burnout experience, I would love to run a monthly frontline wellness walk for NHS staff, emergency service workers and teachers if there is interest in it. I would be aiming to make this free of charge. These would offer peer support in a non-clinical setting, and confidentiality outside work hierarchies.
+**Frontline Therapeutic Walks:** Separate to this, honouring my background in the NHS and my own burnout experience, I would love to run a monthly frontline therapeutic walk for NHS staff, emergency service workers and teachers if there is interest in it. I would be aiming to make this free of charge. These would offer peer support in a non-clinical setting, and confidentiality outside work hierarchies.
 
 **Practical Considerations**
 
@@ -52,9 +52,9 @@ I'm mindful that outdoor therapy requires different considerations than consulti
 
 **Is This for You?**
 
-Wellness walks won't suit everyone, and they're not intended to replace traditional therapy for those who benefit from that structure. But for many people - particularly those experiencing burnout, work-related stress, anxiety, or life transitions - the combination of therapeutic support, physical movement, and a natural environment offers something genuinely different.
+Therapeutic walks won't suit everyone, and they're not intended to replace traditional therapy for those who benefit from that structure. But for many people - particularly those experiencing burnout, work-related stress, anxiety, or life transitions - the combination of therapeutic support, physical movement, and a natural environment offers something genuinely different.
 
-If you're curious about whether wellness walks might work for you, I'd be happy to chat. Sometimes the best therapy room has no walls at all.
+If you're curious about whether therapeutic walks might work for you, I'd be happy to chat. Sometimes the best therapy room has no walls at all.
 
 **References**
 

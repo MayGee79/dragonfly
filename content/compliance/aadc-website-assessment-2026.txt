@@ -14,7 +14,7 @@ The assessment covers:
 - The main psychotherapy website (brochure-style information, blog, contact form, resource download sign-up, cookie banner, links to external booking where applicable).
 - The separate online shop (product catalogue, Stripe checkout, digital downloads, optional newsletter opt-in, privacy and terms pages).
 
-It does not cover: therapy clinical records, Client Agreement processes, third-party booking systems used by venues (e.g. wellness walk venue booking), or email marketing beyond what the websites initiate.
+It does not cover: therapy clinical records, Client Agreement processes, third-party booking systems used by venues (e.g. therapeutic walk venue booking), or email marketing beyond what the websites initiate.
 
 Summary conclusion
 Overall risk to children from the websites, when used as designed, is assessed as LOW. The sites are primarily informational and transactional for adults and parents/carers. There is no social networking, no user-generated content, no profiling of children for commercial purposes, and no deliberate targeting of under-13s. Appropriate privacy information for young people is published (Privacy Notice section 6) and signposted on the Young People (11+) services page.

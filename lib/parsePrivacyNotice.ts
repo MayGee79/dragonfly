@@ -9,7 +9,7 @@ export type PrivacySection = {
 
 const SERVICE_SUBHEADINGS = new Set([
   'Therapy Clients',
-  'Wellness Walk Participants',
+  'Therapeutic Walk Participants',
   'Resource Purchasers',
   'Online CPD Participants',
   'In-Person Workshop Participants',

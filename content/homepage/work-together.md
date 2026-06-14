@@ -22,6 +22,6 @@ alsoAvailable:
   - Single Session Therapy for focused support on single issues
   - Workshops for Schools on anxiety, resilience, and wellbeing
   - Bespoke Talks for organisations
-  - Wellness Walks
+  - Therapeutic Walks
 closingText: If this resonates with you please get in touch. And you can head down to my pages with resources and sources of support, activities, tools and blogs to see if there is something to help you get started.
 ---
