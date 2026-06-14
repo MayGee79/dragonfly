@@ -22,6 +22,12 @@ export default function ShopFooter({ className }: ShopFooterProps = {}) {
               <Link href="/privacy">Privacy Notice</Link>
             </li>
             <li>
+              <Link href="/faqs">Shop FAQs</Link>
+            </li>
+            <li>
+              <Link href="/cancellation">Cancellation Form</Link>
+            </li>
+            <li>
               <Link href="/terms">Shop Terms</Link>
             </li>
             <li>

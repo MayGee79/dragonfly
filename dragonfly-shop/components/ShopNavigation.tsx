@@ -33,7 +33,7 @@ export default function ShopNavigation({ className }: ShopNavigationProps = {}) 
   const navLinks = [
     { href: `${MAIN}/`, label: 'Home' },
     { href: '/', label: 'SHOP' },
-    { href: `${MAIN}/faqs`, label: 'FAQs' },
+    { href: '/faqs', label: 'FAQs' },
   ]
 
   const menuItems = [

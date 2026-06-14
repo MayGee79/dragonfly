@@ -242,3 +242,4 @@ Format: YYYY-MM-DD — subject (author) [short-sha]
 - 2026-06-11 — Shop: fix private Blob downloads — use get() instead of unauthenticated fetch on downloadUrl (May)
 - 2026-06-11 — Shop: success page — prominent “Download your files here” callout and download buttons (May)
 - 2026-06-11 — Shop: success page copy — “DOWNLOAD HERE” buttons with file name below; no email delivery wording (May)
+- 2026-06-11 — Shop: FAQs + cancellation form pages (June 2026 docs); terms updated for thank-you downloads and cancellation link (May)

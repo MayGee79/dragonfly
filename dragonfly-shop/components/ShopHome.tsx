@@ -277,7 +277,11 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
 
       <section className={styles.faqSection} id="shipping-faq" aria-label="Shipping and returns">
         <div className={styles.faqInner}>
-          <h2>Shipping, returns & contact</h2>
+          <h2>Shipping, returns &amp; help</h2>
+          <p>
+            See the full <Link href="/faqs">Shop FAQs</Link> for ordering, digital downloads, returns, and contact
+            details.
+          </p>
           <h3>Shipping (UK)</h3>
           <p>
             We currently ship within the UK only. If your basket includes a paperback, postage and packaging is £4.25. We
@@ -285,8 +289,9 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
           </p>
           <h3>Returns</h3>
           <p>
-            Returns are accepted in line with the Shop Terms. Unless the item is faulty or not as described, you are
-            responsible for return postage.
+            Returns are accepted in line with the <Link href="/terms">Shop Terms</Link>. To cancel a physical order, you
+            can email Victoria or use the <Link href="/cancellation">Cancellation Form</Link>. Unless the item is faulty
+            or not as described, you are responsible for return postage.
           </p>
           <h3>Contact</h3>
           <p>
