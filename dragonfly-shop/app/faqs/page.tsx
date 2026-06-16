@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import ShopLegalDocument from '@/components/ShopLegalDocument'
+import ShopFaqsDocument from '@/components/ShopFaqsDocument'
 import { readShopContent } from '@/lib/shopContent'
 
 export const metadata: Metadata = {
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function FaqsPage() {
-  return <ShopLegalDocument text={readShopContent('faqs.txt')} />
+  return <ShopFaqsDocument text={readShopContent('faqs.txt')} />
 }

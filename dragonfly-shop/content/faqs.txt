@@ -6,6 +6,8 @@ Your purchase is also governed by my Shop Terms and Conditions and my Privacy No
 Ordering and Payment
 What can I buy from the shop?
 I sell resources I have written or developed myself, including handbooks, companion workbooks, toolkits, and card sets. These are available as physical paperbacks, as digital downloads (usually PDF), or in some cases both. The collection is growing steadily, so it is worth checking back for new resources.
+How are your resources developed?
+Many of my resources begin with my own clinical work, or with a search for something I thought would be useful to me and could not find anywhere. From there, I use AI tools to help me draft and refine the material, particularly to ensure clarity, consistency, and completeness across a resource. What those tools cannot provide is the clinical thinking, which has developed over my years as an NHS GP and now as a psychotherapist, and the judgement about what is safe, helpful, and ethical. That remains with me.
 How do I place an order?
 Add the items you would like to your basket, enter the email address where you would like your confirmation sent, tick to confirm you have read the Shop Terms and Privacy Notice, and complete payment securely through Stripe. You do not need to create an account to buy.
 Which payment methods do you accept?
