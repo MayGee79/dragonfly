@@ -22,6 +22,15 @@ export default function ShopFooter({ className }: ShopFooterProps = {}) {
               <Link href="/privacy">Privacy Notice</Link>
             </li>
             <li>
+              <a
+                href={`${process.env.NEXT_PUBLIC_MAIN_SITE_URL || 'https://www.dragonflypsychotherapy.co.uk'}/ai-and-transparency`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                AI and Transparency
+              </a>
+            </li>
+            <li>
               <Link href="/faqs">Shop FAQs</Link>
             </li>
             <li>

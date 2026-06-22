@@ -4,6 +4,7 @@ Backfilled from `git log` on 2026-05-07.
 Format: YYYY-MM-DD — subject (author) [short-sha]
 
 ## 2026-06
+- 2026-06-22 — AI policy: /ai-and-transparency page, privacy notice section 17 (main + shop), footer links, blog disclosure link (May Gee)
 - 2026-06-10 — Shop: expire download links after 30 days and block refunded orders (May Gee) [7c29fda]
 - 2026-06-10 — Shop: upgrade /blob 2.4.0 + qs patch (security) (May Gee) [78d6510]
 
@@ -246,3 +247,4 @@ Format: YYYY-MM-DD — subject (author) [short-sha]
 - 2026-06-12 — Blog: Anxiety and Avoidance — The Comfort Zone Trap (May)
 - 2026-06-12 — Main site: rename wellness walks to therapeutic walks (Work Together, privacy notice, blog post) (May)
 - 2026-06-16 — Shop: FAQs layout — numbered questions, spacing, add “How are your resources developed?” (May)
+- 2026-06-17 — Learning: moved to standalone repo github.com/MayGee79/dragonfly-learning (May)

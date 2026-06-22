@@ -15,6 +15,7 @@ export default function Footer({ className }: FooterProps = {}) {
             <li><Link href="/">Home</Link></li>
             <li><Link href="/sitemap">Sitemap</Link></li>
             <li><Link href="/privacy-policy">Privacy Notice</Link></li>
+            <li><Link href="/ai-and-transparency">AI and Transparency</Link></li>
             <li>
               <CookieSettingsButton />
             </li>
