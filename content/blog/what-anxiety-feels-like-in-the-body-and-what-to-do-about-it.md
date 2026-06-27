@@ -1,12 +1,13 @@
 ---
-title: "What Anxiety Feels Like in the Body (and What to Do About It)"
-date: 2026-06-21T00:00:00.000+00:00
+excerpt: Anxiety often shows up first as physical symptoms — chest tightness,
+  nausea, dizziness, fatigue — not as worry. Here is what is happening in your
+  body and practical ways to calm the nervous system.
 author: Victoria Froome
+title: What Anxiety Feels Like in the Body (and What to Do About It)
+date: 2026-06-21T00:00:00.000+00:00
 featuredImage: /images/anxiety-body-symptoms-2026-06-21.png
-category: Mental Health
 featured: false
 published: true
-excerpt: "Anxiety often shows up first as physical symptoms — chest tightness, nausea, dizziness, fatigue — not as worry. Here is what is happening in your body and practical ways to calm the nervous system."
 tags:
   - anxiety
   - physical symptoms
@@ -14,8 +15,8 @@ tags:
   - grounding
   - breathing
   - mental health
+category: Mental Health
 ---
-
 So many people have sat in my therapy room and said some version of: "I did not think I had anxiety. I thought there was something physically wrong with me."
 
 This is incredibly common. Anxiety does not always announce itself as worry or nervousness. Often, the first and most prominent symptoms are physical - and they can be frightening, confusing, and exhausting.
@@ -55,10 +56,3 @@ Movement helps discharge the physical tension that anxiety creates. This does no
 Temperature can be a useful circuit-breaker. Splashing cold water on your face activates the dive reflex, which slows your heart rate. Holding something cold (a cold drink, a chilled flannel) provides a sensory anchor that can interrupt the anxiety spiral.
 
 Finally, if physical symptoms of anxiety are significantly impacting your life, please see your GP. It is important to rule out physical causes, and it is also important to name what is happening so that you can get appropriate support. There is no shame in anxiety producing physical symptoms - it is your body doing exactly what bodies do under stress.
-
----
-
-Some of my written resources and posts are drafted with the support of AI tools. The clinical thinking and final words are always my own. You can read more on my [AI and Transparency](/ai-and-transparency) page.
-
-Best wishes,  
-Vicky
