@@ -4,6 +4,7 @@ Backfilled from `git log` on 2026-05-07.
 Format: YYYY-MM-DD — subject (author) [short-sha]
 
 ## 2026-06
+- 2026-06-22 — Shop: fix Pay with Stripe appearing unclickable (cookie banner overlap, empty-basket feedback); Learning: show purchase/newsletter card first on mobile (May Gee)
 - 2026-06-27 — Newsletter: on-site thank-you messages + Resend welcome email after MailerLite subscribe (May Gee)
 - 2026-06-27 — MailerLite: single opt-in (active) instead of double opt-in confirmation email (May Gee)
 - 2026-06-27 — Wire MailerLite to contact form marketing opt-in (main); align shop + learning newsletter paths (May Gee)

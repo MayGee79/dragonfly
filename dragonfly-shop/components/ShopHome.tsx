@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import type { ClientCatalogItem } from '@/lib/catalog'
 import styles from './ShopHome.module.css'
@@ -47,6 +47,8 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
   const [newsletter, setNewsletter] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const basketRef = useRef<HTMLElement>(null)
+  const prevLineCountRef = useRef(0)
 
   const qtyFor = (id: string) => basket[id] ?? 0
 
@@ -74,7 +76,15 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
       .filter((p) => p.qty > 0)
   }, [catalog, basket])
 
+  useEffect(() => {
+    if (lineItems.length > 0 && prevLineCountRef.current === 0) {
+      basketRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+    }
+    prevLineCountRef.current = lineItems.length
+  }, [lineItems.length])
+
   const hasPhysical = lineItems.some((l) => l.kind === 'physical')
+  const basketEmpty = lineItems.length === 0
 
   async function goToCheckout() {
     setError(null)
@@ -153,7 +163,7 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
         </div>
 
         <div className={styles.mainLayout}>
-          <aside className={styles.basket} aria-label="Basket and checkout">
+          <aside ref={basketRef} className={styles.basket} aria-label="Basket and checkout">
             <h2 className={styles.basketHeading}>Basket</h2>
             {lineItems.length === 0 ? (
               <p className={styles.basketEmpty}>
@@ -211,10 +221,18 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
 
               {error && <p className={styles.error}>{error}</p>}
 
+              {basketEmpty && (
+                <p id="shop-basket-hint" className={styles.basketHint} role="status">
+                  Add at least one item to your basket using the basket icon or quantity field on a
+                  product, then click Pay with Stripe.
+                </p>
+              )}
+
               <button
                 type="button"
-                className={styles.btn}
-                disabled={loading || lineItems.length === 0}
+                className={`${styles.btn}${basketEmpty ? ` ${styles.btnNeedsItems}` : ''}`}
+                disabled={loading}
+                aria-describedby={basketEmpty ? 'shop-basket-hint' : undefined}
                 onClick={() => void goToCheckout()}
               >
                 {loading ? 'Redirecting…' : 'Pay with Stripe'}

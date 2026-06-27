@@ -3,6 +3,8 @@
   --shop-control-height: 40px;
   --shop-surface-shadow: 0 1px 2px rgba(45, 55, 88, 0.08);
   --shop-surface-border: 1px solid rgba(45, 55, 88, 0.28);
+  /* Keep checkout controls above the fixed cookie banner when scrolled to the bottom */
+  padding-bottom: 6rem;
 }
 
 .wrap {
@@ -277,11 +279,14 @@
 
 .basket {
   align-self: start;
+  position: sticky;
+  top: 96px;
   background: #ffffff;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
   padding: var(--spacing-lg);
   border: 1px solid rgba(45, 55, 88, 0.12);
+  scroll-margin-bottom: 7rem;
 }
 
 .basketHeading {
@@ -371,6 +376,17 @@
   cursor: not-allowed;
 }
 
+.btnNeedsItems {
+  opacity: 0.85;
+}
+
+.basketHint {
+  margin: var(--spacing-sm) 0 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+}
+
 .error {
   color: #8b2942;
   font-size: var(--font-size-sm);
@@ -442,6 +458,7 @@
 
   .basket {
     order: 2;
+    position: static;
   }
 
   .grid {
