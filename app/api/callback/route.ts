@@ -2,6 +2,20 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export const dynamic = 'force-dynamic'
 
+type GitHubAccessTokenResponse = {
+  access_token?: string
+  token_type?: string
+  scope?: string
+  error?: string
+  error_description?: string
+}
+
+function getRequestOrigin(request: NextRequest): string {
+  const protocol = request.headers.get('x-forwarded-proto') || 'https'
+  const host = request.headers.get('host') || 'localhost:3000'
+  return `${protocol}://${host}`
+}
+
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const code = searchParams.get('code')
@@ -11,13 +25,16 @@ export async function GET(request: NextRequest) {
   if (!code) {
     return new NextResponse('Missing authorization code. Please try again.', {
       status: 400,
-      headers: { 'Content-Type': 'text/plain' },
+      headers: { 'Content-Type': 'text/plain; charset=utf-8' },
     })
   }
 
   if (!clientId || !clientSecret) {
     return new NextResponse('OAuth credentials not configured', { status: 500 })
   }
+
+  const origin = getRequestOrigin(request)
+  const redirectUri = `${origin}/api/callback`
 
   try {
     const response = await fetch('https://github.com/login/oauth/access_token', {
@@ -30,186 +47,123 @@ export async function GET(request: NextRequest) {
         client_id: clientId,
         client_secret: clientSecret,
         code,
+        redirect_uri: redirectUri,
       }),
     })
 
-    const data = await response.json()
+    const data = (await response.json()) as GitHubAccessTokenResponse
 
-    if (data.error) {
-      return new NextResponse(`Error: ${data.error_description || data.error}`, { status: 400 })
+    if (!response.ok || data.error || !data.access_token) {
+      const message = data.error_description || data.error || 'OAuth token exchange failed.'
+      return new NextResponse(`Error: ${message}`, {
+        status: 400,
+        headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+      })
     }
 
-    const protocol = request.headers.get('x-forwarded-proto') || 'https'
-    const host = request.headers.get('host') || 'localhost:3000'
-    const targetOrigin = `${protocol}://${host}`
+    const cmsToken = {
+      token: data.access_token,
+      access_token: data.access_token,
+      token_type: data.token_type,
+      scope: data.scope,
+      provider: 'github',
+    }
+    const cmsMessage = `authorization:github:success:${JSON.stringify(cmsToken)}`
+    const cmsStorage = JSON.stringify({
+      token: data.access_token,
+      backendName: 'github',
+    })
 
-    // Return HTML that posts message to opener (for popup flow)
-    // Decap CMS expects the message in a specific format
     const html = `<!DOCTYPE html>
 <html lang="en-GB">
 <head>
-  <title>Authorizing...</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin authorization</title>
   <style>
     body {
       font-family: system-ui, -apple-system, sans-serif;
-      padding: 20px;
-      max-width: 600px;
-      margin: 50px auto;
+      margin: 0;
+      padding: 2rem 1.25rem;
+      background: #f5f7fb;
+      color: #1f2937;
+      text-align: center;
     }
-    #debug {
-      background: #f5f5f5;
-      padding: 15px;
+    .card {
+      max-width: 520px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 1.25rem 1rem;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+    }
+    h1 {
+      font-size: 1.125rem;
+      margin: 0 0 0.5rem;
+    }
+    p {
+      margin: 0.25rem 0;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+    .link {
+      display: inline-block;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      background: #2d3758;
+      color: #fff;
+      padding: 0.55rem 0.95rem;
       border-radius: 4px;
-      margin: 20px 0;
-      font-size: 12px;
-      color: #333;
-      line-height: 1.6;
-      max-height: 400px;
-      overflow-y: auto;
-    }
-    .success {
-      color: #28a745;
-      font-weight: bold;
-    }
-    .error {
-      color: #dc3545;
-      font-weight: bold;
-    }
-    button {
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    button:hover {
-      background: #0056b3;
     }
   </style>
 </head>
 <body>
-  <h2>OAuth Authorization</h2>
-  <p>Completing authorization...</p>
-  <div id="debug"></div>
-  <button id="closeBtn" style="display: none;" onclick="window.close()">Close Window</button>
+  <div class="card">
+    <h1>Finishing sign-in…</h1>
+    <p>You can close this tab if it does not close automatically.</p>
+    <a class="link" href="/admin/">Return to admin</a>
+  </div>
   <script>
     (function() {
-      const targetOrigin = ${JSON.stringify(targetOrigin)};
-      const debugEl = document.getElementById('debug');
-      const closeBtn = document.getElementById('closeBtn');
-      let autoCloseTimer = null;
-      
-      function escapeHtml(s) {
-        if (s == null) return '';
-        const d = document.createElement('div');
-        d.textContent = String(s);
-        return d.innerHTML;
-      }
-      
-      function log(msg, type) {
-        const time = new Date().toLocaleTimeString();
-        const className = type === 'success' ? 'success' : type === 'error' ? 'error' : '';
-        if (debugEl) {
-          debugEl.innerHTML += '<div class="' + className + '">[' + escapeHtml(time) + '] ' + escapeHtml(msg) + '</div>';
-        }
-        console.log('[OAuth Callback]', msg);
-      }
-      
-      function showCloseButton() {
-        if (closeBtn) {
-          closeBtn.style.display = 'block';
-        }
-        // Auto-close after 10 seconds if user doesn't click
-        autoCloseTimer = setTimeout(() => {
-          log('Auto-closing window in 3 seconds...', '');
-          setTimeout(() => {
-            if (window.opener && !window.opener.closed) {
-              window.close();
-            }
-          }, 3000);
-        }, 10000);
-      }
-      
+      const targetOrigin = ${JSON.stringify(origin)};
+      const cmsMessage = ${JSON.stringify(cmsMessage)};
+      const cmsStorage = ${JSON.stringify(cmsStorage)};
+
       try {
-        log('Starting callback script...');
-        const token = ${JSON.stringify(data)};
-        log('Token received: ' + (token.access_token ? 'YES ✓' : 'NO ✗'));
-        
-        if (token.access_token) {
-          log('Access token length: ' + token.access_token.length + ' characters', 'success');
-        }
-        
-        // Decap CMS expects this exact message format
-        const message = 'authorization:github:success:' + JSON.stringify(token);
-        log('Message format: ' + message.substring(0, 80) + '...');
-        
-        // Store token in localStorage as backup (Decap CMS checks this)
-        localStorage.setItem('netlify-cms-user', JSON.stringify({
-          token: token.access_token,
-          backendName: 'github'
-        }));
-        localStorage.setItem('decap-cms-user', JSON.stringify({
-          token: token.access_token,
-          backendName: 'github'
-        }));
-        log('Token stored in localStorage as backup', 'success');
-        
-        if (window.opener && !window.opener.closed) {
-          log('window.opener exists: YES', 'success');
-          log('Sending postMessage to parent window...');
-          
-          // Send message multiple times to ensure it's received
-          window.opener.postMessage(message, targetOrigin);
-          setTimeout(() => {
-            window.opener.postMessage(message, targetOrigin);
-            log('postMessage sent again (retry)', 'success');
-          }, 500);
-          setTimeout(() => {
-            window.opener.postMessage(message, targetOrigin);
-            log('postMessage sent again (final retry)', 'success');
-          }, 1000);
-          
-          log('postMessage sent successfully!', 'success');
-          log('Waiting 3 seconds before closing...');
-          showCloseButton();
-          setTimeout(() => {
-            log('Closing window now...', '');
-            if (window.opener && !window.opener.closed) {
-              window.close();
-            }
-          }, 3000);
-        } else {
-          log('No window.opener found, using localStorage fallback...', '');
-          // Fallback: redirect to admin with token in localStorage
-          localStorage.setItem('netlify-cms-user', JSON.stringify({
-            token: token.access_token,
-            backendName: 'github'
-          }));
-          localStorage.setItem('decap-cms-user', JSON.stringify({
-            token: token.access_token,
-            backendName: 'github'
-          }));
-          log('Token stored in localStorage', 'success');
-          log('Redirecting to admin in 2 seconds...', '');
-          showCloseButton();
-          setTimeout(() => {
-            window.location.href = '/admin/';
-          }, 2000);
-        }
-      } catch (error) {
-        log('ERROR: ' + (error && error.message), 'error');
-        log('Stack: ' + (error && error.stack), 'error');
-        document.body.innerHTML = '<h2 style="color: red;">Error</h2><p style="color: red;">' + escapeHtml(error && error.message) + '</p><p><a href="/admin/">Return to admin</a></p>';
+        localStorage.setItem('netlify-cms-user', cmsStorage);
+        localStorage.setItem('decap-cms-user', cmsStorage);
+      } catch (e) {}
+
+      let sent = false;
+      if (window.opener && !window.opener.closed) {
+        try {
+          window.opener.postMessage(cmsMessage, targetOrigin);
+          sent = true;
+        } catch (e) {}
+        try {
+          window.opener.postMessage(cmsMessage, '*');
+          sent = true;
+        } catch (e) {}
       }
+
+      if (sent) {
+        setTimeout(function() { window.close(); }, 250);
+        setTimeout(function() { window.close(); }, 1200);
+        return;
+      }
+
+      window.location.replace('/admin/');
     })();
   </script>
 </body>
 </html>`
 
     return new NextResponse(html, {
-      headers: { 'Content-Type': 'text/html' },
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Cache-Control': 'no-store',
+      },
     })
   } catch (error) {
     console.error('OAuth callback error:', error)
