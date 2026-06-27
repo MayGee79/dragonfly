@@ -4,6 +4,7 @@ Backfilled from `git log` on 2026-05-07.
 Format: YYYY-MM-DD — subject (author) [short-sha]
 
 ## 2026-06
+- 2026-06-27 — Admin CMS config 404 hotfix: ensure config URL resolves on current host and avoid /admin/ callback fallback path (May Gee)
 - 2026-06-27 — Admin CMS hotfix: restore blog editor content pane by removing layout overrides from custom admin CSS (May Gee)
 - 2026-06-27 — Admin OAuth callback: simplify Decap login handoff and remove debug popup noise for more reliable sign-in (May Gee)
 - 2026-06-27 — Admin CMS stability: remove fragile Decap DOM overrides so save/publish behaves reliably (May Gee)

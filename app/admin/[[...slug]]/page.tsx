@@ -9,12 +9,14 @@ export default async function AdminPage() {
   const headersList = await headers()
   const host = headersList.get('host') || ''
   const isLocal = host.startsWith('localhost') || host.startsWith('127.0.0.1')
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dragonflypsychotherapy.co.uk'
-  const configUrl = isLocal ? '/admin/config.local.yml' : `${baseUrl}/admin/config.yml`
+  const protocol = isLocal ? 'http' : headersList.get('x-forwarded-proto') || 'https'
+  const origin = host ? `${protocol}://${host}` : 'https://www.dragonflypsychotherapy.co.uk'
+  const configPath = isLocal ? '/admin/config.local.yml' : '/admin/config.yml'
+  const configUrl = `${origin}${configPath}`
 
   return (
     <>
-      {/* Local: config.local.yml. Production: config.yml (GitHub OAuth) */}
+      {/* Always resolve config from the current origin to avoid env/domain mismatches */}
       <link rel="cms-config-url" href={configUrl} type="text/yaml" />
       <link rel="stylesheet" href="/admin/custom.css?v=38" />
       {/* Admin Navigation Bar */}

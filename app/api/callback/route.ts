@@ -122,7 +122,7 @@ export async function GET(request: NextRequest) {
   <div class="card">
     <h1>Finishing sign-in…</h1>
     <p>You can close this tab if it does not close automatically.</p>
-    <a class="link" href="/admin/">Return to admin</a>
+    <a class="link" href="/admin">Return to admin</a>
   </div>
   <script>
     (function() {
@@ -153,7 +153,7 @@ export async function GET(request: NextRequest) {
         return;
       }
 
-      window.location.replace('/admin/');
+      window.location.replace('/admin');
     })();
   </script>
 </body>
