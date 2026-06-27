@@ -26,34 +26,6 @@ body {
   color: var(--color-text) !important;
 }
 
-/* Keep Decap's own save/publish toolbar behavior intact. */
-#nc-root [class*='ToolbarContainer'],
-#nc-root [class*='toolbarContainer'],
-#nc-root [class*='EditorContainer'],
-#nc-root [class*='AppHeader'],
-#nc-root [class*='appHeader'] {
-  position: static !important;
-  top: auto !important;
-}
-
-#nc-root [class*='AppHeader'],
-#nc-root [class*='appHeader'] {
-  background: #ffffff !important;
-  border-bottom: 1px solid rgba(45, 55, 88, 0.1) !important;
-}
-
-#nc-root [class*='Sidebar'],
-#nc-root [class*='sidebar'] {
-  background: #ffffff !important;
-  border-right: 1px solid rgba(45, 55, 88, 0.1) !important;
-}
-
-#nc-root [class*='mainContainer'],
-#nc-root [class*='main'],
-#nc-root [class*='MainContainer'] {
-  background: var(--color-bg) !important;
-}
-
 #nc-root input[type='text'],
 #nc-root input[type='email'],
 #nc-root input[type='url'],

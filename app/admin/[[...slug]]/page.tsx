@@ -16,7 +16,7 @@ export default async function AdminPage() {
     <>
       {/* Local: config.local.yml. Production: config.yml (GitHub OAuth) */}
       <link rel="cms-config-url" href={configUrl} type="text/yaml" />
-      <link rel="stylesheet" href="/admin/custom.css?v=37" />
+      <link rel="stylesheet" href="/admin/custom.css?v=38" />
       {/* Admin Navigation Bar */}
       <nav className={styles.adminNav}>
         <div className={styles.navContainer}>
