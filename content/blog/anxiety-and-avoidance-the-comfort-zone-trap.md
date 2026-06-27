@@ -1,12 +1,13 @@
 ---
+excerpt: Avoidance feels like relief in the moment, but it keeps anxiety going.
+  Understanding the anxiety-avoidance cycle and graded exposure can help you
+  widen your comfort zone again.
+author: Victoria Froome
 title: "Anxiety and Avoidance: The Comfort Zone Trap"
 date: 2026-06-12T00:00:00.000+00:00
-author: Victoria Froome
 featuredImage: /images/anxiety-avoidance-comfort-zone-trap.png
-category: Mental Health
 featured: false
 published: true
-excerpt: "Avoidance feels like relief in the moment, but it keeps anxiety going. Understanding the anxiety-avoidance cycle and graded exposure can help you widen your comfort zone again."
 tags:
   - anxiety
   - avoidance
@@ -14,8 +15,8 @@ tags:
   - graded exposure
   - comfort zone
   - mental health
+category: Mental Health
 ---
-
 If there is one thing anxiety is brilliant at, it is convincing you that avoidance is a good move.
 
 Do not go to the party - you will embarrass yourself. Do not open the letter - it might be bad news. Do not make the phone call - you will say something stupid. Do not drive on the motorway, do not eat in the restaurant, do not raise your hand in the meeting, do not check the bank balance. Just... do not.
@@ -38,7 +39,8 @@ The evidence-based approach is graded exposure - a gradual, stepped process of a
 
 This might look like making a short phone call before working up to a long one. Having coffee with one friend before attending a group event. Driving on a quiet dual carriageway before tackling the motorway. Reading a health article without Googling the symptoms afterwards. Each step teaches your nervous system something new: I felt anxious, I stayed with it, and I survived.
 
-The key to graded exposure is that you stay in the situation long enough for the anxiety to peak and then begin to come down naturally. If you leave at peak anxiety, your brain learns "I escaped just in time" rather than "the anxiety passed on its own." This is why pacing matters - you need enough challenge to activate the anxiety, but not so much that you are overwhelmed.
+The key to graded exposure is that you stay in the situation long enough for the anxiety to peak and then begin to come down naturally. If you leave at peak anxiety, your brain learns "I escaped just in time" rather than "the anxiety passed on its own." \
+This is why pacing matters - you need enough challenge to activate the anxiety, but not so much that you are overwhelmed.
 
 A few practical principles for working with avoidance. Start by mapping your avoidance patterns. What are you avoiding? What safety behaviours are you using? What would life look like without these? Then create a hierarchy - a list of feared situations ranked from least to most anxiety-provoking. Begin with the lower items and work your way up, spending enough time in each situation for the anxiety to reduce before moving on.
 
