@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-
-const MAILERLITE_ENDPOINT = 'https://connect.mailerlite.com/api/subscribers'
+import { subscribeToMailerLite } from '@/lib/mailerlite'
 
 type Body = {
   email?: unknown
@@ -8,8 +7,7 @@ type Body = {
 }
 
 export async function POST(request: NextRequest) {
-  const apiKey = process.env.MAILERLITE_API_KEY
-  if (!apiKey) {
+  if (!process.env.MAILERLITE_API_KEY) {
     console.error('MAILERLITE_API_KEY is not set')
     return NextResponse.json({ error: 'MailerLite is not configured' }, { status: 503 })
   }
@@ -27,32 +25,15 @@ export async function POST(request: NextRequest) {
   if (!firstName) return NextResponse.json({ error: 'First name is required' }, { status: 400 })
   if (!email) return NextResponse.json({ error: 'Email is required' }, { status: 400 })
 
-  const payload: Record<string, unknown> = {
-    email,
-    fields: { name: firstName },
-    status: 'unconfirmed',
-  }
-  const groupId = process.env.MAILERLITE_GROUP_ID?.trim()
-  if (groupId) payload.groups = [groupId]
+  const result = await subscribeToMailerLite({ email, firstName })
 
-  const res = await fetch(MAILERLITE_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload),
-  })
-
-  if (res.status === 409) {
+  if (result.ok && result.alreadySubscribed) {
     return NextResponse.json({ ok: true, alreadySubscribed: true }, { status: 409 })
   }
 
-  if (res.status === 200 || res.status === 201) {
+  if (result.ok) {
     return NextResponse.json({ ok: true }, { status: 200 })
   }
 
-  const raw = await res.text().catch(() => '')
-  console.error('MailerLite subscribe error:', res.status, raw)
   return NextResponse.json({ error: 'Subscription failed' }, { status: 500 })
 }

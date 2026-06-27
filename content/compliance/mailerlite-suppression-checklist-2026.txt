@@ -17,8 +17,9 @@ This checklist helps confirm that people who unsubscribe or opt out are not cont
 ---
 
 2. Where subscribers come from (consent trail)
-[ ] Main website resource download form → double opt-in (unconfirmed until they confirm by email).
-[ ] Online shop checkout → optional newsletter tick → double opt-in via Stripe webhook (after webhook is configured in Stripe + Vercel).
+[ ] Main website resource download form → explicit opt-in tick box; added to MailerLite as active subscriber.
+[ ] Online shop checkout → optional newsletter tick → MailerLite via Stripe webhook (after webhook is configured in Stripe + Vercel).
+[ ] Main website contact form → optional marketing tick → MailerLite when ticked.
 [ ] Therapy Client Agreement / manual sign-up → separate process; consent recorded outside MailerLite where applicable.
 [ ] I do not add email addresses to MailerLite without a clear opt-in or valid soft opt-in basis documented in the Privacy Notice.
 

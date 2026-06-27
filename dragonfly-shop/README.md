@@ -41,7 +41,7 @@ The main Dragonfly site nav **SHOP** link now points to `https://dragonflyshop.c
 
 ## Newsletter opt-in (MailerLite)
 
-If the customer ticks the optional newsletter box at checkout, a Stripe webhook adds them to MailerLite with **double opt-in** (`status: unconfirmed`).
+If the customer ticks the optional newsletter box at checkout, a Stripe webhook adds them to MailerLite as an **active** subscriber (single opt-in after the explicit tick box).
 
 1. In Vercel (shop project), set `MAILERLITE_API_KEY` (same key as the main site is fine).
 2. Optionally set `MAILERLITE_GROUP_ID` for a dedicated “shop” group.

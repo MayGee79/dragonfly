@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import styles from './Contact.module.css'
+import { NEWSLETTER_SUBSCRIBED_SESSION_KEY } from '@/lib/newsletterCopy'
 
 export default function Contact() {
   const router = useRouter()
@@ -59,6 +60,9 @@ export default function Contact() {
       if (response.ok) {
         if (typeof window !== 'undefined') {
           sessionStorage.setItem('contact_form_submitted', '1')
+          if (formData.marketing) {
+            sessionStorage.setItem(NEWSLETTER_SUBSCRIBED_SESSION_KEY, '1')
+          }
         }
         setSubmitStatus('success')
         setIsSubmitting(false)

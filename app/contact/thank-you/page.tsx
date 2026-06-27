@@ -1,6 +1,7 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { ContactFormConversion } from '@/components/ContactFormConversion'
+import NewsletterSubscribeNote from '@/components/NewsletterSubscribeNote'
 import Link from 'next/link'
 import styles from './thank-you.module.css'
 import type { Metadata } from 'next'
@@ -25,6 +26,7 @@ export default function ThankYouPage() {
           <div className={styles.container}>
             <div className={styles.content}>
               <h1 className={styles.title}>Thank You!</h1>
+              <NewsletterSubscribeNote />
               <p className={styles.message}>
                 Your message has been sent successfully. I&apos;ll get back to you as soon as possible. Please check
                 your spam folder if you do not hear from me within 24 hours.

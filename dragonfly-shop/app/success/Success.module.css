@@ -94,3 +94,12 @@
 .sectionHeading {
   margin-top: var(--spacing-lg);
 }
+
+.newsletterNote {
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+  background: rgba(45, 55, 88, 0.06);
+  border-left: 4px solid var(--color-primary, #2d3758);
+  border-radius: var(--radius-md, 8px);
+  line-height: var(--line-height-relaxed, 1.6);
+}

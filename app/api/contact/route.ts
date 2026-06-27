@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { subscribeToMailerLite } from '@/lib/mailerlite'
 
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000
 const RATE_LIMIT_MAX = 5
@@ -140,6 +141,20 @@ export async function POST(request: NextRequest) {
   if (confirmError) {
     // Enquiry was sent; only confirmation failed. Log but don't fail the request.
     console.error('Resend confirmation error:', confirmError)
+  }
+
+  if (marketing) {
+    const nameParts = name.trim().split(/\s+/)
+    const firstName = nameParts[0] || name.trim()
+    const mailerLiteResult = await subscribeToMailerLite({
+      email: email.trim(),
+      firstName,
+    })
+    if (!mailerLiteResult.ok) {
+      console.error('[contact] MailerLite subscribe failed:', mailerLiteResult.error, {
+        email: email.trim(),
+      })
+    }
   }
 
   recordRequest(ip)

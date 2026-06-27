@@ -4,6 +4,7 @@ import type { FormEvent, MouseEvent as ReactMouseEvent } from 'react'
 import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import styles from './ResourceSignupModal.module.css'
+import { NEWSLETTER_THANK_YOU_MESSAGE } from '@/lib/newsletterCopy'
 
 type SubscribeResult = { ok: true; alreadySubscribed?: boolean } | { ok: false; error: string }
 
@@ -36,6 +37,7 @@ export default function ResourceSignupModal(props: {
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [subscribed, setSubscribed] = useState(false)
 
   const errorMessage = useMemo(() => {
     if (!error) return null
@@ -46,6 +48,7 @@ export default function ResourceSignupModal(props: {
     if (!isOpen) return
     setError(null)
     setIsSubmitting(false)
+    setSubscribed(false)
 
     const t = window.setTimeout(() => {
       firstNameRef.current?.focus()
@@ -82,7 +85,7 @@ export default function ResourceSignupModal(props: {
     setIsSubmitting(false)
 
     if (result.ok) {
-      onSubscribedAndDownload()
+      setSubscribed(true)
       return
     }
 
@@ -104,14 +107,24 @@ export default function ResourceSignupModal(props: {
 
         <div className={styles.header}>
           <h2 className={styles.title} id="resource-modal-title">
-            Get your free resource
+            {subscribed ? 'Thank you!' : 'Get your free resource'}
           </h2>
           <p className={styles.subtitle} id="resource-modal-subtitle">
-            Join the Dragonfly mailing list for updates, tools, resources and wellbeing support straight to your inbox.
+            {subscribed
+              ? NEWSLETTER_THANK_YOU_MESSAGE
+              : 'Join the Dragonfly mailing list for updates, tools, resources and wellbeing support straight to your inbox.'}
           </p>
         </div>
 
         <div className={styles.body}>
+          {subscribed ? (
+            <div className={styles.successPanel}>
+              <p className={styles.successLead}>Your download is ready.</p>
+              <button type="button" className={styles.submitButton} onClick={onSubscribedAndDownload}>
+                Download your resource
+              </button>
+            </div>
+          ) : (
           <form className={styles.form} onSubmit={onSubmit} aria-describedby={errorMessage ? errorId : undefined}>
             <div className={styles.formGroup}>
               <label className={styles.label} htmlFor={firstNameId}>
@@ -155,8 +168,7 @@ export default function ResourceSignupModal(props: {
               <Link href="/privacy-policy" className={styles.privacyLink}>
                 Privacy Notice
               </Link>
-              . We will email you a link to confirm your subscription (double opt-in) before any marketing emails are
-              sent.
+              .
             </p>
 
             <button type="button" className={styles.skipLink} onClick={onCloseAndDownload}>
@@ -169,6 +181,7 @@ export default function ResourceSignupModal(props: {
               </div>
             )}
           </form>
+          )}
         </div>
       </div>
     </div>

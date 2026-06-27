@@ -41,7 +41,7 @@ export async function POST(request: Request) {
         ''
 
       if (email) {
-        const result = await subscribeToMailerLite(email)
+        const result = await subscribeToMailerLite({ email })
         if (!result.ok) {
           console.error('[stripe-webhook] newsletter subscribe failed:', result.error, {
             sessionId: session.id,

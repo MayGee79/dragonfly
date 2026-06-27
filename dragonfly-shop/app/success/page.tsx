@@ -8,6 +8,7 @@ import {
   retrieveCheckoutSession,
 } from '@/lib/checkoutSession'
 import { catalogItemByStripePriceId } from '@/lib/catalog'
+import { NEWSLETTER_THANK_YOU_MESSAGE } from '@/lib/newsletterCopy'
 import styles from './Success.module.css'
 
 export const dynamic = 'force-dynamic'
@@ -146,10 +147,8 @@ export default async function SuccessPage({
         spam/junk.
       </p>
       {newsletterOptIn && (
-        <p>
-          You asked to hear about news and resources by email. Please check your inbox for a{' '}
-          <strong>confirmation email</strong> from my mailing list provider to complete your subscription (double
-          opt-in).
+        <p className={styles.newsletterNote} role="status">
+          {NEWSLETTER_THANK_YOU_MESSAGE}
         </p>
       )}
       <h2 className={styles.sectionHeading}>Your items</h2>
