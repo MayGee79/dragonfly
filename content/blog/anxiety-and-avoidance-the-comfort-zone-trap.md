@@ -39,7 +39,8 @@ The evidence-based approach is graded exposure - a gradual, stepped process of a
 
 This might look like making a short phone call before working up to a long one. Having coffee with one friend before attending a group event. Driving on a quiet dual carriageway before tackling the motorway. Reading a health article without Googling the symptoms afterwards. Each step teaches your nervous system something new: I felt anxious, I stayed with it, and I survived.
 
-The key to graded exposure is that you stay in the situation long enough for the anxiety to peak and then begin to come down naturally. If you leave at peak anxiety, your brain learns "I escaped just in time" rather than "the anxiety passed on its own." \
+The key to graded exposure is that you stay in the situation long enough for the anxiety to peak and then begin to come down naturally. \
+If you leave at peak anxiety, your brain learns "I escaped just in time" rather than "the anxiety passed on its own." \
 This is why pacing matters - you need enough challenge to activate the anxiety, but not so much that you are overwhelmed.
 
 A few practical principles for working with avoidance. Start by mapping your avoidance patterns. What are you avoiding? What safety behaviours are you using? What would life look like without these? Then create a hierarchy - a list of feared situations ranked from least to most anxiety-provoking. Begin with the lower items and work your way up, spending enough time in each situation for the anxiety to reduce before moving on.
