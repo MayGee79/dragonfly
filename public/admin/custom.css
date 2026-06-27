@@ -1,192 +1,72 @@
-/* Import Century Gothic font */
+/* Keep Decap CMS styling lightweight and reliable.
+   Avoid layout/DOM overrides that can interfere with save/publish actions. */
 @import url('https://fonts.googleapis.com/css2?family=Century+Gothic:wght@400;600;700&display=swap');
 
 :root {
   --font-main: 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
   --color-primary: #af93b8;
   --color-primary-dark: #9a82a3;
-  --color-primary-darker: #7d6585;
   --color-text: #2d3758;
   --color-bg: #eef5f6;
-  --color-bg-light: #eef5f6;
-  --color-bg-pink: #eef5f6;
 }
 
-/* Admin CMS styles – Decap CMS. Scoped to #nc-root. */
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
 #nc-root,
 #nc-root * {
   font-family: var(--font-main) !important;
 }
 
-/* Hide Contents, Media, logout/avatar from CMS header – we use custom nav */
-#nc-root [class*="nc-appHeader-nav"],
-#nc-root [class*="AppHeader-nav"],
-#nc-root [class*="AppHeaderNavLink"],
-#nc-root [class*="AppHeaderButton"] a[href="#/"],
-#nc-root [class*="nc-appHeader"] a[href="#/"],
-#nc-root [class*="nc-appHeader"] a[href="#/media"],
-#nc-root a[href="#/"] span:only-child,
-#nc-root a.header-link-active[href="#/"],
-#nc-root [class*="nc-appHeader-user"],
-#nc-root [class*="nc-appHeader-avatar"],
-#nc-root [class*="AppHeader-user"],
-#nc-root [class*="AppHeader"] [class*="avatar"],
-#nc-root [class*="AppHeader"] [class*="Avatar"] {
-  display: none !important;
-}
-/* Hide Contents and Media (link href #/ and Media button) */
-#nc-root a[href="#/"],
-#nc-root a[href="#/media"],
-#nc-root [class*="AppHeader"] [class*="AppHeaderNavLink"],
-#nc-root [class*="AppHeader"] button[class*="AppHeaderButton"]:not([class*="primary"]) {
-  display: none !important;
-}
-
-/* Slightly smaller base font in CMS area */
 #nc-root {
-  font-size: 14px !important;
-}
-
-#nc-root {
+  min-height: calc(100vh - 52px);
   color: var(--color-text) !important;
 }
 
-/* Header styling */
-#nc-root,
-.nc-root,
-[class*="nc-root"] {
-  background-color: var(--color-bg-pink) !important;
+/* Keep Decap's own save/publish toolbar behavior intact. */
+#nc-root [class*='ToolbarContainer'],
+#nc-root [class*='toolbarContainer'],
+#nc-root [class*='EditorContainer'],
+#nc-root [class*='AppHeader'],
+#nc-root [class*='appHeader'] {
+  position: static !important;
+  top: auto !important;
 }
 
-#nc-root header,
-#nc-root [class*="appHeader"],
-#nc-root [class*="header"],
-[class*="nc-appHeader"],
-[class*="nc-header"] {
-  background-color: #ffffff !important;
-  border-bottom: 1px solid rgba(45, 55, 88, 0.1) !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
-  position: sticky !important;
-  top: 44px !important;
-  z-index: 999 !important;
-  min-height: 48px !important;
-}
-
-
-[class*="nc-appHeader-title"],
-[class*="nc-header-title"] {
-  color: var(--color-text) !important;
-  font-weight: 700 !important;
-  font-size: 18px !important;
-}
-
-/* Primary / Save / Publish – lavender fill, large and prominent */
-#nc-root [class*="nc-button-primary"],
-#nc-root [class*="nc-workflowCard-button"],
-#nc-root [class*="nc-appHeader-actions"] button,
-#nc-root [class*="nc-appHeader-actions"] [class*="nc-button"],
-#nc-root [class*="AppHeaderActions"] button,
-#nc-root [class*="ToolbarSectionMain"] button,
-#nc-root [class*="ToolbarSectionMeta"] button,
-#nc-root [class*="nc-entryEditor-toolbarButton"][class*="Save"],
-#nc-root [class*="nc-entryEditor-toolbarButton"][class*="Publish"],
-#nc-root button[class*="primary"],
-#nc-root button[class*="Save"],
-#nc-root button[class*="Publish"] {
-  display: inline-flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  font-family: var(--font-main) !important;
-  font-weight: bold !important;
-  color: #ffffff !important;
-  padding: 0.75em 2em !important;
-  border: none !important;
-  border-radius: 0.6rem !important;
-  background-color: var(--color-primary) !important;
-  font-size: 14px !important;
-  min-height: 44px !important;
-  min-width: 140px !important;
-  transition: 0.3s ease !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
-  letter-spacing: 0.02em !important;
-}
-
-#nc-root [class*="nc-appHeader-actions"] button:hover,
-#nc-root [class*="nc-appHeader-actions"] [class*="nc-button"]:hover,
-#nc-root [class*="nc-button-primary"]:hover,
-#nc-root button[class*="primary"]:hover {
-  background-color: var(--color-primary-dark) !important;
-  box-shadow: 0 0 20px rgba(175, 147, 184, 0.6), 0 2px 8px rgba(0, 0, 0, 0.2) !important;
-  color: #ffffff !important;
-}
-
-#nc-root [class*="nc-appHeader-actions"] button:active,
-#nc-root [class*="nc-appHeader-actions"] [class*="nc-button"]:active,
-#nc-root [class*="nc-button-primary"]:active,
-#nc-root button[class*="primary"]:active {
-  transform: scale(0.98) !important;
-}
-
-/* Publish & Delete entry toolbar buttons – same size, shape, centered text */
-#nc-root [class*="ToolbarSectionMain"] button,
-#nc-root [class*="ToolbarContainer"] button {
-  font-weight: normal !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  line-height: 1 !important;
-  min-width: 140px !important;
-  min-height: 42px !important;
-  padding: 0.5em 1.5em !important;
-  border-radius: 0.6rem !important;
-  font-size: 13px !important;
-  box-sizing: border-box !important;
-}
-
-/* Hide logout/avatar from the editor toolbar – we use our own in the nav */
-#nc-root [class*="ToolbarContainer"] [class*="AvatarDropdown"],
-#nc-root [class*="ToolbarContainer"] [class*="AvatarDropdownButton"] {
-  display: none !important;
-}
-/* Hide the toolbar meta section that only contains avatar (when it's the last child) */
-#nc-root [class*="ToolbarContainer"] > [class*="ToolbarSectionMeta"] {
-  display: none !important;
-}
-
-/* Fix the toolbar so it stays visible – Decap uses ToolbarContainer */
-#nc-root [class*="ToolbarContainer"],
-#nc-root [class*="toolbarContainer"] {
-  position: fixed !important;
-  top: 92px !important;
-  left: 0 !important;
-  right: 0 !important;
-  z-index: 1000 !important;
+#nc-root [class*='AppHeader'],
+#nc-root [class*='appHeader'] {
   background: #ffffff !important;
-  padding: 0.5rem 1rem !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-}
-/* Prevent editor content from hiding under the fixed toolbar */
-#nc-root [class*="EditorContainer"] > [class*="Editor"],
-#nc-root [class*="EditorContainer"] > div:last-child {
-  padding-top: 60px !important;
+  border-bottom: 1px solid rgba(45, 55, 88, 0.1) !important;
 }
 
-/* Input fields */
-#nc-root input[type="text"],
-#nc-root input[type="email"],
-#nc-root input[type="url"],
-#nc-root input[type="number"],
-#nc-root input[type="date"],
-#nc-root input[type="datetime-local"],
+#nc-root [class*='Sidebar'],
+#nc-root [class*='sidebar'] {
+  background: #ffffff !important;
+  border-right: 1px solid rgba(45, 55, 88, 0.1) !important;
+}
+
+#nc-root [class*='mainContainer'],
+#nc-root [class*='main'],
+#nc-root [class*='MainContainer'] {
+  background: var(--color-bg) !important;
+}
+
+#nc-root input[type='text'],
+#nc-root input[type='email'],
+#nc-root input[type='url'],
+#nc-root input[type='number'],
+#nc-root input[type='date'],
+#nc-root input[type='datetime-local'],
 #nc-root textarea,
 #nc-root select {
-  border: 2px solid rgba(45, 55, 88, 0.2) !important;
+  border: 1px solid rgba(45, 55, 88, 0.25) !important;
   border-radius: 8px !important;
   padding: 8px 12px !important;
-  font-family: var(--font-main) !important;
+  background: #ffffff !important;
   color: var(--color-text) !important;
-  background-color: #ffffff !important;
 }
 
 #nc-root input:focus,
@@ -194,273 +74,21 @@
 #nc-root select:focus {
   outline: none !important;
   border-color: var(--color-primary) !important;
-  box-shadow: 0 0 0 3px rgba(199, 141, 167, 0.1) !important;
+  box-shadow: 0 0 0 3px rgba(175, 147, 184, 0.18) !important;
 }
 
-/* Sidebar */
-#nc-root [class*="nc-sidebar"],
-#nc-root [class*="nc-collectionSidebar"] {
-  background-color: #ffffff !important;
-  border-right: 1px solid rgba(45, 55, 88, 0.1) !important;
-}
-
-/* Content, Quick add, and sidebar nav – KINGFRESS style */
-#nc-root [class*="nc-sidebar-navItem"],
-#nc-root [class*="nc-collectionSidebar-navItem"],
-#nc-root [class*="nc-collectionSidebar-section"] > a,
-#nc-root [class*="nc-collectionSidebar-section"] > button,
-#nc-root [class*="nc-collectionTopBar"] button,
-#nc-root [class*="nc-collectionTopBar"] a,
-#nc-root [class*="nc-entryListing-topBar"] button,
-#nc-root [class*="nc-entryListing-topBar"] a {
-  display: inline-flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  font-family: var(--font-main) !important;
-  font-weight: bold !important;
-  color: #ffffff !important;
-  padding: 0.5em 1.2em !important;
-  border: none !important;
-  border-radius: 0.6rem !important;
-  background-color: var(--color-text) !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-  font-size: 11px !important;
-  cursor: pointer !important;
-  transition: 0.3s ease !important;
-  text-decoration: none !important;
-  margin: 2px 3px !important;
-}
-
-#nc-root [class*="nc-sidebar-navItem"]:hover,
-#nc-root [class*="nc-collectionSidebar-navItem"]:hover,
-#nc-root [class*="nc-collectionSidebar-section"] > a:hover,
-#nc-root [class*="nc-collectionSidebar-section"] > button:hover,
-#nc-root [class*="nc-collectionTopBar"] button:hover,
-#nc-root [class*="nc-collectionTopBar"] a:hover,
-#nc-root [class*="nc-entryListing-topBar"] button:hover,
-#nc-root [class*="nc-entryListing-topBar"] a:hover {
-  background-color: var(--color-primary-dark) !important;
-  box-shadow: 0 0 20px rgba(175, 147, 184, 0.5), 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-}
-
-#nc-root [class*="nc-sidebar-navItem-active"],
-#nc-root [class*="nc-collectionSidebar-navItem-active"] {
+/* Style primary actions without forcing visibility/display states. */
+#nc-root button[class*='primary'],
+#nc-root [class*='Button-primary'],
+#nc-root [class*='button-primary'] {
   background-color: var(--color-primary) !important;
+  border-color: var(--color-primary-dark) !important;
+  border-radius: 10px !important;
   color: #ffffff !important;
-  box-shadow: 0 0 0 2px var(--color-primary-dark), 0 2px 4px rgba(0, 0, 0, 0.2) !important;
 }
 
-#nc-root [class*="nc-sidebar-navItem-active"]:hover,
-#nc-root [class*="nc-collectionSidebar-navItem-active"]:hover {
+#nc-root button[class*='primary']:hover,
+#nc-root [class*='Button-primary']:hover,
+#nc-root [class*='button-primary']:hover {
   background-color: var(--color-primary-dark) !important;
-  box-shadow: 0 0 20px rgba(175, 147, 184, 0.6), 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-  color: #ffffff !important;
 }
-
-/* Header nav: Content, Workflow, Media – KINGFRESS style */
-#nc-root [class*="nc-appHeader"] a,
-#nc-root [class*="nc-appHeader"] button,
-#nc-root [class*="nc-header"] a,
-#nc-root [class*="nc-header"] button {
-  display: inline-flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  font-family: var(--font-main) !important;
-  font-weight: bold !important;
-  color: #ffffff !important;
-  padding: 0.5em 1.2em !important;
-  border: none !important;
-  border-radius: 0.6rem !important;
-  background-color: var(--color-text) !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-  font-size: 11px !important;
-  transition: 0.3s ease !important;
-  text-decoration: none !important;
-}
-
-#nc-root [class*="nc-appHeader"] a:hover,
-#nc-root [class*="nc-appHeader"] button:hover,
-#nc-root [class*="nc-header"] a:hover,
-#nc-root [class*="nc-header"] button:hover {
-  background-color: var(--color-primary-dark) !important;
-  box-shadow: 0 0 20px rgba(175, 147, 184, 0.5), 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-}
-
-/* Center Content, Media, Quick add in the middle of the header bar */
-#nc-root header > div,
-#nc-root [class*="appHeader"] > div,
-#nc-root [class*="nc-appHeader"] > div {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 1rem !important;
-  flex-wrap: wrap !important;
-}
-
-#nc-root [class*="nc-appHeader"] ul,
-#nc-root [class*="nc-appHeader"] [class*="nav"],
-#nc-root [class*="nc-appHeader-right"],
-#nc-root [class*="nc-appHeader-actions"] {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-}
-
-/* Quick add button – wider */
-#nc-root [class*="nc-appHeader-actions"] button:first-child,
-#nc-root [class*="nc-appHeader-actions"] > button,
-#nc-root [class*="nc-appHeader-actions"] [class*="dropdown"] button {
-  min-width: 110px !important;
-  padding: 0.5em 1.2em !important;
-}
-
-/* Remove icons and arrows from Content, Media, Quick add – hide via CSS (JS also removes from DOM) */
-#nc-root [class*="nc-appHeader"] svg,
-#nc-root [class*="nc-appHeader"] a svg,
-#nc-root [class*="nc-appHeader"] button svg,
-#nc-root [class*="nc-header"] svg,
-#nc-root [class*="nc-header"] a svg,
-#nc-root [class*="nc-header"] button svg,
-#nc-root [class*="nc-appHeader-nav"] svg,
-#nc-root [class*="nc-appHeader-actions"] svg,
-#nc-root [class*="nc-appHeader"] [class*="nav"] svg,
-#nc-root [class*="nc-appHeader"] [class*="Nav"] svg,
-#nc-root [class*="appHeader"] svg,
-#nc-root [class*="AppHeader"] svg,
-#nc-root [class*="nc-appHeader-actions"] [class*="dropdown"] svg,
-#nc-root [class*="nc-appHeader-actions"] [class*="Dropdown"] svg,
-#nc-root header svg,
-#nc-root [role="banner"] svg {
-  display: none !important;
-  visibility: hidden !important;
-  width: 0 !important;
-  height: 0 !important;
-  overflow: hidden !important;
-  position: absolute !important;
-  left: -9999px !important;
-}
-
-/* Remove arrow/caret from Quick add */
-#nc-root [class*="nc-appHeader-actions"] button::after,
-#nc-root [class*="nc-appHeader-actions"] button::before,
-#nc-root [class*="nc-appHeader-actions"] [class*="dropdown"] button::after,
-#nc-root [class*="nc-appHeader-actions"] [class*="dropdown"] button::before,
-#nc-root [class*="nc-appHeader-actions"] [class*="Dropdown"] button::after,
-#nc-root [class*="nc-appHeader-actions"] [class*="Dropdown"] button::before,
-#nc-root [class*="nc-appHeader-actions"] [class*="caret"],
-#nc-root [class*="nc-appHeader-actions"] [class*="chevron"] {
-  display: none !important;
-  content: none !important;
-  visibility: hidden !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-
-/* View toggle icons (list/gallery) below Pages section – make white */
-#nc-root [class*="nc-collectionTopBar"] svg,
-#nc-root [class*="nc-entryListing-topBar"] svg,
-#nc-root [class*="nc-viewControls"] svg,
-#nc-root [class*="nc-collectionTopBar"] svg path,
-#nc-root [class*="nc-entryListing-topBar"] svg path,
-#nc-root [class*="nc-viewControls"] svg path,
-#nc-root [class*="nc-collectionTopBar"] svg circle,
-#nc-root [class*="nc-entryListing-topBar"] svg circle,
-#nc-root [class*="nc-viewControls"] svg circle {
-  fill: #ffffff !important;
-  stroke: #ffffff !important;
-}
-
-/* Cards – keep subtle styling but don’t override Decap’s list/card layout */
-#nc-root [class*="nc-entryListing-card"],
-#nc-root [class*="nc-card"],
-#nc-root [class*="nc-entryCard"] {
-  background-color: #ffffff !important;
-  border: 1px solid rgba(45, 55, 88, 0.1) !important;
-  border-radius: 8px !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Labels */
-#nc-root label {
-  color: var(--color-text) !important;
-  font-weight: 600 !important;
-  font-size: 11px !important;
-  font-family: var(--font-main) !important;
-}
-
-/* Widget buttons – KINGFRESS style, primary colour */
-#nc-root [class*="nc-widget-topLevelButton"] {
-  font-family: var(--font-main) !important;
-  font-weight: bold !important;
-  background-color: var(--color-primary) !important;
-  color: #ffffff !important;
-  border: none !important;
-  border-radius: 0.6rem !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-  font-size: 11px !important;
-  padding: 0.5em 1.2em !important;
-  transition: 0.3s ease !important;
-}
-
-#nc-root [class*="nc-widget-topLevelButton"]:hover {
-  background-color: var(--color-primary-dark) !important;
-  color: #ffffff !important;
-  box-shadow: 0 0 20px rgba(175, 147, 184, 0.6), 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-}
-
-#nc-root [class*="nc-widget-topLevelButton"]:active {
-  transform: scale(0.98) !important;
-}
-
-/* Markdown editor */
-#nc-root [class*="nc-markdownEditor-toolbar"],
-#nc-root [class*="nc-editorToolbar"] {
-  background-color: var(--color-bg) !important;
-  border-bottom: 1px solid rgba(45, 55, 88, 0.1) !important;
-}
-
-/* Status badges */
-#nc-root [class*="nc-entryListing-status"],
-#nc-root [class*="nc-status"] {
-  background-color: var(--color-bg) !important;
-  color: var(--color-text) !important;
-  border-radius: 4px !important;
-  font-family: var(--font-main) !important;
-}
-
-/* Loading spinner */
-#nc-root [class*="nc-loadingSpinner"],
-#nc-root [class*="nc-spinner"] {
-  border-color: var(--color-primary) !important;
-}
-
-/* Main content area */
-#nc-root [class*="nc-mainContainer"],
-#nc-root [class*="nc-main"] {
-  background-color: var(--color-bg-pink) !important;
-}
-
-/* Editor area */
-#nc-root [class*="nc-entryEditor"],
-#nc-root [class*="nc-editor"] {
-  background-color: #ffffff !important;
-  border-radius: 8px !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Text content */
-#nc-root p,
-#nc-root span,
-#nc-root div,
-#nc-root h1,
-#nc-root h2,
-#nc-root h3,
-#nc-root h4,
-#nc-root h5,
-#nc-root h6 {
-  font-family: var(--font-main) !important;
-  color: var(--color-text) !important;
-}
-
-
