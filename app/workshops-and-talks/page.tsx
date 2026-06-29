@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import { getWorkshopsPage } from '@/lib/content'
 import styles from './workshops-and-talks.module.css'
 import type { Metadata } from 'next'
+import { capMetaDescription } from '@/lib/seo'
 
 // Load gallery in a separate chunk so it doesn't block the page; image loads only when this chunk is in view
 const WorkshopGallery = dynamic(() => import('./WorkshopGallery'), {
@@ -14,12 +15,17 @@ const WorkshopGallery = dynamic(() => import('./WorkshopGallery'), {
 
 export function generateMetadata(): Metadata {
   const page = getWorkshopsPage()
+  const description = capMetaDescription(
+    page?.metaDescription ||
+      'Workshops and talks on anxiety, resilience, burnout, and mental health for schools, parents, and organisations. Surrey and online.',
+  )
+  const title = 'Workshops & Talks on Mental Health in Surrey'
   return {
-    title: page?.title || 'Workshops and Talks',
-    description: page?.metaDescription || 'Workshops and talks on anxiety, resilience, burnout, and mental health for schools, parents, and organisations. Surrey and online.',
+    title,
+    description,
     openGraph: {
-      title: `${page?.title || 'Workshops and Talks'} | Dragonfly Psychotherapy`,
-      description: page?.metaDescription || 'Workshops and talks on mental health for schools, parents, and organisations.',
+      title: `${title} | Dragonfly Psychotherapy`,
+      description,
     },
   }
 }

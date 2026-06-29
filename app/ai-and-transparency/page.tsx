@@ -5,13 +5,15 @@ import Footer from '@/components/Footer'
 import styles from '../privacy-policy/privacy-policy.module.css'
 import { parseAiTransparency } from '@/lib/parseAiTransparency'
 import type { Metadata } from 'next'
+import { capMetaDescription } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'AI and Transparency',
-  description:
+  title: 'AI Use & Transparency in Practice',
+  description: capMetaDescription(
     'How Dragonfly Psychotherapy uses AI tools in practice — and what we never use AI for. Transparency about written resources, administration, and client confidentiality.',
+  ),
   openGraph: {
-    title: 'AI and Transparency | Dragonfly Psychotherapy',
+    title: 'AI Use & Transparency in Practice | Dragonfly Psychotherapy',
     description:
       'How AI tools support written resources and administration at Dragonfly Psychotherapy — never therapy sessions or clinical decisions.',
   },

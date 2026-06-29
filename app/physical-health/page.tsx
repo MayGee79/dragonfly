@@ -5,12 +5,12 @@ import styles from './physical-health.module.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Physical Health Issues',
+  title: 'Therapy for Physical Health Issues in Surrey',
   description: 'Support when living with physical illness or health concerns with integrative psychotherapy in Surrey and online. Mind and body together.',
   alternates: { canonical: 'https://www.dragonflypsychotherapy.co.uk/physical-health' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Physical Health Issues | Dragonfly Psychotherapy',
+    title: 'Therapy for Physical Health Issues in Surrey | Dragonfly Psychotherapy',
     description: 'Support when living with physical illness with integrative psychotherapy in Surrey and online.',
   },
 }

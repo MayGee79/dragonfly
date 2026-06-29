@@ -5,12 +5,12 @@ import styles from './depression.module.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Depression',
+  title: 'Depression Therapy in Surrey & Online',
   description: 'Support for depression with integrative psychotherapy in Surrey and online. A safe space to explore low mood, loss of interest, and finding your way forward.',
   alternates: { canonical: 'https://www.dragonflypsychotherapy.co.uk/depression' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Depression | Dragonfly Psychotherapy',
+    title: 'Depression Therapy in Surrey & Online | Dragonfly Psychotherapy',
     description: 'Support for depression with integrative psychotherapy in Surrey and online.',
   },
 }

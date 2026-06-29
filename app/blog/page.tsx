@@ -6,11 +6,13 @@ import styles from './blog.module.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Blog posts from Dragonfly Psychotherapy on mental health, wellbeing, and integrative psychotherapy. Surrey and online.',
+  title: 'Mental Health Blog & Articles',
+  description:
+    'Articles on mental health, wellbeing, and integrative psychotherapy from Dr Victoria Froome in Surrey. Anxiety, burnout, neurodiversity, young people, and more.',
   openGraph: {
-    title: 'Blog | Dragonfly Psychotherapy',
-    description: 'Blog posts on mental health and integrative psychotherapy.',
+    title: 'Mental Health Blog & Articles | Dragonfly Psychotherapy',
+    description:
+      'Articles on mental health, wellbeing, and integrative psychotherapy from Dragonfly Psychotherapy in Surrey and online.',
   },
 }
 

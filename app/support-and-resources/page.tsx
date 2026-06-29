@@ -6,10 +6,10 @@ import type { Metadata } from 'next'
 import ResourceDownloadGate from '@/components/ResourceDownloadGate'
 
 export const metadata: Metadata = {
-  title: 'Support and Resources',
+  title: 'Mental Health Support & Resources Hub',
   description: 'National and local mental health resources from Dragonfly Psychotherapy. Hub of Hope, Surrey Children & Young People guide, and more.',
   openGraph: {
-    title: 'Support and Resources | Dragonfly Psychotherapy',
+    title: 'Mental Health Support & Resources Hub | Dragonfly Psychotherapy',
     description: 'National and local mental health resources and support links.',
   },
 }

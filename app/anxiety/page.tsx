@@ -4,12 +4,12 @@ import styles from './anxiety.module.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Anxiety & Panic',
+  title: 'Anxiety & Panic Therapy in Surrey',
   description: 'Understanding and managing anxiety with integrative psychotherapy in Surrey and online. Support for worry, panic, and anxiety-related difficulties.',
   alternates: { canonical: 'https://www.dragonflypsychotherapy.co.uk/anxiety' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Anxiety & Panic | Dragonfly Psychotherapy',
+    title: 'Anxiety & Panic Therapy in Surrey | Dragonfly Psychotherapy',
     description: 'Understanding and managing anxiety with integrative psychotherapy in Surrey and online.',
   },
 }

@@ -2,14 +2,17 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import styles from './neurodiversity.module.css'
 import type { Metadata } from 'next'
+import { capMetaDescription } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Neurodiversity (ADHD/Autism)',
-  description: 'Support for neurodivergent individuals with integrative psychotherapy in Surrey and online. ADHD, autism, late diagnosis, masking, and celebrating neurodivergent strengths.',
+  title: 'Neurodiversity Therapy (ADHD & Autism) in Surrey',
+  description: capMetaDescription(
+    'Support for neurodivergent individuals with integrative psychotherapy in Surrey and online. ADHD, autism, late diagnosis, masking, and celebrating neurodivergent strengths.',
+  ),
   alternates: { canonical: 'https://www.dragonflypsychotherapy.co.uk/neurodiversity' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Neurodiversity (ADHD/Autism) | Dragonfly Psychotherapy',
+    title: 'Neurodiversity Therapy (ADHD & Autism) in Surrey | Dragonfly Psychotherapy',
     description: 'Support for neurodivergent individuals with integrative psychotherapy in Surrey and online.',
   },
 }

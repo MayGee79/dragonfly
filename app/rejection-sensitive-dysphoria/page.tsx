@@ -5,12 +5,12 @@ import styles from './rejection-sensitive-dysphoria.module.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Rejection Sensitive Dysphoria (RSD)',
+  title: 'RSD Therapy in Surrey & Online',
   description: 'Support for rejection sensitive dysphoria with integrative psychotherapy in Surrey and online. When rejection feels unbearable.',
   alternates: { canonical: 'https://www.dragonflypsychotherapy.co.uk/rejection-sensitive-dysphoria' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Rejection Sensitive Dysphoria (RSD) | Dragonfly Psychotherapy',
+    title: 'RSD Therapy in Surrey & Online | Dragonfly Psychotherapy',
     description: 'Support for RSD with integrative psychotherapy in Surrey and online.',
   },
 }

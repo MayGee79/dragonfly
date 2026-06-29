@@ -43,7 +43,7 @@ export default function BlogPostsList({ posts }: BlogPostsListProps) {
                 <h2 className={styles.coverTitle}>{post.title}</h2>
               </div>
               <div className={styles.inner}>
-                <h2 className={styles.postTitle}>{post.title}</h2>
+                <p className={styles.postTitle}>{post.title}</p>
                 {post.excerpt && (
                   <p className={styles.excerpt}>{post.excerpt}</p>
                 )}

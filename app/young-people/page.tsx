@@ -5,12 +5,12 @@ import styles from './young-people.module.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Young People 11+',
+  title: 'Therapy for Young People 11+ in Surrey',
   description: 'Therapy for young people aged 11 and over in Surrey and online. A safe space for teens navigating school, relationships, and identity.',
   alternates: { canonical: 'https://www.dragonflypsychotherapy.co.uk/young-people' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Young People 11+ | Dragonfly Psychotherapy',
+    title: 'Therapy for Young People 11+ in Surrey | Dragonfly Psychotherapy',
     description: 'Therapy for young people aged 11+ in Surrey and online.',
   },
 }

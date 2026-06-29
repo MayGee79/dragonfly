@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { META_DESCRIPTION_MAX, truncateAtWord } from '@/lib/seo'
 
 const contentDirectory = path.join(process.cwd(), 'content')
 
@@ -266,8 +267,8 @@ export function getAllPages(): Page[] {
   }
 }
 
-// Generate excerpt from body content (first 160 characters of plain text)
-function generateExcerpt(body: string, maxLength: number = 160): string {
+// Generate excerpt from body content for meta descriptions and blog cards.
+function generateExcerpt(body: string, maxLength: number = META_DESCRIPTION_MAX): string {
   const plainText = body
     .replace(/^#{1,6}\s+/gm, '')
     .replace(/\*\*(.*?)\*\*/g, '$1')
@@ -276,14 +277,8 @@ function generateExcerpt(body: string, maxLength: number = 160): string {
     .replace(/\n+/g, ' ')
     .replace(/\s+/g, ' ')
     .trim()
-  
-  if (plainText.length <= maxLength) {
-    return plainText
-  }
-  
-  const truncated = plainText.substring(0, maxLength)
-  const lastSpace = truncated.lastIndexOf(' ')
-  return (lastSpace > 0 ? truncated.substring(0, lastSpace) : truncated) + '...'
+
+  return truncateAtWord(plainText, maxLength)
 }
 
 export function getBlogPostBySlug(slug: string): BlogPost | null {

@@ -3,14 +3,17 @@ import Footer from '@/components/Footer'
 import Link from 'next/link'
 import styles from './menopause.module.css'
 import type { Metadata } from 'next'
+import { capMetaDescription } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Menopause',
-  description: 'Support through menopause and perimenopause with integrative psychotherapy in Surrey and online. A space to explore the emotional and physical impact of hormonal change.',
+  title: 'Menopause Therapy in Surrey & Online',
+  description: capMetaDescription(
+    'Support through menopause and perimenopause with integrative psychotherapy in Surrey and online. A space to explore the emotional and physical impact of hormonal change.',
+  ),
   alternates: { canonical: 'https://www.dragonflypsychotherapy.co.uk/menopause' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Menopause | Dragonfly Psychotherapy',
+    title: 'Menopause Therapy in Surrey & Online | Dragonfly Psychotherapy',
     description: 'Support through menopause and perimenopause with integrative psychotherapy in Surrey and online.',
   },
 }

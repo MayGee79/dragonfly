@@ -1,6 +1,13 @@
 import Script from 'next/script'
 import { headers } from 'next/headers'
+import type { Metadata } from 'next'
 import styles from './admin.module.css'
+
+export const metadata: Metadata = {
+  title: 'Content Manager',
+  description: 'Private content management area for Dragonfly Psychotherapy website editors.',
+  robots: { index: false, follow: false },
+}
 
 // Must be dynamic so Host header is correct (localhost vs production) for config choice
 export const dynamic = 'force-dynamic'
@@ -42,6 +49,8 @@ export default async function AdminPage() {
           </div>
         </div>
       </nav>
+
+      <h1 className={styles.srOnly}>Content Manager</h1>
       
       <Script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" strategy="afterInteractive" />
       <div id="nc-root"></div>

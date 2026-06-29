@@ -5,10 +5,10 @@ import type { Metadata } from 'next'
 import ResourceDownloadGate from '@/components/ResourceDownloadGate'
 
 export const metadata: Metadata = {
-  title: 'Activities and Tools',
+  title: 'Self-Help Activities, Tools & Resources',
   description: 'Self-help resources, mindfulness exercises, and printable tools from Dragonfly Psychotherapy. Anxiety, resilience, and wellbeing support.',
   openGraph: {
-    title: 'Activities and Tools | Dragonfly Psychotherapy',
+    title: 'Self-Help Activities, Tools & Resources | Dragonfly Psychotherapy',
     description: 'Self-help resources, mindfulness exercises, and printable tools for anxiety and wellbeing.',
   },
 }

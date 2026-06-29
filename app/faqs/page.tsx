@@ -6,10 +6,10 @@ import styles from './faqs.module.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'FAQs',
+  title: 'Therapy FAQs for Clients in Surrey',
   description: 'Frequently asked questions about therapy, sessions, fees, and how to get started with Dragonfly Psychotherapy in Surrey and online.',
   openGraph: {
-    title: 'FAQs | Dragonfly Psychotherapy',
+    title: 'Therapy FAQs for Clients in Surrey | Dragonfly Psychotherapy',
     description: 'Frequently asked questions about therapy, sessions, fees, and how to get started with Dragonfly Psychotherapy in Surrey and online.',
   },
 }

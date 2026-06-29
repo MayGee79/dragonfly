@@ -5,11 +5,13 @@ import styles from './testimonials.module.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Testimonials',
-  description: 'What clients say about working with Dragonfly Psychotherapy. Integrative psychotherapy in Surrey and online.',
+  title: 'Client Testimonials & Reviews',
+  description:
+    'Read what clients say about integrative psychotherapy with Dr Victoria Froome at Dragonfly Psychotherapy in Guildford, East Horsley, Surrey and online.',
   openGraph: {
-    title: 'Testimonials | Dragonfly Psychotherapy',
-    description: 'Client testimonials from Dragonfly Psychotherapy.',
+    title: 'Client Testimonials & Reviews | Dragonfly Psychotherapy',
+    description:
+      'Client testimonials about integrative psychotherapy with Dragonfly Psychotherapy in Surrey and online.',
   },
 }
 

@@ -9,6 +9,10 @@ const AnalyticsLoader = dynamic(() => import('@/components/AnalyticsLoader'), { 
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dragonflypsychotherapy.co.uk'
 
+const defaultTitle = 'Counselling & Psychotherapy in Surrey'
+const defaultDescription =
+  'Integrative psychotherapy in Guildford, East Horsley and Surrey and online. Anxiety, depression, burnout and transitions with Dr Victoria Froome, BACP.'
+
 export async function generateMetadata(): Promise<Metadata> {
   const headersList = await headers()
   const pathname = headersList.get('x-pathname') || '/'
@@ -18,10 +22,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(baseUrl),
     title: {
-      default: 'Counselling and Psychotherapy in Surrey | Dragonfly Psychotherapy',
+      default: `${defaultTitle} | Dragonfly Psychotherapy`,
       template: '%s | Dragonfly Psychotherapy',
     },
-    description: 'Psychotherapy and counselling in Guildford, East Horsley and Surrey – and online. Depression, anxiety, burnout, life transitions, neurodiversity, self-esteem. Dr Victoria Froome, BACP-registered.',
+    description: defaultDescription,
     authors: [{ name: 'Dragonfly Psychotherapy' }],
     icons: {
       icon: '/favicon.ico',
@@ -33,14 +37,14 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: 'en_GB',
       siteName: 'Dragonfly Psychotherapy',
-      title: 'Counselling and Psychotherapy in Surrey | Dragonfly Psychotherapy',
-      description: 'Psychotherapy and counselling in Guildford, East Horsley and Surrey – and online. Dr Victoria Froome, BACP-registered.',
+      title: `${defaultTitle} | Dragonfly Psychotherapy`,
+      description: defaultDescription,
       images: [{ url: '/images/dragonfly_logo_blue.png', width: 1200, height: 630, alt: 'Dragonfly Psychotherapy' }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Counselling and Psychotherapy in Surrey | Dragonfly Psychotherapy',
-      description: 'Psychotherapy and counselling in Guildford, East Horsley and Surrey – and online. Dr Victoria Froome, BACP-registered.',
+      title: `${defaultTitle} | Dragonfly Psychotherapy`,
+      description: defaultDescription,
     },
     robots: {
       index: true,

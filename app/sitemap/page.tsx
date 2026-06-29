@@ -6,8 +6,9 @@ import styles from './sitemap.module.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Sitemap',
-  description: 'Sitemap of all pages on Dragonfly Psychotherapy. Find therapy topics, resources, blog, and contact.',
+  title: 'Website Sitemap & Page Index',
+  description:
+    'Browse all pages on Dragonfly Psychotherapy: therapy topics, resources, blog posts, FAQs, workshops, and how to get in touch in Surrey and online.',
   robots: { index: true, follow: true },
 }
 

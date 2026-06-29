@@ -5,12 +5,12 @@ import styles from './transitions.module.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Life Transitions',
+  title: 'Life Transitions Therapy in Surrey & Online',
   description: 'Support through life transitions with integrative psychotherapy in Surrey and online. Change, loss, identity, and finding your way forward.',
   alternates: { canonical: 'https://www.dragonflypsychotherapy.co.uk/transitions' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Life Transitions | Dragonfly Psychotherapy',
+    title: 'Life Transitions Therapy in Surrey & Online | Dragonfly Psychotherapy',
     description: 'Support through life transitions with integrative psychotherapy in Surrey and online.',
   },
 }

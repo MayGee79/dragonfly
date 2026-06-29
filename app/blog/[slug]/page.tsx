@@ -6,6 +6,7 @@ import { sanitizeForDisplay } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import BlogFeaturedImage from '@/components/BlogFeaturedImage'
+import { capMetaDescription, truncateBlogSeoTitle } from '@/lib/seo'
 import styles from './blog-post.module.css'
 
 interface BlogPostPageProps {
@@ -35,16 +36,20 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       ? post.featuredImage
       : `${siteBaseUrl}${post.featuredImage.startsWith('/') ? post.featuredImage : '/' + post.featuredImage}`
     : undefined
+  const metaDescription = capMetaDescription(
+    post.excerpt || `Read ${post.title} on Dragonfly Psychotherapy blog.`,
+  )
+
   return {
-    title: `${post.title} | Dragonfly Psychotherapy`,
-    description: post.excerpt || `Read ${post.title} on Dragonfly Psychotherapy blog.`,
+    title: truncateBlogSeoTitle(post.title),
+    description: metaDescription,
     alternates: {
       canonical: `${siteBaseUrl}${canonicalPath}`,
     },
     robots: { index: true, follow: true },
     openGraph: {
       title: post.title,
-      description: post.excerpt || `Read ${post.title} on Dragonfly Psychotherapy blog.`,
+      description: metaDescription,
       type: 'article',
       publishedTime: post.date,
       authors: [post.author],
