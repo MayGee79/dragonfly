@@ -63,9 +63,6 @@ export async function GET(request: NextRequest) {
 
     const cmsToken = {
       token: data.access_token,
-      access_token: data.access_token,
-      token_type: data.token_type,
-      scope: data.scope,
       provider: 'github',
     }
     const cmsMessage = `authorization:github:success:${JSON.stringify(cmsToken)}`
@@ -125,35 +122,47 @@ export async function GET(request: NextRequest) {
     <a class="link" href="/admin">Return to admin</a>
   </div>
   <script>
-    (function() {
-      const targetOrigin = ${JSON.stringify(origin)};
-      const cmsMessage = ${JSON.stringify(cmsMessage)};
-      const cmsStorage = ${JSON.stringify(cmsStorage)};
+    (function () {
+      var PROVIDER = 'github';
+      var successMessage = ${JSON.stringify(cmsMessage)};
+      var storage = ${JSON.stringify(cmsStorage)};
 
+      // Same-origin backup so a page reload can restore the session if needed.
       try {
-        localStorage.setItem('netlify-cms-user', cmsStorage);
-        localStorage.setItem('decap-cms-user', cmsStorage);
+        localStorage.setItem('netlify-cms-user', storage);
+        localStorage.setItem('decap-cms-user', storage);
       } catch (e) {}
 
-      let sent = false;
-      if (window.opener && !window.opener.closed) {
-        try {
-          window.opener.postMessage(cmsMessage, targetOrigin);
-          sent = true;
-        } catch (e) {}
-        try {
-          window.opener.postMessage(cmsMessage, '*');
-          sent = true;
-        } catch (e) {}
-      }
-
-      if (sent) {
-        setTimeout(function() { window.close(); }, 250);
-        setTimeout(function() { window.close(); }, 1200);
+      var opener = window.opener;
+      if (!opener || opener.closed) {
+        // No popup opener (full-page redirect flow): return to the admin app.
+        window.location.replace('/admin');
         return;
       }
 
-      window.location.replace('/admin');
+      var settled = false;
+
+      // Decap CMS handshake: it replies with "authorizing:github", and only then
+      // does it start listening for the "authorization:github:success" token.
+      function handleMessage(e) {
+        if (settled) return;
+        if (typeof e.data === 'string' && e.data.indexOf('authorizing:' + PROVIDER) === 0) {
+          settled = true;
+          try { opener.postMessage(successMessage, e.origin || '*'); } catch (err) {}
+          window.removeEventListener('message', handleMessage, false);
+          setTimeout(function () { try { window.close(); } catch (err) {} }, 600);
+        }
+      }
+      window.addEventListener('message', handleMessage, false);
+
+      // Announce readiness. Repeat a few times in case the opener's listener
+      // was not attached yet when the popup first loaded.
+      var attempts = 0;
+      var handshake = setInterval(function () {
+        attempts += 1;
+        try { opener.postMessage('authorizing:' + PROVIDER, '*'); } catch (err) {}
+        if (settled || attempts >= 10) clearInterval(handshake);
+      }, 400);
     })();
   </script>
 </body>
