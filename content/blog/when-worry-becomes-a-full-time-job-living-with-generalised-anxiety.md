@@ -1,6 +1,6 @@
 ---
 title: "When Worry Becomes a Full-Time Job: Living with Generalised Anxiety"
-date: 2026-06-29T11:03:00.000+01:00
+date: 2026-06-29T11:07:00.000+01:00
 featuredImage: /images/calm-at-thursley.jpeg
 excerpt: ""
 ---
