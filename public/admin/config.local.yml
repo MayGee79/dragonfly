@@ -157,3 +157,5 @@ collections:
       - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
       - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Published (untick to save as a hidden draft)", name: "published", widget: "boolean", default: true }
+      - { label: "Feature on homepage", name: "featured", widget: "boolean", default: false }

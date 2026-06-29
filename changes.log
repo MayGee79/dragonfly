@@ -257,3 +257,4 @@ Format: YYYY-MM-DD — subject (author) [short-sha]
 - 2026-06-12 — Main site: rename wellness walks to therapeutic walks (Work Together, privacy notice, blog post) (May)
 - 2026-06-16 — Shop: FAQs layout — numbered questions, spacing, add “How are your resources developed?” (May)
 - 2026-06-17 — Learning: moved to standalone repo github.com/MayGee79/dragonfly-learning (May)
+- 2026-06-29 — Blog: fix CMS posts not appearing live — treat missing `published` as published (only `published:false` hides); add Published + Feature toggles to Decap blog config (May)

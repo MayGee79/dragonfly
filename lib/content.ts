@@ -308,7 +308,9 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
       category: data.category,
       tags: data.tags || [],
       featured: data.featured || false,
-      published: data.published || false,
+      // Treat a missing flag as published so CMS posts (which omit it) go live.
+      // Only an explicit `published: false` hides a post as a draft.
+      published: data.published !== false,
     }
   } catch (error) {
     console.error(`Error reading blog post ${slug}:`, error)
