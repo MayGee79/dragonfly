@@ -260,3 +260,4 @@ Format: YYYY-MM-DD — subject (author) [short-sha]
 - 2026-06-29 — Blog: fix CMS posts not appearing live — treat missing `published` as published (only `published:false` hides); add Published + Feature toggles to Decap blog config (May)
 - 2026-06-29 — Security headers: add CSP + COOP/CORP (public paths only, excludes /admin + /api so Decap/OAuth keep working), Permissions-Policy, X-XSS-Protection:0, HSTS preload; disable x-powered-by (May)
 - 2026-06-29 — SEO metadata: shorten/lengthen page titles, cap meta descriptions, blog title truncation, blog index duplicate h2 fix, admin noindex + sr-only h1 (May)
+- 2026-07-17 — Shop: add free Supporting Your Child Through University parents guide with matching product card, cover, rate-limited PDF download route, and no Stripe checkout (May)

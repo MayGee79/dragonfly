@@ -10,7 +10,7 @@ export async function middleware(request: NextRequest) {
     if (denied) return denied
   }
 
-  if (pathname === '/api/download' && request.method === 'GET') {
+  if ((pathname === '/api/download' || pathname === '/api/free-download') && request.method === 'GET') {
     const denied = await enforceRateLimit(request, SHOP_RATE_LIMITS.download)
     if (denied) return denied
   }
@@ -24,5 +24,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/api/checkout', '/api/download', '/success'],
+  matcher: ['/api/checkout', '/api/download', '/api/free-download', '/success'],
 }

@@ -257,33 +257,42 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
                   <div className={styles.cardBody}>
                     <h2 className={styles.cardTitle}>{item.name}</h2>
                     <p className={styles.desc}>{item.shortDescription}</p>
-                    <div className={styles.qty}>
-                      <label className={styles.qtyLabel} htmlFor={`qty-${item.id}`}>
-                        Quantity
-                      </label>
-                      <div className={styles.qtyControls}>
-                        <button
-                          type="button"
-                          className={styles.qtyAddButton}
-                          aria-label={`Add one ${item.name} to basket`}
-                          disabled={qtyFor(item.id) >= 99}
-                          onClick={() => addOneToBasket(item.id)}
-                        >
-                          <span className={styles.qtyAddButtonIcon}>
-                            <BasketIconGraphic />
-                          </span>
-                        </button>
-                        <input
-                          id={`qty-${item.id}`}
-                          type="number"
-                          min={0}
-                          max={99}
-                          value={qtyFor(item.id) || ''}
-                          onChange={(e) => setQty(item.id, e.target.value)}
-                          inputMode="numeric"
-                        />
+                    {item.isFree ? (
+                      <a
+                        className={styles.freeDownloadBtn}
+                        href={`/api/free-download?catalog=${encodeURIComponent(item.id)}`}
+                      >
+                        FREE DOWNLOAD
+                      </a>
+                    ) : (
+                      <div className={styles.qty}>
+                        <label className={styles.qtyLabel} htmlFor={`qty-${item.id}`}>
+                          Quantity
+                        </label>
+                        <div className={styles.qtyControls}>
+                          <button
+                            type="button"
+                            className={styles.qtyAddButton}
+                            aria-label={`Add one ${item.name} to basket`}
+                            disabled={qtyFor(item.id) >= 99}
+                            onClick={() => addOneToBasket(item.id)}
+                          >
+                            <span className={styles.qtyAddButtonIcon}>
+                              <BasketIconGraphic />
+                            </span>
+                          </button>
+                          <input
+                            id={`qty-${item.id}`}
+                            type="number"
+                            min={0}
+                            max={99}
+                            value={qtyFor(item.id) || ''}
+                            onChange={(e) => setQty(item.id, e.target.value)}
+                            inputMode="numeric"
+                          />
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </article>
               ))}

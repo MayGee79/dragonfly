@@ -6,6 +6,8 @@ export type CatalogItem = {
   name: string
   shortDescription: string
   kind: ProductKind
+  /** Free resources download directly without going through Stripe checkout. */
+  isFree?: boolean
   /** Path under `/public` for product card cover art */
   coverImage: string
   /** Filename under `private/downloads/` — served only via `/api/download` after Stripe verifies the session */
@@ -13,6 +15,17 @@ export type CatalogItem = {
 }
 
 export const CATALOG: CatalogItem[] = [
+  {
+    id: 'university-parents-guide-2026',
+    slug: 'university-parents-guide-2026',
+    name: 'Supporting Your Child Through University - Free Parents Guide',
+    shortDescription:
+      'A practical guide for parents supporting a young person through the transition to university, including wellbeing, communication, boundaries, and recognising when extra help may be needed.',
+    kind: 'digital',
+    isFree: true,
+    coverImage: '/images/covers/university-parents-guide-cover.png',
+    privateDownloadFile: 'university-parents-guide-2026.pdf',
+  },
   {
     id: 'rsd-handbook-ebook',
     slug: 'rsd-handbook-ebook',

@@ -53,7 +53,7 @@ export async function POST(request: Request) {
 
     for (const [catalogId, quantity] of merged.entries()) {
       const product = CATALOG.find((c) => c.id === catalogId)
-      if (!product) {
+      if (!product || product.isFree) {
         return NextResponse.json({ error: 'Invalid line item.' }, { status: 400 })
       }
       if (product.kind === 'physical') hasPhysical = true
