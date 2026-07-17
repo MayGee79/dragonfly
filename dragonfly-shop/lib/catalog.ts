@@ -8,6 +8,8 @@ export type CatalogItem = {
   kind: ProductKind
   /** Free resources download directly without going through Stripe checkout. */
   isFree?: boolean
+  /** Not yet purchasable — the card shows a "coming soon" label instead of basket controls. */
+  comingSoon?: boolean
   /** Path under `/public` for product card cover art */
   coverImage: string
   /** Filename under `private/downloads/` — served only via `/api/download` after Stripe verifies the session */
@@ -15,6 +17,16 @@ export type CatalogItem = {
 }
 
 export const CATALOG: CatalogItem[] = [
+  {
+    id: 'university-student-guide-2026',
+    slug: 'university-student-guide-2026',
+    name: 'Starting University - Student Guide',
+    shortDescription:
+      "A student's guide to mental health, wellbeing and navigating the transition to university life - settling in, friendships, study pressures, and looking after yourself away from home.",
+    kind: 'digital',
+    comingSoon: true,
+    coverImage: '/images/covers/university-student-guide-cover.png',
+  },
   {
     id: 'university-parents-guide-2026',
     slug: 'university-parents-guide-2026',

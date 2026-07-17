@@ -197,6 +197,23 @@
     border-color var(--transition-fast);
 }
 
+.comingSoonLabel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  min-height: var(--shop-control-height);
+  padding: 0 var(--spacing-lg);
+  border: var(--shop-surface-border);
+  border-radius: var(--radius-sm);
+  background: rgba(185, 213, 214, 0.45);
+  color: var(--color-text);
+  box-shadow: var(--shop-surface-shadow);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
 .freeDownloadBtn:hover {
   background: #e2dae8;
   border-color: rgba(45, 55, 88, 0.35);

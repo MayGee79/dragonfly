@@ -257,7 +257,9 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
                   <div className={styles.cardBody}>
                     <h2 className={styles.cardTitle}>{item.name}</h2>
                     <p className={styles.desc}>{item.shortDescription}</p>
-                    {item.isFree ? (
+                    {item.comingSoon ? (
+                      <span className={styles.comingSoonLabel}>COMING SOON</span>
+                    ) : item.isFree ? (
                       <Link className={styles.freeDownloadBtn} href={`/free/${item.slug}`}>
                         FREE DOWNLOAD
                       </Link>
