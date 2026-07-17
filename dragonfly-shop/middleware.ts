@@ -15,6 +15,11 @@ export async function middleware(request: NextRequest) {
     if (denied) return denied
   }
 
+  if (pathname === '/api/newsletter-signup' && request.method === 'POST') {
+    const denied = await enforceRateLimit(request, SHOP_RATE_LIMITS.newsletterSignup)
+    if (denied) return denied
+  }
+
   if (pathname === '/success' && request.method === 'GET') {
     const denied = await enforceRateLimit(request, SHOP_RATE_LIMITS.success)
     if (denied) return denied
@@ -24,5 +29,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/api/checkout', '/api/download', '/api/free-download', '/success'],
+  matcher: ['/api/checkout', '/api/download', '/api/free-download', '/api/newsletter-signup', '/success'],
 }

@@ -77,5 +77,6 @@ export async function enforceRateLimit(
 export const SHOP_RATE_LIMITS = {
   checkout: { key: 'checkout', limit: 15, windowSeconds: 60 },
   download: { key: 'download', limit: 60, windowSeconds: 60 },
+  newsletterSignup: { key: 'newsletter-signup', limit: 10, windowSeconds: 60 },
   success: { key: 'success', limit: 30, windowSeconds: 60 },
 } as const satisfies Record<string, RateLimitRule>

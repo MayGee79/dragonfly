@@ -258,12 +258,9 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
                     <h2 className={styles.cardTitle}>{item.name}</h2>
                     <p className={styles.desc}>{item.shortDescription}</p>
                     {item.isFree ? (
-                      <a
-                        className={styles.freeDownloadBtn}
-                        href={`/api/free-download?catalog=${encodeURIComponent(item.id)}`}
-                      >
+                      <Link className={styles.freeDownloadBtn} href={`/free/${item.slug}`}>
                         FREE DOWNLOAD
-                      </a>
+                      </Link>
                     ) : (
                       <div className={styles.qty}>
                         <label className={styles.qtyLabel} htmlFor={`qty-${item.id}`}>
