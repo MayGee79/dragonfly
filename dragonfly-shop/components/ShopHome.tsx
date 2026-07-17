@@ -256,6 +256,7 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
                   </div>
                   <div className={styles.cardBody}>
                     <h2 className={styles.cardTitle}>{item.name}</h2>
+                    {item.priceLabel ? <p className={styles.price}>{item.priceLabel}</p> : null}
                     <p className={styles.desc}>{item.shortDescription}</p>
                     {item.comingSoon ? (
                       <span className={styles.comingSoonLabel}>COMING SOON</span>

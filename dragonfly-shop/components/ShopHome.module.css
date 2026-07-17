@@ -169,6 +169,13 @@
   line-height: var(--line-height-tight);
 }
 
+.price {
+  margin: 0 0 var(--spacing-sm);
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
 .desc {
   font-size: var(--font-size-sm);
   line-height: var(--line-height-relaxed);

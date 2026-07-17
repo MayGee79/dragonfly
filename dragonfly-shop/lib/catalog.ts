@@ -10,6 +10,8 @@ export type CatalogItem = {
   isFree?: boolean
   /** Not yet purchasable — the card shows a "coming soon" label instead of basket controls. */
   comingSoon?: boolean
+  /** Display price on the shop card (e.g. "£9.99"). Stripe remains source of truth at checkout. */
+  priceLabel?: string
   /** Path under `/public` for product card cover art */
   coverImage: string
   /** Filename under `private/downloads/` — served only via `/api/download` after Stripe verifies the session */
@@ -45,6 +47,7 @@ export const CATALOG: CatalogItem[] = [
     shortDescription:
       'If criticism lands like a blow and lingers for days, this handbook was written for you. Lifespan approach to RSD - warmth and clinical depth.',
     kind: 'digital',
+    priceLabel: '£9.99',
     coverImage: '/images/covers/rsd-handbook-cover.png',
     privateDownloadFile: 'rsd-handbook-ebook.pdf',
   },
@@ -55,6 +58,7 @@ export const CATALOG: CatalogItem[] = [
     shortDescription:
       'Paperback edition - mapped across the lifespan with practical support.',
     kind: 'physical',
+    priceLabel: '£14.99',
     coverImage: '/images/covers/rsd-handbook-cover.png',
   },
   {
@@ -64,6 +68,7 @@ export const CATALOG: CatalogItem[] = [
     shortDescription:
       'Trigger inventories, emergency tools, communication scripts, and quick reference cards - designed to write in and return to.',
     kind: 'digital',
+    priceLabel: '£4.99',
     coverImage: '/images/covers/rsd-workbook-cover.png',
     privateDownloadFile: 'rsd-workbook-ebook.pdf',
   },
@@ -73,6 +78,7 @@ export const CATALOG: CatalogItem[] = [
     name: 'RSD Companion Workbook - Paperback',
     shortDescription: 'Paperback companion to the handbook - practical exercises and worksheets.',
     kind: 'physical',
+    priceLabel: '£11.99',
     coverImage: '/images/covers/rsd-workbook-cover.png',
   },
 ]

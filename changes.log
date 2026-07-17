@@ -263,3 +263,4 @@ Format: YYYY-MM-DD — subject (author) [short-sha]
 - 2026-07-17 — Shop: add free Supporting Your Child Through University parents guide with matching product card, cover, rate-limited PDF download route, and no Stripe checkout (May)
 - 2026-07-17 — Shop: add a dedicated free-guide page with optional MailerLite signup before download; replace the Parents Guide cover with corrected artwork (May)
 - 2026-07-17 — Shop: add Starting University Student Guide card as coming soon (no file, no purchase controls, checkout blocked) (May)
+- 2026-07-17 — Shop: show RSD product prices on cards (Handbook £9.99/£14.99, Workbook £4.99/£11.99) (May)
