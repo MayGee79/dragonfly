@@ -28,6 +28,8 @@ export const CATALOG: CatalogItem[] = [
     kind: 'digital',
     comingSoon: true,
     coverImage: '/images/covers/university-student-guide-cover.png',
+    /** Staged DIGITAL PDF — served only after comingSoon is removed and Stripe checkout is wired. */
+    privateDownloadFile: 'university-student-guide-2026.pdf',
   },
   {
     id: 'university-parents-guide-2026',
