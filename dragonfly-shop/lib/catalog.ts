@@ -31,7 +31,7 @@ export const CATALOG: CatalogItem[] = [
   {
     id: 'university-student-guide-2026',
     slug: 'university-student-guide-2026',
-    name: 'Starting University - Student Guide',
+    name: 'Starting University - Student Guide - eBook',
     shortDescription:
       "A student's guide to mental health, wellbeing and navigating the transition to university life - settling in, friendships, study pressures, and looking after yourself away from home.",
     kind: 'digital',
@@ -40,6 +40,17 @@ export const CATALOG: CatalogItem[] = [
     coverImage: '/images/covers/university-student-guide-cover.png',
     privateDownloadFile: 'university-student-guide-2026.pdf',
     privateDownloadEpubFile: 'university-student-guide-2026.epub',
+  },
+  {
+    id: 'university-student-guide-paperback',
+    slug: 'university-student-guide-paperback',
+    name: 'Starting University - Student Guide - Paperback',
+    shortDescription:
+      'Paperback edition - mental health, wellbeing and navigating the transition to university life.',
+    kind: 'physical',
+    availableFrom: '2026-07-27',
+    priceLabel: '£14.99',
+    coverImage: '/images/covers/university-student-guide-cover.png',
   },
   {
     id: 'university-parents-guide-2026',
@@ -173,6 +184,8 @@ export function stripePriceIdForCatalogId(id: string): string {
   switch (id) {
     case 'university-student-guide-2026':
       return requireEnv('STRIPE_PRICE_UNIVERSITY_STUDENT_GUIDE')
+    case 'university-student-guide-paperback':
+      return requireEnv('STRIPE_PRICE_UNIVERSITY_STUDENT_GUIDE_PAPERBACK')
     case 'rsd-handbook-ebook':
       return requireEnv('STRIPE_PRICE_RSD_HANDBOOK_EBOOK')
     case 'rsd-handbook-paperback':
@@ -189,6 +202,10 @@ export function stripePriceIdForCatalogId(id: string): string {
 export function catalogItemByStripePriceId(priceId: string): CatalogItem | undefined {
   const pairs: [string, string][] = [
     ['university-student-guide-2026', process.env.STRIPE_PRICE_UNIVERSITY_STUDENT_GUIDE || ''],
+    [
+      'university-student-guide-paperback',
+      process.env.STRIPE_PRICE_UNIVERSITY_STUDENT_GUIDE_PAPERBACK || '',
+    ],
     ['rsd-handbook-ebook', process.env.STRIPE_PRICE_RSD_HANDBOOK_EBOOK || ''],
     ['rsd-handbook-paperback', process.env.STRIPE_PRICE_RSD_HANDBOOK_PAPERBACK || ''],
     ['rsd-workbook-ebook', process.env.STRIPE_PRICE_RSD_WORKBOOK_EBOOK || ''],
