@@ -121,6 +121,56 @@
   line-height: var(--line-height-relaxed);
 }
 
+.changeFormatWrap {
+  margin: 0 0 var(--spacing-md);
+}
+
+.formatOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.formatOption {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 160px;
+  min-height: 64px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 1px solid rgba(45, 55, 88, 0.28);
+  border-radius: var(--radius-sm);
+  background: var(--color-qualifications-bg);
+  color: var(--color-text);
+  box-shadow: 0 1px 2px rgba(45, 55, 88, 0.08);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.formatOption:hover {
+  background: #e2dae8;
+  border-color: rgba(45, 55, 88, 0.35);
+}
+
+.formatOption:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(175, 147, 184, 0.45), 0 1px 2px rgba(45, 55, 88, 0.08);
+}
+
+.formatLabel {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+}
+
+.formatHint {
+  font-size: var(--font-size-sm);
+}
+
 .emailRow {
   margin-bottom: var(--spacing-md);
 }

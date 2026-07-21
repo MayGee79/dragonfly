@@ -5,4 +5,6 @@ node_modules
 *.log
 .DS_Store
 private/downloads/*.pdf
+private/downloads/*.epub
 !private/downloads/university-parents-guide-2026.pdf
+!private/downloads/university-parents-guide-2026.epub

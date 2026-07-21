@@ -1,5 +1,7 @@
 export type ProductKind = 'digital' | 'physical'
 
+export type FreeDownloadFormat = 'pdf' | 'epub'
+
 export type CatalogItem = {
   id: string
   slug: string
@@ -16,6 +18,8 @@ export type CatalogItem = {
   coverImage: string
   /** Filename under `private/downloads/` — served only via `/api/download` after Stripe verifies the session */
   privateDownloadFile?: string
+  /** Optional EPUB under `private/downloads/` for free multi-format downloads */
+  privateDownloadEpubFile?: string
 }
 
 export const CATALOG: CatalogItem[] = [
@@ -41,6 +45,7 @@ export const CATALOG: CatalogItem[] = [
     isFree: true,
     coverImage: '/images/covers/university-parents-guide-cover.png',
     privateDownloadFile: 'university-parents-guide-2026.pdf',
+    privateDownloadEpubFile: 'university-parents-guide-2026.epub',
   },
   {
     id: 'rsd-handbook-ebook',
@@ -85,10 +90,36 @@ export const CATALOG: CatalogItem[] = [
   },
 ]
 
-export type ClientCatalogItem = Omit<CatalogItem, 'privateDownloadFile'> & { privateDownloadFile?: never }
+export type ClientCatalogItem = Omit<CatalogItem, 'privateDownloadFile' | 'privateDownloadEpubFile'> & {
+  privateDownloadFile?: never
+  privateDownloadEpubFile?: never
+}
 
 export function catalogForClient(): ClientCatalogItem[] {
-  return CATALOG.map(({ privateDownloadFile: _privateDownloadFile, ...rest }) => rest)
+  return CATALOG.map(({ privateDownloadFile: _pdf, privateDownloadEpubFile: _epub, ...rest }) => rest)
+}
+
+export function freeFormatsFor(item: CatalogItem): FreeDownloadFormat[] {
+  const formats: FreeDownloadFormat[] = []
+  if (item.privateDownloadFile) formats.push('pdf')
+  if (item.privateDownloadEpubFile) formats.push('epub')
+  return formats
+}
+
+export function freeDownloadFileFor(
+  item: CatalogItem,
+  format: FreeDownloadFormat,
+): string | undefined {
+  switch (format) {
+    case 'pdf':
+      return item.privateDownloadFile
+    case 'epub':
+      return item.privateDownloadEpubFile
+    default: {
+      const _exhaustive: never = format
+      return _exhaustive
+    }
+  }
 }
 
 function requireEnv(name: string): string {

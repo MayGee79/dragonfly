@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { CATALOG } from '@/lib/catalog'
+import { CATALOG, freeFormatsFor } from '@/lib/catalog'
 import FreeDownloadFlow from './FreeDownloadFlow'
 import styles from './FreeGuide.module.css'
 
@@ -49,7 +49,7 @@ export default function FreeGuidePage({ params }: { params: { slug: string } }) 
           <span className={styles.freeBadge}>FREE</span>
           <h1 className={styles.title}>{item.name}</h1>
           <p className={styles.desc}>{item.shortDescription}</p>
-          <FreeDownloadFlow catalogId={item.id} />
+          <FreeDownloadFlow catalogId={item.id} formats={freeFormatsFor(item)} />
         </div>
       </article>
     </div>
