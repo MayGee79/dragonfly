@@ -7,7 +7,11 @@ import {
   getDownloadAccessDenial,
   retrieveCheckoutSession,
 } from '@/lib/checkoutSession'
-import { catalogItemByStripePriceId } from '@/lib/catalog'
+import {
+  catalogItemByStripePriceId,
+  freeFormatsFor,
+  type FreeDownloadFormat,
+} from '@/lib/catalog'
 import { NEWSLETTER_THANK_YOU_MESSAGE } from '@/lib/newsletterCopy'
 import styles from './Success.module.css'
 
@@ -16,6 +20,11 @@ export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
   title: 'Thank you',
   robots: { index: false, follow: true },
+}
+
+const FORMAT_LABEL: Record<FreeDownloadFormat, { button: string; hint: string }> = {
+  pdf: { button: 'DOWNLOAD PDF', hint: 'Best for printing' },
+  epub: { button: 'DOWNLOAD EPUB', hint: 'Best for e-readers' },
 }
 
 function SuccessShell({ children }: { children: ReactNode }) {
@@ -71,6 +80,7 @@ export default async function SuccessPage({
     quantity: number
     isDigital: boolean
     hasDownload: boolean
+    formats: FreeDownloadFormat[]
   }[] = []
   for (const li of session.line_items?.data ?? []) {
     const price = li.price
@@ -81,7 +91,8 @@ export default async function SuccessPage({
     const cat = catalogItemByStripePriceId(priceId)
     const title = cat?.name || 'Item'
     const isDigital = cat?.kind === 'digital'
-    const hasDownload = Boolean(isDigital && cat?.privateDownloadFile)
+    const formats = cat && isDigital ? freeFormatsFor(cat) : []
+    const hasDownload = formats.length > 0
     const catalogId = cat?.id ?? 'unknown'
     rows.push({
       catalogId,
@@ -89,6 +100,7 @@ export default async function SuccessPage({
       quantity: li.quantity ?? 1,
       isDigital,
       hasDownload,
+      formats,
     })
   }
 
@@ -97,6 +109,7 @@ export default async function SuccessPage({
   const canDownload = hasDigitalDownloads && !downloadDenial
   const newsletterOptIn = session.metadata?.newsletter_opt_in === 'true'
   const downloadWindowDays = downloadLinkMaxAgeDays()
+  const hasMultiFormat = downloadRows.some((r) => r.formats.length > 1)
 
   return (
     <SuccessShell>
@@ -113,19 +126,31 @@ export default async function SuccessPage({
                 Your eBooks are ready on this page (they will NOT be sent to you via email).
               </p>
               <p className={styles.downloadNote}>
-                Click each button below to save the PDF to your phone, tablet, or computer. You can come back to this
-                page to download again for <strong>{downloadWindowDays} days</strong>.
+                {hasMultiFormat
+                  ? 'Where both formats are offered, choose PDF if you want to print, or EPUB for Kindles, phones, and other e-readers. '
+                  : 'Click each button below to save the file to your phone, tablet, or computer. '}
+                You can come back to this page to download again for{' '}
+                <strong>{downloadWindowDays} days</strong>.
               </p>
               <ul className={styles.downloadList}>
                 {downloadRows.map((r) => (
                   <li key={r.catalogId} className={styles.downloadItem}>
-                    <a
-                      className={styles.downloadBtn}
-                      href={`/api/download?session_id=${encodeURIComponent(sessionId)}&catalog=${encodeURIComponent(r.catalogId)}`}
-                    >
-                      DOWNLOAD HERE
-                    </a>
                     <p className={styles.downloadFileName}>{r.title}</p>
+                    <div className={styles.downloadFormatRow}>
+                      {r.formats.map((format) => (
+                        <div key={format} className={styles.downloadFormatOption}>
+                          <a
+                            className={styles.downloadBtn}
+                            href={`/api/download?session_id=${encodeURIComponent(sessionId)}&catalog=${encodeURIComponent(r.catalogId)}&format=${encodeURIComponent(format)}`}
+                          >
+                            {FORMAT_LABEL[format].button}
+                          </a>
+                          {r.formats.length > 1 ? (
+                            <p className={styles.downloadFormatHint}>{FORMAT_LABEL[format].hint}</p>
+                          ) : null}
+                        </div>
+                      ))}
+                    </div>
                   </li>
                 ))}
               </ul>

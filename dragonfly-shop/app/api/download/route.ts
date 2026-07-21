@@ -8,7 +8,13 @@ import {
   getDownloadAccessDenial,
   retrieveCheckoutSession,
 } from '@/lib/checkoutSession'
-import { CATALOG, stripePriceIdForCatalogId } from '@/lib/catalog'
+import {
+  CATALOG,
+  freeDownloadFileFor,
+  freeFormatsFor,
+  stripePriceIdForCatalogId,
+  type FreeDownloadFormat,
+} from '@/lib/catalog'
 
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
@@ -25,17 +31,41 @@ function notFound(message: string) {
   return NextResponse.json({ error: message }, { status: 404 })
 }
 
+function parseFormat(raw: string | null): FreeDownloadFormat {
+  if (raw === 'epub') return 'epub'
+  return 'pdf'
+}
+
+function contentTypeFor(format: FreeDownloadFormat): string {
+  switch (format) {
+    case 'pdf':
+      return 'application/pdf'
+    case 'epub':
+      return 'application/epub+zip'
+    default: {
+      const _exhaustive: never = format
+      return _exhaustive
+    }
+  }
+}
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const sessionId = searchParams.get('session_id')?.trim() ?? ''
   const catalogId = searchParams.get('catalog')?.trim() ?? ''
+  const format = parseFormat(searchParams.get('format')?.trim().toLowerCase() ?? null)
 
   if (!sessionId.startsWith('cs_')) {
     return badRequest('Invalid session.')
   }
   const product = CATALOG.find((c) => c.id === catalogId)
-  if (!product || product.kind !== 'digital' || !product.privateDownloadFile) {
+  if (!product || product.kind !== 'digital' || freeFormatsFor(product).length === 0) {
     return badRequest('Invalid download.')
+  }
+
+  const downloadFile = freeDownloadFileFor(product, format)
+  if (!downloadFile) {
+    return badRequest('That format is not available for this product.')
   }
 
   let priceId: string
@@ -71,7 +101,7 @@ export async function GET(request: Request) {
     return forbidden('This file is not part of your order.')
   }
 
-  const canonicalBlobUrl = vercelBlobCanonicalUrlForDigital(catalogId)
+  const canonicalBlobUrl = vercelBlobCanonicalUrlForDigital(catalogId, format)
   if (canonicalBlobUrl) {
     if (!process.env.BLOB_READ_WRITE_TOKEN) {
       return NextResponse.json({ error: 'Download storage is not configured.' }, { status: 500 })
@@ -81,15 +111,19 @@ export async function GET(request: Request) {
       const blobAccess = canonicalBlobUrl.includes('.private.blob.') ? 'private' : 'public'
       const result = await get(canonicalBlobUrl, { access: blobAccess })
       if (!result || result.statusCode !== 200 || !result.stream) {
-        console.error('[download] blob unavailable:', { catalogId, statusCode: result?.statusCode ?? 'null' })
+        console.error('[download] blob unavailable:', {
+          catalogId,
+          format,
+          statusCode: result?.statusCode ?? 'null',
+        })
         return NextResponse.json(
           { error: 'Download file is temporarily unavailable. Please contact the shop.' },
           { status: 503 },
         )
       }
 
-      const safeName = product.privateDownloadFile.replace(/[^\w.-]+/g, '_')
-      const contentType = result.blob.contentType || 'application/pdf'
+      const safeName = downloadFile.replace(/[^\w.-]+/g, '_')
+      const contentType = result.blob.contentType || contentTypeFor(format)
 
       return new NextResponse(result.stream, {
         status: 200,
@@ -100,7 +134,7 @@ export async function GET(request: Request) {
         },
       })
     } catch (error) {
-      console.error('[download] blob fetch failed:', { catalogId, error })
+      console.error('[download] blob fetch failed:', { catalogId, format, error })
       return NextResponse.json(
         { error: 'Download file is temporarily unavailable. Please contact the shop.' },
         { status: 503 },
@@ -108,7 +142,7 @@ export async function GET(request: Request) {
     }
   }
 
-  const filePath = path.join(process.cwd(), 'private', 'downloads', product.privateDownloadFile)
+  const filePath = path.join(process.cwd(), 'private', 'downloads', downloadFile)
   if (!fs.existsSync(filePath)) {
     return NextResponse.json(
       { error: 'Download file is not available yet. Please contact the shop.' },
@@ -117,12 +151,12 @@ export async function GET(request: Request) {
   }
 
   const buf = fs.readFileSync(filePath)
-  const safeName = product.privateDownloadFile.replace(/[^\w.-]+/g, '_')
+  const safeName = downloadFile.replace(/[^\w.-]+/g, '_')
 
   return new NextResponse(buf, {
     status: 200,
     headers: {
-      'Content-Type': 'application/pdf',
+      'Content-Type': contentTypeFor(format),
       'Content-Disposition': `attachment; filename="${safeName}"`,
       'Cache-Control': 'private, no-store',
     },

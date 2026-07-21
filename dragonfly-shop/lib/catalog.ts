@@ -12,11 +12,6 @@ export type CatalogItem = {
   isFree?: boolean
   /** Not yet purchasable — the card shows a "coming soon" label instead of basket controls. */
   comingSoon?: boolean
-  /**
-   * YYYY-MM-DD (Europe/London calendar date). Before this date the card shows Coming Soon
-   * and checkout rejects the item. On/after this date it becomes purchasable (unless comingSoon).
-   */
-  availableFrom?: string
   /** Display price on the shop card (e.g. "£9.99"). Stripe remains source of truth at checkout. */
   priceLabel?: string
   /** Path under `/public` for product card cover art */
@@ -35,10 +30,11 @@ export const CATALOG: CatalogItem[] = [
     shortDescription:
       "A student's guide to mental health, wellbeing and navigating the transition to university life - settling in, friendships, study pressures, and looking after yourself away from home.",
     kind: 'digital',
-    availableFrom: '2026-07-27',
-    priceLabel: '£9.99',
+    comingSoon: true,
     coverImage: '/images/covers/university-student-guide-cover.png',
+    /** Staged DIGITAL files — served only after comingSoon is removed and Stripe checkout is wired. */
     privateDownloadFile: 'university-student-guide-2026.pdf',
+    privateDownloadEpubFile: 'university-student-guide-2026.epub',
   },
   {
     id: 'university-parents-guide-2026',
@@ -127,41 +123,6 @@ export function freeDownloadFileFor(
   }
 }
 
-/** Today's calendar date in Europe/London as YYYY-MM-DD. */
-export function londonCalendarDate(now = new Date()): string {
-  const parts = new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Europe/London',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).formatToParts(now)
-  const y = parts.find((p) => p.type === 'year')?.value
-  const m = parts.find((p) => p.type === 'month')?.value
-  const d = parts.find((p) => p.type === 'day')?.value
-  if (!y || !m || !d) return now.toISOString().slice(0, 10)
-  return `${y}-${m}-${d}`
-}
-
-/** True while the card should show Coming Soon (not free, not yet buyable). */
-export function showsComingSoon(
-  item: Pick<CatalogItem, 'isFree' | 'comingSoon' | 'availableFrom'>,
-  now = new Date(),
-): boolean {
-  if (item.isFree) return false
-  if (item.comingSoon) return true
-  if (item.availableFrom && londonCalendarDate(now) < item.availableFrom) return true
-  return false
-}
-
-/** True when Stripe checkout may include this catalog item. */
-export function isPurchasable(
-  item: Pick<CatalogItem, 'isFree' | 'comingSoon' | 'availableFrom'>,
-  now = new Date(),
-): boolean {
-  if (item.isFree) return false
-  return !showsComingSoon(item, now)
-}
-
 function requireEnv(name: string): string {
   const v = process.env[name]
   if (!v) throw new Error(`Missing required environment variable: ${name}`)
@@ -170,8 +131,6 @@ function requireEnv(name: string): string {
 
 export function stripePriceIdForCatalogId(id: string): string {
   switch (id) {
-    case 'university-student-guide-2026':
-      return requireEnv('STRIPE_PRICE_UNIVERSITY_STUDENT_GUIDE')
     case 'rsd-handbook-ebook':
       return requireEnv('STRIPE_PRICE_RSD_HANDBOOK_EBOOK')
     case 'rsd-handbook-paperback':
@@ -187,7 +146,6 @@ export function stripePriceIdForCatalogId(id: string): string {
 
 export function catalogItemByStripePriceId(priceId: string): CatalogItem | undefined {
   const pairs: [string, string][] = [
-    ['university-student-guide-2026', process.env.STRIPE_PRICE_UNIVERSITY_STUDENT_GUIDE || ''],
     ['rsd-handbook-ebook', process.env.STRIPE_PRICE_RSD_HANDBOOK_EBOOK || ''],
     ['rsd-handbook-paperback', process.env.STRIPE_PRICE_RSD_HANDBOOK_PAPERBACK || ''],
     ['rsd-workbook-ebook', process.env.STRIPE_PRICE_RSD_WORKBOOK_EBOOK || ''],

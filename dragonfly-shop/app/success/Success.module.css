@@ -48,9 +48,26 @@
 }
 
 .downloadFileName {
-  margin: var(--spacing-sm) 0 0;
+  margin: 0 0 var(--spacing-sm);
   font-size: var(--font-size-base);
   font-weight: 700;
+  text-align: center;
+  line-height: var(--line-height-relaxed);
+}
+
+.downloadFormatRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.downloadFormatOption {
+  margin: 0;
+}
+
+.downloadFormatHint {
+  margin: var(--spacing-xs) 0 0;
+  font-size: var(--font-size-sm);
   text-align: center;
   line-height: var(--line-height-relaxed);
 }
