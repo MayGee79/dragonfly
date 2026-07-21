@@ -36,7 +36,7 @@ export const CATALOG: CatalogItem[] = [
       "A student's guide to mental health, wellbeing and navigating the transition to university life - settling in, friendships, study pressures, and looking after yourself away from home.",
     kind: 'digital',
     availableFrom: '2026-07-27',
-    priceLabel: '£9.99',
+    priceLabel: '£8.99',
     coverImage: '/images/covers/university-student-guide-cover.png',
     privateDownloadFile: 'university-student-guide-2026.pdf',
     privateDownloadEpubFile: 'university-student-guide-2026.epub',
@@ -49,7 +49,7 @@ export const CATALOG: CatalogItem[] = [
       'Paperback edition - mental health, wellbeing and navigating the transition to university life.',
     kind: 'physical',
     availableFrom: '2026-07-27',
-    priceLabel: '£14.99',
+    priceLabel: '£11.99',
     coverImage: '/images/covers/university-student-guide-cover.png',
   },
   {
@@ -163,6 +163,18 @@ export function showsComingSoon(
   if (item.comingSoon) return true
   if (item.availableFrom && londonCalendarDate(now) < item.availableFrom) return true
   return false
+}
+
+/** Shop-card label while an item is scheduled but not yet buyable. */
+export function availabilityLabel(
+  item: Pick<CatalogItem, 'comingSoon' | 'availableFrom'>,
+): string {
+  if (item.availableFrom) {
+    const [y, m, d] = item.availableFrom.split('-')
+    if (y && m && d) return `AVAILABLE FROM ${d}/${m}`
+  }
+  if (item.comingSoon) return 'COMING SOON'
+  return 'COMING SOON'
 }
 
 /** True when Stripe checkout may include this catalog item. */
