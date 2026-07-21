@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import type { ClientCatalogItem } from '@/lib/catalog'
+import { showsComingSoon } from '@/lib/catalog'
 import styles from './ShopHome.module.css'
 
 type Basket = Record<string, number>
@@ -258,7 +259,7 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
                     <h2 className={styles.cardTitle}>{item.name}</h2>
                     {item.priceLabel ? <p className={styles.price}>{item.priceLabel}</p> : null}
                     <p className={styles.desc}>{item.shortDescription}</p>
-                    {item.comingSoon ? (
+                    {showsComingSoon(item) ? (
                       <span className={styles.comingSoonLabel}>COMING SOON</span>
                     ) : item.isFree ? (
                       <Link className={styles.freeDownloadBtn} href={`/free/${item.slug}`}>

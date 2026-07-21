@@ -4,6 +4,7 @@
  */
 export function vercelBlobCanonicalUrlForDigital(catalogId: string): string | undefined {
   const map: Record<string, string | undefined> = {
+    'university-student-guide-2026': process.env.BLOB_DOWNLOAD_URL_UNIVERSITY_STUDENT_GUIDE,
     'rsd-handbook-ebook': process.env.BLOB_DOWNLOAD_URL_RSD_HANDBOOK_EBOOK,
     'rsd-workbook-ebook': process.env.BLOB_DOWNLOAD_URL_RSD_WORKBOOK_EBOOK,
   }
