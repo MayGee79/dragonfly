@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 import './globals.css'
 import ShopNavigation from '@/components/ShopNavigation'
 import ShopFooter from '@/components/ShopFooter'
+import { META_PIXEL_ID, metaPixelHeadBootstrapScript } from '@/lib/metaPixel'
 
 const ShopCookieConsent = dynamic(() => import('@/components/ShopCookieConsent'), { ssr: false, loading: () => null })
 
@@ -50,6 +51,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://connect.facebook.net" crossOrigin="anonymous" />
+        <script
+          id="meta-pixel-bootstrap"
+          dangerouslySetInnerHTML={{ __html: metaPixelHeadBootstrapScript(META_PIXEL_ID) }}
+        />
         <style
           dangerouslySetInnerHTML={{
             __html: 'body{margin:0;background:#b9d5d6}',

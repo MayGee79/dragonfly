@@ -272,3 +272,4 @@ Format: YYYY-MM-DD — subject (author) [short-sha]
 - 2026-07-21 — Shop: Student Guide prices £8.99 / £11.99; card label “Available from 27/07” (May)
 - 2026-07-22 — Shop: add Meta Pixel (1567033625209529) behind cookie consent for ad tracking (May)
 - 2026-07-22 — Shop: Meta Pixel Purchase event on thank-you page after paid checkout (May)
+- 2026-07-22 — Shop: load Meta Pixel in page head with consent revoke/grant so Meta’s setup scanner detects it (May)

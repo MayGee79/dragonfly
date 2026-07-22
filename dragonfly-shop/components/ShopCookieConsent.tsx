@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { COOKIE_CONSENT_ACCEPTED, COOKIE_CONSENT_KEY, loadMetaPixel } from '@/lib/metaPixel'
+import { COOKIE_CONSENT_ACCEPTED, COOKIE_CONSENT_KEY, loadMetaPixel, revokeMetaConsent } from '@/lib/metaPixel'
 import styles from './CookieConsent.module.css'
 
 const GA_MEASUREMENT_ID =
@@ -117,6 +117,7 @@ export default function ShopCookieConsent() {
   function reject() {
     localStorage.setItem(CONSENT_KEY, CONSENT_REJECTED)
     clearAnalyticsCookies()
+    revokeMetaConsent()
     setVisible(false)
   }
 
