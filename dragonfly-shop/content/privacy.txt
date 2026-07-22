@@ -126,7 +126,7 @@ I do not sell your information or share it for marketing purposes.
 I may share your information with:
 Service providers who help me run my practice, such as secure practice management software, cloud storage, website hosting, email marketing platforms, or booking systems. These providers are under strict contracts and cannot use your data for any other purpose.
 Payment processing (Stripe): I use Stripe to process payments securely. I do not see, store, or have access to your full card or bank details. Stripe acts as an independent data controller for the payment data it processes and has its own privacy notice, available on its website.
-Website analytics (Google Analytics): If you accept optional cookies, I use Google Analytics to collect information about how visitors use my website. This helps me understand usage and improve the site. Google’s information about how it uses data is available at https://policies.google.com/technologies/partner-sites.
+Website analytics (Google Analytics and Meta Pixel): If you accept optional cookies, I use Google Analytics to collect information about how visitors use my website and the Meta (Facebook) Pixel to measure advertising. This helps me understand usage and improve the site. Google’s information about how it uses data is available at https://policies.google.com/technologies/partner-sites. Meta’s privacy policy is at https://www.facebook.com/privacy/policy/.
 Email service providers: I use 123 Reg as my email hosting provider for business correspondence. If you have opted in to receive marketing communications, I use MailerLite as my email marketing platform. MailerLite is based in the European Economic Area.
 Delivery providers: For physical books and other physical products, I share your name and delivery address with Royal Mail or a courier service for the purpose of fulfilling your order.
 Professional advisers such as accountants or lawyers, where necessary.
@@ -170,8 +170,8 @@ Soft opt-in for past customers: The arrangement above is permitted under the Pri
 My website uses cookies, which are small files stored on your device that help the site work properly and help me understand how visitors use it.
 Essential cookies: These are necessary for the website to function. They do not collect personal information about you.
 
-Analytics cookies (Google Analytics):
-I use Google Analytics to understand how visitors use my website (for example, which pages are most popular) and to improve the site. Google Analytics is only loaded if you accept optional cookies in the cookie banner. You can change your choice at any time via the cookie settings. You can also opt out of Google Analytics tracking at tools.google.com/dlpage/gaoptout.
+Analytics cookies (Google Analytics and Meta Pixel):
+I use Google Analytics to understand how visitors use my website (for example, which pages are most popular) and to improve the site. If you accept optional cookies, I also use the Meta (Facebook) Pixel to measure advertising on Meta platforms. Google Analytics and the Meta Pixel are only loaded if you accept optional cookies in the cookie banner. You can change your choice at any time via the cookie settings. You can also opt out of Google Analytics tracking at tools.google.com/dlpage/gaoptout. Meta’s information about how it uses data is available at https://www.facebook.com/privacy/policy/.
 
 Shop and checkout cookies (Stripe):
 When you use my online shop, essential cookies or similar technologies are used to make the site work properly (for example, remembering your basket). Stripe may also set cookies or use similar technologies as part of secure payment processing and fraud prevention. These are necessary to provide the service you have requested.

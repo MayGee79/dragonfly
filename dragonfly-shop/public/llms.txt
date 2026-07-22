@@ -19,4 +19,4 @@
 ## Notes for automated assistants
 - Payments are processed by Stripe; customers receive Stripe receipt emails.
 - UK shipping applies when the basket includes physical books.
-- Optional Google Analytics loads only after cookie consent on this domain.
+- Optional Google Analytics and Meta Pixel load only after cookie consent on this domain.

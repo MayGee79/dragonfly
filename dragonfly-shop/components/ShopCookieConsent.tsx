@@ -6,10 +6,41 @@ import styles from './CookieConsent.module.css'
 
 const GA_MEASUREMENT_ID =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-39GL2MNTGV'
+const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || '1567033625209529'
 const CONSENT_KEY = 'dragonflyshop_cookie_consent'
 const CONSENT_ACCEPTED = 'accepted'
 const CONSENT_REJECTED = 'rejected'
 const OPEN_SETTINGS_EVENT = 'dragonfly:cookie-settings'
+
+function loadMetaPixel() {
+  if (typeof window === 'undefined' || !META_PIXEL_ID) return
+  const w = window as Window & { fbq?: (...args: unknown[]) => void }
+  if (w.fbq) {
+    w.fbq('track', 'PageView')
+    return
+  }
+
+  const script = document.createElement('script')
+  script.id = 'meta-pixel'
+  script.innerHTML = `
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '${META_PIXEL_ID}');
+    fbq('track', 'PageView');
+  `
+  document.head.appendChild(script)
+}
+
+function loadOptionalAnalytics() {
+  loadGoogleAnalytics()
+  loadMetaPixel()
+}
 
 function loadGoogleAnalytics() {
   if (typeof window === 'undefined') return
@@ -54,6 +85,8 @@ function clearAnalyticsCookies() {
   clearCookie('_ga')
   clearCookie('_gid')
   clearCookie('_gat')
+  clearCookie('_fbp')
+  clearCookie('_fbc')
   if (typeof document !== 'undefined') {
     const matches = document.cookie.match(/(?:^|;\s*)(_ga_[A-Z0-9]+)=/gi)
     if (matches) {
@@ -72,7 +105,7 @@ export default function ShopCookieConsent() {
     const syncFromStorage = () => {
       const consent = localStorage.getItem(CONSENT_KEY)
       if (consent === CONSENT_ACCEPTED) {
-        loadGoogleAnalytics()
+        loadOptionalAnalytics()
         setVisible(false)
       } else if (consent === CONSENT_REJECTED) {
         setVisible(false)
@@ -102,7 +135,7 @@ export default function ShopCookieConsent() {
 
   function accept() {
     localStorage.setItem(CONSENT_KEY, CONSENT_ACCEPTED)
-    loadGoogleAnalytics()
+    loadOptionalAnalytics()
     setVisible(false)
   }
 
@@ -117,18 +150,19 @@ export default function ShopCookieConsent() {
   return (
     <div className={styles.banner} role="region" aria-label="Cookie consent">
       <p className={styles.text}>
-        We use Google Analytics cookies to understand how the site is used so it can be improved. You can accept or reject
-        these at any time. Essential cookies needed to run the site are always on. See our{' '}
+        We use Google Analytics and Meta (Facebook) Pixel cookies to understand how the site is used and measure
+        advertising. You can accept or reject these at any time. Essential cookies needed to run the site are always on.
+        See our{' '}
         <Link href="/privacy" className={styles.link}>
           Privacy Notice
         </Link>
         .
       </p>
       <div className={styles.buttons}>
-        <button type="button" onClick={accept} className={styles.accept} aria-label="Accept Google Analytics cookies">
+        <button type="button" onClick={accept} className={styles.accept} aria-label="Accept analytics cookies">
           Accept
         </button>
-        <button type="button" onClick={reject} className={styles.reject} aria-label="Reject Google Analytics cookies">
+        <button type="button" onClick={reject} className={styles.reject} aria-label="Reject analytics cookies">
           Reject
         </button>
       </div>
