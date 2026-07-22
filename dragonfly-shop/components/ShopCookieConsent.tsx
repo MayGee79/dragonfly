@@ -2,40 +2,15 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { COOKIE_CONSENT_ACCEPTED, COOKIE_CONSENT_KEY, loadMetaPixel } from '@/lib/metaPixel'
 import styles from './CookieConsent.module.css'
 
 const GA_MEASUREMENT_ID =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-39GL2MNTGV'
-const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || '1567033625209529'
-const CONSENT_KEY = 'dragonflyshop_cookie_consent'
-const CONSENT_ACCEPTED = 'accepted'
+const CONSENT_KEY = COOKIE_CONSENT_KEY
+const CONSENT_ACCEPTED = COOKIE_CONSENT_ACCEPTED
 const CONSENT_REJECTED = 'rejected'
 const OPEN_SETTINGS_EVENT = 'dragonfly:cookie-settings'
-
-function loadMetaPixel() {
-  if (typeof window === 'undefined' || !META_PIXEL_ID) return
-  const w = window as Window & { fbq?: (...args: unknown[]) => void }
-  if (w.fbq) {
-    w.fbq('track', 'PageView')
-    return
-  }
-
-  const script = document.createElement('script')
-  script.id = 'meta-pixel'
-  script.innerHTML = `
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '${META_PIXEL_ID}');
-    fbq('track', 'PageView');
-  `
-  document.head.appendChild(script)
-}
 
 function loadOptionalAnalytics() {
   loadGoogleAnalytics()

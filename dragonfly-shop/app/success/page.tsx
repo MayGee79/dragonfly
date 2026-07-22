@@ -12,7 +12,9 @@ import {
   freeFormatsFor,
   type FreeDownloadFormat,
 } from '@/lib/catalog'
+import { metaPurchasePayloadFromSession } from '@/lib/purchaseTracking'
 import { NEWSLETTER_THANK_YOU_MESSAGE } from '@/lib/newsletterCopy'
+import SuccessPurchaseTracking from './SuccessPurchaseTracking'
 import styles from './Success.module.css'
 
 export const dynamic = 'force-dynamic'
@@ -110,9 +112,13 @@ export default async function SuccessPage({
   const newsletterOptIn = session.metadata?.newsletter_opt_in === 'true'
   const downloadWindowDays = downloadLinkMaxAgeDays()
   const hasMultiFormat = downloadRows.some((r) => r.formats.length > 1)
+  const purchaseTracking = metaPurchasePayloadFromSession(session)
 
   return (
     <SuccessShell>
+      {purchaseTracking ? (
+        <SuccessPurchaseTracking sessionId={sessionId} purchase={purchaseTracking} />
+      ) : null}
       <h1>Thank you for your order</h1>
 
       {hasDigitalDownloads && (
