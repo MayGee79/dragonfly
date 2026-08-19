@@ -106,18 +106,27 @@
 .summerNotice {
   max-width: 800px;
   margin: 0 auto var(--spacing-2xl);
-  padding: var(--spacing-md) var(--spacing-lg);
-  background-color: var(--color-qualifications-bg);
-  border: var(--shop-surface-border);
-  border-left: 4px solid var(--color-primary-darker);
-  border-radius: 4px;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  background-color: #fff;
+  border: 2px solid var(--color-primary-darker);
+  border-radius: 6px;
+  box-shadow: var(--shop-surface-shadow);
   color: var(--color-text);
 }
 
-.summerNotice p {
+.summerNoticeLabel {
+  margin: 0 0 var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary-active);
+}
+
+.summerNoticeBody {
   margin: 0;
   line-height: var(--line-height-relaxed);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-lg);
   text-align: left;
 }
 

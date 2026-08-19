@@ -164,7 +164,8 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
         </div>
 
         <aside className={styles.summerNotice} role="status" aria-label="Physical book posting notice">
-          <p>
+          <p className={styles.summerNoticeLabel}>Please note — summer break</p>
+          <p className={styles.summerNoticeBody}>
             Orders for physical books placed between <strong>22 August</strong> and <strong>1 September</strong> will be
             posted on <strong>2 September</strong> due to my summer break. If you need a copy more quickly, they can be
             purchased directly from Amazon. Thank you for visiting my shop.
