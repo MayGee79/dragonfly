@@ -3,6 +3,9 @@ Dragonfly project change log
 Backfilled from `git log` on 2026-05-07.
 Format: YYYY-MM-DD — subject (author) [short-sha]
 
+## 2026-08
+- 2026-08-19 — Shop: summer-break posting notice for physical books (22 Aug–1 Sep → posted 2 Sep; Amazon tip) (May Gee)
+
 ## 2026-06
 - 2026-06-29 — Admin login loop fix: implement Decap OAuth popup handshake (authorizing:github) so the access token is delivered and sign-in completes (May Gee)
 - 2026-06-27 — Admin CMS config 404 hotfix: ensure config URL resolves on current host and avoid /admin/ callback fallback path (May Gee)

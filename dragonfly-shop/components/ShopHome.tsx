@@ -163,6 +163,14 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
           <p>This collection is growing steadily, with further handbooks, toolkits, and resources to follow.</p>
         </div>
 
+        <aside className={styles.summerNotice} role="status" aria-label="Physical book posting notice">
+          <p>
+            Orders for physical books placed between <strong>22 August</strong> and <strong>1 September</strong> will be
+            posted on <strong>2 September</strong> due to my summer break. If you need a copy more quickly, they can be
+            purchased directly from Amazon. Thank you for visiting my shop.
+          </p>
+        </aside>
+
         <div className={styles.mainLayout}>
           <aside ref={basketRef} className={styles.basket} aria-label="Basket and checkout">
             <h2 className={styles.basketHeading}>Basket</h2>
@@ -313,7 +321,8 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
           <h3>Shipping (UK)</h3>
           <p>
             We currently ship within the UK only. If your basket includes a paperback, postage and packaging is £4.25. We
-            aim to post within 2–3 working days of payment.
+            aim to post within 2–3 working days of payment. Please note: physical book orders placed between 22 August and
+            1 September will be posted on 2 September due to summer break; Amazon may be quicker if you need a copy sooner.
           </p>
           <h3>Returns</h3>
           <p>
