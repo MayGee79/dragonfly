@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { extractLeadingMarkdownImage, stripMarkdownImages } from '@/lib/markdown'
 import { META_DESCRIPTION_MAX, truncateAtWord } from '@/lib/seo'
 
 const contentDirectory = path.join(process.cwd(), 'content')
@@ -269,7 +270,7 @@ export function getAllPages(): Page[] {
 
 // Generate excerpt from body content for meta descriptions and blog cards.
 function generateExcerpt(body: string, maxLength: number = META_DESCRIPTION_MAX): string {
-  const plainText = body
+  const plainText = stripMarkdownImages(body)
     .replace(/^#{1,6}\s+/gm, '')
     .replace(/\*\*(.*?)\*\*/g, '$1')
     .replace(/\*(.*?)\*/g, '$1')
@@ -289,17 +290,20 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
     }
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     const { data, content } = matter(fileContents)
-    
-    const excerpt = data.excerpt || generateExcerpt(content)
+    const leadImage = extractLeadingMarkdownImage(content)
+    const featuredImage = data.featuredImage || leadImage?.src
+    const body =
+      leadImage && featuredImage === leadImage.src ? leadImage.rest : content
+    const excerpt = data.excerpt || generateExcerpt(body)
     
     return {
       slug: data.slug || slug,
       title: data.title,
       date: data.date,
       author: data.author || 'Vicky',
-      featuredImage: data.featuredImage,
+      featuredImage,
       excerpt,
-      body: content,
+      body,
       category: data.category,
       tags: data.tags || [],
       featured: data.featured || false,

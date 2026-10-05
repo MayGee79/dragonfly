@@ -154,8 +154,8 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime", default: "" }
-      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
+      - { label: "Featured Image (use this field for the post photo)", name: "featuredImage", widget: "image", required: false, hint: "Upload the post photo here. It appears at the top of the article." }
       - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Write the article here. Photos inserted in the body will also display on the site." }
       - { label: "Published (untick to save as a hidden draft)", name: "published", widget: "boolean", default: true }
       - { label: "Feature on homepage", name: "featured", widget: "boolean", default: false }

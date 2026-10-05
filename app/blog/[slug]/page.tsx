@@ -2,7 +2,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { getBlogPostBySlug, getAllBlogSlugs, getAllBlogPosts } from '@/lib/content'
-import { sanitizeForDisplay } from '@/lib/markdown'
+import { markdownImagesToHtml, sanitizeForDisplay } from '@/lib/markdown'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import BlogFeaturedImage from '@/components/BlogFeaturedImage'
@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 function markdownToHtml(markdown: string): string {
   // Simple markdown to HTML conversion
-  let html = markdown
+  let html = markdownImagesToHtml(markdown)
     // Headers
     .replace(/^### (.*$)/gim, '<h3>$1</h3>')
     .replace(/^## (.*$)/gim, '<h2>$1</h2>')
@@ -76,7 +76,12 @@ function markdownToHtml(markdown: string): string {
     .map(para => para.trim())
     .filter(para => para)
     .map(para => {
-      if (para.startsWith('<h') || para.startsWith('<ul') || para.startsWith('<ol')) {
+      if (
+        para.startsWith('<h') ||
+        para.startsWith('<ul') ||
+        para.startsWith('<ol') ||
+        para.startsWith('<img')
+      ) {
         return para
       }
       return `<p>${para.replace(/\n/g, '<br />')}</p>`

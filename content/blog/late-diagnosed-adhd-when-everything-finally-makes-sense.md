@@ -1,11 +1,10 @@
 ---
 title: "Late-Diagnosed ADHD: When Everything Finally Makes Sense"
 date: 2026-10-05T08:30:00.000+01:00
+featuredImage: /images/oak-leaves-october-2025.jpg
 published: true
 featured: false
 ---
-![](/images/oak-leaves-october-2025.jpg "Late-Diagnosed ADHD: When Everything Finally Makes Sense")
-
 There is a moment that almost every late-diagnosed adult with ADHD describes. A moment of recognition so profound it rearranges everything.
 
 It might come from reading an article, watching a video, or hearing someone describe their experience. It might come from a child's diagnosis that prompts a parent to look at themselves. It might come slowly, over months of accumulating evidence, or it might arrive all at once like a thunderclap.

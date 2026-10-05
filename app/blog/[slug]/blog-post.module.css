@@ -93,6 +93,14 @@
   margin-bottom: var(--spacing-lg);
 }
 
+.content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
 .content a {
   color: var(--color-primary);
   text-decoration: underline;
