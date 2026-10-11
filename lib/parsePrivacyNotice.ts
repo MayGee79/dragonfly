@@ -15,6 +15,7 @@ const SERVICE_SUBHEADINGS = new Set([
   'In-Person Workshop Participants',
   'Website Visitors',
   'General Enquiries',
+  'If I Become Unable to Work (My Clinical Will)',
 ])
 
 function isNumberedSection(line: string): boolean {

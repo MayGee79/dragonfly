@@ -32,6 +32,11 @@ const nextConfig = {
         destination: 'https://dragonflyshop.co.uk/',
         permanent: true,
       },
+      {
+        source: '/privacy-notice',
+        destination: '/privacy-policy',
+        permanent: false,
+      },
     ]
   },
   experimental: {

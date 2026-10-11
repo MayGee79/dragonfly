@@ -9,10 +9,10 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Privacy Notice & Data Protection',
   description:
-    'Privacy notice for Dragonfly Psychotherapy. How we collect, use, and protect your personal information. UK GDPR compliant. Last updated May 2026.',
+    'Privacy notice for Dragonfly Psychotherapy. How we collect, use, and protect your personal information. UK GDPR compliant. Last updated October 2026.',
   openGraph: {
     title: 'Privacy Notice & Data Protection | Dragonfly Psychotherapy',
-    description: 'Privacy notice for Dragonfly Psychotherapy. UK GDPR compliant. Last updated May 2026.',
+    description: 'Privacy notice for Dragonfly Psychotherapy. UK GDPR compliant. Last updated October 2026.',
   },
   robots: { index: true, follow: true },
 }

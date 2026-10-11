@@ -1,11 +1,11 @@
 DRAGONFLY PSYCHOTHERAPY
 Privacy Notice
-Last updated: May 2026
+Last updated: October 2026
 
 Introduction
 Your privacy matters to me. This notice explains how I collect, use, and protect your personal information when you use my services, visit my website, or interact with me in any way.
 I provide psychotherapy services, therapeutic walks, in-person workshops, online CPD training, and therapeutic resources. This privacy notice covers all of these activities.
-I follow the UK General Data Protection Regulation (UK GDPR), the Data Protection Act 2018 (as amended by the Data (Use and Access) Act 2025), and my professional codes of conduct (BACP and UKCP).
+I follow the UK General Data Protection Regulation (UK GDPR), the Data Protection Act 2018 (as amended by the Data (Use and Access) Act 2025), and my professional code of conduct (BACP).
 
 1. Who I Am
 I am the data controller for the personal information you provide. This means I decide how your data is used and I am responsible for keeping it safe.
@@ -22,8 +22,8 @@ If you have any questions about this notice or how I handle your data, please ge
 2. Why I Can Use Your Data (Lawful Basis)
 Data protection law requires me to have a valid reason for processing your personal information. Depending on what we are doing together, I rely on different lawful bases:
 Contract: When you book therapy sessions, therapeutic walks, or purchase resources, I process your data to provide those services to you.
-Legitimate Interests: I keep records to meet my professional and insurance obligations, and to respond to any legal claims. I also use your data to run my practice effectively.
-Consent: For sensitive information (such as health information shared in therapy), I ask for your explicit consent. I also ask consent before using your image in photographs or sending you marketing communications.
+Legitimate Interests: I keep records to meet my professional and insurance obligations, and to respond to any legal claims. I also use your data to run my practice effectively. I also need to make sure you are contacted and supported if I become unable to work (see 'If I Become Unable to Work' in section 7).
+Consent: For sensitive information (such as health information shared in therapy), I ask for your explicit consent. I also ask consent before using your image in photographs or sending you marketing communications. This explicit consent also covers the limited use of your details described under 'If I Become Unable to Work' in section 7.
 Legal Obligation: Sometimes I am required by law to share information, for example for safeguarding purposes.
 Recognised Legitimate Interests: The Data (Use and Access) Act 2025 introduced a new lawful basis for certain types of processing that are considered to be in the public interest. Where I process your data for the purpose of safeguarding a child or vulnerable adult, or in response to an emergency, I may rely on this basis.
 
@@ -113,6 +113,13 @@ If I am required by law or a court order to share information.
 I will always try to discuss this with you first, unless doing so would put someone at risk.
 I have regular clinical supervision, which is a professional requirement. I discuss my work in supervision to ensure I am providing safe and effective support. I do not share identifying information about you unless there is a safeguarding concern.
 
+If I Become Unable to Work (My Clinical Will)
+As required by my professional body, I have a clinical will. This sets out what should happen if I become seriously ill or incapacitated, or if I die, and cannot contact you myself. I have appointed a clinical executor, a qualified and experienced therapist who is bound by the same professional duty of confidentiality as I am.
+
+If this happens, my clinical executor will be given access to the minimum information needed to let you know what has happened, support you in making other arrangements if you wish, and manage your records securely until they are destroyed at the end of the retention periods set out in section 10.
+
+To make this possible, I keep your name, email address and the day and time of your regular sessions in ClinicalWill.app, a secure, encrypted platform designed for therapists' clinical wills. I do not store session notes or any other clinical information on this platform, and I remove your details when our work ends. My family do not have access to your information; their only role is to let my clinical executor know if I am unable to work.
+
 8. How I Keep Your Information Safe
 I take the security of your information seriously:
 Paper records are stored in a locked filing cabinet in a locked room.
@@ -131,7 +138,9 @@ Email service providers: I use 123 Reg as my email hosting provider for business
 Delivery providers: For physical books and other physical products, I share your name and delivery address with Royal Mail or a courier service for the purpose of fulfilling your order.
 Professional advisers such as accountants or lawyers, where necessary.
 Regulatory bodies or government agencies, if required by law.
-Some of my service providers may be based outside the UK. Where this is the case, I ensure appropriate safeguards are in place to protect your data. This may include using providers in countries that have passed the UK data protection test (meaning their data protection standards are not materially lower than in the UK), or providers who have signed international data transfer agreements or standard contractual clauses.
+My clinical executor, a qualified therapist bound by confidentiality, only if I become seriously ill or incapacitated, or if I die (see section 7).
+ClinicalWill.app, the secure platform I use to hold my clinical will. It acts as my data processor, cannot use your data for any other purpose, and stores data in encrypted form in the EU (Ireland).
+Some of my service providers may be based outside the UK. Where this is the case, I ensure appropriate safeguards are in place to protect your data. This may include using providers in countries that have passed the UK data protection test (meaning their data protection standards are not materially lower than in the UK), or providers who have signed international data transfer agreements or standard contractual clauses. For example, the platform that holds my clinical will stores data in the EU, which UK law recognises as providing an adequate level of protection.
 In particular, Stripe transfers some payment-related data to the United States. These transfers are protected by the UK Extension to the EU-US Data Privacy Framework adequacy decision, which the UK Government has determined provides essentially equivalent data protection to UK standards.
 
 10. How Long I Keep Your Information
@@ -143,7 +152,7 @@ CPD records: Six years after the session, to allow me to evidence my learning to
 Workshop records: Six years after the event, to allow you to evidence your learning to professional bodies and for tax purposes.
 General enquiries: Six months if you do not proceed with services.
 Marketing preferences: Until you unsubscribe, plus a record of your opt-out to ensure I respect your wishes.
-After these periods, I securely delete or destroy your information.
+After these periods, I securely delete or destroy your information. If I die or become unable to work, my clinical executor will keep your records securely for the same periods and then destroy them.
 
 11. Your Rights
 You have rights over your personal information. You can:
