@@ -33,7 +33,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'university-student-guide-2026',
     name: 'Starting University - Student Guide - eBook',
     shortDescription:
-      "A student's guide to mental health, wellbeing and navigating the transition to university life - settling in, friendships, study pressures, and looking after yourself away from home.",
+      'If everyone else seems to be loving university and you are quietly not, this book was written for you.\n\nAn honest, warm guide to the first year as it really is, not as the prospectus describes it. It walks through the predictable phases of first term, from the early rush to the week three dip and the slow finding of your feet, and explains why each one feels the way it does. It covers homesickness, loneliness, friendships, imposter syndrome and knowing when and how to ask for help, with support for neurodivergent students woven throughout and thirteen practical worksheets. A free companion guide for parents is also available.\n\n“Heading off to university soon? Some super useful support on managing your mental health and wellbeing from a brilliant psychotherapist Victoria Froome” - KG',
     kind: 'digital',
     availableFrom: '2026-07-27',
     priceLabel: '£8.99',
@@ -46,7 +46,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'university-student-guide-paperback',
     name: 'Starting University - Student Guide - Paperback',
     shortDescription:
-      'Paperback edition - mental health, wellbeing and navigating the transition to university life.',
+      'If everyone else seems to be loving university and you are quietly not, this book was written for you.\n\nAn honest, warm guide to the first year as it really is, not as the prospectus describes it. It walks through the predictable phases of first term, from the early rush to the week three dip and the slow finding of your feet, and explains why each one feels the way it does. It covers homesickness, loneliness, friendships, imposter syndrome and knowing when and how to ask for help, with support for neurodivergent students woven throughout and thirteen practical worksheets. A free companion guide for parents is also available.\n\n“Heading off to university soon? Some super useful support on managing your mental health and wellbeing from a brilliant psychotherapist Victoria Froome” - KG',
     kind: 'physical',
     availableFrom: '2026-07-27',
     priceLabel: '£11.99',
@@ -69,7 +69,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'rsd-handbook-ebook',
     name: 'RSD Handbook - eBook',
     shortDescription:
-      'If criticism lands like a blow and lingers for days, this handbook was written for you. Lifespan approach to RSD - warmth and clinical depth.',
+      'If criticism lands like a blow and lingers for days, this book was written for you.\n\nThis book explains why rejection can hurt so intensely, and what actually helps. It treats RSD as a pattern that can affect anyone, not only people with ADHD, and follows it across the whole lifespan: childhood, university, work, parenthood, perimenopause and later life. It is warm, clear and grounded in clinical experience, with practical strategies, guidance for the people around you and a section for clinicians.\n\n“I feel compelled to write and thank you for what I think is going to become an incredibly useful resource in my journey.” - Reader review\n\n“Explained RSD with warmth and clarity.” - CH',
     kind: 'digital',
     priceLabel: '£9.99',
     coverImage: '/images/covers/rsd-handbook-cover.png',
@@ -80,7 +80,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'rsd-handbook-paperback',
     name: 'RSD Handbook - Paperback',
     shortDescription:
-      'Paperback edition - mapped across the lifespan with practical support.',
+      'If criticism lands like a blow and lingers for days, this book was written for you.\n\nThis book explains why rejection can hurt so intensely, and what actually helps. It treats RSD as a pattern that can affect anyone, not only people with ADHD, and follows it across the whole lifespan: childhood, university, work, parenthood, perimenopause and later life. It is warm, clear and grounded in clinical experience, with practical strategies, guidance for the people around you and a section for clinicians.\n\n“I feel compelled to write and thank you for what I think is going to become an incredibly useful resource in my journey.” - Reader review\n\n“Explained RSD with warmth and clarity.” - CH',
     kind: 'physical',
     priceLabel: '£14.99',
     coverImage: '/images/covers/rsd-handbook-cover.png',
@@ -90,7 +90,7 @@ export const CATALOG: CatalogItem[] = [
     slug: 'rsd-workbook-ebook',
     name: 'RSD Companion Workbook - eBook',
     shortDescription:
-      'Trigger inventories, emergency tools, communication scripts, and quick reference cards - designed to write in and return to.',
+      'Understanding RSD is one thing. Knowing what to do when it floods you is another.\n\nThe companion workbook turns understanding into practice. It has a personal trigger inventory, an emergency toolkit for the height of an episode, scripts for the conversations RSD makes hardest, quick reference cards for when you cannot think clearly, and a guide to talking with your GP. You can use it alongside the handbook or on its own. It is yours to write in, mark up and return to.\n\n“Well set out. Easy to use. A valuable tool.” - Amazon review',
     kind: 'digital',
     priceLabel: '£4.99',
     coverImage: '/images/covers/rsd-workbook-cover.png',
@@ -100,7 +100,8 @@ export const CATALOG: CatalogItem[] = [
     id: 'rsd-workbook-paperback',
     slug: 'rsd-workbook-paperback',
     name: 'RSD Companion Workbook - Paperback',
-    shortDescription: 'Paperback companion to the handbook - practical exercises and worksheets.',
+    shortDescription:
+      'Understanding RSD is one thing. Knowing what to do when it floods you is another.\n\nThe companion workbook turns understanding into practice. It has a personal trigger inventory, an emergency toolkit for the height of an episode, scripts for the conversations RSD makes hardest, quick reference cards for when you cannot think clearly, and a guide to talking with your GP. You can use it alongside the handbook or on its own. It is yours to write in, mark up and return to.\n\n“Well set out. Easy to use. A valuable tool.” - Amazon review',
     kind: 'physical',
     priceLabel: '£11.99',
     coverImage: '/images/covers/rsd-workbook-cover.png',

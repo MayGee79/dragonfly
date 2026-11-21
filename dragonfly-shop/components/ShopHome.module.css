@@ -182,6 +182,7 @@
   color: var(--color-text);
   margin: 0 0 var(--spacing-md);
   flex: 1;
+  white-space: pre-line;
 }
 
 .freeDownloadBtn {
