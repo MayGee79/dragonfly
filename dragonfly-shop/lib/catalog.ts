@@ -294,6 +294,33 @@ export function clientBookBySlug(slug: string): ClientBook | undefined {
   return clientBooks().find((book) => book.bookSlug === slug)
 }
 
+/** Browser / search-result title (layout template appends "| Dragonfly Shop"). */
+export function bookSeoTitle(book: Pick<ClientBook, 'title'>): string {
+  return `${book.title} by Dr Victoria Froome`
+}
+
+/** Meta description: teaser plus available formats, kept near a typical SERP length. */
+export function bookSeoDescription(book: ClientBook): string {
+  const formats = [
+    ...new Set(
+      book.editions
+        .map((e) => e.formatLabel)
+        .filter((label): label is string => Boolean(label)),
+    ),
+  ]
+  const formatBit = formats.length > 0 ? ` Available as ${formats.join(', ')}.` : ''
+  const text = `${book.teaser.trim()}${formatBit} From Dragonfly Shop (UK).`
+  if (text.length <= 160) return text
+  return `${text.slice(0, 157).trimEnd()}…`
+}
+
+/** GBP amount from a shop price label like "£9.99". */
+export function priceAmountFromLabel(priceLabel: string | undefined): string | undefined {
+  if (!priceLabel) return undefined
+  const match = priceLabel.replace(/,/g, '').match(/(\d+(?:\.\d{1,2})?)/)
+  return match?.[1]
+}
+
 export function freeFormatsFor(item: CatalogItem): FreeDownloadFormat[] {
   const formats: FreeDownloadFormat[] = []
   if (item.privateDownloadFile) formats.push('pdf')

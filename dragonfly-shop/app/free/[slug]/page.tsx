@@ -17,9 +17,19 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const item = freeItemBySlug(params.slug)
   if (!item) return {}
+  const title = `${item.name} by Dr Victoria Froome`
+  const description = item.teaser ?? item.shortDescription
+  const path = `/free/${item.slug}`
   return {
-    title: item.name,
-    description: item.shortDescription,
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: {
+      title,
+      description,
+      url: path,
+      images: [{ url: item.coverImage, alt: `Cover of ${item.name}` }],
+    },
   }
 }
 

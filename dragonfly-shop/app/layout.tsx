@@ -25,21 +25,22 @@ function metadataBaseUrl(): URL {
 
 const metadataBaseResolved = metadataBaseUrl()
 
+const SITE_DESCRIPTION =
+  'Buy handbooks and workbooks by Dr Victoria Froome — Strength Beneath®, RSD Handbook, Starting University, and more. eBook and print editions from Dragonfly Shop (UK).'
+
 export const metadata: Metadata = {
   metadataBase: metadataBaseResolved,
   title: {
-    default: 'Dragonfly Shop',
+    default: 'Dragonfly Shop | Books & Workbooks by Dr Victoria Froome',
     template: '%s | Dragonfly Shop',
   },
-  description:
-    'Buy Dragonfly Psychotherapy handbooks and workbooks directly - RSD Handbook and Companion Workbook (eBook and paperback).',
+  description: SITE_DESCRIPTION,
   openGraph: {
     type: 'website',
     locale: 'en_GB',
     siteName: 'Dragonfly Shop',
-    title: 'Dragonfly Shop',
-    description:
-      'Buy Dragonfly Psychotherapy handbooks and workbooks directly - RSD Handbook and Companion Workbook (eBook and paperback).',
+    title: 'Dragonfly Shop | Books & Workbooks by Dr Victoria Froome',
+    description: SITE_DESCRIPTION,
     url: metadataBaseResolved.href,
   },
   robots: { index: true, follow: true },

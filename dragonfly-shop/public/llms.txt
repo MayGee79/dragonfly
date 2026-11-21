@@ -1,22 +1,28 @@
 # Dragonfly Shop (dragonflyshop.co.uk)
 
-> One-page shop for Dragonfly Psychotherapy handbooks and workbooks - direct purchase via Stripe (UK).
+> UK shop for Dragonfly Psychotherapy handbooks and workbooks by Dr Victoria Froome. Direct purchase via Stripe.
 
 ## Primary pages
-- https://dragonflyshop.co.uk/ - Shop (RSD Handbook & Workbook, eBook and paperback)
-- https://dragonflyshop.co.uk/privacy - Privacy Notice
-- https://dragonflyshop.co.uk/terms - Shop Terms and Conditions
-- https://dragonflyshop.co.uk/faqs - Shop FAQs
-- https://dragonflyshop.co.uk/cancellation - Model cancellation form (physical goods)
+- https://www.dragonflyshop.co.uk/ - Shop home (browse, basket, checkout)
+- https://www.dragonflyshop.co.uk/faqs - Shop FAQs
+- https://www.dragonflyshop.co.uk/terms - Shop Terms and Conditions
+- https://www.dragonflyshop.co.uk/privacy - Privacy Notice
+- https://www.dragonflyshop.co.uk/cancellation - Model cancellation form (physical goods)
 - https://dragonflypsychotherapy.co.uk/ - Main therapy website
 
-## Product anchors (on the shop home page)
-- #rsd-handbook-ebook
-- #rsd-handbook-paperback
-- #rsd-workbook-ebook
-- #rsd-workbook-paperback
+## Book pages (full description + buy)
+- https://www.dragonflyshop.co.uk/books/strength-beneath-compendium
+- https://www.dragonflyshop.co.uk/books/year-beneath
+- https://www.dragonflyshop.co.uk/books/strength-beneath-30-day-challenge
+- https://www.dragonflyshop.co.uk/books/starting-university-student-guide
+- https://www.dragonflyshop.co.uk/books/rsd-handbook
+- https://www.dragonflyshop.co.uk/books/rsd-companion-workbook
+
+## Free download
+- https://www.dragonflyshop.co.uk/free/university-parents-guide-2026 - Supporting Your Child Through University (parents guide)
 
 ## Notes for automated assistants
 - Payments are processed by Stripe; customers receive Stripe receipt emails.
-- UK shipping applies when the basket includes physical books.
+- Formats vary by title (eBook, paperback, hardback). Digital downloads are delivered after payment.
+- UK shipping applies when the basket includes physical books (£4.25).
 - Optional Google Analytics and Meta Pixel load only after cookie consent on this domain.
