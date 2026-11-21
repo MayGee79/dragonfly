@@ -24,6 +24,25 @@ function productGroups(catalog: ClientCatalogItem[]) {
   return groups
 }
 
+type BookCard = {
+  /** Stable key for the card: the id of its first edition. */
+  key: string
+  title: string
+  bookTitle?: string
+  editions: ClientCatalogItem[]
+}
+
+/** One card per book: consecutive editions sharing a bookTitle are merged. */
+function bookCards(items: ClientCatalogItem[]): BookCard[] {
+  const cards: BookCard[] = []
+  for (const item of items) {
+    const last = cards[cards.length - 1]
+    if (item.bookTitle && last && last.bookTitle === item.bookTitle) last.editions.push(item)
+    else cards.push({ key: item.id, title: item.bookTitle ?? item.name, bookTitle: item.bookTitle, editions: [item] })
+  }
+  return cards
+}
+
 function coverAlt(name: string): string {
   if (name.includes('Handbook')) return 'Cover: Rejection Sensitive Dysphoria handbook'
   if (name.includes('Workbook')) return 'Cover: Rejection Sensitive Dysphoria companion workbook'
@@ -57,6 +76,8 @@ function BasketIconGraphic() {
 
 export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) {
   const [basket, setBasket] = useState<Basket>({})
+  /** Card key → id of the edition picked in that card's format picker. */
+  const [chosenEdition, setChosenEdition] = useState<Record<string, string>>({})
   const [customerEmail, setCustomerEmail] = useState('')
   const [acceptTerms, setAcceptTerms] = useState(false)
   const [newsletter, setNewsletter] = useState(false)
@@ -182,7 +203,7 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
             <h2 className={styles.basketHeading}>Basket</h2>
             {lineItems.length === 0 ? (
               <p className={styles.basketEmpty}>
-                Click a product&apos;s basket icon or set a quantity, then complete checkout here.
+                Choose a format, click the basket icon or set a quantity, then complete checkout here.
               </p>
             ) : (
               <ul className={styles.basketList}>
@@ -261,12 +282,19 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
                 <section key={group.title ?? 'shop'} className={styles.collection} aria-label={group.title ?? 'Shop'}>
                   {group.title ? <h2 className={styles.collectionHeading}>{group.title}</h2> : null}
                   <div className={styles.grid}>
-              {group.items.map((item) => (
-                <article key={item.id} id={item.slug} className={styles.card}>
+              {bookCards(group.items).map((card) => {
+                const hasFormats = card.editions.length > 1
+                const item = card.editions.find((e) => e.id === chosenEdition[card.key]) ?? card.editions[0]
+                return (
+                <article key={card.key} id={card.editions[0].slug} className={styles.card}>
+                  {/* Keep each edition's old #anchor working now that editions share a card. */}
+                  {card.editions.slice(1).map((e) => (
+                    <span key={e.id} id={e.slug} className={styles.editionAnchor} />
+                  ))}
                   <div className={styles.coverWrap}>
                     <Image
                       src={item.coverImage}
-                      alt={coverAlt(item.name)}
+                      alt={coverAlt(card.title)}
                       width={320}
                       height={512}
                       className={styles.coverImg}
@@ -274,9 +302,40 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
                     />
                   </div>
                   <div className={styles.cardBody}>
-                    <h2 className={styles.cardTitle}>{item.name}</h2>
-                    {item.priceLabel ? <p className={styles.price}>{item.priceLabel}</p> : null}
+                    <h2 className={styles.cardTitle}>{card.title}</h2>
+                    {!hasFormats && item.priceLabel ? <p className={styles.price}>{item.priceLabel}</p> : null}
                     <p className={styles.desc}>{item.shortDescription}</p>
+                    {hasFormats ? (
+                      <fieldset className={styles.formats}>
+                        <legend className={styles.formatsLegend}>Format</legend>
+                        <div className={styles.formatOptions}>
+                          {card.editions.map((e) => {
+                            const inBasket = qtyFor(e.id)
+                            return (
+                              <label
+                                key={e.id}
+                                className={`${styles.formatOption}${e.id === item.id ? ` ${styles.formatOptionSelected}` : ''}`}
+                              >
+                                <input
+                                  type="radio"
+                                  name={`format-${card.key}`}
+                                  value={e.id}
+                                  checked={e.id === item.id}
+                                  onChange={() => setChosenEdition((prev) => ({ ...prev, [card.key]: e.id }))}
+                                />
+                                <span>{e.formatLabel ?? e.name}</span>
+                                {e.priceLabel ? <span className={styles.formatPrice}>{e.priceLabel}</span> : null}
+                                {inBasket > 0 ? (
+                                  <span className={styles.formatInBasket} title={`${inBasket} in basket`}>
+                                    ×{inBasket}
+                                  </span>
+                                ) : null}
+                              </label>
+                            )
+                          })}
+                        </div>
+                      </fieldset>
+                    ) : null}
                     {showsComingSoon(item) ? (
                       <span className={styles.comingSoonLabel}>{availabilityLabel(item)}</span>
                     ) : item.isFree ? (
@@ -314,7 +373,8 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
                     )}
                   </div>
                 </article>
-              ))}
+                )
+              })}
                   </div>
                 </section>
               ))}

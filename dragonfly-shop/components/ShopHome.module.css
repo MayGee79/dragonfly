@@ -133,6 +133,7 @@
 }
 
 .card {
+  position: relative;
   scroll-margin-top: 80px;
   display: flex;
   flex-direction: row;
@@ -195,6 +196,93 @@
   margin: 0 0 var(--spacing-md);
   flex: 1;
   white-space: pre-line;
+}
+
+/* Invisible scroll targets so each edition's old #anchor still lands on its book's card */
+.editionAnchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  scroll-margin-top: 80px;
+}
+
+.formats {
+  min-width: 0;
+  margin: 0 0 var(--spacing-md);
+  padding: 0;
+  border: 0;
+}
+
+.formatsLegend {
+  margin-bottom: var(--spacing-xs);
+  padding: 0;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.formatOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.formatOption {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  min-height: var(--shop-control-height);
+  padding: 0 var(--spacing-md);
+  border: var(--shop-surface-border);
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  color: var(--color-text);
+  box-shadow: var(--shop-surface-shadow);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+/* The radio stays in the page for keyboards and screen readers; the label is the visible control */
+.formatOption input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+}
+
+.formatOption:hover {
+  background: var(--color-qualifications-bg);
+}
+
+.formatOptionSelected,
+.formatOptionSelected:hover {
+  background: var(--color-qualifications-bg);
+  border-color: var(--color-primary-darker);
+  box-shadow: inset 0 0 0 1px var(--color-primary-darker);
+}
+
+.formatOption:focus-within {
+  box-shadow: 0 0 0 3px rgba(175, 147, 184, 0.45), var(--shop-surface-shadow);
+}
+
+.formatPrice {
+  font-weight: 700;
+}
+
+.formatInBasket {
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--color-primary-darker);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
 }
 
 .freeDownloadBtn {

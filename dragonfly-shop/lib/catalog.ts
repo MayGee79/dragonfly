@@ -6,6 +6,13 @@ export type CatalogItem = {
   id: string
   slug: string
   name: string
+  /**
+   * Book title shared by every edition of one book (e.g. "RSD Handbook").
+   * Consecutive items with the same bookTitle render as one shop card with a format picker.
+   */
+  bookTitle?: string
+  /** Edition label shown in the card's format picker (e.g. "Paperback"). */
+  formatLabel?: string
   shortDescription: string
   kind: ProductKind
   /** Free resources download directly without going through Stripe checkout. */
@@ -43,6 +50,8 @@ export const CATALOG: CatalogItem[] = [
     id: 'strength-beneath-compendium-paperback',
     slug: 'strength-beneath-compendium-paperback',
     name: 'Strength Beneath Compendium - Paperback',
+    bookTitle: 'Strength Beneath Compendium',
+    formatLabel: 'Paperback',
     shortDescription: STRENGTH_BENEATH_COMPENDIUM_BLURB,
     kind: 'physical',
     priceLabel: '£26.99',
@@ -53,6 +62,8 @@ export const CATALOG: CatalogItem[] = [
     id: 'strength-beneath-compendium-hardback',
     slug: 'strength-beneath-compendium-hardback',
     name: 'Strength Beneath Compendium - Hardback',
+    bookTitle: 'Strength Beneath Compendium',
+    formatLabel: 'Hardback',
     shortDescription: STRENGTH_BENEATH_COMPENDIUM_BLURB,
     kind: 'physical',
     priceLabel: '£34.99',
@@ -63,6 +74,8 @@ export const CATALOG: CatalogItem[] = [
     id: 'year-beneath-paperback',
     slug: 'year-beneath-paperback',
     name: 'The Year Beneath - Paperback',
+    bookTitle: 'The Year Beneath',
+    formatLabel: 'Paperback',
     shortDescription: YEAR_BENEATH_BLURB,
     kind: 'physical',
     priceLabel: '£16.99',
@@ -73,6 +86,8 @@ export const CATALOG: CatalogItem[] = [
     id: 'year-beneath-hardback',
     slug: 'year-beneath-hardback',
     name: 'The Year Beneath - Hardback',
+    bookTitle: 'The Year Beneath',
+    formatLabel: 'Hardback',
     shortDescription: YEAR_BENEATH_BLURB,
     kind: 'physical',
     priceLabel: '£24.99',
@@ -83,6 +98,8 @@ export const CATALOG: CatalogItem[] = [
     id: 'strength-beneath-30-day-paperback',
     slug: 'strength-beneath-30-day-paperback',
     name: 'The Strength Beneath® 30 Day Challenge - Paperback',
+    bookTitle: 'The Strength Beneath® 30 Day Challenge',
+    formatLabel: 'Paperback',
     shortDescription: STRENGTH_BENEATH_30_DAY_BLURB,
     kind: 'physical',
     priceLabel: '£10.99',
@@ -93,6 +110,8 @@ export const CATALOG: CatalogItem[] = [
     id: 'strength-beneath-30-day-hardback',
     slug: 'strength-beneath-30-day-hardback',
     name: 'The Strength Beneath® 30 Day Challenge - Hardback',
+    bookTitle: 'The Strength Beneath® 30 Day Challenge',
+    formatLabel: 'Hardback',
     shortDescription: STRENGTH_BENEATH_30_DAY_BLURB,
     kind: 'physical',
     priceLabel: '£16.99',
@@ -103,6 +122,8 @@ export const CATALOG: CatalogItem[] = [
     id: 'university-student-guide-2026',
     slug: 'university-student-guide-2026',
     name: 'Starting University - Student Guide - eBook',
+    bookTitle: 'Starting University - Student Guide',
+    formatLabel: 'eBook',
     shortDescription:
       'If everyone else seems to be loving university and you are quietly not, this book was written for you.\n\nAn honest, warm guide to the first year as it really is, not as the prospectus describes it. It walks through the predictable phases of first term, from the early rush to the week three dip and the slow finding of your feet, and explains why each one feels the way it does. It covers homesickness, loneliness, friendships, imposter syndrome and knowing when and how to ask for help, with support for neurodivergent students woven throughout and thirteen practical worksheets. A free companion guide for parents is also available.\n\n“Heading off to university soon? Some super useful support on managing your mental health and wellbeing from a brilliant psychotherapist Victoria Froome” - KG',
     kind: 'digital',
@@ -116,6 +137,8 @@ export const CATALOG: CatalogItem[] = [
     id: 'university-student-guide-paperback',
     slug: 'university-student-guide-paperback',
     name: 'Starting University - Student Guide - Paperback',
+    bookTitle: 'Starting University - Student Guide',
+    formatLabel: 'Paperback',
     shortDescription:
       'If everyone else seems to be loving university and you are quietly not, this book was written for you.\n\nAn honest, warm guide to the first year as it really is, not as the prospectus describes it. It walks through the predictable phases of first term, from the early rush to the week three dip and the slow finding of your feet, and explains why each one feels the way it does. It covers homesickness, loneliness, friendships, imposter syndrome and knowing when and how to ask for help, with support for neurodivergent students woven throughout and thirteen practical worksheets. A free companion guide for parents is also available.\n\n“Heading off to university soon? Some super useful support on managing your mental health and wellbeing from a brilliant psychotherapist Victoria Froome” - KG',
     kind: 'physical',
@@ -139,6 +162,8 @@ export const CATALOG: CatalogItem[] = [
     id: 'rsd-handbook-ebook',
     slug: 'rsd-handbook-ebook',
     name: 'RSD Handbook - eBook',
+    bookTitle: 'RSD Handbook',
+    formatLabel: 'eBook',
     shortDescription:
       'If criticism lands like a blow and lingers for days, this book was written for you.\n\nThis book explains why rejection can hurt so intensely, and what actually helps. It treats RSD as a pattern that can affect anyone, not only people with ADHD, and follows it across the whole lifespan: childhood, university, work, parenthood, perimenopause and later life. It is warm, clear and grounded in clinical experience, with practical strategies, guidance for the people around you and a section for clinicians.\n\n“I feel compelled to write and thank you for what I think is going to become an incredibly useful resource in my journey.” - Reader review\n\n“Explained RSD with warmth and clarity.” - CH',
     kind: 'digital',
@@ -150,6 +175,8 @@ export const CATALOG: CatalogItem[] = [
     id: 'rsd-handbook-paperback',
     slug: 'rsd-handbook-paperback',
     name: 'RSD Handbook - Paperback',
+    bookTitle: 'RSD Handbook',
+    formatLabel: 'Paperback',
     shortDescription:
       'If criticism lands like a blow and lingers for days, this book was written for you.\n\nThis book explains why rejection can hurt so intensely, and what actually helps. It treats RSD as a pattern that can affect anyone, not only people with ADHD, and follows it across the whole lifespan: childhood, university, work, parenthood, perimenopause and later life. It is warm, clear and grounded in clinical experience, with practical strategies, guidance for the people around you and a section for clinicians.\n\n“I feel compelled to write and thank you for what I think is going to become an incredibly useful resource in my journey.” - Reader review\n\n“Explained RSD with warmth and clarity.” - CH',
     kind: 'physical',
@@ -160,6 +187,8 @@ export const CATALOG: CatalogItem[] = [
     id: 'rsd-workbook-ebook',
     slug: 'rsd-workbook-ebook',
     name: 'RSD Companion Workbook - eBook',
+    bookTitle: 'RSD Companion Workbook',
+    formatLabel: 'eBook',
     shortDescription:
       'Understanding RSD is one thing. Knowing what to do when it floods you is another.\n\nThe companion workbook turns understanding into practice. It has a personal trigger inventory, an emergency toolkit for the height of an episode, scripts for the conversations RSD makes hardest, quick reference cards for when you cannot think clearly, and a guide to talking with your GP. You can use it alongside the handbook or on its own. It is yours to write in, mark up and return to.\n\n“Well set out. Easy to use. A valuable tool.” - Amazon review',
     kind: 'digital',
@@ -171,6 +200,8 @@ export const CATALOG: CatalogItem[] = [
     id: 'rsd-workbook-paperback',
     slug: 'rsd-workbook-paperback',
     name: 'RSD Companion Workbook - Paperback',
+    bookTitle: 'RSD Companion Workbook',
+    formatLabel: 'Paperback',
     shortDescription:
       'Understanding RSD is one thing. Knowing what to do when it floods you is another.\n\nThe companion workbook turns understanding into practice. It has a personal trigger inventory, an emergency toolkit for the height of an episode, scripts for the conversations RSD makes hardest, quick reference cards for when you cannot think clearly, and a guide to talking with your GP. You can use it alongside the handbook or on its own. It is yours to write in, mark up and return to.\n\n“Well set out. Easy to use. A valuable tool.” - Amazon review',
     kind: 'physical',
