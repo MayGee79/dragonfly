@@ -56,8 +56,8 @@ export const CATALOG: CatalogItem[] = [
   {
     id: 'strength-beneath-compendium-paperback',
     slug: 'strength-beneath-compendium-paperback',
-    name: 'Strength Beneath Compendium - Paperback',
-    bookTitle: 'Strength Beneath Compendium',
+    name: 'Strength Beneath® Compendium - Paperback',
+    bookTitle: 'Strength Beneath® Compendium',
     bookSlug: 'strength-beneath-compendium',
     teaser: 'When life gets hard, the things that hold you steady do not disappear. They just become harder to see.',
     formatLabel: 'Paperback',
@@ -70,8 +70,8 @@ export const CATALOG: CatalogItem[] = [
   {
     id: 'strength-beneath-compendium-hardback',
     slug: 'strength-beneath-compendium-hardback',
-    name: 'Strength Beneath Compendium - Hardback',
-    bookTitle: 'Strength Beneath Compendium',
+    name: 'Strength Beneath® Compendium - Hardback',
+    bookTitle: 'Strength Beneath® Compendium',
     bookSlug: 'strength-beneath-compendium',
     teaser: 'When life gets hard, the things that hold you steady do not disappear. They just become harder to see.',
     formatLabel: 'Hardback',

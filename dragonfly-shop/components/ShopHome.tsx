@@ -57,8 +57,8 @@ function bookCards(items: ClientCatalogItem[]): BookCard[] {
 function coverAlt(name: string): string {
   if (name.includes('Handbook')) return 'Cover: Rejection Sensitive Dysphoria handbook'
   if (name.includes('Workbook')) return 'Cover: Rejection Sensitive Dysphoria companion workbook'
-  if (name.includes('Compendium')) return 'Cover: Strength Beneath Compendium'
-  if (name.includes('30 Day')) return 'Cover: Strength Beneath 30 Day Challenge'
+  if (name.includes('Compendium')) return 'Cover: Strength Beneath® Compendium'
+  if (name.includes('30 Day')) return 'Cover: Strength Beneath® 30 Day Challenge'
   if (name.includes('Year Beneath')) return 'Cover: The Year Beneath'
   return name
 }

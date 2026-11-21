@@ -11,8 +11,8 @@ import styles from './BookPage.module.css'
 function coverAlt(title: string): string {
   if (title.includes('Handbook')) return 'Cover: Rejection Sensitive Dysphoria handbook'
   if (title.includes('Workbook')) return 'Cover: Rejection Sensitive Dysphoria companion workbook'
-  if (title.includes('Compendium')) return 'Cover: Strength Beneath Compendium'
-  if (title.includes('30 Day')) return 'Cover: Strength Beneath 30 Day Challenge'
+  if (title.includes('Compendium')) return 'Cover: Strength Beneath® Compendium'
+  if (title.includes('30 Day')) return 'Cover: Strength Beneath® 30 Day Challenge'
   if (title.includes('Year Beneath')) return 'Cover: The Year Beneath'
   return `Cover: ${title}`
 }
