@@ -13,9 +13,23 @@ function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
 }
 
+function productGroups(catalog: ClientCatalogItem[]) {
+  const groups: { title?: string; items: ClientCatalogItem[] }[] = []
+  for (const item of catalog) {
+    const title = item.section
+    const last = groups[groups.length - 1]
+    if (last && last.title === title) last.items.push(item)
+    else groups.push({ title, items: [item] })
+  }
+  return groups
+}
+
 function coverAlt(name: string): string {
   if (name.includes('Handbook')) return 'Cover: Rejection Sensitive Dysphoria handbook'
   if (name.includes('Workbook')) return 'Cover: Rejection Sensitive Dysphoria companion workbook'
+  if (name.includes('Compendium')) return 'Cover: Strength Beneath Compendium'
+  if (name.includes('30 Day')) return 'Cover: Strength Beneath 30 Day Challenge'
+  if (name.includes('Year Beneath')) return 'Cover: The Year Beneath'
   return name
 }
 
@@ -242,8 +256,12 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
           </aside>
 
           <div className={styles.mainContent}>
-            <section className={styles.grid} aria-label="Products">
-              {catalog.map((item) => (
+            <div aria-label="Products">
+              {productGroups(catalog).map((group) => (
+                <section key={group.title ?? 'shop'} className={styles.collection} aria-label={group.title ?? 'Shop'}>
+                  {group.title ? <h2 className={styles.collectionHeading}>{group.title}</h2> : null}
+                  <div className={styles.grid}>
+              {group.items.map((item) => (
                 <article key={item.id} id={item.slug} className={styles.card}>
                   <div className={styles.coverWrap}>
                     <Image
@@ -297,8 +315,10 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
                   </div>
                 </article>
               ))}
-            </section>
-
+                  </div>
+                </section>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -312,7 +332,7 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
           </p>
           <h3>Shipping (UK)</h3>
           <p>
-            We currently ship within the UK only. If your basket includes a paperback, postage and packaging is £4.25. We
+            We currently ship within the UK only. If your basket includes a physical book, postage and packaging is £4.25. We
             aim to post within 2–3 working days of payment.
           </p>
           <h3>Returns</h3>

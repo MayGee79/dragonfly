@@ -19,6 +19,8 @@ export type CatalogItem = {
   availableFrom?: string
   /** Display price on the shop card (e.g. "£9.99"). Stripe remains source of truth at checkout. */
   priceLabel?: string
+  /** Optional shop-section heading. Consecutive items with the same section render together. */
+  section?: string
   /** Path under `/public` for product card cover art */
   coverImage: string
   /** Filename under `private/downloads/` — served only via `/api/download` after Stripe verifies the session */
@@ -27,7 +29,76 @@ export type CatalogItem = {
   privateDownloadEpubFile?: string
 }
 
+const STRENGTH_BENEATH_COMPENDIUM_BLURB =
+  'When life gets hard, the things that hold you steady do not disappear. They just become harder to see.\n\nA self-help guide and workbook in one, built around the six foundations of the Strength Beneath® framework: Values, Strengths, Relationships, Resilience, Skills and Identity. Start with whatever feels hardest, whether that is anxiety, burnout, self-criticism or a life that has changed shape, and each topic leads you back to the foundation that can help. This is a book to keep and return to.'
+
+const STRENGTH_BENEATH_30_DAY_BLURB =
+  'Thirty days. Six foundations. A few minutes at a time.\n\nEach day brings one affirmation, one reflective prompt and space to write, over morning coffee or before bed. You move through the six foundations five times, going a little deeper each round. On the final day you look back at where you began. It is a gentle first step into journaling, a fresh start for the New Year, or an encouraging gift.'
+
+const YEAR_BENEATH_BLURB =
+  'Most journals ask what happened today. This one asks what held you steady through it.\n\nAn undated guided journal with a page for every day, an anchor question to open each month and a waterline reflection each season. You can begin in January, on your birthday, or on the day it arrives. Over a year, it becomes a quiet record of your own strength in your own hand. It also makes a thoughtful gift for someone facing a time of change.'
+
 export const CATALOG: CatalogItem[] = [
+  {
+    id: 'strength-beneath-compendium-paperback',
+    slug: 'strength-beneath-compendium-paperback',
+    name: 'Strength Beneath Compendium - Paperback',
+    shortDescription: STRENGTH_BENEATH_COMPENDIUM_BLURB,
+    kind: 'physical',
+    priceLabel: '£26.99',
+    section: 'Strength Beneath® Collection',
+    coverImage: '/images/covers/strength-beneath-compendium-cover.jpg',
+  },
+  {
+    id: 'strength-beneath-compendium-hardback',
+    slug: 'strength-beneath-compendium-hardback',
+    name: 'Strength Beneath Compendium - Hardback',
+    shortDescription: STRENGTH_BENEATH_COMPENDIUM_BLURB,
+    kind: 'physical',
+    priceLabel: '£34.99',
+    section: 'Strength Beneath® Collection',
+    coverImage: '/images/covers/strength-beneath-compendium-cover.jpg',
+  },
+  {
+    id: 'year-beneath-paperback',
+    slug: 'year-beneath-paperback',
+    name: 'The Year Beneath - Paperback',
+    shortDescription: YEAR_BENEATH_BLURB,
+    kind: 'physical',
+    priceLabel: '£16.99',
+    section: 'Strength Beneath® Collection',
+    coverImage: '/images/covers/year-beneath-cover.jpg',
+  },
+  {
+    id: 'year-beneath-hardback',
+    slug: 'year-beneath-hardback',
+    name: 'The Year Beneath - Hardback',
+    shortDescription: YEAR_BENEATH_BLURB,
+    kind: 'physical',
+    priceLabel: '£24.99',
+    section: 'Strength Beneath® Collection',
+    coverImage: '/images/covers/year-beneath-cover.jpg',
+  },
+  {
+    id: 'strength-beneath-30-day-paperback',
+    slug: 'strength-beneath-30-day-paperback',
+    name: 'The Strength Beneath® 30 Day Challenge - Paperback',
+    shortDescription: STRENGTH_BENEATH_30_DAY_BLURB,
+    kind: 'physical',
+    priceLabel: '£10.99',
+    section: 'Strength Beneath® Collection',
+    coverImage: '/images/covers/strength-beneath-30-day-challenge-cover.jpg',
+  },
+  {
+    id: 'strength-beneath-30-day-hardback',
+    slug: 'strength-beneath-30-day-hardback',
+    name: 'The Strength Beneath® 30 Day Challenge - Hardback',
+    shortDescription: STRENGTH_BENEATH_30_DAY_BLURB,
+    kind: 'physical',
+    priceLabel: '£16.99',
+    section: 'Strength Beneath® Collection',
+    coverImage: '/images/covers/strength-beneath-30-day-challenge-cover.jpg',
+  },
   {
     id: 'university-student-guide-2026',
     slug: 'university-student-guide-2026',
@@ -207,6 +278,18 @@ export function stripePriceIdForCatalogId(id: string): string {
       return requireEnv('STRIPE_PRICE_RSD_WORKBOOK_EBOOK')
     case 'rsd-workbook-paperback':
       return requireEnv('STRIPE_PRICE_RSD_WORKBOOK_PAPERBACK')
+    case 'strength-beneath-compendium-paperback':
+      return requireEnv('STRIPE_PRICE_STRENGTH_BENEATH_COMPENDIUM_PAPERBACK')
+    case 'strength-beneath-compendium-hardback':
+      return requireEnv('STRIPE_PRICE_STRENGTH_BENEATH_COMPENDIUM_HARDBACK')
+    case 'year-beneath-paperback':
+      return requireEnv('STRIPE_PRICE_YEAR_BENEATH_PAPERBACK')
+    case 'year-beneath-hardback':
+      return requireEnv('STRIPE_PRICE_YEAR_BENEATH_HARDBACK')
+    case 'strength-beneath-30-day-paperback':
+      return requireEnv('STRIPE_PRICE_STRENGTH_BENEATH_30_DAY_PAPERBACK')
+    case 'strength-beneath-30-day-hardback':
+      return requireEnv('STRIPE_PRICE_STRENGTH_BENEATH_30_DAY_HARDBACK')
     default:
       throw new Error(`Unknown catalog id: ${id}`)
   }
@@ -223,6 +306,24 @@ export function catalogItemByStripePriceId(priceId: string): CatalogItem | undef
     ['rsd-handbook-paperback', process.env.STRIPE_PRICE_RSD_HANDBOOK_PAPERBACK || ''],
     ['rsd-workbook-ebook', process.env.STRIPE_PRICE_RSD_WORKBOOK_EBOOK || ''],
     ['rsd-workbook-paperback', process.env.STRIPE_PRICE_RSD_WORKBOOK_PAPERBACK || ''],
+    [
+      'strength-beneath-compendium-paperback',
+      process.env.STRIPE_PRICE_STRENGTH_BENEATH_COMPENDIUM_PAPERBACK || '',
+    ],
+    [
+      'strength-beneath-compendium-hardback',
+      process.env.STRIPE_PRICE_STRENGTH_BENEATH_COMPENDIUM_HARDBACK || '',
+    ],
+    ['year-beneath-paperback', process.env.STRIPE_PRICE_YEAR_BENEATH_PAPERBACK || ''],
+    ['year-beneath-hardback', process.env.STRIPE_PRICE_YEAR_BENEATH_HARDBACK || ''],
+    [
+      'strength-beneath-30-day-paperback',
+      process.env.STRIPE_PRICE_STRENGTH_BENEATH_30_DAY_PAPERBACK || '',
+    ],
+    [
+      'strength-beneath-30-day-hardback',
+      process.env.STRIPE_PRICE_STRENGTH_BENEATH_30_DAY_HARDBACK || '',
+    ],
   ]
   const found = pairs.find(([, pid]) => pid === priceId)
   if (!found) return undefined
