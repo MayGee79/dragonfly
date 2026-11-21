@@ -4,10 +4,9 @@ import Image from 'next/image'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import type { ClientCatalogItem } from '@/lib/catalog'
-import { availabilityLabel, showsComingSoon } from '@/lib/catalog'
+import { readBasket, writeBasket, type Basket } from '@/lib/basket'
+import BookBuyControls from '@/components/BookBuyControls'
 import styles from './ShopHome.module.css'
-
-type Basket = Record<string, number>
 
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
@@ -29,6 +28,8 @@ type BookCard = {
   key: string
   title: string
   bookTitle?: string
+  bookSlug?: string
+  teaser: string
   editions: ClientCatalogItem[]
 }
 
@@ -37,8 +38,18 @@ function bookCards(items: ClientCatalogItem[]): BookCard[] {
   const cards: BookCard[] = []
   for (const item of items) {
     const last = cards[cards.length - 1]
-    if (item.bookTitle && last && last.bookTitle === item.bookTitle) last.editions.push(item)
-    else cards.push({ key: item.id, title: item.bookTitle ?? item.name, bookTitle: item.bookTitle, editions: [item] })
+    if (item.bookTitle && last && last.bookTitle === item.bookTitle) {
+      last.editions.push(item)
+      continue
+    }
+    cards.push({
+      key: item.id,
+      title: item.bookTitle ?? item.name,
+      bookTitle: item.bookTitle,
+      bookSlug: item.bookSlug,
+      teaser: item.teaser ?? item.shortDescription,
+      editions: [item],
+    })
   }
   return cards
 }
@@ -52,30 +63,14 @@ function coverAlt(name: string): string {
   return name
 }
 
-function BasketIconGraphic() {
-  return (
-    <svg
-      width="22"
-      height="22"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden>
-      <circle cx="9.5" cy="20.5" r="1.5" fill="currentColor" />
-      <circle cx="17.5" cy="20.5" r="1.5" fill="currentColor" />
-      <path
-        d="M3 5h3l2 13h13l3-10H10"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
+function moreAboutHref(card: BookCard): string | null {
+  if (card.bookSlug) return `/books/${card.bookSlug}`
+  return null
 }
 
 export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) {
   const [basket, setBasket] = useState<Basket>({})
+  const [basketReady, setBasketReady] = useState(false)
   /** Card key → id of the edition picked in that card's format picker. */
   const [chosenEdition, setChosenEdition] = useState<Record<string, string>>({})
   const [customerEmail, setCustomerEmail] = useState('')
@@ -86,7 +81,15 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
   const basketRef = useRef<HTMLElement>(null)
   const prevLineCountRef = useRef(0)
 
-  const qtyFor = (id: string) => basket[id] ?? 0
+  useEffect(() => {
+    setBasket(readBasket())
+    setBasketReady(true)
+  }, [])
+
+  useEffect(() => {
+    if (!basketReady) return
+    writeBasket(basket)
+  }, [basket, basketReady])
 
   const addOneToBasket = (id: string) => {
     setBasket((prev) => {
@@ -199,7 +202,7 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
         </div>
 
         <div className={styles.mainLayout}>
-          <aside ref={basketRef} className={styles.basket} aria-label="Basket and checkout">
+          <aside ref={basketRef} id="basket" className={styles.basket} aria-label="Basket and checkout">
             <h2 className={styles.basketHeading}>Basket</h2>
             {lineItems.length === 0 ? (
               <p className={styles.basketEmpty}>
@@ -282,99 +285,55 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
                 <section key={group.title ?? 'shop'} className={styles.collection} aria-label={group.title ?? 'Shop'}>
                   {group.title ? <h2 className={styles.collectionHeading}>{group.title}</h2> : null}
                   <div className={styles.grid}>
-              {bookCards(group.items).map((card) => {
-                const hasFormats = card.editions.length > 1
-                const item = card.editions.find((e) => e.id === chosenEdition[card.key]) ?? card.editions[0]
-                return (
-                <article key={card.key} id={card.editions[0].slug} className={styles.card}>
-                  {/* Keep each edition's old #anchor working now that editions share a card. */}
-                  {card.editions.slice(1).map((e) => (
-                    <span key={e.id} id={e.slug} className={styles.editionAnchor} />
-                  ))}
-                  <div className={styles.coverWrap}>
-                    <Image
-                      src={item.coverImage}
-                      alt={coverAlt(card.title)}
-                      width={320}
-                      height={512}
-                      className={styles.coverImg}
-                      sizes="(max-width: 520px) 50vw, 140px"
-                    />
-                  </div>
-                  <div className={styles.cardBody}>
-                    <h2 className={styles.cardTitle}>{card.title}</h2>
-                    {!hasFormats && item.priceLabel ? <p className={styles.price}>{item.priceLabel}</p> : null}
-                    <p className={styles.desc}>{item.shortDescription}</p>
-                    {hasFormats ? (
-                      <fieldset className={styles.formats}>
-                        <legend className={styles.formatsLegend}>Format</legend>
-                        <div className={styles.formatOptions}>
-                          {card.editions.map((e) => {
-                            const inBasket = qtyFor(e.id)
-                            return (
-                              <label
-                                key={e.id}
-                                className={`${styles.formatOption}${e.id === item.id ? ` ${styles.formatOptionSelected}` : ''}`}
-                              >
-                                <input
-                                  type="radio"
-                                  name={`format-${card.key}`}
-                                  value={e.id}
-                                  checked={e.id === item.id}
-                                  onChange={() => setChosenEdition((prev) => ({ ...prev, [card.key]: e.id }))}
-                                />
-                                <span>{e.formatLabel ?? e.name}</span>
-                                {e.priceLabel ? <span className={styles.formatPrice}>{e.priceLabel}</span> : null}
-                                {inBasket > 0 ? (
-                                  <span className={styles.formatInBasket} title={`${inBasket} in basket`}>
-                                    ×{inBasket}
-                                  </span>
-                                ) : null}
-                              </label>
-                            )
-                          })}
-                        </div>
-                      </fieldset>
-                    ) : null}
-                    {showsComingSoon(item) ? (
-                      <span className={styles.comingSoonLabel}>{availabilityLabel(item)}</span>
-                    ) : item.isFree ? (
-                      <Link className={styles.freeDownloadBtn} href={`/free/${item.slug}`}>
-                        FREE DOWNLOAD
-                      </Link>
-                    ) : (
-                      <div className={styles.qty}>
-                        <label className={styles.qtyLabel} htmlFor={`qty-${item.id}`}>
-                          Quantity
-                        </label>
-                        <div className={styles.qtyControls}>
-                          <button
-                            type="button"
-                            className={styles.qtyAddButton}
-                            aria-label={`Add one ${item.name} to basket`}
-                            disabled={qtyFor(item.id) >= 99}
-                            onClick={() => addOneToBasket(item.id)}
-                          >
-                            <span className={styles.qtyAddButtonIcon}>
-                              <BasketIconGraphic />
-                            </span>
-                          </button>
-                          <input
-                            id={`qty-${item.id}`}
-                            type="number"
-                            min={0}
-                            max={99}
-                            value={qtyFor(item.id) || ''}
-                            onChange={(e) => setQty(item.id, e.target.value)}
-                            inputMode="numeric"
-                          />
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </article>
-                )
-              })}
+                    {bookCards(group.items).map((card) => {
+                      const item =
+                        card.editions.find((e) => e.id === chosenEdition[card.key]) ?? card.editions[0]
+                      const detailHref = moreAboutHref(card)
+                      return (
+                        <article key={card.key} id={card.editions[0].slug} className={styles.card}>
+                          {/* Keep each edition's old #anchor working now that editions share a card. */}
+                          {card.editions.slice(1).map((e) => (
+                            <span key={e.id} id={e.slug} className={styles.editionAnchor} />
+                          ))}
+                          <div className={styles.coverWrap}>
+                            <Image
+                              src={item.coverImage}
+                              alt={coverAlt(card.title)}
+                              width={200}
+                              height={320}
+                              className={styles.coverImg}
+                              sizes="(max-width: 520px) 40vw, 110px"
+                            />
+                          </div>
+                          <div className={styles.cardBody}>
+                            <h2 className={styles.cardTitle}>{card.title}</h2>
+                            <p className={styles.teaser}>{card.teaser}</p>
+                            {detailHref ? (
+                              <Link href={detailHref} className={styles.moreAbout}>
+                                More about this book
+                              </Link>
+                            ) : null}
+                            {item.isFree ? (
+                              <Link className={styles.freeDownloadBtn} href={`/free/${item.slug}`}>
+                                FREE DOWNLOAD
+                              </Link>
+                            ) : (
+                              <BookBuyControls
+                                editions={card.editions}
+                                basket={basket}
+                                chosenId={item.id}
+                                controlKey={card.key}
+                                onChoose={(id) =>
+                                  setChosenEdition((prev) => ({ ...prev, [card.key]: id }))
+                                }
+                                onAddOne={addOneToBasket}
+                                onSetQty={setQty}
+                              />
+                            )}
+                          </div>
+                        </article>
+                      )
+                    })}
                   </div>
                 </section>
               ))}

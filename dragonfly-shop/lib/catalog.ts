@@ -11,6 +11,13 @@ export type CatalogItem = {
    * Consecutive items with the same bookTitle render as one shop card with a format picker.
    */
   bookTitle?: string
+  /**
+   * URL slug for the book's detail page (`/books/[bookSlug]`).
+   * Shared by every edition of one book. Free items omit this and use `/free/[slug]`.
+   */
+  bookSlug?: string
+  /** One-line shop-card summary; full copy lives on the book page. */
+  teaser?: string
   /** Edition label shown in the card's format picker (e.g. "Paperback"). */
   formatLabel?: string
   shortDescription: string
@@ -51,6 +58,8 @@ export const CATALOG: CatalogItem[] = [
     slug: 'strength-beneath-compendium-paperback',
     name: 'Strength Beneath Compendium - Paperback',
     bookTitle: 'Strength Beneath Compendium',
+    bookSlug: 'strength-beneath-compendium',
+    teaser: 'When life gets hard, the things that hold you steady do not disappear. They just become harder to see.',
     formatLabel: 'Paperback',
     shortDescription: STRENGTH_BENEATH_COMPENDIUM_BLURB,
     kind: 'physical',
@@ -63,6 +72,8 @@ export const CATALOG: CatalogItem[] = [
     slug: 'strength-beneath-compendium-hardback',
     name: 'Strength Beneath Compendium - Hardback',
     bookTitle: 'Strength Beneath Compendium',
+    bookSlug: 'strength-beneath-compendium',
+    teaser: 'When life gets hard, the things that hold you steady do not disappear. They just become harder to see.',
     formatLabel: 'Hardback',
     shortDescription: STRENGTH_BENEATH_COMPENDIUM_BLURB,
     kind: 'physical',
@@ -75,6 +86,8 @@ export const CATALOG: CatalogItem[] = [
     slug: 'year-beneath-paperback',
     name: 'The Year Beneath - Paperback',
     bookTitle: 'The Year Beneath',
+    bookSlug: 'year-beneath',
+    teaser: 'Most journals ask what happened today. This one asks what held you steady through it.',
     formatLabel: 'Paperback',
     shortDescription: YEAR_BENEATH_BLURB,
     kind: 'physical',
@@ -87,6 +100,8 @@ export const CATALOG: CatalogItem[] = [
     slug: 'year-beneath-hardback',
     name: 'The Year Beneath - Hardback',
     bookTitle: 'The Year Beneath',
+    bookSlug: 'year-beneath',
+    teaser: 'Most journals ask what happened today. This one asks what held you steady through it.',
     formatLabel: 'Hardback',
     shortDescription: YEAR_BENEATH_BLURB,
     kind: 'physical',
@@ -99,6 +114,8 @@ export const CATALOG: CatalogItem[] = [
     slug: 'strength-beneath-30-day-paperback',
     name: 'The Strength Beneath® 30 Day Challenge - Paperback',
     bookTitle: 'The Strength Beneath® 30 Day Challenge',
+    bookSlug: 'strength-beneath-30-day-challenge',
+    teaser: 'Thirty days. Six foundations. A few minutes at a time.',
     formatLabel: 'Paperback',
     shortDescription: STRENGTH_BENEATH_30_DAY_BLURB,
     kind: 'physical',
@@ -111,6 +128,8 @@ export const CATALOG: CatalogItem[] = [
     slug: 'strength-beneath-30-day-hardback',
     name: 'The Strength Beneath® 30 Day Challenge - Hardback',
     bookTitle: 'The Strength Beneath® 30 Day Challenge',
+    bookSlug: 'strength-beneath-30-day-challenge',
+    teaser: 'Thirty days. Six foundations. A few minutes at a time.',
     formatLabel: 'Hardback',
     shortDescription: STRENGTH_BENEATH_30_DAY_BLURB,
     kind: 'physical',
@@ -123,6 +142,8 @@ export const CATALOG: CatalogItem[] = [
     slug: 'university-student-guide-2026',
     name: 'Starting University - Student Guide - eBook',
     bookTitle: 'Starting University - Student Guide',
+    bookSlug: 'starting-university-student-guide',
+    teaser: 'If everyone else seems to be loving university and you are quietly not, this book was written for you.',
     formatLabel: 'eBook',
     shortDescription:
       'If everyone else seems to be loving university and you are quietly not, this book was written for you.\n\nAn honest, warm guide to the first year as it really is, not as the prospectus describes it. It walks through the predictable phases of first term, from the early rush to the week three dip and the slow finding of your feet, and explains why each one feels the way it does. It covers homesickness, loneliness, friendships, imposter syndrome and knowing when and how to ask for help, with support for neurodivergent students woven throughout and thirteen practical worksheets. A free companion guide for parents is also available.\n\n“Heading off to university soon? Some super useful support on managing your mental health and wellbeing from a brilliant psychotherapist Victoria Froome” - KG',
@@ -138,6 +159,8 @@ export const CATALOG: CatalogItem[] = [
     slug: 'university-student-guide-paperback',
     name: 'Starting University - Student Guide - Paperback',
     bookTitle: 'Starting University - Student Guide',
+    bookSlug: 'starting-university-student-guide',
+    teaser: 'If everyone else seems to be loving university and you are quietly not, this book was written for you.',
     formatLabel: 'Paperback',
     shortDescription:
       'If everyone else seems to be loving university and you are quietly not, this book was written for you.\n\nAn honest, warm guide to the first year as it really is, not as the prospectus describes it. It walks through the predictable phases of first term, from the early rush to the week three dip and the slow finding of your feet, and explains why each one feels the way it does. It covers homesickness, loneliness, friendships, imposter syndrome and knowing when and how to ask for help, with support for neurodivergent students woven throughout and thirteen practical worksheets. A free companion guide for parents is also available.\n\n“Heading off to university soon? Some super useful support on managing your mental health and wellbeing from a brilliant psychotherapist Victoria Froome” - KG',
@@ -150,6 +173,8 @@ export const CATALOG: CatalogItem[] = [
     id: 'university-parents-guide-2026',
     slug: 'university-parents-guide-2026',
     name: 'Supporting Your Child Through University - Free Parents Guide',
+    teaser:
+      'A practical guide for parents supporting a young person through the transition to university, including wellbeing, communication, boundaries, and recognising when extra help may be needed.',
     shortDescription:
       'A practical guide for parents supporting a young person through the transition to university, including wellbeing, communication, boundaries, and recognising when extra help may be needed.',
     kind: 'digital',
@@ -163,6 +188,8 @@ export const CATALOG: CatalogItem[] = [
     slug: 'rsd-handbook-ebook',
     name: 'RSD Handbook - eBook',
     bookTitle: 'RSD Handbook',
+    bookSlug: 'rsd-handbook',
+    teaser: 'If criticism lands like a blow and lingers for days, this book was written for you.',
     formatLabel: 'eBook',
     shortDescription:
       'If criticism lands like a blow and lingers for days, this book was written for you.\n\nThis book explains why rejection can hurt so intensely, and what actually helps. It treats RSD as a pattern that can affect anyone, not only people with ADHD, and follows it across the whole lifespan: childhood, university, work, parenthood, perimenopause and later life. It is warm, clear and grounded in clinical experience, with practical strategies, guidance for the people around you and a section for clinicians.\n\n“I feel compelled to write and thank you for what I think is going to become an incredibly useful resource in my journey.” - Reader review\n\n“Explained RSD with warmth and clarity.” - CH',
@@ -176,6 +203,8 @@ export const CATALOG: CatalogItem[] = [
     slug: 'rsd-handbook-paperback',
     name: 'RSD Handbook - Paperback',
     bookTitle: 'RSD Handbook',
+    bookSlug: 'rsd-handbook',
+    teaser: 'If criticism lands like a blow and lingers for days, this book was written for you.',
     formatLabel: 'Paperback',
     shortDescription:
       'If criticism lands like a blow and lingers for days, this book was written for you.\n\nThis book explains why rejection can hurt so intensely, and what actually helps. It treats RSD as a pattern that can affect anyone, not only people with ADHD, and follows it across the whole lifespan: childhood, university, work, parenthood, perimenopause and later life. It is warm, clear and grounded in clinical experience, with practical strategies, guidance for the people around you and a section for clinicians.\n\n“I feel compelled to write and thank you for what I think is going to become an incredibly useful resource in my journey.” - Reader review\n\n“Explained RSD with warmth and clarity.” - CH',
@@ -188,6 +217,8 @@ export const CATALOG: CatalogItem[] = [
     slug: 'rsd-workbook-ebook',
     name: 'RSD Companion Workbook - eBook',
     bookTitle: 'RSD Companion Workbook',
+    bookSlug: 'rsd-companion-workbook',
+    teaser: 'Understanding RSD is one thing. Knowing what to do when it floods you is another.',
     formatLabel: 'eBook',
     shortDescription:
       'Understanding RSD is one thing. Knowing what to do when it floods you is another.\n\nThe companion workbook turns understanding into practice. It has a personal trigger inventory, an emergency toolkit for the height of an episode, scripts for the conversations RSD makes hardest, quick reference cards for when you cannot think clearly, and a guide to talking with your GP. You can use it alongside the handbook or on its own. It is yours to write in, mark up and return to.\n\n“Well set out. Easy to use. A valuable tool.” - Amazon review',
@@ -201,6 +232,8 @@ export const CATALOG: CatalogItem[] = [
     slug: 'rsd-workbook-paperback',
     name: 'RSD Companion Workbook - Paperback',
     bookTitle: 'RSD Companion Workbook',
+    bookSlug: 'rsd-companion-workbook',
+    teaser: 'Understanding RSD is one thing. Knowing what to do when it floods you is another.',
     formatLabel: 'Paperback',
     shortDescription:
       'Understanding RSD is one thing. Knowing what to do when it floods you is another.\n\nThe companion workbook turns understanding into practice. It has a personal trigger inventory, an emergency toolkit for the height of an episode, scripts for the conversations RSD makes hardest, quick reference cards for when you cannot think clearly, and a guide to talking with your GP. You can use it alongside the handbook or on its own. It is yours to write in, mark up and return to.\n\n“Well set out. Easy to use. A valuable tool.” - Amazon review',
@@ -217,6 +250,48 @@ export type ClientCatalogItem = Omit<CatalogItem, 'privateDownloadFile' | 'priva
 
 export function catalogForClient(): ClientCatalogItem[] {
   return CATALOG.map(({ privateDownloadFile: _pdf, privateDownloadEpubFile: _epub, ...rest }) => rest)
+}
+
+export type ClientBook = {
+  bookSlug: string
+  title: string
+  teaser: string
+  description: string
+  coverImage: string
+  section?: string
+  editions: ClientCatalogItem[]
+}
+
+function toClientItem(item: CatalogItem): ClientCatalogItem {
+  const { privateDownloadFile: _pdf, privateDownloadEpubFile: _epub, ...rest } = item
+  return rest
+}
+
+/** One entry per bookSlug, in catalog order — used for `/books/[slug]` pages. */
+export function clientBooks(): ClientBook[] {
+  const books: ClientBook[] = []
+  for (const item of CATALOG) {
+    if (!item.bookSlug) continue
+    const last = books[books.length - 1]
+    if (last && last.bookSlug === item.bookSlug) {
+      last.editions.push(toClientItem(item))
+      continue
+    }
+    books.push({
+      bookSlug: item.bookSlug,
+      title: item.bookTitle ?? item.name,
+      teaser: item.teaser ?? item.shortDescription,
+      description: item.shortDescription,
+      coverImage: item.coverImage,
+      section: item.section,
+      editions: [toClientItem(item)],
+    })
+  }
+  return books
+}
+
+export function clientBookBySlug(slug: string): ClientBook | undefined {
+  return clientBooks().find((book) => book.bookSlug === slug)
 }
 
 export function freeFormatsFor(item: CatalogItem): FreeDownloadFormat[] {

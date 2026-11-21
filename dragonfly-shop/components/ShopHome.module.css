@@ -148,12 +148,12 @@
 }
 
 .coverWrap {
-  flex: 0 0 38%;
-  max-width: 160px;
+  flex: 0 0 30%;
+  max-width: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
   background: linear-gradient(90deg, rgba(185, 213, 214, 0.35) 0%, transparent 100%);
 }
 
@@ -161,7 +161,7 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: 220px;
+  max-height: 150px;
   object-fit: contain;
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
@@ -172,13 +172,13 @@
   flex-direction: column;
   flex: 1;
   min-width: 0;
-  padding: var(--spacing-md) var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-md) var(--spacing-md);
   justify-content: center;
 }
 
 .cardTitle {
-  font-size: var(--font-size-lg);
-  margin: 0 0 var(--spacing-sm);
+  font-size: var(--font-size-base);
+  margin: 0 0 var(--spacing-xs);
   line-height: var(--line-height-tight);
 }
 
@@ -187,6 +187,26 @@
   font-size: var(--font-size-base);
   font-weight: 700;
   color: var(--color-text);
+}
+
+.teaser {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-xs);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.moreAbout {
+  align-self: flex-start;
+  margin: 0 0 var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: underline;
 }
 
 .desc {
@@ -676,6 +696,6 @@
   }
 
   .coverImg {
-    max-height: 200px;
+    max-height: 140px;
   }
 }

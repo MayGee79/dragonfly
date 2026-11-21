@@ -1,0 +1,95 @@
+.wrap {
+  /* Match shop control tokens so shared BookBuyControls styles render correctly */
+  --shop-control-height: 40px;
+  --shop-surface-shadow: 0 1px 2px rgba(45, 55, 88, 0.08);
+  --shop-surface-border: 1px solid rgba(45, 55, 88, 0.28);
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-lg) var(--spacing-3xl);
+  /* Keep controls clear of the fixed cookie banner */
+  padding-bottom: 6rem;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  text-decoration: underline;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-xl);
+  background: #ffffff;
+  border: 1px solid rgba(45, 55, 88, 0.28);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 2px rgba(45, 55, 88, 0.08);
+  padding: var(--spacing-xl);
+}
+
+.coverWrap {
+  flex: 0 0 280px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.coverImg {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+}
+
+.sectionLabel {
+  margin: 0 0 var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  margin: 0 0 var(--spacing-md);
+  line-height: var(--line-height-tight);
+}
+
+.desc {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-lg);
+  white-space: pre-line;
+}
+
+.addedNote,
+.basketHint {
+  margin: var(--spacing-md) 0 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+.addedNote a,
+.basketHint a {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .coverWrap {
+    flex-basis: auto;
+    max-width: 220px;
+  }
+}
