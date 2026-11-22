@@ -54,6 +54,21 @@ const YEAR_BENEATH_BLURB =
 
 export const CATALOG: CatalogItem[] = [
   {
+    id: 'strength-beneath-compendium-ebook',
+    slug: 'strength-beneath-compendium-ebook',
+    name: 'Strength Beneath® Compendium - eBook',
+    bookTitle: 'Strength Beneath® Compendium',
+    bookSlug: 'strength-beneath-compendium',
+    teaser: 'When life gets hard, the things that hold you steady do not disappear. They just become harder to see.',
+    formatLabel: 'eBook',
+    shortDescription: STRENGTH_BENEATH_COMPENDIUM_BLURB,
+    kind: 'digital',
+    priceLabel: '£14.99',
+    section: 'Strength Beneath® Collection',
+    coverImage: '/images/covers/strength-beneath-compendium-cover.jpg',
+    privateDownloadFile: 'strength-beneath-compendium-ebook.pdf',
+  },
+  {
     id: 'strength-beneath-compendium-paperback',
     slug: 'strength-beneath-compendium-paperback',
     name: 'Strength Beneath® Compendium - Paperback',
@@ -82,6 +97,21 @@ export const CATALOG: CatalogItem[] = [
     coverImage: '/images/covers/strength-beneath-compendium-cover.jpg',
   },
   {
+    id: 'year-beneath-ebook',
+    slug: 'year-beneath-ebook',
+    name: 'The Year Beneath - eBook',
+    bookTitle: 'The Year Beneath',
+    bookSlug: 'year-beneath',
+    teaser: 'Most journals ask what happened today. This one asks what held you steady through it.',
+    formatLabel: 'eBook',
+    shortDescription: YEAR_BENEATH_BLURB,
+    kind: 'digital',
+    priceLabel: '£7.99',
+    section: 'Strength Beneath® Collection',
+    coverImage: '/images/covers/year-beneath-cover.jpg',
+    privateDownloadFile: 'year-beneath-ebook.pdf',
+  },
+  {
     id: 'year-beneath-paperback',
     slug: 'year-beneath-paperback',
     name: 'The Year Beneath - Paperback',
@@ -108,6 +138,21 @@ export const CATALOG: CatalogItem[] = [
     priceLabel: '£24.99',
     section: 'Strength Beneath® Collection',
     coverImage: '/images/covers/year-beneath-cover.jpg',
+  },
+  {
+    id: 'strength-beneath-30-day-ebook',
+    slug: 'strength-beneath-30-day-ebook',
+    name: 'The Strength Beneath® 30 Day Challenge - eBook',
+    bookTitle: 'The Strength Beneath® 30 Day Challenge',
+    bookSlug: 'strength-beneath-30-day-challenge',
+    teaser: 'Thirty days. Six foundations. A few minutes at a time.',
+    formatLabel: 'eBook',
+    shortDescription: STRENGTH_BENEATH_30_DAY_BLURB,
+    kind: 'digital',
+    priceLabel: '£5.99',
+    section: 'Strength Beneath® Collection',
+    coverImage: '/images/covers/strength-beneath-30-day-challenge-cover.jpg',
+    privateDownloadFile: 'strength-beneath-30-day-ebook.pdf',
   },
   {
     id: 'strength-beneath-30-day-paperback',
@@ -411,14 +456,20 @@ export function stripePriceIdForCatalogId(id: string): string {
       return requireEnv('STRIPE_PRICE_RSD_WORKBOOK_EBOOK')
     case 'rsd-workbook-paperback':
       return requireEnv('STRIPE_PRICE_RSD_WORKBOOK_PAPERBACK')
+    case 'strength-beneath-compendium-ebook':
+      return requireEnv('STRIPE_PRICE_STRENGTH_BENEATH_COMPENDIUM_EBOOK')
     case 'strength-beneath-compendium-paperback':
       return requireEnv('STRIPE_PRICE_STRENGTH_BENEATH_COMPENDIUM_PAPERBACK')
     case 'strength-beneath-compendium-hardback':
       return requireEnv('STRIPE_PRICE_STRENGTH_BENEATH_COMPENDIUM_HARDBACK')
+    case 'year-beneath-ebook':
+      return requireEnv('STRIPE_PRICE_YEAR_BENEATH_EBOOK')
     case 'year-beneath-paperback':
       return requireEnv('STRIPE_PRICE_YEAR_BENEATH_PAPERBACK')
     case 'year-beneath-hardback':
       return requireEnv('STRIPE_PRICE_YEAR_BENEATH_HARDBACK')
+    case 'strength-beneath-30-day-ebook':
+      return requireEnv('STRIPE_PRICE_STRENGTH_BENEATH_30_DAY_EBOOK')
     case 'strength-beneath-30-day-paperback':
       return requireEnv('STRIPE_PRICE_STRENGTH_BENEATH_30_DAY_PAPERBACK')
     case 'strength-beneath-30-day-hardback':
@@ -440,6 +491,10 @@ export function catalogItemByStripePriceId(priceId: string): CatalogItem | undef
     ['rsd-workbook-ebook', process.env.STRIPE_PRICE_RSD_WORKBOOK_EBOOK || ''],
     ['rsd-workbook-paperback', process.env.STRIPE_PRICE_RSD_WORKBOOK_PAPERBACK || ''],
     [
+      'strength-beneath-compendium-ebook',
+      process.env.STRIPE_PRICE_STRENGTH_BENEATH_COMPENDIUM_EBOOK || '',
+    ],
+    [
       'strength-beneath-compendium-paperback',
       process.env.STRIPE_PRICE_STRENGTH_BENEATH_COMPENDIUM_PAPERBACK || '',
     ],
@@ -447,8 +502,13 @@ export function catalogItemByStripePriceId(priceId: string): CatalogItem | undef
       'strength-beneath-compendium-hardback',
       process.env.STRIPE_PRICE_STRENGTH_BENEATH_COMPENDIUM_HARDBACK || '',
     ],
+    ['year-beneath-ebook', process.env.STRIPE_PRICE_YEAR_BENEATH_EBOOK || ''],
     ['year-beneath-paperback', process.env.STRIPE_PRICE_YEAR_BENEATH_PAPERBACK || ''],
     ['year-beneath-hardback', process.env.STRIPE_PRICE_YEAR_BENEATH_HARDBACK || ''],
+    [
+      'strength-beneath-30-day-ebook',
+      process.env.STRIPE_PRICE_STRENGTH_BENEATH_30_DAY_EBOOK || '',
+    ],
     [
       'strength-beneath-30-day-paperback',
       process.env.STRIPE_PRICE_STRENGTH_BENEATH_30_DAY_PAPERBACK || '',

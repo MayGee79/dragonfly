@@ -19,6 +19,15 @@ export function vercelBlobCanonicalUrlForDigital(
       pdf: process.env.BLOB_DOWNLOAD_URL_UNIVERSITY_STUDENT_GUIDE,
       epub: process.env.BLOB_DOWNLOAD_URL_UNIVERSITY_STUDENT_GUIDE_EPUB,
     },
+    'strength-beneath-compendium-ebook': {
+      pdf: process.env.BLOB_DOWNLOAD_URL_STRENGTH_BENEATH_COMPENDIUM_EBOOK,
+    },
+    'year-beneath-ebook': {
+      pdf: process.env.BLOB_DOWNLOAD_URL_YEAR_BENEATH_EBOOK,
+    },
+    'strength-beneath-30-day-ebook': {
+      pdf: process.env.BLOB_DOWNLOAD_URL_STRENGTH_BENEATH_30_DAY_EBOOK,
+    },
   }
 
   const raw = map[catalogId]?.[format]
