@@ -4,6 +4,8 @@ Backfilled from `git log` on 2026-05-07.
 Format: YYYY-MM-DD — subject (author) [short-sha]
 
 ## 2026-11
+- 2026-11-24 — Shop: fix catalog.ts syntax (remove duplicated rsd-handbook-ebook opener that broke Vercel prod build) (May Gee)
+- 2026-11-24 — Shop: improve basket (totals, qty controls, clearer empty/pay state) (May Gee)
 - 2026-11-24 — Shop: add RSD and University collection headings with lilac highlight (May Gee)
 - 2026-11-24 — Shop: add Strength Beneath® Colouring Book as coming soon (May Gee)
 - 2026-11-24 — Shop: show RSD books before the university guides (May Gee)

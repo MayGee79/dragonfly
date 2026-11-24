@@ -3,13 +3,24 @@
 import Image from 'next/image'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
-import type { ClientCatalogItem } from '@/lib/catalog'
+import { priceAmountFromLabel, type ClientCatalogItem } from '@/lib/catalog'
 import { readBasket, writeBasket, type Basket } from '@/lib/basket'
 import BookBuyControls from '@/components/BookBuyControls'
 import styles from './ShopHome.module.css'
 
+const UK_SHIPPING_GBP = 4.25
+
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
+}
+
+function formatGbp(amount: number) {
+  return `£${amount.toFixed(2)}`
+}
+
+function unitPriceGbp(item: Pick<ClientCatalogItem, 'priceLabel'>): number {
+  const raw = priceAmountFromLabel(item.priceLabel)
+  return raw ? Number(raw) : 0
 }
 
 function productGroups(catalog: ClientCatalogItem[]) {
@@ -102,6 +113,27 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
     })
   }
 
+  const removeOneFromBasket = (id: string) => {
+    setBasket((prev) => {
+      const cur = prev[id] ?? 0
+      if (cur <= 1) {
+        const next = { ...prev }
+        delete next[id]
+        return next
+      }
+      return { ...prev, [id]: cur - 1 }
+    })
+  }
+
+  const removeLineFromBasket = (id: string) => {
+    setBasket((prev) => {
+      if (!(id in prev)) return prev
+      const next = { ...prev }
+      delete next[id]
+      return next
+    })
+  }
+
   const setQty = (id: string, raw: string) => {
     const n = Math.max(0, Math.min(99, parseInt(raw, 10) || 0))
     setBasket((prev) => {
@@ -127,6 +159,13 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
 
   const hasPhysical = lineItems.some((l) => l.kind === 'physical')
   const basketEmpty = lineItems.length === 0
+  const itemCount = useMemo(() => lineItems.reduce((sum, l) => sum + l.qty, 0), [lineItems])
+  const subtotalGbp = useMemo(
+    () => lineItems.reduce((sum, l) => sum + unitPriceGbp(l) * l.qty, 0),
+    [lineItems],
+  )
+  const shippingGbp = hasPhysical ? UK_SHIPPING_GBP : 0
+  const totalGbp = subtotalGbp + shippingGbp
 
   async function goToCheckout() {
     setError(null)
@@ -206,28 +245,82 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
 
         <div className={styles.mainLayout}>
           <aside ref={basketRef} id="basket" className={styles.basket} aria-label="Basket and checkout">
-            <h2 className={styles.basketHeading}>Basket</h2>
-            {lineItems.length === 0 ? (
-              <p className={styles.basketEmpty}>
-                Choose a format, click the basket icon or set a quantity, then complete checkout here.
+            <h2 className={styles.basketHeading}>
+              Basket{itemCount > 0 ? ` (${itemCount})` : ''}
+            </h2>
+            {basketEmpty ? (
+              <p className={styles.basketEmpty} id="shop-basket-hint" role="status">
+                Choose a format, add items with the basket icon or quantity field, then complete checkout here.
               </p>
             ) : (
-              <ul className={styles.basketList}>
-                {lineItems.map((l) => (
-                  <li key={l.id}>
-                    {l.name} × {l.qty}
-                  </li>
-                ))}
-              </ul>
-            )}
-            {hasPhysical && <p className={styles.basketNote}>UK shipping: £4.25 (added at checkout).</p>}
-            {!hasPhysical && lineItems.some((l) => l.kind === 'digital') && (
-              <p className={styles.basketNote}>Digital-only basket: no shipping.</p>
+              <>
+                <ul className={styles.basketList}>
+                  {lineItems.map((l) => {
+                    const lineTotal = unitPriceGbp(l) * l.qty
+                    return (
+                      <li key={l.id} className={styles.basketLine}>
+                        <div className={styles.basketLineMain}>
+                          <span className={styles.basketLineName}>{l.name}</span>
+                          <span className={styles.basketLinePrice}>{formatGbp(lineTotal)}</span>
+                        </div>
+                        <div className={styles.basketLineControls}>
+                          <button
+                            type="button"
+                            className={styles.basketQtyBtn}
+                            aria-label={`Remove one ${l.name}`}
+                            onClick={() => removeOneFromBasket(l.id)}
+                          >
+                            −
+                          </button>
+                          <span className={styles.basketQtyValue} aria-live="polite">
+                            {l.qty}
+                          </span>
+                          <button
+                            type="button"
+                            className={styles.basketQtyBtn}
+                            aria-label={`Add one ${l.name}`}
+                            disabled={l.qty >= 99}
+                            onClick={() => addOneToBasket(l.id)}
+                          >
+                            +
+                          </button>
+                          <button
+                            type="button"
+                            className={styles.basketRemove}
+                            aria-label={`Remove ${l.name} from basket`}
+                            onClick={() => removeLineFromBasket(l.id)}
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      </li>
+                    )
+                  })}
+                </ul>
+                <div className={styles.basketTotals}>
+                  <div className={styles.basketTotalsRow}>
+                    <span>Subtotal</span>
+                    <span>{formatGbp(subtotalGbp)}</span>
+                  </div>
+                  {hasPhysical ? (
+                    <div className={styles.basketTotalsRow}>
+                      <span>UK shipping</span>
+                      <span>{formatGbp(shippingGbp)}</span>
+                    </div>
+                  ) : (
+                    <p className={styles.basketNote}>Digital-only basket: no shipping.</p>
+                  )}
+                  <div className={`${styles.basketTotalsRow} ${styles.basketTotalsTotal}`}>
+                    <span>Total</span>
+                    <span>{formatGbp(totalGbp)}</span>
+                  </div>
+                </div>
+              </>
             )}
 
             <div className={styles.checkoutBlock}>
               <div className={styles.emailRow}>
-                <label htmlFor="shop-email">Email for order confirmation (Stripe)</label>
+                <label htmlFor="shop-email">Email for order confirmation</label>
                 <input
                   id="shop-email"
                   type="email"
@@ -263,17 +356,10 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
 
               {error && <p className={styles.error}>{error}</p>}
 
-              {basketEmpty && (
-                <p id="shop-basket-hint" className={styles.basketHint} role="status">
-                  Add at least one item to your basket using the basket icon or quantity field on a
-                  product, then click Pay with Stripe.
-                </p>
-              )}
-
               <button
                 type="button"
-                className={`${styles.btn}${basketEmpty ? ` ${styles.btnNeedsItems}` : ''}`}
-                disabled={loading}
+                className={styles.btn}
+                disabled={loading || basketEmpty}
                 aria-describedby={basketEmpty ? 'shop-basket-hint' : undefined}
                 onClick={() => void goToCheckout()}
               >

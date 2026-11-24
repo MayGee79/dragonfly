@@ -197,10 +197,6 @@ export const CATALOG: CatalogItem[] = [
     id: 'rsd-handbook-ebook',
     slug: 'rsd-handbook-ebook',
     name: 'RSD Handbook - eBook',
-  {
-    id: 'rsd-handbook-ebook',
-    slug: 'rsd-handbook-ebook',
-    name: 'RSD Handbook - eBook',
     bookTitle: 'RSD Handbook',
     bookSlug: 'rsd-handbook',
     teaser: 'If criticism lands like a blow and lingers for days, this book was written for you.',
