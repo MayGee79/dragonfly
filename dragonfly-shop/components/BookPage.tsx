@@ -13,6 +13,9 @@ function coverAlt(title: string): string {
   if (title.includes('Workbook')) return 'Cover: Rejection Sensitive Dysphoria companion workbook'
   if (title.includes('Compendium')) return 'Cover: Strength Beneath® Compendium'
   if (title.includes('30 Day')) return 'Cover: Strength Beneath® 30 Day Challenge'
+  if (title.includes('Colouring') || title.includes('Coloring')) {
+    return 'Cover: Strength Beneath® Colouring Book'
+  }
   if (title.includes('Year Beneath')) return 'Cover: The Year Beneath'
   return `Cover: ${title}`
 }

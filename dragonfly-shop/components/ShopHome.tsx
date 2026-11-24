@@ -47,7 +47,7 @@ function bookCards(items: ClientCatalogItem[]): BookCard[] {
       title: item.bookTitle ?? item.name,
       bookTitle: item.bookTitle,
       bookSlug: item.bookSlug,
-      teaser: item.teaser ?? item.shortDescription,
+      teaser: item.teaser ?? (item.comingSoon ? '' : item.shortDescription),
       editions: [item],
     })
   }
@@ -59,6 +59,9 @@ function coverAlt(name: string): string {
   if (name.includes('Workbook')) return 'Cover: Rejection Sensitive Dysphoria companion workbook'
   if (name.includes('Compendium')) return 'Cover: Strength Beneath® Compendium'
   if (name.includes('30 Day')) return 'Cover: Strength Beneath® 30 Day Challenge'
+  if (name.includes('Colouring') || name.includes('Coloring')) {
+    return 'Cover: Strength Beneath® Colouring Book'
+  }
   if (name.includes('Year Beneath')) return 'Cover: The Year Beneath'
   return name
 }
@@ -307,7 +310,7 @@ export default function ShopHome({ catalog }: { catalog: ClientCatalogItem[] }) 
                           </div>
                           <div className={styles.cardBody}>
                             <h2 className={styles.cardTitle}>{card.title}</h2>
-                            <p className={styles.teaser}>{card.teaser}</p>
+                            {card.teaser ? <p className={styles.teaser}>{card.teaser}</p> : null}
                             {detailHref ? (
                               <Link href={detailHref} className={styles.moreAbout}>
                                 More about this book
